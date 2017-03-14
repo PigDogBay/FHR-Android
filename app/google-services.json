@@ -1,0 +1,259 @@
+{
+  "project_info": {
+    "project_number": "292005016329",
+    "firebase_url": "https://admob-app-id-6146792389.firebaseio.com",
+    "project_id": "admob-app-id-6146792389",
+    "storage_bucket": "admob-app-id-6146792389.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:a9e3ae64e6eaa9b7",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.weightrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:a4df0f7581b66bac",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.anagramsolver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:eccfbdd2c950fa0a",
+        "android_client_info": {
+          "package_name": "com.mpdbailey.cleverdicandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:bc95274226cee4a3",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.anagramsolverpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:ed1c5e7d3a638047",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.cleverdicpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:25520a353a281af4",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.weighttrackerpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:011b616a6d48edba",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.codewordsolver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292005016329:android:1e0ba45e77d31556",
+        "android_client_info": {
+          "package_name": "com.pigdogbay.foodhygieneratings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292005016329-j5g1p6s7s1eolsqhkbhb339ee1f127d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgMRlfA2xLnIM5N4m-Q0dAbcSHPiZAUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

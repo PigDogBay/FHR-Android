@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import layout.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabFilter;
     private String previousFragmentTag = "";
     private String currentFragmentTag = "";
+    private AdView _AdView;
 
     private HomeFragment homeFragment;
     private HomeFragment getHomeFragment(){
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        setUpAds();
+
         Fragment fragment =getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
 
         //New instance or a rotation?
@@ -53,6 +60,40 @@ public class MainActivity extends AppCompatActivity {
             showHome();
         }
     }
+
+    @Override
+    protected void onRestart() {
+        if (_AdView != null) {
+            _AdView.resume();
+        }
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        if (_AdView != null) {
+            _AdView.pause();
+        }
+        super.onPause();
+    }
+
+    void setUpAds() {
+        // Look up the AdView as a resource and load a request.
+        _AdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(getString(R.string.code_test_device_1_id))
+                .addTestDevice(getString(R.string.code_test_device_2_id))
+                .addTestDevice(getString(R.string.code_test_device_3_id))
+                .addTestDevice(getString(R.string.code_test_device_4_id))
+                .addTestDevice(getString(R.string.code_test_device_5_id))
+                .addTestDevice(getString(R.string.code_test_device_6_id))
+                .addTestDevice(getString(R.string.code_test_device_7_id))
+                .addTestDevice(getString(R.string.code_test_device_8_id))
+                .build();
+        _AdView.loadAd(adRequest);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
