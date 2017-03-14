@@ -3,13 +3,30 @@ package com.pigdogbay.foodhygieneratings;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import layout.HomeFragment;
+
 public class MainActivity extends AppCompatActivity {
+
+    private FloatingActionButton fabFilter;
+    private String previousFragmentTag = "";
+    private String currentFragmentTag = "";
+
+    private HomeFragment homeFragment;
+    private HomeFragment getHomeFragment(){
+        if (homeFragment==null){
+            homeFragment = new HomeFragment();
+        }
+        return homeFragment;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +35,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabFilter = (FloatingActionButton) findViewById(R.id.fab);
+        fabFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+        Fragment fragment =getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
+
+        //New instance or a rotation?
+        currentFragmentTag = HomeFragment.TAG;
+        if (fragment==null)
+        {
+            //show help when first start
+            showHome();
+        }
     }
 
     @Override
@@ -49,4 +75,34 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void replaceMainFragment(Fragment fragment, String tag)
+    {
+        fabFilter.setVisibility(View.GONE);
+        FragmentManager manager = getSupportFragmentManager();
+        Fragment f= manager.findFragmentById(R.id.main_fragment_container);
+        if (f!=null){
+            previousFragmentTag = f.getTag();
+        }
+        currentFragmentTag = tag;
+        manager
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, fragment, tag)
+                .commit();
+    }
+    private void setNavigateHome(boolean enabled)
+    {
+        final ActionBar ab = getSupportActionBar();
+        if (ab!=null){ab.setDisplayHomeAsUpEnabled(enabled);}
+    }
+
+    private void showHome(){
+        if (getSupportFragmentManager().findFragmentByTag(HomeFragment.TAG)==null)
+        {
+            this.setNavigateHome(false);
+            replaceMainFragment(getHomeFragment(), HomeFragment.TAG);
+        }
+
+    }
+
 }
