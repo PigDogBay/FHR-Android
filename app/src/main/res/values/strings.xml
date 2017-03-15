@@ -1,14 +1,6 @@
 <resources>
     <string name="app_name">FoodHygieneRatings</string>
     <string name="action_settings">Settings</string>
-    <string translatable="false" name="code_test_device_1_id">7FDFE2A7093B4FE11D7C0794B8BDEAC2</string>
-    <string translatable="false" name="code_test_device_2_id">6E65810B3B431A1B553C14663938DA93</string>
-    <string translatable="false" name="code_test_device_3_id">87D716F858A130948AA505E5974BB51F</string>
-    <string translatable="false" name="code_test_device_4_id">4908468D1437072B754A009075BAC4BB</string>
-    <string translatable="false" name="code_test_device_5_id">8C59A54D2DCE04C1F1D14ABFB28CC2AB</string>
-    <string translatable="false" name="code_test_device_6_id">08D348D0ACE6EB1318A54FBCC6DC0571</string>
-    <string translatable="false" name="code_test_device_7_id">FA72BF4DDA6E65FDF9D275DD853ACE85</string>
-    <string translatable="false" name="code_test_device_8_id">3FC3F7CC74011A2280C51FC1A7864804</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
