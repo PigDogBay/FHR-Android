@@ -3,6 +3,7 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,36 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_home, container, false);
+        wireUpControls(rootView);
+        return rootView;
     }
 
+
+    private void wireUpControls(View view){
+        view.findViewById(R.id.home_search_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search();
+            }
+        });
+
+        view.findViewById(R.id.home_advanced_search_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                advancedSearch();
+            }
+        });
+    }
+
+    private void advancedSearch() {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.showAdvancedSearch();
+    }
+
+    private void search() {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.showResults();
+
+    }
 }

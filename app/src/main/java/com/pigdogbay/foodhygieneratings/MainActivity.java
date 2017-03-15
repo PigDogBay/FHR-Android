@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,16 +16,15 @@ import android.view.MenuItem;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
     private FloatingActionButton fabFilter;
-    private String previousFragmentTag = "";
-    private String currentFragmentTag = "";
     private AdView _AdView;
 
     private HomeFragment homeFragment;
-    private HomeFragment getHomeFragment(){
-        if (homeFragment==null){
+
+    private HomeFragment getHomeFragment() {
+        if (homeFragment == null) {
             homeFragment = new HomeFragment();
         }
         return homeFragment;
@@ -48,14 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         setUpAds();
 
-        Fragment fragment =getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
-
-        //New instance or a rotation?
-        currentFragmentTag = HomeFragment.TAG;
-        if (fragment==null)
-        {
-            //show help when first start
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
+        int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
+        if (backStackCount==0){
             showHome();
+        } else if (backStackCount>1) {
+            setNavigateHome(true);
+            setUpTitle();
         }
     }
 
@@ -102,46 +101,97 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
-    private void replaceMainFragment(Fragment fragment, String tag)
-    {
-        fabFilter.setVisibility(View.GONE);
+    private void pushFragment(Fragment fragment, String tag) {
         FragmentManager manager = getSupportFragmentManager();
-        Fragment f= manager.findFragmentById(R.id.main_fragment_container);
-        if (f!=null){
-            previousFragmentTag = f.getTag();
-        }
-        currentFragmentTag = tag;
         manager
                 .beginTransaction()
-                .replace(R.id.main_fragment_container, fragment, tag)
+                .add(R.id.main_fragment_container, fragment, tag)
+                .addToBackStack(tag)
                 .commit();
     }
-    private void setNavigateHome(boolean enabled)
-    {
-        final ActionBar ab = getSupportActionBar();
-        if (ab!=null){ab.setDisplayHomeAsUpEnabled(enabled);}
+
+    @Override
+    public void onBackStackChanged() {
+        FragmentManager manager = getSupportFragmentManager();
+        switch (manager.getBackStackEntryCount()) {
+            case 0:
+                finish();
+                break;
+            case 1:
+                //Home screen
+                this.setNavigateHome(false);
+                setTitle("Food Hygiene");
+                break;
+            default:
+                this.setNavigateHome(true);
+                setUpTitle();
+                break;
+        }
     }
 
-    private void showHome(){
-        if (getSupportFragmentManager().findFragmentByTag(HomeFragment.TAG)==null)
-        {
-            this.setNavigateHome(false);
-            replaceMainFragment(getHomeFragment(), HomeFragment.TAG);
-        }
 
+
+
+    private void setNavigateHome(boolean enabled) {
+        final ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(enabled);
+        }
+    }
+
+    public void showHome() {
+        pushFragment(getHomeFragment(), HomeFragment.TAG);
+    }
+
+    public void showResults() {
+        pushFragment(new ResultsFragment(), ResultsFragment.TAG);
+    }
+
+    public void showAdvancedSearch() {
+        pushFragment(new AdvancedSearchFragment(), AdvancedSearchFragment.TAG);
+    }
+
+    public void showDetails() {
+        pushFragment(new DetailsFragment(), DetailsFragment.TAG);
+    }
+
+    public void showMap() {
+        pushFragment(new MapFragment(), MapFragment.TAG);
+    }
+
+    private void setUpTitle(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int count = fragmentManager.getBackStackEntryCount();
+        if (count == 0) { return;}
+        String tag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
+
+        Log.v("mpdb", "Tag = "+tag);
+        switch (tag){
+            case ResultsFragment.TAG:
+                setTitle("Results");
+                break;
+            case AdvancedSearchFragment.TAG:
+                setTitle("Advanced");
+                break;
+            case DetailsFragment.TAG:
+                setTitle("Details");
+                break;
+            case MapFragment.TAG:
+                setTitle("Map");
+                break;
+            default:
+                setTitle("Food Hygiene");
+                break;
+        }
     }
 
 }
