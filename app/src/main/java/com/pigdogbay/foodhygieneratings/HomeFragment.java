@@ -1,4 +1,4 @@
-package layout;
+package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;

@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import layout.HomeFragment;
-
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fabFilter;
