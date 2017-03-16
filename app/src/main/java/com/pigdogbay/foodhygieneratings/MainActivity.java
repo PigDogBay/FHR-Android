@@ -92,14 +92,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         _AdView.loadAd(adRequest);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -112,10 +104,11 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     private void pushFragment(Fragment fragment, String tag) {
+
         FragmentManager manager = getSupportFragmentManager();
         manager
                 .beginTransaction()
-                .add(R.id.main_fragment_container, fragment, tag)
+                .replace(R.id.main_fragment_container, fragment, tag)
                 .addToBackStack(tag)
                 .commit();
     }
@@ -190,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 setTitle("Map");
                 break;
             default:
-                setTitle("Food Hygiene");
+                setTitle("Food Hygiene Ratings");
                 break;
         }
     }

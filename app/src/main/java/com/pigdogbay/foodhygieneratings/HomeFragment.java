@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -29,9 +32,27 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_home, container, false);
         wireUpControls(rootView);
+        setHasOptionsMenu(true);
         return rootView;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_home, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.menu_search:
+                search();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     private void wireUpControls(View view){
         view.findViewById(R.id.home_search_btn).setOnClickListener(new View.OnClickListener() {
@@ -47,6 +68,16 @@ public class HomeFragment extends Fragment {
                 advancedSearch();
             }
         });
+        view.findViewById(R.id.home_places_near_me_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                placesNearMe();
+            }
+        });
+    }
+
+    private void placesNearMe(){
+        search();
     }
 
     private void advancedSearch() {
