@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                         .setAction("Action", null).show();
             }
         });
+        fabFilter.setVisibility(View.GONE);
 
         setUpAds();
 

@@ -8,4 +8,55 @@
     <string name="home_enter_place_hint">Street, town or postcode</string>
     <string name="home_name">Name</string>
     <string name="home_place">Place</string>
+
+    <string-array name="hygiene_rating">
+        <item>All</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="local_authority_area">
+        <item>All</item>
+        <item>Durham</item>
+        <item>Stoke-On-Trent</item>
+    </string-array>
+
+    <string-array name="rating_comparison">
+        <item>Equal</item>
+        <item>GreaterThanOrEqual</item>
+        <item>LessThanOrEqual</item>
+    </string-array>
+
+    <string-array name="rating_status">
+        <item>All</item>
+        <item>Pass</item>
+        <item>Improvement Required</item>
+        <item>Awaiting Publication</item>
+        <item>Awaiting Inspection</item>
+        <item>Exempt</item>
+    </string-array>
+
+    <string-array name="business_types">
+        <item>All</item>
+        <item>Takeaway/sandwich shop</item>
+        <item>Restaurant/Cafe/Canteen</item>
+        <item>Pub/bar/nightclub</item>
+        <item>Mobile caterer</item>
+        <item>Other catering premises</item>
+        <item>Hotel/bed &amp; breakfast/guest house</item>
+        <item>Retailers - supermarkets/hypermarkets</item>
+        <item>Retailers - other</item>
+        <item>Hospitals/Childcare/Caring Premises</item>
+        <item>School/college/university</item>
+        <item>Importers/Exporters</item>
+        <item>Farmers/growers</item>
+        <item>Distributors/Transporters</item>
+        <item>Manufacturers/packers</item>
+    </string-array>
+
+
 </resources>
