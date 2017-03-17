@@ -73,7 +73,7 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHold
             this.establishment = establishment;
             this.text.setText(establishment.getName());
             this.subtitle.setText(establishment.getAddress());
-            Drawable drawable = ContextCompat.getDrawable(view.getContext(),R.drawable.ic_icon5);
+            Drawable drawable = ContextCompat.getDrawable(view.getContext(),R.drawable.ic_icon0);
             this.imageView.setImageDrawable(drawable);
         }
     }
