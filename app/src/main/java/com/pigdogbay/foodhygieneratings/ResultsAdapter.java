@@ -71,9 +71,9 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHold
 
         public void bindItem(Establishment establishment){
             this.establishment = establishment;
-            this.text.setText(establishment.getName());
-            this.subtitle.setText(establishment.getAddress());
-            Drawable drawable = ContextCompat.getDrawable(view.getContext(),R.drawable.ic_icon0);
+            this.text.setText(establishment.getBusiness().getName());
+            this.subtitle.setText(establishment.getAddress().flatten());
+            Drawable drawable = ContextCompat.getDrawable(view.getContext(),establishment.getRating().getIconId());
             this.imageView.setImageDrawable(drawable);
         }
     }

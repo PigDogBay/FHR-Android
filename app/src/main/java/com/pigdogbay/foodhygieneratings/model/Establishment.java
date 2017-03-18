@@ -6,30 +6,43 @@ package com.pigdogbay.foodhygieneratings.model;
 
 public class Establishment {
 
-    private String name;
-    private String address;
+    private final Business business;
+    private final Rating rating;
+    private final Address address;
+    private final LocalAuthority localAuthority;
+    private final double distance;
+    private final Coordinate coordinate;
 
-    public String getName(){
-        return name;
+    public Establishment(Business business, Rating rating, Address address, LocalAuthority localAuthority, double distance, Coordinate coordinate) {
+        this.business = business;
+        this.rating = rating;
+        this.address = address;
+        this.localAuthority = localAuthority;
+        this.distance = distance;
+        this.coordinate = coordinate;
     }
 
-    public String getAddress() {
+    public Business getBusiness() {
+        return business;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public Address getAddress() {
         return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public LocalAuthority getLocalAuthority() {
+        return localAuthority;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public double getDistance() {
+        return distance;
     }
 
-
-    public Establishment(String name, String address){
-        this.name = name;
-        this.address = address;
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
-
-
 }

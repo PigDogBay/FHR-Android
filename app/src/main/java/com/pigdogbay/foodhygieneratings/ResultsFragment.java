@@ -33,14 +33,6 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     }
 
 
-    List<Establishment> createData() {
-        ArrayList<Establishment> establishments = new ArrayList<>();
-        establishments.add(new Establishment("Riverside Fish Bar", "4 Riverside Road, Trent Vale, Stoke on Trent"));
-        establishments.add(new Establishment("Sangams", "14 Glebe Street, Stoke on Trent"));
-        return establishments;
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,7 +43,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        resultsAdapter = new ResultsAdapter(createData(),this);
+//        resultsAdapter = new ResultsAdapter(createData(),this);
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
         recyclerView.setAdapter(resultsAdapter);
     }
