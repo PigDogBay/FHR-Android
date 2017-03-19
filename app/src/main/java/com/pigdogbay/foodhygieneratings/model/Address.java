@@ -13,6 +13,26 @@ public class Address {
 
     private final List<String> address;
 
+    public String getLine1() {
+        return line1;
+    }
+
+    public String getLine2() {
+        return line2;
+    }
+
+    public String getLine3() {
+        return line3;
+    }
+
+    public String getLine4() {
+        return line4;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
     public Address(String line1, String line2, String line3, String line4, String postcode) {
         this.line1 = line1;
         this.line2 = line2;
@@ -38,4 +58,5 @@ public class Address {
         return builder.toString();
 
     }
+
 }
