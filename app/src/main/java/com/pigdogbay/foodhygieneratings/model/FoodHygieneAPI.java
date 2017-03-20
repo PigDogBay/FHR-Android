@@ -13,10 +13,36 @@ import java.util.List;
 
 /**
  * Created by Mark on 19/03/2017.
+ *
  */
 public class FoodHygieneAPI {
 
     private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+    public static List<LocalAuthority> parseAuthorities(JSONObject jsonObject) throws JSONException{
+        ArrayList<LocalAuthority> authorities = new ArrayList<>();
+        JSONArray authoritiesJsonArray = jsonObject.getJSONArray("authorities");
+        for (int i=0; i<authoritiesJsonArray.length();i++){
+            JSONObject authorityObject = authoritiesJsonArray.getJSONObject(i);
+            authorities.add(parseLocalAuthorityFromList(authorityObject));
+        }
+        return authorities;
+    }
+
+    private static LocalAuthority parseLocalAuthorityFromList(JSONObject authorityObject) throws JSONException {
+        String name = authorityObject.getString("Name");
+        int count = authorityObject.getInt("EstablishmentCount");
+        int schemeType = authorityObject.getInt("SchemeType");
+        int id = authorityObject.getInt(("LocalAuthorityId"));
+        String code = authorityObject.getString("LocalAuthorityIdCode");
+        LocalAuthority la = new LocalAuthority(name,code);
+        la.setEstablishmentCount(count);
+        la.setSchemeType(schemeType);
+        la.setId(id);
+        return la;
+    }
+
+
     public static List<Establishment> parseEstablishments(JSONObject jsonObject) throws JSONException, ParseException {
         ArrayList<Establishment> results = new ArrayList<>();
         JSONArray estamblishmentsJsonArray = jsonObject.getJSONArray("establishments");
@@ -34,8 +60,7 @@ public class FoodHygieneAPI {
         Address address = parseAddress(establishmentObject);
         Coordinate coordinate = parseCoordinate(establishmentObject);
         double distance = parseDistance(establishmentObject);
-        Establishment establishment = new Establishment(business,rating,address,localAuthority,distance,coordinate);
-        return establishment;
+        return new Establishment(business,rating,address,localAuthority,distance,coordinate);
     }
 
     private static Business parseBusiness(JSONObject estObject) throws JSONException{
@@ -56,9 +81,8 @@ public class FoodHygieneAPI {
         return new Rating(scores,date,isPending,ratingsKey,ratingValue,name);
     }
     private static Scores parseScores(JSONObject estObject) {
-        JSONObject scores = null;
         try {
-            scores = estObject.getJSONObject("scores");
+            JSONObject scores = estObject.getJSONObject("scores");
             int hygiene = scores.getInt("Hygiene");
             int structural = scores.getInt("Structural");
             int management = scores.getInt("ConfidenceInManagement");
@@ -97,8 +121,8 @@ public class FoodHygieneAPI {
         try {
             return estObject.getDouble("Distance");
         } catch (JSONException e) {
+            return 0.0;
         }
-        return 0.0;
     }
 
     private static RatingValue parseRatingValue(String name){

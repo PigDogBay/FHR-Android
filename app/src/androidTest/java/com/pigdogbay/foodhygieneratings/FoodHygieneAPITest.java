@@ -2,10 +2,10 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
+import com.pigdogbay.foodhygieneratings.model.LocalAuthority;
 import com.pigdogbay.foodhygieneratings.model.RatingValue;
 import com.pigdogbay.foodhygieneratings.model.Scores;
 import com.pigdogbay.lib.utils.ActivityUtils;
@@ -14,29 +14,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by Mark on 19/03/2017.
+ *
  */
-
 public class FoodHygieneAPITest {
 
-    JSONObject jsonTestData;
+    private JSONObject jsonTestData;
+    private JSONObject jsonAuthoritiesData;
     @Before
     public void setup() throws IOException, JSONException {
         Context context = InstrumentationRegistry.getTargetContext();
         String data = ActivityUtils.readResource(context,R.raw.stoke);
         jsonTestData = new JSONObject(data);
+
+        String localAuthoriesData = ActivityUtils.readResource(context, R.raw.authorities);
+        jsonAuthoritiesData = new JSONObject(localAuthoriesData);
     }
 
     @Test
@@ -92,4 +94,29 @@ public class FoodHygieneAPITest {
         assertThat(scores.getStructural(),is(10));
         assertThat(scores.getManagement(),is(15));
     }
+
+
+    @Test
+    public void parseLocalAuthorities1() throws Exception {
+        List<LocalAuthority> authorities = FoodHygieneAPI.parseAuthorities(jsonAuthoritiesData);
+        assertThat(authorities.size(), is(392));
+    }
+    /*
+        "LocalAuthorityId":334,
+        "LocalAuthorityIdCode":"551",
+        "Name":"Anglesey",
+        "EstablishmentCount":641,
+        "SchemeType":1,
+     */
+    @Test
+    public void parseLocalAuthorities2() throws Exception {
+        List<LocalAuthority> authorities = FoodHygieneAPI.parseAuthorities(jsonAuthoritiesData);
+        LocalAuthority la = authorities.get(5);
+        assertThat(la.getName(), is("Anglesey"));
+        assertThat(la.getCode(),is("551"));
+        assertThat(la.getId(), is(334));
+        assertThat(la.getEstablishmentCount(),is(641));
+        assertThat(la.getSchemeType(),is(1));
+    }
+
 }

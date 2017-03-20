@@ -8,7 +8,7 @@ public class LocalAuthority {
 
     private final String name, code;
     private String email, web;
-    private int searchCode, establishmentCount, schemeType;
+    private int id, establishmentCount, schemeType;
 
     public LocalAuthority(String name, String code) {
         this.name = name;
@@ -33,14 +33,6 @@ public class LocalAuthority {
         this.web = web;
     }
 
-    public int getSearchCode() {
-        return searchCode;
-    }
-
-    public void setSearchCode(int searchCode) {
-        this.searchCode = searchCode;
-    }
-
     public int getEstablishmentCount() {
         return establishmentCount;
     }
@@ -63,5 +55,13 @@ public class LocalAuthority {
 
     public String getCode() {
         return code;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
