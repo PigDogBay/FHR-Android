@@ -18,6 +18,10 @@ public class Scores {
 
     private static Scores nullScores = new Scores(0,0,0);
 
+    public static Scores getNullScores() {
+        return nullScores;
+    }
+
     public int getHygiene() {
         return hygiene;
     }

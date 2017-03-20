@@ -7,6 +7,14 @@ package com.pigdogbay.foodhygieneratings.model;
 public class Coordinate {
     private final double longitude, latitude;
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
     public Coordinate(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;

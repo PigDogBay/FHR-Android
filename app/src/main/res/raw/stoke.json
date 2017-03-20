@@ -205,8 +205,8 @@
                       "LocalAuthorityEmailAddress":"PublicProtection@stoke.gov.uk",
                       "scores":{
                       "Hygiene":5,
-                      "Structural":5,
-                      "ConfidenceInManagement":5
+                      "Structural":10,
+                      "ConfidenceInManagement":15
                       },
                       "SchemeType":"FHRS",
                       "geocode":{

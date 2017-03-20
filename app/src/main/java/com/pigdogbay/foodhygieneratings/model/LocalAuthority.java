@@ -13,6 +13,8 @@ public class LocalAuthority {
     public LocalAuthority(String name, String code) {
         this.name = name;
         this.code = code;
+        email="";
+        web="";
     }
 
     public String getEmail() {

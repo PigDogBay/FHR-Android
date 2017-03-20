@@ -4,21 +4,6 @@ import com.pigdogbay.foodhygieneratings.R;
 
 import java.util.Date;
 
-/**
- * Created by Mark on 18/03/2017.
- */
-
-enum RatingValue {
-    ratingOf0,ratingOf1,ratingOf2,ratingOf3,ratingOf4,ratingOf5,
-    exempt,
-    pass,
-    passEatSafe,
-    awaitingInspection,
-    improvementRequired,
-    awaitingPublication,
-    other
-}
-
 public class Rating {
     public static String[] scottishRatingNames = {
             "All", "Pass", "Improvement Required",  "Awaiting Publication", "Awaiting Inspection", "Exempt"};
