@@ -11,6 +11,7 @@
     <string name="home_empty_query_title">No Name or Place</string>
     <string name="home_empty_query_message">Enter a name and/or place to search for</string>
     <string name="ok">OK</string>
+    <string name="menu_results_map">Map</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

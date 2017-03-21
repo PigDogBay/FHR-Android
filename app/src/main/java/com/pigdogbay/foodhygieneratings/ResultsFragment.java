@@ -1,14 +1,14 @@
 package com.pigdogbay.foodhygieneratings;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,7 +19,6 @@ import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,7 +44,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.recyler_view, container, false);
     }
 
@@ -55,6 +54,24 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         resultsAdapter = new ResultsAdapter(this);
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
         recyclerView.setAdapter(resultsAdapter);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_results, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.menu_results_map:
+                ((MainActivity) getActivity()).showMap();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
