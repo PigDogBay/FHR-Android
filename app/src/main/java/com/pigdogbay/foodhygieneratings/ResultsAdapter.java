@@ -12,22 +12,30 @@ import android.widget.TextView;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Mark on 17/03/2017.
+ *
  */
-
-public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
+class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
 
     private final List<Establishment> establishments;
     private final OnListItemClickedListener<Establishment> listener;
 
-    public ResultsAdapter(List<Establishment> establishments, OnListItemClickedListener<Establishment> listener){
+    ResultsAdapter(OnListItemClickedListener<Establishment> listener){
 
-        this.establishments = establishments;
+        establishments = new ArrayList<>();
         this.listener = listener;
+    }
+
+    void clear() {
+        establishments.clear();
+    }
+    void addItems(List<Establishment> newItems){
+        establishments.addAll(newItems);
     }
 
     @Override
@@ -54,14 +62,14 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHold
         return establishments.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private Establishment establishment;
         private final View view;
         private final ImageView imageView;
         private final TextView text, subtitle;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             this.view = itemView;
             this.imageView = (ImageView) itemView.findViewById(R.id.list_result_image);
@@ -69,7 +77,8 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHold
             this.subtitle = (TextView) itemView.findViewById(R.id.list_result_subtitle);
         }
 
-        public void bindItem(Establishment establishment){
+
+        void bindItem(Establishment establishment){
             this.establishment = establishment;
             this.text.setText(establishment.getBusiness().getName());
             this.subtitle.setText(establishment.getAddress().flatten());
