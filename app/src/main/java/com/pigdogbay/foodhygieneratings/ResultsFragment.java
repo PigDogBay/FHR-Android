@@ -26,7 +26,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResultsFragment extends Fragment implements OnListItemClickedListener, ObservableProperty.PropertyChangedObserver<FetchState> {
+@SuppressWarnings("ConstantConditions")
+public class ResultsFragment extends Fragment implements OnListItemClickedListener<Establishment>, ObservableProperty.PropertyChangedObserver<FetchState> {
 
     public static final String TAG = "results";
 
@@ -70,11 +71,6 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     }
 
     @Override
-    public void onListItemClicked(Object item, int position) {
-
-    }
-
-    @Override
     public void update(ObservableProperty<FetchState> sender, final FetchState update) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -115,6 +111,11 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
             resultsAdapter.addItems(results);
             resultsAdapter.notifyDataSetChanged();
         }
+
+    }
+
+    @Override
+    public void onListItemClicked(Establishment item, int position) {
 
     }
 }
