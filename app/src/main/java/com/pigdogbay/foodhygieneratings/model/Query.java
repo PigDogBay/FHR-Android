@@ -25,6 +25,10 @@ public class Query
         addSearchParameter("maxDistanceLimit", String.valueOf(radiusInMiles));
     }
 
+    public boolean isEmpty(){
+        return map.size()==0;
+    }
+
     public Query setBusinessName(String name){
         addSearchParameter("name",name);
         return this;

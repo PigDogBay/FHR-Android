@@ -8,6 +8,9 @@
     <string name="home_enter_place_hint">Street, town or postcode</string>
     <string name="home_name">Name</string>
     <string name="home_place">Place</string>
+    <string name="home_empty_query_title">No Name or Place</string>
+    <string name="home_empty_query_message">Enter a name and/or place to search for</string>
+    <string name="ok">OK</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

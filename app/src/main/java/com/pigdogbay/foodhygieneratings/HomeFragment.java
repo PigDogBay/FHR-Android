@@ -3,15 +3,17 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.pigdogbay.foodhygieneratings.R;
+import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.Query;
+import com.pigdogbay.lib.utils.ActivityUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment {
         switch (item.getItemId())
         {
             case R.id.menu_search:
-                search();
+                quickSearch();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -58,7 +60,7 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.home_search_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                search();
+                quickSearch();
             }
         });
 
@@ -76,8 +78,26 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    private void quickSearch() {
+        TextView placeTextView = (TextView) getView().findViewById(R.id.home_place);
+        TextView nameTextView = (TextView) getView().findViewById(R.id.home_business_name);
+
+        String place = placeTextView.getText().toString();
+        String name = nameTextView.getText().toString();
+        Query query = new Query();
+        query.setPlaceName(place);
+        query.setBusinessName(name);
+        if (query.isEmpty()){
+            ActivityUtils.showInfoDialog(getContext(),R.string.home_empty_query_title, R.string.home_empty_query_message, R.string.ok);
+            return;
+        }
+
+        MainModel.get(getContext()).getDataProvider().findEstablishments(query);
+        showResults();
+    }
     private void placesNearMe(){
-        search();
+        MainModel.get(getContext()).getDataProvider().findLocalEstablishments();
+        showResults();
     }
 
     private void advancedSearch() {
@@ -85,7 +105,7 @@ public class HomeFragment extends Fragment {
         mainActivity.showAdvancedSearch();
     }
 
-    private void search() {
+    private void showResults() {
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.showResults();
 
