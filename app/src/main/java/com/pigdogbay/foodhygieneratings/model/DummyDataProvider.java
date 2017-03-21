@@ -17,6 +17,7 @@ public class DummyDataProvider implements IDataProvider {
     private List<Establishment> results;
     private Coordinate coordinate;
     private final String jsonData;
+    private boolean isBusy = false;
 
     public DummyDataProvider(String jsonData){
         this.jsonData = jsonData;
@@ -42,6 +43,11 @@ public class DummyDataProvider implements IDataProvider {
 
     @Override
     public boolean findLocalEstablishments() {
+        if (isBusy){
+            return false;
+        }
+        isBusy = true;
+        fetchStateObservableProperty.setValue(FetchState.ready);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -55,6 +61,7 @@ public class DummyDataProvider implements IDataProvider {
                 coordinate = new Coordinate(-2.204094,52.984120);
                 fetchStateObservableProperty.setValue(FetchState.foundLocation);
                 search();
+                isBusy = false;
             }
         }).start();
         return true;
@@ -62,10 +69,16 @@ public class DummyDataProvider implements IDataProvider {
 
     @Override
     public boolean findEstablishments(Query query) {
+        if (isBusy){
+            return false;
+        }
+        isBusy = true;
+        fetchStateObservableProperty.setValue(FetchState.ready);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 search();
+                isBusy = false;
             }
         }).start();
         return true;

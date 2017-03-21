@@ -6,12 +6,14 @@ import com.pigdogbay.foodhygieneratings.R;
 import com.pigdogbay.lib.utils.ActivityUtils;
 import com.pigdogbay.lib.utils.PreferencesHelper;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
 
 /**
  * Created by Mark on 20/03/2017.
@@ -24,6 +26,7 @@ public class MainModel {
     private IDataProvider dataProvider;
     private Context appContext;
     private List<LocalAuthority> localAuthorities;
+    private SearchType searchType;
 
     public IDataProvider getDataProvider() {
         return dataProvider;
@@ -35,6 +38,13 @@ public class MainModel {
             preferencesHelper = new PreferencesHelper(appContext);
         }
         return preferencesHelper;
+    }
+
+    public SearchType getSearchType() {
+        return searchType;
+    }
+    public void setSearchType(SearchType searchType) {
+        this.searchType = searchType;
     }
 
     public static MainModel get(Context c){
@@ -56,6 +66,7 @@ public class MainModel {
     public MainModel(Context appContext) {
         this.appContext = appContext;
         dummyData();
+        searchType = SearchType.local;
     }
 
     private void dummyData(){
@@ -79,6 +90,32 @@ public class MainModel {
             }
         }
         return localAuthorities;
+    }
+
+    public void sortResults() {
+        switch (searchType){
+            case local:
+                sortByDistance();
+                break;
+            case quick:
+                break;
+            case advanced:
+                break;
+            case map:
+                break;
+        }
+    }
+
+    public void sortByDistance(){
+        List<Establishment> results = getDataProvider().getResults();
+        if (results!=null && results.size()>1){
+            Collections.sort(results, new Comparator<Establishment>() {
+                @Override
+                public int compare(Establishment establishment, Establishment t1) {
+                    return Double.compare(establishment.getDistance(),t1.getDistance());
+                }
+            });
+        }
     }
 
 }

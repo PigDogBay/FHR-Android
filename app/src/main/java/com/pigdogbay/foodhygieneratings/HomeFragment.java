@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
+import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
 /**
@@ -22,6 +24,10 @@ public class HomeFragment extends Fragment {
 
 
     public static final String TAG = "home";
+
+    private IDataProvider getDataProvider(){
+        return MainModel.get(getContext()).getDataProvider();
+    }
 
     public HomeFragment() {
         // Required empty public constructor
@@ -92,22 +98,22 @@ public class HomeFragment extends Fragment {
             return;
         }
 
-        MainModel.get(getContext()).getDataProvider().findEstablishments(query);
-        showResults();
+        if (getDataProvider().findEstablishments(query)){
+            MainModel.get(getContext()).setSearchType(SearchType.quick);
+            MainActivity mainActivity = (MainActivity) getActivity();
+            mainActivity.showResults();
+        }
     }
     private void placesNearMe(){
-        MainModel.get(getContext()).getDataProvider().findLocalEstablishments();
-        showResults();
+        if (getDataProvider().findLocalEstablishments()) {
+            MainModel.get(getContext()).setSearchType(SearchType.local);
+            MainActivity mainActivity = (MainActivity) getActivity();
+            mainActivity.showResults();
+        }
     }
 
     private void advancedSearch() {
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.showAdvancedSearch();
-    }
-
-    private void showResults() {
-        MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.showResults();
-
     }
 }
