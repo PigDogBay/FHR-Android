@@ -1,18 +1,31 @@
 package com.pigdogbay.foodhygieneratings;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.pigdogbay.foodhygieneratings.model.Coordinate;
+import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.IDataProvider;
+import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.MapMarkers;
+
+import java.util.Collection;
 
 
 /**
@@ -22,6 +35,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     public static final String TAG = "map";
     private GoogleMap googleMap;
+    private MapMarkers mapMarkers;
+    private IDataProvider getDataProvider(){
+        return MainModel.get(getContext()).getDataProvider();
+    }
 
     public MapFragment() {
         // Required empty public constructor
@@ -30,6 +47,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        mapMarkers = new MapMarkers();
         getMapAsync(this);
     }
     /**
@@ -44,11 +62,20 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
-
-        // Add a marker in Stoke and move the camera
-        LatLng stoke = new LatLng(52.984120,-2.204094);
-        googleMap.addMarker(new MarkerOptions().position(stoke).title("Marker in Stoke"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(stoke));
+        addMarkers();
 
     }
+
+    private void addMarkers(){
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        for (Establishment establishment : getDataProvider().getResults()){
+            Marker m =  googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
+            builder.include(m.getPosition());
+        }
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),0);
+//        googleMap.animateCamera(cameraUpdate);
+        googleMap.moveCamera(cameraUpdate);
+
+    }
+
 }
