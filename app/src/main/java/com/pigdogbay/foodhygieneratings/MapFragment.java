@@ -81,7 +81,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     private void addMarkers(){
         List<Establishment> results = getDataProvider().getResults();
-        if (results.size()==1) {
+        if (results.size()==0){
+            //do nothing
+        } else if (results.size()==1) {
             Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(results.get(0)));
             m.setTag(results.get(0));
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(m.getPosition(),16.0f);
