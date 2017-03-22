@@ -27,6 +27,7 @@ public class MainModel {
     private Context appContext;
     private List<LocalAuthority> localAuthorities;
     private SearchType searchType;
+    private Establishment selectedEstablishment;
 
     public IDataProvider getDataProvider() {
         return dataProvider;
@@ -45,6 +46,13 @@ public class MainModel {
     }
     public void setSearchType(SearchType searchType) {
         this.searchType = searchType;
+    }
+
+    public Establishment getSelectedEstablishment() {
+        return selectedEstablishment;
+    }
+    public void setSelectedEstablishment(Establishment selectedEstablishment) {
+        this.selectedEstablishment = selectedEstablishment;
     }
 
     public static MainModel get(Context c){

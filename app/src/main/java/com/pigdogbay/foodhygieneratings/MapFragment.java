@@ -1,37 +1,26 @@
 package com.pigdogbay.foodhygieneratings;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 
-import java.util.Collection;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     public static final String TAG = "map";
     private GoogleMap googleMap;
@@ -62,6 +51,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        googleMap.setOnInfoWindowClickListener(this);
         addMarkers();
 
     }
@@ -70,6 +60,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (Establishment establishment : getDataProvider().getResults()){
             Marker m =  googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
+            m.setTag(establishment);
             builder.include(m.getPosition());
         }
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),0);
@@ -78,4 +69,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     }
 
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Establishment establishment = (Establishment) marker.getTag();
+        MainModel.get(getContext()).setSelectedEstablishment(establishment);
+        ((MainActivity)getActivity()).showDetails();
+    }
 }

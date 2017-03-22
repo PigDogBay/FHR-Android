@@ -134,6 +134,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     @Override
     public void onListItemClicked(Establishment item, int position) {
-
+        MainModel.get(getContext()).setSelectedEstablishment(item);
+        ((MainActivity) getActivity()).showDetails();
     }
 }
