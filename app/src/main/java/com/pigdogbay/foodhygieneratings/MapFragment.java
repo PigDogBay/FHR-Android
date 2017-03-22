@@ -26,7 +26,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     public static final String TAG = "map";
     private static final double ukEast = 1.46;
-    private static final double ukWest = 54.28;
+    private static final double ukWest = -8.638;
     private static final double ukNorth = 60.51;
     private static final double ukSouth = 49.53;
 
