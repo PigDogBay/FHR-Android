@@ -2,7 +2,6 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,15 +11,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.FetchState;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
+import com.pigdogbay.lib.utils.ObservableProperty;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, ObservableProperty.PropertyChangedObserver<FetchState> {
 
     public static final String TAG = "map";
     private GoogleMap googleMap;
@@ -39,6 +36,20 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         mapMarkers = new MapMarkers();
         getMapAsync(this);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDataProvider().getFetchStateProperty().addObserver(this);
+        update();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getDataProvider().getFetchStateProperty().removeObserver(this);
+    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -52,8 +63,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.setOnInfoWindowClickListener(this);
-        addMarkers();
-
+        update();
     }
 
     private void addMarkers(){
@@ -74,5 +84,41 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         Establishment establishment = (Establishment) marker.getTag();
         MainModel.get(getContext()).setSelectedEstablishment(establishment);
         ((MainActivity)getActivity()).showDetails();
+    }
+
+    @Override
+    public void update(ObservableProperty<FetchState> sender, FetchState update) {
+        update(update);
+    }
+
+    private void update(){
+        FetchState state = getDataProvider().getFetchStateProperty().getValue();
+        update(state);
+    }
+
+    private void update(FetchState state){
+        switch (state){
+            case ready:
+                break;
+            case requestingLocationAuthorization:
+                break;
+            case locating:
+                break;
+            case foundLocation:
+                break;
+            case notAuthorizedForLocating:
+                break;
+            case errorLocating:
+                break;
+            case loading:
+                break;
+            case loaded:
+                if (googleMap!=null) {
+                    addMarkers();
+                }
+                break;
+            case error:
+                break;
+        }
     }
 }
