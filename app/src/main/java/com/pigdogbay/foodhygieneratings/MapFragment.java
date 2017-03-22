@@ -2,12 +2,15 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.google.android.gms.common.api.Result;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
@@ -17,9 +20,16 @@ import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
+import java.util.List;
+
 public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, ObservableProperty.PropertyChangedObserver<FetchState> {
 
     public static final String TAG = "map";
+    private static final double ukEast = 1.46;
+    private static final double ukWest = 54.28;
+    private static final double ukNorth = 60.51;
+    private static final double ukSouth = 49.53;
+
     private GoogleMap googleMap;
     private MapMarkers mapMarkers;
     private IDataProvider getDataProvider(){
@@ -60,22 +70,35 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.setOnInfoWindowClickListener(this);
         update();
     }
 
     private void addMarkers(){
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Establishment establishment : getDataProvider().getResults()){
-            Marker m =  googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
-            m.setTag(establishment);
-            builder.include(m.getPosition());
+        List<Establishment> results = getDataProvider().getResults();
+        if (results.size()==0) {
+            //show uk
+            LatLngBounds ukBounds = createUKBounds();
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(ukBounds, 0);
+            googleMap.moveCamera(cameraUpdate);
+        } else if (results.size()==1) {
+            Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(results.get(0)));
+            m.setTag(results.get(0));
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(m.getPosition(),16.0f);
+            googleMap.moveCamera(cameraUpdate);
+        } else {
+            //fit markers
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (Establishment establishment : results) {
+                Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
+                m.setTag(establishment);
+                builder.include(m.getPosition());
+            }
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(), 0);
+            googleMap.moveCamera(cameraUpdate);
         }
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),0);
-//        googleMap.animateCamera(cameraUpdate);
-        googleMap.moveCamera(cameraUpdate);
 
     }
 
@@ -120,5 +143,11 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             case error:
                 break;
         }
+    }
+
+    private LatLngBounds createUKBounds(){
+        LatLng ukSouthWest = new LatLng(ukSouth,ukWest);
+        LatLng ukNorthEast = new LatLng(ukNorth,ukEast);
+        return new LatLngBounds(ukSouthWest, ukNorthEast);
     }
 }
