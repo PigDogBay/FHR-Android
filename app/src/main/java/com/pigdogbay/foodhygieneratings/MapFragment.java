@@ -73,21 +73,19 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.setOnInfoWindowClickListener(this);
+        LatLngBounds ukBounds = createUKBounds();
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(ukBounds, 0);
+        googleMap.moveCamera(cameraUpdate);
         update();
     }
 
     private void addMarkers(){
         List<Establishment> results = getDataProvider().getResults();
-        if (results.size()==0) {
-            //show uk
-            LatLngBounds ukBounds = createUKBounds();
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(ukBounds, 0);
-            googleMap.moveCamera(cameraUpdate);
-        } else if (results.size()==1) {
+        if (results.size()==1) {
             Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(results.get(0)));
             m.setTag(results.get(0));
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(m.getPosition(),16.0f);
-            googleMap.moveCamera(cameraUpdate);
+            googleMap.animateCamera(cameraUpdate);
         } else {
             //fit markers
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -97,9 +95,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                 builder.include(m.getPosition());
             }
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(), 0);
-            googleMap.moveCamera(cameraUpdate);
+            googleMap.animateCamera(cameraUpdate);
         }
-
     }
 
     @Override
@@ -110,8 +107,13 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     @Override
-    public void update(ObservableProperty<FetchState> sender, FetchState update) {
-        update(update);
+    public void update(ObservableProperty<FetchState> sender, final FetchState update) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                update(update);
+            }
+        });
     }
 
     private void update(){
