@@ -40,9 +40,11 @@ public class DetailsFragment extends Fragment {
         if (establishment!=null) {
             cards.add(new BusinessCard(establishment));
             cards.add(new RatingCard(establishment));
-            cards.add(new ScoresCard());
+            if (establishment.getRating().hasScores()) {
+                cards.add(new ScoresCard(establishment));
+            }
             cards.add(new AddressCard(establishment));
-            cards.add(new LocalAuthorityCard());
+            cards.add(new LocalAuthorityCard(establishment));
         }
         cardsAdapter = new CardsAdapter(cards);
     }

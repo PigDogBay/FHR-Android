@@ -7,5 +7,20 @@
         android:layout_height="wrap_content"
         android:text="SCORES"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:text="(lower the score the better)"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/card_text"
+        />
 
 </LinearLayout>
