@@ -107,6 +107,37 @@ public class Rating {
                 return R.drawable.ic_iconexempt;
         }
     }
+
+    public String getRatingDescription() {
+        switch (ratingValue){
+            case ratingOf0:
+                return "0 - Urgent Improvement Necessary";
+            case ratingOf1:
+                return "1 - Major Improvement Necessary";
+            case ratingOf2:
+                return "2 - Improvement Necessary";
+            case ratingOf3:
+                return "3 - Generally Satisfactory";
+            case ratingOf4:
+                return "4 - Good";
+            case ratingOf5:
+                return "5 - Very Good";
+            case exempt:
+                return "Exempt";
+            case pass:
+                return "Pass";
+            case passEatSafe:
+                return "Pass and Eat Safe";
+            case awaitingInspection:
+                return "Awaiting Inspection";
+            case improvementRequired:
+                return "Improvement Required";
+            case awaitingPublication:
+                return "Awaiting Publication";
+            default:
+                return "";
+        }
+    }
 }
 
 

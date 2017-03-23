@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pigdogbay.foodhygieneratings.cards.AddressCard;
+import com.pigdogbay.foodhygieneratings.cards.BusinessCard;
 import com.pigdogbay.foodhygieneratings.cards.CardsAdapter;
 import com.pigdogbay.foodhygieneratings.cards.ICard;
 import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
-import com.pigdogbay.foodhygieneratings.cards.MapCard;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
@@ -38,7 +38,8 @@ public class DetailsFragment extends Fragment {
         final Establishment establishment = MainModel.get(getContext()).getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
-            cards.add(new RatingCard());
+            cards.add(new BusinessCard(establishment));
+            cards.add(new RatingCard(establishment));
             cards.add(new ScoresCard());
             cards.add(new AddressCard(establishment));
             cards.add(new LocalAuthorityCard());
