@@ -2,9 +2,7 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.google.android.gms.common.api.Result;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
