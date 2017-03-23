@@ -2,7 +2,6 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +16,8 @@ import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
 import com.pigdogbay.foodhygieneratings.cards.MapCard;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
+import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.MainModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +35,14 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final Establishment establishment = MainModel.get(getContext()).getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
-        cards.add(new MapCard());
-        cards.add(new RatingCard());
-        cards.add(new ScoresCard());
-        cards.add(new AddressCard());
-        cards.add(new LocalAuthorityCard());
+        if (establishment!=null) {
+            cards.add(new RatingCard());
+            cards.add(new ScoresCard());
+            cards.add(new AddressCard(establishment));
+            cards.add(new LocalAuthorityCard());
+        }
         cardsAdapter = new CardsAdapter(cards);
     }
 

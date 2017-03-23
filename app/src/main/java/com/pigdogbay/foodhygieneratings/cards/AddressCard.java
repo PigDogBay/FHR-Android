@@ -4,14 +4,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.R;
+import com.pigdogbay.foodhygieneratings.model.Address;
+import com.pigdogbay.foodhygieneratings.model.Establishment;
 
 /**
  * Created by Mark on 23/03/2017.
  *
  */
 public class AddressCard implements ICard {
+
+    private final Establishment establishment;
+
+    public AddressCard(Establishment establishment) {
+        this.establishment = establishment;
+    }
+
+
     @Override
     public int getViewType() {
         return 4;
@@ -25,13 +36,27 @@ public class AddressCard implements ICard {
 
     @Override
     public void bindViewHolder(RecyclerView.ViewHolder viewHolder) {
-
     }
     private class ViewHolder extends RecyclerView.ViewHolder{
 
+        private final View view;
+        private final TextView addressText;
+
         ViewHolder(View itemView) {
             super(itemView);
+            this.view = itemView;
+            addressText = (TextView) view.findViewById(R.id.card_address_text);
+
+            String name = AddressCard.this.establishment.getBusiness().getName();
+            Address address =  AddressCard.this.establishment.getAddress();
+            String flattened = address.flatten();
+            if (!flattened.isEmpty()) {
+                String multiLine = flattened.replace(", ","\n");
+                addressText.setText(name+"\n"+multiLine);
+            }
+
         }
+
     }
 
 }

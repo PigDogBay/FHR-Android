@@ -20,7 +20,7 @@ public class LocalAuthorityCard implements ICard {
 
     @Override
     public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_scores,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_local_authority,parent,false);
         return new ViewHolder(view);
     }
 
