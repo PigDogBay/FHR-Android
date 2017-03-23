@@ -23,5 +23,12 @@
             android:layout_marginTop="16dp"
             />
 
+        <Button
+            style="@style/MaterialButton"
+            android:id="@+id/card_rating_website_button"
+            android:layout_gravity="end"
+            android:text="FSA WEBSITE"
+            />
+
     </LinearLayout>
 </android.support.v7.widget.CardView>

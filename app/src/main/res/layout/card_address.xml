@@ -22,6 +22,12 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             />
+        <Button
+            style="@style/MaterialButton"
+            android:id="@+id/card_address_map_button"
+            android:layout_gravity="end"
+            android:text="SHOW MAP"
+            />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>
