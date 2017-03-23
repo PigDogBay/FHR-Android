@@ -23,7 +23,12 @@
         <item name="android:layout_marginLeft">12dp</item>
         <item name="android:layout_marginRight">12dp</item>
         <item name="android:layout_marginTop">12dp</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:background">@drawable/white</item>
     </style>
+    <style name="CardLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+
 </resources>
