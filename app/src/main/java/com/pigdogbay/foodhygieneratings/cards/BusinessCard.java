@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.R;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.Rating;
 
 import java.text.DateFormat;
@@ -53,6 +54,14 @@ public class BusinessCard implements ICard {
 
             TextView text = (TextView) view.findViewById(R.id.card_text);
             text.setText(builder.toString());
+
+            view.findViewById(R.id.card_business_website_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_business_website_button, "");
+                }
+            });
+
         }
     }
 

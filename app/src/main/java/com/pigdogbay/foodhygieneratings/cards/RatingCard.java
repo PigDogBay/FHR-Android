@@ -66,15 +66,6 @@ public class RatingCard implements ICard {
 
             ImageView imageView = (ImageView) view.findViewById(R.id.card_rating_logo);
             imageView.setImageResource(rating.getLogoId());
-
-            view.findViewById(R.id.card_rating_website_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_rating_website_button, FoodHygieneAPI.createBusinessUrl(establishment));
-                }
-            });
-
-
         }
     }
 

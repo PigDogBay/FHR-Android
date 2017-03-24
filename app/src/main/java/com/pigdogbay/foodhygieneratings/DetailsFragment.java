@@ -18,6 +18,7 @@ import com.pigdogbay.foodhygieneratings.cards.OnButtonClickListener;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
@@ -28,7 +29,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
     public static final String TAG = "details";
     private CardsAdapter cardsAdapter;
-
+    Establishment establishment;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -37,7 +38,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Establishment establishment = MainModel.get(getContext()).getSelectedEstablishment();
+        establishment = MainModel.get(getContext()).getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new BusinessCard(establishment, this));
@@ -68,14 +69,18 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     public void onButtonPressed(int id, String args) {
         MainActivity mainActivity = (MainActivity) getActivity();
         switch (id){
-            case R.id.card_rating_website_button:
-                ActivityUtils.ShowWebPage(getActivity(),args);
+            case R.id.card_business_website_button:
+                String url = FoodHygieneAPI.createBusinessUrl(establishment);
+                ActivityUtils.ShowWebPage(getActivity(),url);
                 break;
             case R.id.card_address_map_button:
                 break;
             case R.id.card_la_email_button:
+                String email = establishment.getLocalAuthority().getEmail();
+                ActivityUtils.SendEmail(getActivity(),new String[]{email},"","");
                 break;
             case R.id.card_la_web_button:
+                ActivityUtils.ShowWebPage(getActivity(),establishment.getLocalAuthority().getWeb());
                 break;
             case R.id.card_scores_info_button:
                 break;
