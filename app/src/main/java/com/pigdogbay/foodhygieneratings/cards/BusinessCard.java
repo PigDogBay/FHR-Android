@@ -14,13 +14,15 @@ import java.text.DateFormat;
 
 /**
  * Created by Mark on 23/03/2017.
+ *
  */
-
 public class BusinessCard implements ICard {
     private final Establishment establishment;
+    private final OnButtonClickListener listener;
 
-    public BusinessCard(Establishment establishment) {
+    public BusinessCard(Establishment establishment, OnButtonClickListener listener) {
         this.establishment = establishment;
+        this.listener = listener;
     }
 
     @Override
@@ -40,23 +42,17 @@ public class BusinessCard implements ICard {
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder{
-        private final View view;
-        private final TextView text;
 
-        ViewHolder(View itemView) {
-            super(itemView);
-            this.view = itemView;
-            text = (TextView) view.findViewById(R.id.card_text);
-
+        ViewHolder(View view) {
+            super(view);
 
             StringBuilder builder = new StringBuilder();
             builder.append(establishment.getBusiness().getName());
             builder.append("\n");
             builder.append(establishment.getBusiness().getType());
 
+            TextView text = (TextView) view.findViewById(R.id.card_text);
             text.setText(builder.toString());
-
-
         }
     }
 

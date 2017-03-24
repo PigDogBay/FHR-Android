@@ -17,9 +17,11 @@ import com.pigdogbay.foodhygieneratings.model.Establishment;
 public class AddressCard implements ICard {
 
     private final Establishment establishment;
+    private final OnButtonClickListener listener;
 
-    public AddressCard(Establishment establishment) {
+    public AddressCard(Establishment establishment, OnButtonClickListener listener) {
         this.establishment = establishment;
+        this.listener = listener;
     }
 
 
@@ -39,13 +41,9 @@ public class AddressCard implements ICard {
     }
     private class ViewHolder extends RecyclerView.ViewHolder{
 
-        private final View view;
-        private final TextView addressText;
-
         ViewHolder(View itemView) {
             super(itemView);
-            this.view = itemView;
-            addressText = (TextView) view.findViewById(R.id.card_address_text);
+            TextView addressText = (TextView) itemView.findViewById(R.id.card_address_text);
 
             String name = AddressCard.this.establishment.getBusiness().getName();
             Address address =  AddressCard.this.establishment.getAddress();
@@ -54,6 +52,13 @@ public class AddressCard implements ICard {
                 String multiLine = flattened.replace(", ","\n");
                 addressText.setText(name+"\n"+multiLine);
             }
+
+            itemView.findViewById(R.id.card_address_map_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_address_map_button, "");
+                }
+            });
 
         }
 

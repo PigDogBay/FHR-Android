@@ -16,9 +16,11 @@ import com.pigdogbay.foodhygieneratings.model.Scores;
  */
 public class ScoresCard implements ICard {
     private final Establishment establishment;
+    private final OnButtonClickListener listener;
 
-    public ScoresCard(Establishment establishment) {
+    public ScoresCard(Establishment establishment, OnButtonClickListener listener) {
         this.establishment = establishment;
+        this.listener = listener;
     }
 
     @Override
@@ -38,11 +40,9 @@ public class ScoresCard implements ICard {
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder{
-        private final TextView text;
 
         ViewHolder(View itemView) {
             super(itemView);
-            text = (TextView) itemView.findViewById(R.id.card_text);
 
             Scores scores = establishment.getRating().getScores();
             StringBuilder builder = new StringBuilder();
@@ -64,8 +64,15 @@ public class ScoresCard implements ICard {
             builder.append(scores.getManagementDescription());
             builder.append("\n");
 
+            TextView text = (TextView) itemView.findViewById(R.id.card_text);
             text.setText(builder.toString());
 
+            itemView.findViewById(R.id.card_scores_info_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_scores_info_button, "");
+                }
+            });
 
         }
     }

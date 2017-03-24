@@ -17,9 +17,11 @@ import com.pigdogbay.foodhygieneratings.model.LocalAuthority;
  */
 public class LocalAuthorityCard implements ICard {
     private final Establishment establishment;
+    private final OnButtonClickListener listener;
 
-    public LocalAuthorityCard(Establishment establishment) {
+    public LocalAuthorityCard(Establishment establishment, OnButtonClickListener listener) {
         this.establishment = establishment;
+        this.listener = listener;
     }
 
     @Override
@@ -38,11 +40,10 @@ public class LocalAuthorityCard implements ICard {
 
     }
     private class ViewHolder extends RecyclerView.ViewHolder{
-        private final TextView text;
 
         ViewHolder(View itemView) {
             super(itemView);
-            text = (TextView) itemView.findViewById(R.id.card_text);
+
             LocalAuthority la = establishment.getLocalAuthority();
             StringBuilder builder = new StringBuilder();
             builder.append(la.getName());
@@ -50,7 +51,23 @@ public class LocalAuthorityCard implements ICard {
             builder.append(la.getEmail());
             builder.append("\n");
             builder.append(la.getWeb());
+
+            TextView text = (TextView) itemView.findViewById(R.id.card_text);
             text.setText(builder.toString());
+
+            itemView.findViewById(R.id.card_la_email_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_la_email_button, establishment.getLocalAuthority().getEmail());
+                }
+            });
+
+            itemView.findViewById(R.id.card_la_web_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_la_web_button, establishment.getLocalAuthority().getWeb());
+                }
+            });
 
         }
     }

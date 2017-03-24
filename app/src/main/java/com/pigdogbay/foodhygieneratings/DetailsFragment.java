@@ -40,13 +40,13 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         final Establishment establishment = MainModel.get(getContext()).getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
-            cards.add(new BusinessCard(establishment));
+            cards.add(new BusinessCard(establishment, this));
             cards.add(new RatingCard(establishment, this));
             if (establishment.getRating().hasScores()) {
-                cards.add(new ScoresCard(establishment));
+                cards.add(new ScoresCard(establishment, this));
             }
-            cards.add(new AddressCard(establishment));
-            cards.add(new LocalAuthorityCard(establishment));
+            cards.add(new AddressCard(establishment, this));
+            cards.add(new LocalAuthorityCard(establishment, this));
         }
         cardsAdapter = new CardsAdapter(cards);
     }
@@ -70,6 +70,14 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         switch (id){
             case R.id.card_rating_website_button:
                 ActivityUtils.ShowWebPage(getActivity(),args);
+                break;
+            case R.id.card_address_map_button:
+                break;
+            case R.id.card_la_email_button:
+                break;
+            case R.id.card_la_web_button:
+                break;
+            case R.id.card_scores_info_button:
                 break;
         }
     }
