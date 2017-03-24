@@ -200,6 +200,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case MapFragment.TAG:
                 setTitle("Map");
                 break;
+            case EstablishmentMapFragment.TAG:
+                setTitle("Map");
+                break;
             default:
                 setTitle("Food Hygiene Ratings");
                 break;

@@ -1,6 +1,8 @@
 package com.pigdogbay.foodhygieneratings;
 
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -8,10 +10,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
+
+import java.io.IOException;
+import java.util.List;
 
 public class EstablishmentMapFragment extends SupportMapFragment implements OnMapReadyCallback {
 
@@ -19,6 +25,7 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
 
     private GoogleMap googleMap;
     private Establishment establishment;
+    private Marker marker;
 
     public EstablishmentMapFragment() {
         // Required empty public constructor
@@ -35,8 +42,39 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         MapMarkers mapMarkers = new MapMarkers();
-        Marker marker = googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
+        marker = googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(marker.getPosition(),16.0f);
         googleMap.moveCamera(cameraUpdate);
+        startGeocoderWorker();
+    }
+
+    private void startGeocoderWorker(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final LatLng latLng = getGeocoderLocation();
+                if (latLng!=null){
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            marker.setPosition(latLng);
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(marker.getPosition(),16.0f);
+                            googleMap.animateCamera(cameraUpdate);
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    private LatLng getGeocoderLocation(){
+        Geocoder geocoder = new Geocoder(getContext());
+        try {
+            List<Address> result = geocoder.getFromLocationName(establishment.getAddress().flatten(), 1);
+            return new LatLng(result.get(0).getLatitude(),result.get(0).getLongitude());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
