@@ -18,6 +18,11 @@ public class FoodHygieneAPI {
 
     private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
+    public static String createBusinessUrl(Establishment establishment){
+        String id = String.valueOf(establishment.getBusiness().getFhrsId());
+        return "http://ratings.food.gov.uk/business/en-GB/"+id;
+    }
+
     public static List<LocalAuthority> parseAuthorities(JSONObject jsonObject) throws JSONException {
         ArrayList<LocalAuthority> authorities = new ArrayList<>();
         JSONArray authoritiesJsonArray = jsonObject.getJSONArray("authorities");

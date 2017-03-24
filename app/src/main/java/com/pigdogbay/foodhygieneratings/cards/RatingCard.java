@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.R;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.Rating;
 
 import java.text.DateFormat;
@@ -20,9 +21,11 @@ import java.text.DateFormat;
 public class RatingCard implements ICard {
 
     private final Establishment establishment;
+    private final OnButtonClickListener listener;
 
-    public RatingCard(Establishment establishment) {
+    public RatingCard(Establishment establishment, OnButtonClickListener listener) {
         this.establishment = establishment;
+        this.listener = listener;
     }
 
     @Override
@@ -63,6 +66,13 @@ public class RatingCard implements ICard {
 
             ImageView imageView = (ImageView) view.findViewById(R.id.card_rating_logo);
             imageView.setImageResource(rating.getLogoId());
+
+            view.findViewById(R.id.card_rating_website_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonPressed(R.id.card_rating_website_button, FoodHygieneAPI.createBusinessUrl(establishment));
+                }
+            });
 
 
         }

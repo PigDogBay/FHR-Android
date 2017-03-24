@@ -14,15 +14,17 @@ import com.pigdogbay.foodhygieneratings.cards.BusinessCard;
 import com.pigdogbay.foodhygieneratings.cards.CardsAdapter;
 import com.pigdogbay.foodhygieneratings.cards.ICard;
 import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
+import com.pigdogbay.foodhygieneratings.cards.OnButtonClickListener;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.lib.utils.ActivityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsFragment extends Fragment {
+public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
     public static final String TAG = "details";
     private CardsAdapter cardsAdapter;
@@ -39,7 +41,7 @@ public class DetailsFragment extends Fragment {
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new BusinessCard(establishment));
-            cards.add(new RatingCard(establishment));
+            cards.add(new RatingCard(establishment, this));
             if (establishment.getRating().hasScores()) {
                 cards.add(new ScoresCard(establishment));
             }
@@ -62,4 +64,13 @@ public class DetailsFragment extends Fragment {
     }
 
 
+    @Override
+    public void onButtonPressed(int id, String args) {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        switch (id){
+            case R.id.card_rating_website_button:
+                ActivityUtils.ShowWebPage(getActivity(),args);
+                break;
+        }
+    }
 }
