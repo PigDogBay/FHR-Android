@@ -74,6 +74,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
                 ActivityUtils.ShowWebPage(getActivity(),url);
                 break;
             case R.id.card_address_map_button:
+                mainActivity.showEstablishmentMap();
                 break;
             case R.id.card_la_email_button:
                 String email = establishment.getLocalAuthority().getEmail();

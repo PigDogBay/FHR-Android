@@ -12,6 +12,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class EstablishmentMapFragment extends Fragment {
+    public static final String TAG = "establishment map";
 
 
     public EstablishmentMapFragment() {
