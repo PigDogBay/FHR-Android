@@ -5,8 +5,14 @@ import com.pigdogbay.foodhygieneratings.R;
 import java.util.Date;
 
 public class Rating {
+    public static final String SCHEME_FHRS = "FHRS";
+    public static final String SCHEME_FHIS = "FHIS";
     public static String[] scottishRatingNames = {
             "All", "Pass", "Improvement Required",  "Awaiting Publication", "Awaiting Inspection", "Exempt"};
+
+    enum Scheme {
+        FHRS, FHIS
+    }
 
     private final Scores scores;
     private final Date awardedDate;
@@ -14,36 +20,37 @@ public class Rating {
     private final String ratingsKey;
     private final RatingValue ratingValue;
     private final String name;
+    private final Scheme scheme;
 
-    public Rating(Scores scores, Date awardedDate, boolean newRatingPending, String ratingsKey, RatingValue ratingValue, String name) {
+
+    public Rating(Scores scores, Date awardedDate, boolean newRatingPending, String ratingsKey, RatingValue ratingValue, String name, Scheme scheme) {
         this.scores = scores;
         this.awardedDate = awardedDate;
         this.newRatingPending = newRatingPending;
         this.ratingsKey = ratingsKey;
         this.ratingValue = ratingValue;
         this.name = name;
+        this.scheme = scheme;
     }
 
+    public Scheme getScheme() {
+        return scheme;
+    }
     public Scores getScores() {
         return scores;
     }
-
     public Date getAwardedDate() {
         return awardedDate;
     }
-
     public boolean isNewRatingPending() {
         return newRatingPending;
     }
-
     public String getRatingsKey() {
         return ratingsKey;
     }
-
     public RatingValue getRatingValue() {
         return ratingValue;
     }
-
     public String getName() {
         return name;
     }
@@ -90,19 +97,19 @@ public class Rating {
             case ratingOf5:
                 return R.drawable.ic_icon5;
             case exempt:
+            case fhis_exempt:
                 return R.drawable.ic_iconexempt;
-            case pass:
+            case fhis_pass:
                 return R.drawable.ic_iconpass;
-            case passEatSafe:
+            case fhis_passEatSafe:
                 return R.drawable.ic_iconpassplus;
             case awaitingInspection:
-                return R.drawable.ic_iconwaiting;
-            case improvementRequired:
-                return R.drawable.ic_iconimprovementrequired;
+            case fhis_awaitingInspection:
+            case fhis_awaitingPublication:
             case awaitingPublication:
                 return R.drawable.ic_iconwaiting;
-            case other:
-                return R.drawable.ic_iconexempt;
+            case fhis_improvementRequired:
+                return R.drawable.ic_iconimprovementrequired;
             default:
                 return R.drawable.ic_iconexempt;
         }
@@ -125,49 +132,24 @@ public class Rating {
                 return R.drawable.fhrs_5;
             case exempt:
                 return R.drawable.fhrs_exempt;
-            case pass:
+            case fhis_exempt:
+                return R.drawable.fhis_exempt;
+            case fhis_pass:
                 return R.drawable.fhis_pass;
-            case passEatSafe:
+            case fhis_passEatSafe:
                 return R.drawable.fhis_pass_and_eat_safe;
             case awaitingInspection:
                 return R.drawable.fhrs_awaitinginspection;
-            case improvementRequired:
+            case fhis_improvementRequired:
                 return R.drawable.fhis_improvement_required;
             case awaitingPublication:
                 return R.drawable.fhrs_awaitingpublication;
+            case fhis_awaitingInspection:
+                return R.drawable.fhis_awaiting_inspection;
+            case fhis_awaitingPublication:
+                return R.drawable.fhis_awaiting_publication;
             default:
                 return R.drawable.fhrs_exempt;
-        }
-    }
-
-    public String getRatingDescription() {
-        switch (ratingValue){
-            case ratingOf0:
-                return "0 - Urgent Improvement Necessary";
-            case ratingOf1:
-                return "1 - Major Improvement Necessary";
-            case ratingOf2:
-                return "2 - Improvement Necessary";
-            case ratingOf3:
-                return "3 - Generally Satisfactory";
-            case ratingOf4:
-                return "4 - Good";
-            case ratingOf5:
-                return "5 - Very Good";
-            case exempt:
-                return "Exempt";
-            case pass:
-                return "Pass";
-            case passEatSafe:
-                return "Pass and Eat Safe";
-            case awaitingInspection:
-                return "Awaiting Inspection";
-            case improvementRequired:
-                return "Improvement Required";
-            case awaitingPublication:
-                return "Awaiting Publication";
-            default:
-                return "";
         }
     }
 }

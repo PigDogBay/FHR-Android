@@ -107,11 +107,11 @@ public class MapMarkers
                 return getBd4();
             case ratingOf5:
                 return getBd5();
-            case pass:
+            case fhis_pass:
                 return getBd4();
-            case passEatSafe:
+            case fhis_passEatSafe:
                 return getBd5();
-            case improvementRequired:
+            case fhis_improvementRequired:
                 return getBd1();
             default:
                 return getBdDefault();

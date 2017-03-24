@@ -79,7 +79,7 @@ public class MainModel {
 
     private void dummyData(){
         try {
-            String data = ActivityUtils.readResource(appContext, R.raw.stoke);
+            String data = ActivityUtils.readResource(appContext, R.raw.glasgow);
             dataProvider = new DummyDataProvider(data);
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -7,10 +7,13 @@ package com.pigdogbay.foodhygieneratings.model;
 public enum RatingValue {
     ratingOf0,ratingOf1,ratingOf2,ratingOf3,ratingOf4,ratingOf5,
     exempt,
-    pass,
-    passEatSafe,
     awaitingInspection,
-    improvementRequired,
     awaitingPublication,
+    fhis_exempt,
+    fhis_pass,
+    fhis_passEatSafe,
+    fhis_improvementRequired,
+    fhis_awaitingInspection,
+    fhis_awaitingPublication,
     other
 }
