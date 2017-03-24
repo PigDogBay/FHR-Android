@@ -173,6 +173,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         pushFragment(new MapFragment(), MapFragment.TAG);
     }
 
+    public void showHtmlText(int resourceId){
+        pushFragment(HtmlTextFragment.newInstance(resourceId), HtmlTextFragment.TAG);
+    }
+
     private void setUpTitle(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         int count = fragmentManager.getBackStackEntryCount();

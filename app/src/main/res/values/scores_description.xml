@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scores_description">
+        <![CDATA[
+            <html>
+            <body>
+            <h3>Hygiene</h3>
+            <p>
+            Hygienic handling of food including preparation, cooking, re-heating, cooling and storage
+            </p>
+            <h3>Structural</h3>
+            <p>
+            Cleanliness and condition of facilities and building (including having appropriate layout, ventilation, hand washing facilities and pest control) to enable good food hygiene
+            </p>
+            <h3>Management</h3>
+            <p>
+            System or checks in place to ensure that food sold or served is safe to eat, evidence that staff know about food safety, and the food safety officer has confidence that standards will be maintained in the future.
+            </p>
+            <h3>Scoring</h3>
+            <p>
+            <ul>
+            <li>0 - Very Good</li>
+            <li>5 - Good</li>
+            <li>10 - Generally Satisfactory</li>
+            <li>15 - improvement necessary</li>
+            <li>20 - major improvement necessary</li>
+            <li>25 - urgent improvement necessary</li>
+            </ul>
+            </p>
+            </body>
+            </html>
+        ]]>
+    </string>
+</resources>

@@ -83,6 +83,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
                 ActivityUtils.ShowWebPage(getActivity(),establishment.getLocalAuthority().getWeb());
                 break;
             case R.id.card_scores_info_button:
+                mainActivity.showHtmlText(R.string.scores_description);
                 break;
         }
     }
