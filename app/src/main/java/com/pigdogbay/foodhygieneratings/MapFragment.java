@@ -11,6 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
+import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FetchState;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
@@ -23,10 +24,6 @@ import java.util.List;
 public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, ObservableProperty.PropertyChangedObserver<FetchState> {
 
     public static final String TAG = "map";
-    private static final double ukEast = 1.46;
-    private static final double ukWest = -8.638;
-    private static final double ukNorth = 60.51;
-    private static final double ukSouth = 49.53;
 
     private GoogleMap googleMap;
     private MapMarkers mapMarkers;
@@ -90,9 +87,11 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             //fit markers
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             for (Establishment establishment : results) {
-                Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
-                m.setTag(establishment);
-                builder.include(m.getPosition());
+                if (establishment.getCoordinate().isWithinUk()) {
+                    Marker m = googleMap.addMarker(mapMarkers.createMarkerOptions(establishment));
+                    m.setTag(establishment);
+                    builder.include(m.getPosition());
+                }
             }
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(), 0);
             googleMap.animateCamera(cameraUpdate);
@@ -148,8 +147,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     private LatLngBounds createUKBounds(){
-        LatLng ukSouthWest = new LatLng(ukSouth,ukWest);
-        LatLng ukNorthEast = new LatLng(ukNorth,ukEast);
+        LatLng ukSouthWest = new LatLng(Coordinate.ukSouth,Coordinate.ukWest);
+        LatLng ukNorthEast = new LatLng(Coordinate.ukNorth,Coordinate.ukEast);
         return new LatLngBounds(ukSouthWest, ukNorthEast);
     }
 }
