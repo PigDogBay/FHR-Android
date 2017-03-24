@@ -1,5 +1,6 @@
 package com.pigdogbay.foodhygieneratings;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,13 +16,17 @@ import android.view.MenuItem;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.pigdogbay.foodhygieneratings.model.FetchState;
+import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.lib.utils.ObservableProperty;
 
-public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<FetchState> {
 
     private FloatingActionButton fabFilter;
     private AdView _AdView;
 
     private HomeFragment homeFragment;
+    private ProgressDialog progressDialog;
 
     private HomeFragment getHomeFragment() {
         if (homeFragment == null) {
@@ -60,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        MainModel.get(this).getDataProvider().getFetchStateProperty().addObserver(this);
+        update(MainModel.get(this).getDataProvider().getFetchStateProperty().getValue());
+    }
+
+    @Override
     protected void onRestart() {
         if (_AdView != null) {
             _AdView.resume();
@@ -73,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
+        MainModel.get(this).getDataProvider().getFetchStateProperty().removeObserver(this);
     }
 
     void setUpAds() {
@@ -188,4 +201,56 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
     }
 
+    @Override
+    public void update(ObservableProperty<FetchState> sender, final FetchState update) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                update(update);
+            }
+        });
+    }
+
+    private void update(FetchState state){
+        switch (state){
+            case ready:
+                break;
+            case requestingLocationAuthorization:
+                showBusy();
+                break;
+            case locating:
+                break;
+            case foundLocation:
+                break;
+            case notAuthorizedForLocating:
+                break;
+            case errorLocating:
+                break;
+            case loading:
+                showBusy();
+                break;
+            case loaded:
+                hideBusy();
+                break;
+            case error:
+                hideBusy();
+                break;
+        }
+
+    }
+
+    private void hideBusy() {
+        if (progressDialog!=null) {
+            progressDialog.cancel();
+        }
+    }
+
+    private void showBusy() {
+        if (progressDialog==null){
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
+        }
+        progressDialog.show();
+    }
 }
