@@ -108,6 +108,38 @@ public class Rating {
         }
     }
 
+    public int getLogoId(){
+        switch(ratingValue){
+
+            case ratingOf0:
+                return R.drawable.fhrs_0;
+            case ratingOf1:
+                return R.drawable.fhrs_1;
+            case ratingOf2:
+                return R.drawable.fhrs_2;
+            case ratingOf3:
+                return R.drawable.fhrs_3;
+            case ratingOf4:
+                return R.drawable.fhrs_4;
+            case ratingOf5:
+                return R.drawable.fhrs_5;
+            case exempt:
+                return R.drawable.fhrs_exempt;
+            case pass:
+                return R.drawable.fhis_pass;
+            case passEatSafe:
+                return R.drawable.fhis_pass_and_eat_safe;
+            case awaitingInspection:
+                return R.drawable.fhrs_awaitinginspection;
+            case improvementRequired:
+                return R.drawable.fhis_improvement_required;
+            case awaitingPublication:
+                return R.drawable.fhrs_awaitingpublication;
+            default:
+                return R.drawable.fhrs_exempt;
+        }
+    }
+
     public String getRatingDescription() {
         switch (ratingValue){
             case ratingOf0:

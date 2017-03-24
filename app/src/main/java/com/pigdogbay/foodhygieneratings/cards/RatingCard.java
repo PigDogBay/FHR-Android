@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.R;
@@ -41,19 +42,12 @@ public class RatingCard implements ICard {
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder{
-        private final View view;
-        private final TextView text;
 
-        ViewHolder(View itemView) {
-            super(itemView);
-            this.view = itemView;
-            text = (TextView) view.findViewById(R.id.card_text);
-
+        ViewHolder(View view) {
+            super(view);
             Rating rating = RatingCard.this.establishment.getRating();
 
             StringBuilder builder = new StringBuilder();
-            builder.append(rating.getRatingDescription());
-            builder.append("\n");
             if (rating.hasRating()) {
                 builder.append("Date Awarded: ");
                 String dateString = DateFormat.getDateInstance().format(rating.getAwardedDate());
@@ -64,7 +58,11 @@ public class RatingCard implements ICard {
                 }
             }
 
+            TextView text = (TextView) view.findViewById(R.id.card_text);
             text.setText(builder.toString());
+
+            ImageView imageView = (ImageView) view.findViewById(R.id.card_rating_logo);
+            imageView.setImageResource(rating.getLogoId());
 
 
         }

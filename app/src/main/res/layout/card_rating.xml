@@ -14,12 +14,21 @@
             android:text="RATING"
             />
 
+        <ImageView
+            android:id="@+id/card_rating_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/fhrs_5"
+            android:layout_gravity="center_horizontal"
+            />
+
         <TextView
             android:id="@+id/card_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             />
 
         <Button
