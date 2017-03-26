@@ -25,6 +25,8 @@ import com.google.android.gms.location.LocationServices;
 import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.Query;
+import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState> {
@@ -123,8 +125,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onResume() {
         super.onResume();
-        MainModel.get(this).getDataProvider().getAppStateProperty().addObserver(this);
-        update(MainModel.get(this).getDataProvider().getAppStateProperty().getValue());
+        MainModel.get(this).getAppStateProperty().addObserver(this);
+        update(MainModel.get(this).getAppStateProperty().getValue());
     }
 
     @Override
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
-        MainModel.get(this).getDataProvider().getAppStateProperty().removeObserver(this);
+        MainModel.get(this).getAppStateProperty().removeObserver(this);
     }
 
     void setUpAds() {
@@ -320,4 +322,14 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         progressDialog.show();
     }
 
+    public void findLocalEstablishments(){
+        MainModel mainModel = MainModel.get(this);
+        //TODO do co-ordinate lookup
+        Query query = new Query( -2.204094,52.984120,1);
+        if (mainModel.findEstablishments(query)) {
+            mainModel.setSearchType(SearchType.local);
+            showResults();
+        }
+
+    }
 }

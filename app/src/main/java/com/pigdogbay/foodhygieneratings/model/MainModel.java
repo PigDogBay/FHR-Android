@@ -4,11 +4,14 @@ import android.content.Context;
 
 import com.pigdogbay.foodhygieneratings.R;
 import com.pigdogbay.lib.utils.ActivityUtils;
+import com.pigdogbay.lib.utils.ObservableProperty;
 import com.pigdogbay.lib.utils.PreferencesHelper;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,6 +24,11 @@ import java.util.List;
  *
  */
 public class MainModel {
+
+    interface IDataProvider {
+        List<Establishment> findEstablishments(Query query) throws IOException, JSONException, ParseException;
+    }
+
     private static MainModel mainModel;
     private PreferencesHelper preferencesHelper;
     private IDataProvider dataProvider;
@@ -28,9 +36,25 @@ public class MainModel {
     private List<LocalAuthority> localAuthorities;
     private SearchType searchType;
     private Establishment selectedEstablishment;
+    private ObservableProperty<AppState> appStateObservableProperty;
+    private List<Establishment> results;
+    private Coordinate coordinate;
+    private boolean isBusy = false;
 
-    public IDataProvider getDataProvider() {
-        return dataProvider;
+    public ObservableProperty<AppState> getAppStateProperty() {
+        return appStateObservableProperty;
+    }
+
+    public List<Establishment> getResults() {
+        return results;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     public PreferencesHelper getPreferencesHelper() {
@@ -76,6 +100,9 @@ public class MainModel {
         //dummyData();
         dataProvider = new WebDataProvider();
         searchType = SearchType.local;
+        appStateObservableProperty = new ObservableProperty<>(AppState.ready);
+        results = new ArrayList<>();
+        coordinate = Coordinate.getEmptyCoordinate();
     }
 
     private void dummyData(){
@@ -116,7 +143,6 @@ public class MainModel {
     }
 
     public void sortByDistance(){
-        List<Establishment> results = getDataProvider().getResults();
         if (results!=null && results.size()>1){
             Collections.sort(results, new Comparator<Establishment>() {
                 @Override
@@ -126,5 +152,26 @@ public class MainModel {
             });
         }
     }
+
+    public boolean findEstablishments(final Query query) {
+        if (isBusy){
+            return false;
+        }
+        isBusy = true;
+        appStateObservableProperty.setValue(AppState.loading);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    results = dataProvider.findEstablishments(query);
+                } catch (Exception e) {
+                    appStateObservableProperty.setValue(AppState.error);
+                }
+                appStateObservableProperty.setValue(AppState.loaded);
+            }
+        }).start();
+        return true;
+    }
+
 
 }

@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
-import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 import com.pigdogbay.lib.utils.ObservableProperty;
@@ -32,8 +31,8 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     private ResultsAdapter resultsAdapter;
 
-    private IDataProvider getDataProvider(){
-        return MainModel.get(getContext()).getDataProvider();
+    private MainModel getMainModel(){
+        return MainModel.get(getContext());
     }
 
     public ResultsFragment() {
@@ -77,14 +76,14 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     @Override
     public void onResume() {
         super.onResume();
-        getDataProvider().getAppStateProperty().addObserver(this);
-        update(getDataProvider().getAppStateProperty().getValue());
+        getMainModel().getAppStateProperty().addObserver(this);
+        update(getMainModel().getAppStateProperty().getValue());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        getDataProvider().getAppStateProperty().removeObserver(this);
+        getMainModel().getAppStateProperty().removeObserver(this);
     }
 
     @Override
@@ -122,7 +121,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     }
 
     void reloadTable(){
-        List<Establishment> results = getDataProvider().getResults();
+        List<Establishment> results = getMainModel().getResults();
         if (results.size()>0){
             MainModel.get(getContext()).sortResults();
             resultsAdapter.clear();

@@ -14,7 +14,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
-import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 import com.pigdogbay.lib.utils.ObservableProperty;
@@ -27,8 +26,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     private GoogleMap googleMap;
     private MapMarkers mapMarkers;
-    private IDataProvider getDataProvider(){
-        return MainModel.get(getContext()).getDataProvider();
+    private MainModel getMainModel(){
+        return MainModel.get(getContext());
     }
 
     public MapFragment() {
@@ -45,14 +44,14 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onResume() {
         super.onResume();
-        getDataProvider().getAppStateProperty().addObserver(this);
+        getMainModel().getAppStateProperty().addObserver(this);
         update();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        getDataProvider().getAppStateProperty().removeObserver(this);
+        getMainModel().getAppStateProperty().removeObserver(this);
     }
 
     /**
@@ -75,7 +74,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     private void addMarkers(){
-        List<Establishment> results = getDataProvider().getResults();
+        List<Establishment> results = getMainModel().getResults();
         if (results.size()==0){
             //do nothing
         } else if (results.size()==1) {
@@ -116,7 +115,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     private void update(){
-        AppState state = getDataProvider().getAppStateProperty().getValue();
+        AppState state = getMainModel().getAppStateProperty().getValue();
         update(state);
     }
 
