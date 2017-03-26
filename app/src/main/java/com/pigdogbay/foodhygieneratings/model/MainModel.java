@@ -73,7 +73,8 @@ public class MainModel {
      */
     public MainModel(Context appContext) {
         this.appContext = appContext;
-        dummyData();
+        //dummyData();
+        dataProvider = new WebDataProvider();
         searchType = SearchType.local;
     }
 
