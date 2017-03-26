@@ -13,7 +13,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
-import com.pigdogbay.foodhygieneratings.model.FetchState;
+import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
@@ -21,7 +21,7 @@ import com.pigdogbay.lib.utils.ObservableProperty;
 
 import java.util.List;
 
-public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, ObservableProperty.PropertyChangedObserver<FetchState> {
+public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, ObservableProperty.PropertyChangedObserver<AppState> {
 
     public static final String TAG = "map";
 
@@ -45,14 +45,14 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onResume() {
         super.onResume();
-        getDataProvider().getFetchStateProperty().addObserver(this);
+        getDataProvider().getAppStateProperty().addObserver(this);
         update();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        getDataProvider().getFetchStateProperty().removeObserver(this);
+        getDataProvider().getAppStateProperty().removeObserver(this);
     }
 
     /**
@@ -106,7 +106,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     @Override
-    public void update(ObservableProperty<FetchState> sender, final FetchState update) {
+    public void update(ObservableProperty<AppState> sender, final AppState update) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -116,11 +116,11 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
     private void update(){
-        FetchState state = getDataProvider().getFetchStateProperty().getValue();
+        AppState state = getDataProvider().getAppStateProperty().getValue();
         update(state);
     }
 
-    private void update(FetchState state){
+    private void update(AppState state){
         switch (state){
             case ready:
                 break;

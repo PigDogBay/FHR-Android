@@ -9,7 +9,7 @@ import java.util.List;
  *
  */
 public interface IDataProvider {
-    ObservableProperty<FetchState> getFetchStateProperty();
+    ObservableProperty<AppState> getAppStateProperty();
     List<Establishment> getResults();
     Coordinate getCoordinate();
     boolean findLocalEstablishments();

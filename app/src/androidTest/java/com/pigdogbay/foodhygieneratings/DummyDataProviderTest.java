@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 
 import com.pigdogbay.foodhygieneratings.model.DummyDataProvider;
-import com.pigdogbay.foodhygieneratings.model.FetchState;
+import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.lib.utils.ActivityUtils;
 import com.pigdogbay.lib.utils.ObservableProperty;
@@ -21,35 +21,35 @@ import static org.junit.Assert.assertThat;
  * Created by Mark on 20/03/2017.
  *
  */
-public class DummyDataProviderTest implements ObservableProperty.PropertyChangedObserver<FetchState> {
+public class DummyDataProviderTest implements ObservableProperty.PropertyChangedObserver<AppState> {
 
     private IDataProvider target;
-    private FetchState state = FetchState.ready;
+    private AppState state = AppState.ready;
 
     @Before
     public void setUp() throws Exception {
         Context context = InstrumentationRegistry.getTargetContext();
         String data = ActivityUtils.readResource(context,R.raw.stoke);
         target = new DummyDataProvider(data);
-        target.getFetchStateProperty().addObserver(this);
+        target.getAppStateProperty().addObserver(this);
     }
 
     @After
     public void tearDown() throws Exception {
-        target.getFetchStateProperty().removeObserver(this);
+        target.getAppStateProperty().removeObserver(this);
     }
 
     @Test
     public void test1() throws Exception {
         target.findLocalEstablishments();
-        while (state!=FetchState.loaded){
+        while (state!= AppState.loaded){
             Thread.sleep(100);
         }
         assertThat(target.getResults().size(),is(99));
     }
 
     @Override
-    public void update(ObservableProperty<FetchState> sender, FetchState update) {
+    public void update(ObservableProperty<AppState> sender, AppState update) {
         this.state = update;
     }
 }

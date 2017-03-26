@@ -15,20 +15,20 @@ import java.util.List;
  */
 class WebDataProvider implements IDataProvider {
 
-    private ObservableProperty<FetchState> fetchStateObservableProperty;
+    private ObservableProperty<AppState> appStateObservableProperty;
     private List<Establishment> results;
     private Coordinate coordinate;
     private boolean isBusy = false;
 
     WebDataProvider(){
-        fetchStateObservableProperty = new ObservableProperty<>(FetchState.ready);
+        appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
         coordinate = Coordinate.getEmptyCoordinate();
 
     }
     @Override
-    public ObservableProperty<FetchState> getFetchStateProperty() {
-        return fetchStateObservableProperty;
+    public ObservableProperty<AppState> getAppStateProperty() {
+        return appStateObservableProperty;
     }
 
     @Override
@@ -51,8 +51,8 @@ class WebDataProvider implements IDataProvider {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                fetchStateObservableProperty.setValue(FetchState.locating);
-                fetchStateObservableProperty.setValue(FetchState.foundLocation);
+                appStateObservableProperty.setValue(AppState.locating);
+                appStateObservableProperty.setValue(AppState.foundLocation);
                 Query query = new Query(-2.204094,52.984120,1);
                 search(query);
                 isBusy = false;
@@ -71,14 +71,14 @@ class WebDataProvider implements IDataProvider {
     }
 
     private void search(Query query){
-        fetchStateObservableProperty.setValue(FetchState.loading);
+        appStateObservableProperty.setValue(AppState.loading);
         Uri uri = WebServiceClient.createQueryUri(query);
         try {
             final JSONObject json = WebServiceClient.getJson(uri);
             this.results = FoodHygieneAPI.parseEstablishments(json);
-            fetchStateObservableProperty.setValue(FetchState.loaded);
+            appStateObservableProperty.setValue(AppState.loaded);
         } catch (Exception e) {
-            fetchStateObservableProperty.setValue(FetchState.error);
+            appStateObservableProperty.setValue(AppState.error);
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class DummyDataProvider implements IDataProvider {
 
-    private ObservableProperty<FetchState> fetchStateObservableProperty;
+    private ObservableProperty<AppState> appStateObservableProperty;
     private List<Establishment> results;
     private Coordinate coordinate;
     private final String jsonData;
@@ -21,14 +21,14 @@ public class DummyDataProvider implements IDataProvider {
 
     public DummyDataProvider(String jsonData){
         this.jsonData = jsonData;
-        fetchStateObservableProperty = new ObservableProperty<>(FetchState.ready);
+        appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
         coordinate = Coordinate.getEmptyCoordinate();
     }
 
     @Override
-    public ObservableProperty<FetchState> getFetchStateProperty() {
-        return fetchStateObservableProperty;
+    public ObservableProperty<AppState> getAppStateProperty() {
+        return appStateObservableProperty;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class DummyDataProvider implements IDataProvider {
             return false;
         }
         isBusy = true;
-        fetchStateObservableProperty.setValue(FetchState.ready);
+        appStateObservableProperty.setValue(AppState.ready);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                fetchStateObservableProperty.setValue(FetchState.locating);
+                appStateObservableProperty.setValue(AppState.locating);
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
@@ -59,7 +59,7 @@ public class DummyDataProvider implements IDataProvider {
                 }
                 //Stoke
                 coordinate = new Coordinate(-2.204094,52.984120);
-                fetchStateObservableProperty.setValue(FetchState.foundLocation);
+                appStateObservableProperty.setValue(AppState.foundLocation);
                 search();
                 isBusy = false;
             }
@@ -73,7 +73,7 @@ public class DummyDataProvider implements IDataProvider {
             return false;
         }
         isBusy = true;
-        fetchStateObservableProperty.setValue(FetchState.ready);
+        appStateObservableProperty.setValue(AppState.ready);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -86,15 +86,15 @@ public class DummyDataProvider implements IDataProvider {
 
     private void search(){
         try {
-            fetchStateObservableProperty.setValue(FetchState.loading);
+            appStateObservableProperty.setValue(AppState.loading);
             JSONObject jsonObject = new JSONObject(jsonData);
             Thread.sleep(1000);
             results = FoodHygieneAPI.parseEstablishments(jsonObject);
-            fetchStateObservableProperty.setValue(FetchState.loaded);
+            appStateObservableProperty.setValue(AppState.loaded);
 
         } catch (Exception e) {
             e.printStackTrace();
-            fetchStateObservableProperty.setValue(FetchState.error);
+            appStateObservableProperty.setValue(AppState.error);
         }
 
     }

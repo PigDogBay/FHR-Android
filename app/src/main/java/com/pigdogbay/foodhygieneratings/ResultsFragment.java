@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
-import com.pigdogbay.foodhygieneratings.model.FetchState;
+import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.IDataProvider;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
@@ -26,7 +26,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 @SuppressWarnings("ConstantConditions")
-public class ResultsFragment extends Fragment implements OnListItemClickedListener<Establishment>, ObservableProperty.PropertyChangedObserver<FetchState> {
+public class ResultsFragment extends Fragment implements OnListItemClickedListener<Establishment>, ObservableProperty.PropertyChangedObserver<AppState> {
 
     public static final String TAG = "results";
 
@@ -77,18 +77,18 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     @Override
     public void onResume() {
         super.onResume();
-        getDataProvider().getFetchStateProperty().addObserver(this);
-        update(getDataProvider().getFetchStateProperty().getValue());
+        getDataProvider().getAppStateProperty().addObserver(this);
+        update(getDataProvider().getAppStateProperty().getValue());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        getDataProvider().getFetchStateProperty().removeObserver(this);
+        getDataProvider().getAppStateProperty().removeObserver(this);
     }
 
     @Override
-    public void update(ObservableProperty<FetchState> sender, final FetchState update) {
+    public void update(ObservableProperty<AppState> sender, final AppState update) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -97,7 +97,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         });
     }
 
-    private void update(FetchState state){
+    private void update(AppState state){
         switch (state){
             case ready:
                 break;

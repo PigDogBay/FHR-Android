@@ -23,11 +23,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.pigdogbay.foodhygieneratings.model.Coordinate;
-import com.pigdogbay.foodhygieneratings.model.FetchState;
+import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
-public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<FetchState> {
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState> {
 
     private FloatingActionButton fabFilter;
     private AdView _AdView;
@@ -123,8 +123,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onResume() {
         super.onResume();
-        MainModel.get(this).getDataProvider().getFetchStateProperty().addObserver(this);
-        update(MainModel.get(this).getDataProvider().getFetchStateProperty().getValue());
+        MainModel.get(this).getDataProvider().getAppStateProperty().addObserver(this);
+        update(MainModel.get(this).getDataProvider().getAppStateProperty().getValue());
     }
 
     @Override
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
-        MainModel.get(this).getDataProvider().getFetchStateProperty().removeObserver(this);
+        MainModel.get(this).getDataProvider().getAppStateProperty().removeObserver(this);
     }
 
     void setUpAds() {
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     @Override
-    public void update(ObservableProperty<FetchState> sender, final FetchState update) {
+    public void update(ObservableProperty<AppState> sender, final AppState update) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         });
     }
 
-    private void update(FetchState state){
+    private void update(AppState state){
         switch (state){
             case ready:
                 break;
