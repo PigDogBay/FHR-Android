@@ -7,11 +7,6 @@ package com.pigdogbay.foodhygieneratings.model;
 public enum AppState
 {
     ready,
-    requestingLocationAuthorization,
-    locating,
-    foundLocation,
-    notAuthorizedForLocating,
-    errorLocating,
     loading,
     loaded,
     error

@@ -100,16 +100,6 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         switch (state){
             case ready:
                 break;
-            case requestingLocationAuthorization:
-                break;
-            case locating:
-                break;
-            case foundLocation:
-                break;
-            case notAuthorizedForLocating:
-                break;
-            case errorLocating:
-                break;
             case loading:
                 break;
             case loaded:

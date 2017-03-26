@@ -123,16 +123,6 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         switch (state){
             case ready:
                 break;
-            case requestingLocationAuthorization:
-                break;
-            case locating:
-                break;
-            case foundLocation:
-                break;
-            case notAuthorizedForLocating:
-                break;
-            case errorLocating:
-                break;
             case loading:
                 break;
             case loaded:

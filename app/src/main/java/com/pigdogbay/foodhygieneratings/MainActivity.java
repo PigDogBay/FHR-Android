@@ -264,17 +264,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         switch (state) {
             case ready:
                 break;
-            case requestingLocationAuthorization:
-                showBusy();
-                break;
-            case locating:
-                break;
-            case foundLocation:
-                break;
-            case notAuthorizedForLocating:
-                break;
-            case errorLocating:
-                break;
             case loading:
                 showBusy();
                 break;
