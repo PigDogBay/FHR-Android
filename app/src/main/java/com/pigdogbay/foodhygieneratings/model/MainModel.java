@@ -38,7 +38,6 @@ public class MainModel {
     private Establishment selectedEstablishment;
     private ObservableProperty<AppState> appStateObservableProperty;
     private List<Establishment> results;
-    private Coordinate coordinate;
     private boolean isBusy = false;
 
     public ObservableProperty<AppState> getAppStateProperty() {
@@ -48,13 +47,8 @@ public class MainModel {
     public List<Establishment> getResults() {
         return results;
     }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public boolean isBusy() {
+        return isBusy;
     }
 
     public PreferencesHelper getPreferencesHelper() {
@@ -102,7 +96,6 @@ public class MainModel {
         searchType = SearchType.local;
         appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
-        coordinate = Coordinate.getEmptyCoordinate();
     }
 
     private void dummyData(){
@@ -167,6 +160,7 @@ public class MainModel {
                 } catch (Exception e) {
                     appStateObservableProperty.setValue(AppState.error);
                 }
+                isBusy = false;
                 appStateObservableProperty.setValue(AppState.loaded);
             }
         }).start();

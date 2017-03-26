@@ -29,6 +29,8 @@ import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState> {
 
     private FloatingActionButton fabFilter;
@@ -56,43 +58,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         return homeFragment;
     }
 
-    public Coordinate getLocation() {
-        Log.v("mpdb", "getLocation--------------->");
-        GoogleApiClient apiClient = getGoogleApiClient();
-        if (!apiClient.isConnected()) {
-            Log.v("mpdb", "connecting...");
-            final ConnectionResult connectionResult = apiClient.blockingConnect();
-            if (!connectionResult.isSuccess()) {
-                Log.v("mpdb", "Connection error");
-                return Coordinate.getEmptyCoordinate();
-            }
-        }
-        Log.v("mpdb", "Checking permission");
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                Log.v("mpdb", "requesting permission");
-                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
-
-            return Coordinate.getEmptyCoordinate();
-        }
-        Log.v("mpdb", "Getting last location...");
-        final Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(apiClient);
-        Log.v("mpdb", lastLocation.toString());
-        return new Coordinate(lastLocation.getLongitude(),lastLocation.getLatitude());
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.v("mpdb", "Request Permission Result");
-        for (String s : permissions){
-            Log.v("mpdb", s);
-        }
-        for (int i : grantResults){
-            Log.v("mpdb", "Grant "+String.valueOf(i));
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
-        if (backStackCount==0){
+        if (backStackCount == 0) {
             showHome();
-        } else if (backStackCount>1) {
+        } else if (backStackCount > 1) {
             setNavigateHome(true);
             setUpTitle();
         }
@@ -144,6 +109,20 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
         super.onPause();
         MainModel.get(this).getAppStateProperty().removeObserver(this);
+    }
+
+    @Override
+    protected void onStart() {
+        getGoogleApiClient().connect();
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        if (googleApiClient != null) {
+            googleApiClient.disconnect();
+        }
+        super.onStop();
     }
 
     void setUpAds() {
@@ -204,8 +183,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
 
-
-
     private void setNavigateHome(boolean enabled) {
         final ActionBar ab = getSupportActionBar();
         if (ab != null) {
@@ -237,17 +214,19 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         pushFragment(new EstablishmentMapFragment(), EstablishmentMapFragment.TAG);
     }
 
-    public void showHtmlText(int resourceId){
+    public void showHtmlText(int resourceId) {
         pushFragment(HtmlTextFragment.newInstance(resourceId), HtmlTextFragment.TAG);
     }
 
-    private void setUpTitle(){
+    private void setUpTitle() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         int count = fragmentManager.getBackStackEntryCount();
-        if (count == 0) { return;}
+        if (count == 0) {
+            return;
+        }
         String tag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
 
-        switch (tag){
+        switch (tag) {
             case ResultsFragment.TAG:
                 setTitle("Results");
                 break;
@@ -279,8 +258,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         });
     }
 
-    private void update(AppState state){
-        switch (state){
+    private void update(AppState state) {
+        switch (state) {
             case ready:
                 break;
             case requestingLocationAuthorization:
@@ -308,13 +287,13 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     private void hideBusy() {
-        if (progressDialog!=null) {
+        if (progressDialog != null) {
             progressDialog.cancel();
         }
     }
 
     private void showBusy() {
-        if (progressDialog==null){
+        if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Loading...");
             progressDialog.setCancelable(false);
@@ -322,14 +301,34 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         progressDialog.show();
     }
 
-    public void findLocalEstablishments(){
-        MainModel mainModel = MainModel.get(this);
-        //TODO do co-ordinate lookup
-        Query query = new Query( -2.204094,52.984120,1);
-        if (mainModel.findEstablishments(query)) {
-            mainModel.setSearchType(SearchType.local);
-            showResults();
-        }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (    requestCode == LOCATION_PERMISSION_REQUEST_CODE &&
+                permissions.length>0 &&
+                android.Manifest.permission.ACCESS_FINE_LOCATION.equals(permissions[0]) &&
+                grantResults[0]== PERMISSION_GRANTED ){
+            //try again
+            findLocalEstablishments();
+        }
+    }
+
+    public void findLocalEstablishments() {
+        MainModel mainModel = MainModel.get(this);
+        if (!mainModel.isBusy() && getGoogleApiClient().isConnected()) {
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_PERMISSION_REQUEST_CODE);
+                return;
+            }
+            final Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(getGoogleApiClient());
+            if (lastLocation != null) {
+                Query query = new Query(lastLocation.getLongitude(), lastLocation.getLatitude(), 1);
+                if (mainModel.findEstablishments(query)) {
+                    mainModel.setSearchType(SearchType.local);
+                    showResults();
+                }
+            }
+        }
     }
 }
