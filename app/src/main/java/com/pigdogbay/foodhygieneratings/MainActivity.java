@@ -1,7 +1,6 @@
 package com.pigdogbay.foodhygieneratings;
 
 import android.app.ProgressDialog;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,16 +12,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
-import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
@@ -39,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     private HomeFragment homeFragment;
     private ProgressDialog progressDialog;
     private GoogleApiClient googleApiClient;
+    private boolean flagFindPlacesNearToMe = false;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -92,6 +89,11 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         super.onResume();
         MainModel.get(this).getAppStateProperty().addObserver(this);
         update(MainModel.get(this).getAppStateProperty().getValue());
+        //User gave permission to use location
+        if (flagFindPlacesNearToMe){
+            flagFindPlacesNearToMe = false;
+            findLocalEstablishments();
+        }
     }
 
     @Override
@@ -309,8 +311,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 permissions.length>0 &&
                 android.Manifest.permission.ACCESS_FINE_LOCATION.equals(permissions[0]) &&
                 grantResults[0]== PERMISSION_GRANTED ){
-            //try again
-            findLocalEstablishments();
+            //try again, have to use onResume (android Bug)
+            //http://stackoverflow.com/questions/33264031/calling-dialogfragments-show-from-within-onrequestpermissionsresult-causes
+            flagFindPlacesNearToMe = true;
         }
     }
 
