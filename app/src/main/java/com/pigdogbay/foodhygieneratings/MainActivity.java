@@ -1,19 +1,28 @@
 package com.pigdogbay.foodhygieneratings;
 
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.MenuItem;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.FetchState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.utils.ObservableProperty;
@@ -25,12 +34,61 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     private HomeFragment homeFragment;
     private ProgressDialog progressDialog;
+    private GoogleApiClient googleApiClient;
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+
+    public GoogleApiClient getGoogleApiClient() {
+        if (googleApiClient == null) {
+            googleApiClient = new GoogleApiClient.Builder(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
+        return googleApiClient;
+    }
 
     private HomeFragment getHomeFragment() {
         if (homeFragment == null) {
             homeFragment = new HomeFragment();
         }
         return homeFragment;
+    }
+
+    public Coordinate getLocation() {
+        Log.v("mpdb", "getLocation--------------->");
+        GoogleApiClient apiClient = getGoogleApiClient();
+        if (!apiClient.isConnected()) {
+            Log.v("mpdb", "connecting...");
+            final ConnectionResult connectionResult = apiClient.blockingConnect();
+            if (!connectionResult.isSuccess()) {
+                Log.v("mpdb", "Connection error");
+                return Coordinate.getEmptyCoordinate();
+            }
+        }
+        Log.v("mpdb", "Checking permission");
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                Log.v("mpdb", "requesting permission");
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+
+            return Coordinate.getEmptyCoordinate();
+        }
+        Log.v("mpdb", "Getting last location...");
+        final Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(apiClient);
+        Log.v("mpdb", lastLocation.toString());
+        return new Coordinate(lastLocation.getLongitude(),lastLocation.getLatitude());
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.v("mpdb", "Request Permission Result");
+        for (String s : permissions){
+            Log.v("mpdb", s);
+        }
+        for (int i : grantResults){
+            Log.v("mpdb", "Grant "+String.valueOf(i));
+        }
     }
 
     @Override
@@ -261,4 +319,5 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
         progressDialog.show();
     }
+
 }
