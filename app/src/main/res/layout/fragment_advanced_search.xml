@@ -21,11 +21,11 @@
             android:layout_marginLeft="24dp"
             android:layout_marginStart="24dp"
             android:text="Name"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editText3"
+            app:layout_constraintBaseline_toBaselineOf="@+id/advanced_business_text"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/advanced_business_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -54,16 +54,16 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/advanced_business_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:entries="@array/business_types"
             android:spinnerMode="dialog"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/editText3"
-            app:layout_constraintRight_toRightOf="@+id/editText3"
-            app:layout_constraintTop_toBottomOf="@+id/editText3"/>
+            app:layout_constraintLeft_toLeftOf="@+id/advanced_business_text"
+            app:layout_constraintRight_toRightOf="@+id/advanced_business_text"
+            app:layout_constraintTop_toBottomOf="@+id/advanced_business_text"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -74,7 +74,7 @@
             android:layout_marginTop="4dp"
             android:text="Type"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spinner"/>
+            app:layout_constraintTop_toTopOf="@+id/advanced_business_spinner"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -86,7 +86,7 @@
             android:text="LOCATION"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner"/>
+            app:layout_constraintTop_toBottomOf="@+id/advanced_business_spinner"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -98,7 +98,7 @@
             android:text="HYGIENE RATING"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner3"/>
+            app:layout_constraintTop_toBottomOf="@+id/advanced_area_spinner"/>
 
         <TextView
             android:id="@+id/textView12"
@@ -110,14 +110,14 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/spinner6"/>
+            app:layout_constraintTop_toBottomOf="@+id/advanced_rating_operator_spinner"/>
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Place"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editText4"
+            app:layout_constraintBaseline_toBaselineOf="@+id/advanced_place_text"
             app:layout_constraintLeft_toLeftOf="@+id/textView6"/>
 
         <TextView
@@ -127,21 +127,21 @@
             android:layout_marginTop="4dp"
             android:text="Area"
             app:layout_constraintLeft_toLeftOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/spinner3"/>
+            app:layout_constraintTop_toTopOf="@+id/advanced_area_spinner"/>
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/advanced_area_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:entries="@array/local_authority_area"
             android:spinnerMode="dialog"
-            app:layout_constraintLeft_toLeftOf="@+id/editText4"
-            app:layout_constraintRight_toRightOf="@+id/editText4"
-            app:layout_constraintTop_toBottomOf="@+id/editText4"/>
+            app:layout_constraintLeft_toLeftOf="@+id/advanced_place_text"
+            app:layout_constraintRight_toRightOf="@+id/advanced_place_text"
+            app:layout_constraintTop_toBottomOf="@+id/advanced_place_text"/>
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/advanced_place_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -149,8 +149,8 @@
             android:hint="@string/home_enter_place_hint"
             android:inputType="textPersonName"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/editText3"
-            app:layout_constraintRight_toRightOf="@+id/editText3"
+            app:layout_constraintLeft_toLeftOf="@+id/advanced_business_text"
+            app:layout_constraintRight_toRightOf="@+id/advanced_business_text"
             app:layout_constraintTop_toBottomOf="@+id/textView6"/>
 
         <TextView
@@ -160,16 +160,16 @@
             android:layout_marginTop="4dp"
             android:text="Rating"
             app:layout_constraintLeft_toLeftOf="@+id/textView9"
-            app:layout_constraintTop_toTopOf="@+id/spinner5"/>
+            app:layout_constraintTop_toTopOf="@+id/advanced_rating_spinner"/>
 
         <Spinner
-            android:id="@+id/spinner5"
+            android:id="@+id/advanced_rating_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:entries="@array/hygiene_rating"
-            app:layout_constraintLeft_toLeftOf="@+id/spinner6"
-            app:layout_constraintRight_toRightOf="@+id/spinner3"
+            app:layout_constraintLeft_toLeftOf="@+id/advanced_rating_operator_spinner"
+            app:layout_constraintRight_toRightOf="@+id/advanced_area_spinner"
             app:layout_constraintTop_toBottomOf="@+id/textView9"/>
 
         <TextView
@@ -179,10 +179,10 @@
             android:layout_marginTop="4dp"
             android:text="Comparison"
             app:layout_constraintLeft_toLeftOf="@+id/textView10"
-            app:layout_constraintTop_toTopOf="@+id/spinner6"/>
+            app:layout_constraintTop_toTopOf="@+id/advanced_rating_operator_spinner"/>
 
         <Spinner
-            android:id="@+id/spinner6"
+            android:id="@+id/advanced_rating_operator_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
@@ -190,8 +190,8 @@
             android:entries="@array/rating_comparison"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/textView11"
-            app:layout_constraintRight_toRightOf="@+id/spinner5"
-            app:layout_constraintTop_toBottomOf="@+id/spinner5"
+            app:layout_constraintRight_toRightOf="@+id/advanced_rating_spinner"
+            app:layout_constraintTop_toBottomOf="@+id/advanced_rating_spinner"
             android:layout_marginStart="24dp"/>
 
         <TextView
@@ -201,11 +201,11 @@
             android:text="Status"
             app:layout_constraintLeft_toLeftOf="@+id/textView12"
             android:layout_marginLeft="0dp"
-            app:layout_constraintTop_toTopOf="@+id/spinner7"
+            app:layout_constraintTop_toTopOf="@+id/advanced_status_spinner"
             android:layout_marginTop="4dp"/>
 
         <Spinner
-            android:id="@+id/spinner7"
+            android:id="@+id/advanced_status_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -213,8 +213,8 @@
             android:layout_marginTop="16dp"
             android:entries="@array/rating_status"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/spinner6"
-            app:layout_constraintRight_toRightOf="@+id/spinner6"
+            app:layout_constraintLeft_toLeftOf="@+id/advanced_rating_operator_spinner"
+            app:layout_constraintRight_toRightOf="@+id/advanced_rating_operator_spinner"
             app:layout_constraintTop_toBottomOf="@+id/textView12"/>
 
     </android.support.constraint.ConstraintLayout>

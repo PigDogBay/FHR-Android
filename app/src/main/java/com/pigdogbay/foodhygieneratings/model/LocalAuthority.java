@@ -2,8 +2,8 @@ package com.pigdogbay.foodhygieneratings.model;
 
 /**
  * Created by Mark on 18/03/2017.
+ *
  */
-
 public class LocalAuthority {
 
     private final String name, code;
@@ -64,4 +64,18 @@ public class LocalAuthority {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    private static LocalAuthority ALL;
+    public static LocalAuthority getALL() {
+        if (ALL==null){
+            ALL = new LocalAuthority("All", "-1");
+        }
+        return ALL;
+    }
+
 }
