@@ -2,12 +2,14 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import com.pigdogbay.foodhygieneratings.model.LocalAuthority;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
+import com.pigdogbay.lib.utils.ActivityUtils;
 
 public class AdvancedSearchFragment extends Fragment {
 
@@ -47,6 +50,16 @@ public class AdvancedSearchFragment extends Fragment {
 
     private void wireUpControls(View view){
         placeTextView = (TextView) view.findViewById(R.id.advanced_place_text);
+        placeTextView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (EditorInfo.IME_ACTION_SEARCH==i){
+                    search();
+                    return true;
+                }
+                return false;
+            }
+        });
         nameTextView = (TextView) view.findViewById(R.id.advanced_business_text);
         businessTypeSpinner = (Spinner) view.findViewById(R.id.advanced_business_spinner);
         areaSpinner = (Spinner) view.findViewById(R.id.advanced_area_spinner);
@@ -115,6 +128,7 @@ public class AdvancedSearchFragment extends Fragment {
     }
 
     private void search() {
+        ActivityUtils.hideKeyboard(getActivity(),placeTextView.getWindowToken());
         Query query = createQuery();
         if (getMainModel().findEstablishments(query)){
             MainModel.get(getContext()).setSearchType(SearchType.advanced);
