@@ -111,6 +111,18 @@ public class HomeFragment extends Fragment{
             }
         });
 
+        view.findViewById(R.id.home_business_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTextView.setText("");
+            }
+        });
+        view.findViewById(R.id.home_place_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                placeTextView.setText("");
+            }
+        });
     }
 
     private void quickSearch() {
