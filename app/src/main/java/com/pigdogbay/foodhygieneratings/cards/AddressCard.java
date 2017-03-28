@@ -56,7 +56,7 @@ public class AddressCard implements ICard {
             itemView.findViewById(R.id.card_address_map_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_address_map_button, "");
+                    listener.onButtonPressed(R.id.card_address_map_button, null);
                 }
             });
 

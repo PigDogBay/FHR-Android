@@ -70,7 +70,7 @@ public class ScoresCard implements ICard {
             itemView.findViewById(R.id.card_scores_info_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_scores_info_button, "");
+                    listener.onButtonPressed(R.id.card_scores_info_button, null);
                 }
             });
 

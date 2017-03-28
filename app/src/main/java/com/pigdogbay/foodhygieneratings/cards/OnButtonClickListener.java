@@ -6,5 +6,5 @@ package com.pigdogbay.foodhygieneratings.cards;
  */
 public interface OnButtonClickListener
 {
-    void onButtonPressed(int id, String args);
+    void onButtonPressed(int id, String[] args);
 }

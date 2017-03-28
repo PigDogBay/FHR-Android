@@ -66,7 +66,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
 
     @Override
-    public void onButtonPressed(int id, String args) {
+    public void onButtonPressed(int id, String[] args) {
         MainActivity mainActivity = (MainActivity) getActivity();
         switch (id){
             case R.id.card_business_website_button:

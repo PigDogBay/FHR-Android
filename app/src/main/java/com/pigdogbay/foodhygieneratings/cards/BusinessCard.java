@@ -58,7 +58,7 @@ public class BusinessCard implements ICard {
             view.findViewById(R.id.card_business_website_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_business_website_button, "");
+                    listener.onButtonPressed(R.id.card_business_website_button, null);
                 }
             });
 

@@ -58,14 +58,14 @@ public class LocalAuthorityCard implements ICard {
             itemView.findViewById(R.id.card_la_email_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_la_email_button, establishment.getLocalAuthority().getEmail());
+                    listener.onButtonPressed(R.id.card_la_email_button, null);
                 }
             });
 
             itemView.findViewById(R.id.card_la_web_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_la_web_button, establishment.getLocalAuthority().getWeb());
+                    listener.onButtonPressed(R.id.card_la_web_button, null);
                 }
             });
 
