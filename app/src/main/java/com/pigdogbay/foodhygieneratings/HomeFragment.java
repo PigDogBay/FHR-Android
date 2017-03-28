@@ -1,8 +1,10 @@
 package com.pigdogbay.foodhygieneratings;
 
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.model.MainModel;
@@ -86,18 +89,28 @@ public class HomeFragment extends Fragment{
             }
         });
 
-        view.findViewById(R.id.home_advanced_search_btn).setOnClickListener(new View.OnClickListener() {
+        //Vector drawables are still a pain in the ass
+        //http://stackoverflow.com/questions/35761636/is-it-possible-to-use-vectordrawable-in-buttons-and-textviews-using-androiddraw
+        Button advancedButton = (Button) view.findViewById(R.id.home_advanced_search_btn);
+        Drawable searchIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_search_green_48);
+        advancedButton.setCompoundDrawablesRelativeWithIntrinsicBounds(searchIcon,null,null,null);
+        advancedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 advancedSearch();
             }
         });
-        view.findViewById(R.id.home_places_near_me_btn).setOnClickListener(new View.OnClickListener() {
+
+        Button nearMeButton = (Button) view.findViewById(R.id.home_places_near_me_btn);
+        Drawable nearMeIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_near_me);
+        nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
+        nearMeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 placesNearMe();
             }
         });
+
     }
 
     private void quickSearch() {
