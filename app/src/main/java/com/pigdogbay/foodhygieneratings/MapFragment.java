@@ -2,6 +2,9 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,6 +19,8 @@ import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
+import com.pigdogbay.foodhygieneratings.model.Query;
+import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
 import java.util.List;
@@ -37,8 +42,26 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        setHasOptionsMenu(true);
         mapMarkers = new MapMarkers();
         getMapAsync(this);
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_map, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.menu_search:
+                search();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -140,4 +163,28 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         LatLng ukNorthEast = new LatLng(Coordinate.ukNorth,Coordinate.ukEast);
         return new LatLngBounds(ukSouthWest, ukNorthEast);
     }
+
+    private void search() {
+        if (googleMap==null){
+            return;
+        }
+        AppState state = getMainModel().getAppStateProperty().getValue();
+        switch (state){
+
+            case ready:
+                break;
+            case loading:
+                break;
+            case loaded:
+            case connectionError:
+            case error:
+                LatLng latLng = googleMap.getCameraPosition().target;
+                Query query = new Query(latLng.longitude, latLng.latitude, 1);
+                getMainModel().setSearchType(SearchType.map);
+                getMainModel().findEstablishments(query);
+        }
+
+    }
+
+
 }
