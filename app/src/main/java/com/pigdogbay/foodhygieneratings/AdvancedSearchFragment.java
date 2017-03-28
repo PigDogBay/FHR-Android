@@ -60,7 +60,21 @@ public class AdvancedSearchFragment extends Fragment {
                 return false;
             }
         });
+        view.findViewById(R.id.advanced_name_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameTextView.setText("");
+            }
+        });
+
         nameTextView = (TextView) view.findViewById(R.id.advanced_business_text);
+        view.findViewById(R.id.advanced_place_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                placeTextView.setText("");
+            }
+        });
+
         businessTypeSpinner = (Spinner) view.findViewById(R.id.advanced_business_spinner);
         areaSpinner = (Spinner) view.findViewById(R.id.advanced_area_spinner);
         ratingSpinner = (Spinner) view.findViewById(R.id.advanced_rating_spinner);

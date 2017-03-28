@@ -222,5 +222,27 @@
             app:layout_constraintRight_toRightOf="@+id/advanced_rating_operator_spinner"
             app:layout_constraintTop_toBottomOf="@+id/textView12"/>
 
+        <ImageButton
+            android:id="@+id/advanced_name_clear"
+            style="@style/MaterialButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/advanced_business_text"
+            app:layout_constraintRight_toRightOf="@+id/advanced_business_text"
+            app:srcCompat="@drawable/ic_clear_black_24dp"/>
+
+        <ImageButton
+            android:id="@+id/advanced_place_clear"
+            style="@style/MaterialButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/advanced_place_text"
+            app:layout_constraintRight_toRightOf="@+id/advanced_place_text"
+            app:srcCompat="@drawable/ic_clear_black_24dp"/>
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
