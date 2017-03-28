@@ -12,6 +12,8 @@
     <string name="home_empty_query_message">Enter a name and/or place to search for</string>
     <string name="ok">OK</string>
     <string name="menu_results_map">Map</string>
+    <string name="alert_no_location_title">Location Error</string>
+    <string name="alert_no_location_description">Unable to find your current location. Ensure location services are enabled on your device.</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

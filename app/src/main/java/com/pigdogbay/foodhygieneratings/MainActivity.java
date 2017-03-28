@@ -23,6 +23,7 @@ import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
+import com.pigdogbay.lib.utils.ActivityUtils;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
@@ -320,6 +321,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                     mainModel.setSearchType(SearchType.local);
                     showResults();
                 }
+            } else {
+                ActivityUtils.showInfoDialog(this,R.string.alert_no_location_title,R.string.alert_no_location_description,R.string.ok);
             }
         }
     }
