@@ -14,6 +14,8 @@
     <string name="menu_results_map">Map</string>
     <string name="alert_no_location_title">Location Error</string>
     <string name="alert_no_location_description">Unable to find your current location. Ensure location services are enabled on your device.</string>
+    <string name="alert_connection_error_title">Connection Error</string>
+    <string name="alert_connection_error_description">Unable to connect to the Food Standards Authority\'s database. Ensure your internet connection is enabled.</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

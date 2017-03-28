@@ -157,6 +157,8 @@ public class MainModel {
             public void run() {
                 try {
                     results = dataProvider.findEstablishments(query);
+                } catch (IOException ioe){
+                    appStateObservableProperty.setValue(AppState.connectionError);
                 } catch (Exception e) {
                     appStateObservableProperty.setValue(AppState.error);
                 }

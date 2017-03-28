@@ -9,5 +9,6 @@ public enum AppState
     ready,
     loading,
     loaded,
+    connectionError,
     error
 }

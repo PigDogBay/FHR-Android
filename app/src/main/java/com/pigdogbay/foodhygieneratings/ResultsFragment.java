@@ -105,6 +105,9 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
             case loaded:
                 reloadTable();
                 break;
+            case connectionError:
+//                getActivity().onBackPressed();
+                break;
             case error:
                 break;
         }

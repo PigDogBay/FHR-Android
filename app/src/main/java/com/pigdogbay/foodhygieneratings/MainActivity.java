@@ -271,6 +271,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case loaded:
                 hideBusy();
                 break;
+            case connectionError:
+                ActivityUtils.showInfoDialog(this,R.string.alert_connection_error_title,R.string.alert_connection_error_description,R.string.ok);
+                hideBusy();
+                break;
             case error:
                 hideBusy();
                 break;
