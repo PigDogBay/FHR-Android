@@ -42,7 +42,9 @@
     <string name="about_button_tell">EMAIL FRIENDS</string>
     <string name="web_error">No Web</string>
     <string name="legal_title">Legal</string>
-    <string name="legal">legal blah</string>
+    <string name="legal">Contains public sector information licensed under the Open Government Licence v3.0
+    \n\nAll information is provided by the live data feed from the Food Standards Agency. If you find any issues with the data please contact the relevant local authority. For more information visit http://www.food.gov.uk
+    </string>
     <string translatable="false" name="market_pigdogbay_apps">market://search?q=pub:Pig%20Dog%20Bay</string>
     <string translatable="false" name="market_app_url">market://details?id=com.pigdogbay.foodhygieneratings</string>
     <string translatable="false" name="web_app_url">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
