@@ -104,11 +104,15 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
                 break;
             case loaded:
                 reloadTable();
+                int size = getMainModel().getResults().size();
+                getActivity().setTitle(size+" Results Found");
                 break;
             case connectionError:
 //                getActivity().onBackPressed();
+                getActivity().setTitle("No Connection");
                 break;
             case error:
+                getActivity().setTitle("Search Error");
                 break;
         }
     }
