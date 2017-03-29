@@ -231,7 +231,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         switch (tag) {
             case ResultsFragment.TAG:
-                setTitle("Results");
                 break;
             case AdvancedSearchFragment.TAG:
                 setTitle("Advanced");

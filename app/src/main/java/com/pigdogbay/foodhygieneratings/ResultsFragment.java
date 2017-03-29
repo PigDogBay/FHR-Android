@@ -101,6 +101,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
             case ready:
                 break;
             case loading:
+                getActivity().setTitle("Loading...");
                 break;
             case loaded:
                 reloadTable();
