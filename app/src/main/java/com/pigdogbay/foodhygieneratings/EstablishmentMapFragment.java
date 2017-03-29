@@ -77,7 +77,9 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
         Geocoder geocoder = new Geocoder(getContext());
         try {
             List<Address> result = geocoder.getFromLocationName(establishment.getAddress().flatten(), 1);
-            return new LatLng(result.get(0).getLatitude(),result.get(0).getLongitude());
+            if (result!=null && result.size()>0) {
+                return new LatLng(result.get(0).getLatitude(), result.get(0).getLongitude());
+            }
         } catch (IOException e){
             e.printStackTrace();
         }
