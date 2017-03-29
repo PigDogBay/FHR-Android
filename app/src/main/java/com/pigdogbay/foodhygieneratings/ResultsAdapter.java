@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 
 import java.util.ArrayList;
@@ -24,6 +25,11 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
     private final List<Establishment> establishments;
     private final OnListItemClickedListener<Establishment> listener;
+    private SearchType searchType = SearchType.quick;
+
+    public void setSearchType(SearchType searchType) {
+        this.searchType = searchType;
+    }
 
     ResultsAdapter(OnListItemClickedListener<Establishment> listener){
 
@@ -62,6 +68,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
         return establishments.size();
     }
 
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private Establishment establishment;
@@ -81,9 +88,24 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
         void bindItem(Establishment establishment){
             this.establishment = establishment;
             this.text.setText(establishment.getBusiness().getName());
-            this.subtitle.setText(establishment.getAddress().flatten());
+            this.subtitle.setText(getSubtitleText(establishment));
             Drawable drawable = ContextCompat.getDrawable(view.getContext(),establishment.getRating().getIconId());
             this.imageView.setImageDrawable(drawable);
+        }
+
+        private String getSubtitleText(Establishment establishment){
+            switch (searchType){
+
+                case local:
+                    return String.format("%.1f miles, %s",establishment.getDistance(),establishment.getAddress().flatten());
+                case quick:
+                    break;
+                case advanced:
+                    break;
+                case map:
+                    break;
+            }
+            return establishment.getAddress().flatten();
         }
     }
 }

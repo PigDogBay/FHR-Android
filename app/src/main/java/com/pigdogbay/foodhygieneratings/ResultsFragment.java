@@ -104,6 +104,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
                 getActivity().setTitle("Loading...");
                 break;
             case loaded:
+                resultsAdapter.setSearchType(getMainModel().getSearchType());
                 reloadTable();
                 int size = getMainModel().getResults().size();
                 getActivity().setTitle(size+" Results Found");
