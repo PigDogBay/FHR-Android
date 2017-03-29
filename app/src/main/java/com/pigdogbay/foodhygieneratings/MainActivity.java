@@ -175,11 +175,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case 1:
                 //Home screen
                 this.setNavigateHome(false);
+                checkAppRate();
                 break;
             default:
                 this.setNavigateHome(true);
                 break;
         }
+    }
+    private void checkAppRate() {
+        new com.pigdogbay.lib.apprate.AppRate(this)
+                .setMinDaysUntilPrompt(7).setMinLaunchesUntilPrompt(20).init();
     }
 
 
