@@ -15,6 +15,7 @@ import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Mark on 17/03/2017.
@@ -97,7 +98,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
             switch (searchType){
 
                 case local:
-                    return String.format("%.1f miles, %s",establishment.getDistance(),establishment.getAddress().flatten());
+                    return String.format(Locale.UK,"%.1f miles, %s",establishment.getDistance(),establishment.getAddress().flatten());
                 case quick:
                     break;
                 case advanced:
