@@ -67,7 +67,6 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle("Map");
         getMainModel().getAppStateProperty().addObserver(this);
         update();
     }
@@ -148,13 +147,20 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             case ready:
                 break;
             case loading:
+                getActivity().setTitle("Loading...");
                 break;
             case loaded:
+                int size = getMainModel().getResults().size();
+                getActivity().setTitle(size+" Results Found");
                 if (googleMap!=null) {
                     addMarkers();
                 }
                 break;
+            case connectionError:
+                getActivity().setTitle("No Connection");
+                break;
             case error:
+                getActivity().setTitle("Search Error");
                 break;
         }
     }
