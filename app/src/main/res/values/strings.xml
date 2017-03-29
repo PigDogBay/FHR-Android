@@ -11,10 +11,42 @@
     <string name="ok">OK</string>
     <string name="menu_results_map">Map</string>
     <string name="menu_details_map">Map</string>
+    <string name="menu_main_about">About</string>
     <string name="alert_no_location_title">Location Error</string>
     <string name="alert_no_location_description">Unable to find your current location. Ensure location services are enabled on your device.</string>
     <string name="alert_connection_error_title">Connection Error</string>
     <string name="alert_connection_error_description">Unable to connect to the Food Standards Authority\'s database. Ensure your internet connection is enabled.</string>
+    <string name="about_release_notes">RELEASE NOTES</string>
+    <string name="about_web">www.mpdbailey.co.uk</string>
+    <string name="about_version">Version 1.00.00</string>
+    <string name="about_copyright">\u00A92017 MPD Bailey Technology</string>
+    <string name="about_header_info">INFO</string>
+    <string name="about_header_feedback">HELP OUT</string>
+    <string name="about_body_feedback">Keep updates coming by rating the app, your feedback is most welcome. </string>
+    <string name="about_button_rate">RATE</string>
+    <string name="about_button_send_feedback">FEEDBACK</string>
+    <string name="about_button_legal">Legal</string>
+    <string name="about_button_feedback_subject">FHR v1.00 Feedback</string>
+    <string name="about_button_feedback_body">Your feedback is most welcome\n *Report Bugs\n *Suggest new features\n *Ask for help\n\n</string>
+    <string name="about_tell_a_friend_subject">Food Hygiene Ratings App</string>
+    <string name="about_tell_a_friend_body">Check out this free cool app for Android and iPhone\n\nFood Hygiene Ratings by Mark Bailey\n\nSearch the UK\'s Food Standards Agency database for your favourite restaurants\' hygiene ratings\n\n
+        Android Version\n
+        https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings\n\n
+        iOS Version\n
+        https://itunes.apple.com/app/id1213783338\n\n</string>
+    <string name="about_header_apps">MORE GREAT APPS</string>
+    <string name="about_body_apps">Try out my other Android Apps on Google Play, I recommend CleverDic Crossword Solver - it\'s FREE! </string>
+    <string name="about_button_more_apps">BROWSE MY APPS</string>
+    <string name="about_header_tell">SPREAD THE WORD</string>
+    <string name="about_body_tell">Let your friends know about this great app, send them an email, the app is also available for free, for iPhones and iPads on the App Store.</string>
+    <string name="about_button_tell">EMAIL FRIENDS</string>
+    <string name="web_error">No Web</string>
+    <string name="legal_title">Legal</string>
+    <string name="legal">legal blah</string>
+    <string translatable="false" name="market_pigdogbay_apps">market://search?q=pub:Pig%20Dog%20Bay</string>
+    <string translatable="false" name="market_app_url">market://details?id=com.pigdogbay.foodhygieneratings</string>
+    <string translatable="false" name="web_app_url">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
+    <string translatable="false" name="release_notes_url">https://pigdogbay.blogspot.co.uk/</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>
@@ -64,6 +96,4 @@
         <item>Distributors/Transporters</item>
         <item>Manufacturers/packers</item>
     </string-array>
-
-
 </resources>

@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -145,10 +146,19 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                return true;
+            case R.id.menu_main_about:
+                showAbout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -221,6 +231,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     public void showHtmlText(int resourceId) {
         pushFragment(HtmlTextFragment.newInstance(resourceId), HtmlTextFragment.TAG);
+    }
+
+    public void showAbout(){
+        pushFragment(new AboutFragment(), AboutFragment.TAG);
     }
 
     @Override
