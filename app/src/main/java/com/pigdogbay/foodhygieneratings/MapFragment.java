@@ -67,6 +67,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onResume() {
         super.onResume();
+        getActivity().setTitle("Map");
         getMainModel().getAppStateProperty().addObserver(this);
         update();
     }

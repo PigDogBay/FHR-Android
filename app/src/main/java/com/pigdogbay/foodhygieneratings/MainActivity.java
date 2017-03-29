@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             showHome();
         } else if (backStackCount > 1) {
             setNavigateHome(true);
-            setUpTitle();
         }
     }
 
@@ -176,11 +175,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case 1:
                 //Home screen
                 this.setNavigateHome(false);
-                setTitle("Food Hygiene");
                 break;
             default:
                 this.setNavigateHome(true);
-                setUpTitle();
                 break;
         }
     }
@@ -219,35 +216,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     public void showHtmlText(int resourceId) {
         pushFragment(HtmlTextFragment.newInstance(resourceId), HtmlTextFragment.TAG);
-    }
-
-    private void setUpTitle() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        int count = fragmentManager.getBackStackEntryCount();
-        if (count == 0) {
-            return;
-        }
-        String tag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-
-        switch (tag) {
-            case ResultsFragment.TAG:
-                break;
-            case AdvancedSearchFragment.TAG:
-                setTitle("Advanced");
-                break;
-            case DetailsFragment.TAG:
-                setTitle("Details");
-                break;
-            case MapFragment.TAG:
-                setTitle("Map");
-                break;
-            case EstablishmentMapFragment.TAG:
-                setTitle("Map");
-                break;
-            default:
-                setTitle("Food Hygiene Ratings");
-                break;
-        }
     }
 
     @Override

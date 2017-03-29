@@ -67,6 +67,13 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(establishment.getBusiness().getName());
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);

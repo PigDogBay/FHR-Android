@@ -52,6 +52,12 @@ public class HomeFragment extends Fragment{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Food Hygiene Ratings");
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_home, menu);

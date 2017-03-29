@@ -39,6 +39,12 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(establishment.getBusiness().getName());
+    }
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         MapMarkers mapMarkers = new MapMarkers();
