@@ -75,6 +75,9 @@ public class Rating {
             case exempt:
             case awaitingInspection:
             case awaitingPublication:
+            case fhis_exempt:
+            case fhis_awaitingInspection:
+            case fhis_awaitingPublication:
             case other:
                 return false;
             default:
