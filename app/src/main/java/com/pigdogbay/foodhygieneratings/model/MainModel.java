@@ -151,6 +151,7 @@ public class MainModel {
             return false;
         }
         isBusy = true;
+        results.clear();
         appStateObservableProperty.setValue(AppState.loading);
         new Thread(new Runnable() {
             @Override
