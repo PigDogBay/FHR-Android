@@ -121,7 +121,7 @@ public class MainModel {
         return localAuthorities;
     }
 
-    public void sortResults() {
+    private void sortResults() {
         switch (searchType){
             case local:
                 sortByDistance();
@@ -135,7 +135,7 @@ public class MainModel {
         }
     }
 
-    public void sortByDistance(){
+    private void sortByDistance(){
         if (results!=null && results.size()>1){
             Collections.sort(results, new Comparator<Establishment>() {
                 @Override
@@ -145,6 +145,7 @@ public class MainModel {
             });
         }
     }
+
 
     public boolean findEstablishments(final Query query) {
         if (isBusy){
@@ -158,6 +159,7 @@ public class MainModel {
             public void run() {
                 try {
                     results = dataProvider.findEstablishments(query);
+                    sortResults();
                     appStateObservableProperty.setValue(AppState.loaded);
                 } catch (IOException ioe){
                     appStateObservableProperty.setValue(AppState.connectionError);

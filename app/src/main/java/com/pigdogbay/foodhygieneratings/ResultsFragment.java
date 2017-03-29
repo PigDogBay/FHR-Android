@@ -122,7 +122,6 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     void reloadTable(){
         List<Establishment> results = getMainModel().getResults();
         if (results.size()>0){
-            MainModel.get(getContext()).sortResults();
             resultsAdapter.clear();
             resultsAdapter.addItems(results);
             resultsAdapter.notifyDataSetChanged();
