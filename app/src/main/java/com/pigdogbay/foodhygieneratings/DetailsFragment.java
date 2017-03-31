@@ -45,7 +45,6 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         establishment = MainModel.get(getContext()).getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
-            cards.add(new BusinessCard(establishment, this));
             cards.add(new RatingCard(establishment, this));
             if (establishment.getRating().hasScores()) {
                 cards.add(new ScoresCard(establishment, this));

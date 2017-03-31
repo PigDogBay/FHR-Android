@@ -16,15 +16,14 @@
             />
 
         <TextView
+            style="@style/CardTextBlock"
             android:id="@+id/card_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:lineSpacingMultiplier="1.5"
             />
         <LinearLayout
             android:layout_gravity="end"
             android:orientation="horizontal"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button

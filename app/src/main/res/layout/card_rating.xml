@@ -16,19 +16,22 @@
 
         <ImageView
             android:id="@+id/card_rating_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="125dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/fhrs_5"
             android:layout_gravity="center_horizontal"
             />
 
         <TextView
+            style="@style/CardTextBlock"
             android:id="@+id/card_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
+            />
+        <Button
+            style="@style/MaterialButton"
+            android:id="@+id/card_business_website_button"
+            android:layout_gravity="end"
+            android:text="FSA WEBSITE"
             />
 
     </LinearLayout>

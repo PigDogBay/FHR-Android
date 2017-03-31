@@ -51,6 +51,10 @@ public class RatingCard implements ICard {
             Rating rating = RatingCard.this.establishment.getRating();
 
             StringBuilder builder = new StringBuilder();
+            builder.append(establishment.getBusiness().getName())
+                .append("\n")
+                .append(establishment.getBusiness().getType())
+                .append("\n");
             if (rating.hasRating()) {
                 builder.append("Date Awarded: ");
                 String dateString = DateFormat.getDateInstance().format(rating.getAwardedDate());
