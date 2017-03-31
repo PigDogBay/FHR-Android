@@ -48,7 +48,10 @@
     <string translatable="false" name="market_pigdogbay_apps">market://search?q=pub:Pig%20Dog%20Bay</string>
     <string translatable="false" name="market_app_url">market://details?id=com.pigdogbay.foodhygieneratings</string>
     <string translatable="false" name="web_app_url">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
+    <string translatable="false" name="web_app_url_ios">https://itunes.apple.com/app/id1213783338</string>
     <string translatable="false" name="release_notes_url">https://pigdogbay.blogspot.co.uk/</string>
+    <string name="menu_share">Share</string>
+    <string name="share_chooser_title">Share…</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

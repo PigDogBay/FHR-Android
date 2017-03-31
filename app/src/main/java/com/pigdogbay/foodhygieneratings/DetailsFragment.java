@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.pigdogbay.foodhygieneratings.cards.AddressCard;
 import com.pigdogbay.foodhygieneratings.cards.BusinessCard;
@@ -87,6 +88,9 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
             case R.id.menu_details_map:
                 ((MainActivity) getActivity()).showEstablishmentMap();
                 return true;
+            case R.id.menu_details_share:
+                share();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -116,4 +120,16 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
                 break;
         }
     }
+
+    private void share() {
+        try {
+            ActivityUtils.shareText(getActivity(), "Rating: "+establishment.getBusiness().getName(),
+                    MainModel.get(getContext()).getShareText(establishment),
+                    R.string.share_chooser_title);
+        }
+        catch (Exception e) {
+            Toast.makeText(getContext(), "Unable to share", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

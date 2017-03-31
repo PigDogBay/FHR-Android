@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -172,5 +173,37 @@ public class MainModel {
         return true;
     }
 
+    public String getShareText(Establishment establishment){
+        StringBuilder builder = new StringBuilder("Food Hygiene Rating\n\n");
+        builder.append(establishment.getBusiness().getName()).append("\n");
+        builder.append(establishment.getAddress().flatten()).append("\n");
+        builder.append("\n Rating: ").append(establishment.getRating().getName()).append("\n");
+        if (establishment.getRating().hasRating()){
+            String dateString = DateFormat.getDateInstance().format(establishment.getRating().getAwardedDate());
+            builder.append("Awarded: ").append(dateString).append("\n");
+            if (establishment.getRating().hasScores()) {
+                builder.append("\nScores\n");
+                final Scores scores = establishment.getRating().getScores();
+                builder.append(" * Hygiene Points: ").append(String.valueOf(scores.getHygiene())).append(" - ").append(scores.getHygieneDescription()).append("\n");
+                builder.append(" * Management Points: ").append(String.valueOf(scores.getManagement())).append(" - ").append(scores.getManagementDescription()).append("\n");
+                builder.append(" * Structural Points: ").append(String.valueOf(scores.getStructural())).append(" - ").append(scores.getStructuralDescription()).append("\n");
+            }
+        }
+        LocalAuthority la = establishment.getLocalAuthority();
+        if (la!=null) {
+            builder.append("\nLocal Authority Details\n");
+            builder.append(la.getName()).append("\n");
+            builder.append("Email: ").append(la.getEmail()).append("\n");
+            builder.append("Website: ").append(la.getWeb()).append("\n");
+        }
+
+        builder.append("\nView this rating on the FSA Website\n").append(FoodHygieneAPI.createBusinessUrl(establishment)).append("\n");
+        builder.append("\nGet the food hygiene ratings app on Android:\n");
+        builder.append(appContext.getString(R.string.web_app_url));
+        builder.append("\n\nAnd iOS:\n");
+        builder.append(appContext.getString(R.string.web_app_url_ios));
+        builder.append("\n\n");
+        return builder.toString();
+    }
 
 }
