@@ -176,6 +176,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             return;
         }
         AppState state = getMainModel().getAppStateProperty().getValue();
+        //remove any existing map markers
+        googleMap.clear();
         switch (state){
 
             case ready:
