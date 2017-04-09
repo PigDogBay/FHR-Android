@@ -18,7 +18,7 @@
     <string name="alert_connection_error_description">Unable to connect to the Food Standards Authority\'s database. Ensure your internet connection is enabled.</string>
     <string name="about_release_notes">RELEASE NOTES</string>
     <string name="about_web">www.mpdbailey.co.uk</string>
-    <string name="about_version">Version 1.00.00</string>
+    <string name="about_version">Version 1.01.00</string>
     <string name="about_copyright">\u00A92017 MPD Bailey Technology</string>
     <string name="about_header_info">INFO</string>
     <string name="about_header_feedback">HELP OUT</string>
@@ -26,7 +26,7 @@
     <string name="about_button_rate">RATE</string>
     <string name="about_button_send_feedback">FEEDBACK</string>
     <string name="about_button_legal">Legal</string>
-    <string name="about_button_feedback_subject">FHR v1.00 Feedback</string>
+    <string name="about_button_feedback_subject">FHR v1.01 Feedback</string>
     <string name="about_button_feedback_body">Your feedback is most welcome\n *Report Bugs\n *Suggest new features\n *Ask for help\n\n</string>
     <string name="about_tell_a_friend_subject">Food Hygiene Ratings App</string>
     <string name="about_tell_a_friend_body">Check out this free cool app for Android and iPhone\n\nFood Hygiene Ratings by Mark Bailey\n\nSearch the UK\'s Food Standards Agency database for your favourite restaurants\' hygiene ratings\n\n
