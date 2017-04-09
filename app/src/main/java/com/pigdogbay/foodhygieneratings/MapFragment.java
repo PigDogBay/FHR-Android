@@ -92,7 +92,11 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         googleMap.setOnInfoWindowClickListener(this);
         LatLngBounds ukBounds = createUKBounds();
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(ukBounds, 0);
-        googleMap.moveCamera(cameraUpdate);
+        //If app is terminated by the OS, this next line will throw an IllegalStateArgument if user starts app
+        try {
+            googleMap.moveCamera(cameraUpdate);
+        }catch (Exception e){}
+
         update();
     }
 
