@@ -61,17 +61,12 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fabFilter = (FloatingActionButton) findViewById(R.id.fab);
-        fabFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fabFilter = findViewById(R.id.fab);
+        fabFilter.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
         fabFilter.setVisibility(View.GONE);
 
         setUpAds();
@@ -130,17 +125,11 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     void setUpAds() {
         // Look up the AdView as a resource and load a request.
-        _AdView = (AdView) findViewById(R.id.adView);
+        _AdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(getString(R.string.code_test_device_1_id))
-                .addTestDevice(getString(R.string.code_test_device_2_id))
-                .addTestDevice(getString(R.string.code_test_device_3_id))
-                .addTestDevice(getString(R.string.code_test_device_4_id))
-                .addTestDevice(getString(R.string.code_test_device_5_id))
-                .addTestDevice(getString(R.string.code_test_device_6_id))
-                .addTestDevice(getString(R.string.code_test_device_7_id))
-                .addTestDevice(getString(R.string.code_test_device_8_id))
+                .addTestDevice(getString(R.string.code_test_device_acer_tablet))
+                .addTestDevice(getString(R.string.code_test_device_moto_g))
                 .build();
         _AdView.loadAd(adRequest);
     }
@@ -239,12 +228,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     @Override
     public void update(ObservableProperty<AppState> sender, final AppState update) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                update(update);
-            }
-        });
+        runOnUiThread(() -> update(update));
     }
 
     private void update(AppState state) {
