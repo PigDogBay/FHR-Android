@@ -25,6 +25,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
 
     private final List<Establishment> establishments;
+    private final List<Establishment> filteredEstablishments;
     private final OnListItemClickedListener<Establishment> listener;
     private SearchType searchType = SearchType.quick;
 
@@ -35,14 +36,18 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
     ResultsAdapter(OnListItemClickedListener<Establishment> listener){
 
         establishments = new ArrayList<>();
+        filteredEstablishments = new ArrayList<>();
         this.listener = listener;
     }
 
     void clear() {
         establishments.clear();
+        filteredEstablishments.clear();
     }
     void addItems(List<Establishment> newItems){
         establishments.addAll(newItems);
+        filteredEstablishments.clear();
+        filteredEstablishments.addAll(newItems);
     }
 
     @Override
@@ -53,22 +58,27 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.bindItem(establishments.get(position));
+        holder.bindItem(filteredEstablishments.get(position));
         if (listener!=null) {
-            holder.view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onListItemClicked(holder.establishment,holder.getAdapterPosition());
-                }
-            });
+            holder.view.setOnClickListener(view -> listener.onListItemClicked(holder.establishment,holder.getAdapterPosition()));
         }
     }
 
     @Override
     public int getItemCount() {
-        return establishments.size();
+        return filteredEstablishments.size();
     }
 
+    public void setFilter(final String filter){
+        final String lowercaseFilter = filter.toLowerCase();
+        filteredEstablishments.clear();
+        for (Establishment est : establishments){
+            if (est.getBusiness().getName().toLowerCase().contains(lowercaseFilter)){
+                filteredEstablishments.add(est);
+            }
+        }
+        notifyDataSetChanged();
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -80,9 +90,9 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
         ViewHolder(View itemView) {
             super(itemView);
             this.view = itemView;
-            this.imageView = (ImageView) itemView.findViewById(R.id.list_result_image);
-            this.text = (TextView) itemView.findViewById(R.id.list_result_text);
-            this.subtitle = (TextView) itemView.findViewById(R.id.list_result_subtitle);
+            this.imageView = itemView.findViewById(R.id.list_result_image);
+            this.text = itemView.findViewById(R.id.list_result_text);
+            this.subtitle = itemView.findViewById(R.id.list_result_subtitle);
         }
 
 

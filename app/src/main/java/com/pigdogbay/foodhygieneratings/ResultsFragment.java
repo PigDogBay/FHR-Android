@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.widget.SearchView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,7 +53,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         resultsAdapter = new ResultsAdapter(this);
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
         recyclerView.setAdapter(resultsAdapter);
     }
 
@@ -59,6 +61,21 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_results, menu);
+        MenuItem searchItem = menu.findItem(R.id.menu_results_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                resultsAdapter.setFilter(newText);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -88,12 +105,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     @Override
     public void update(ObservableProperty<AppState> sender, final AppState update) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                update(update);
-            }
-        });
+        getActivity().runOnUiThread(() -> update(update));
     }
 
     private void update(AppState state){
