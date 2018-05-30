@@ -23,9 +23,6 @@ import com.pigdogbay.lib.utils.ObservableProperty;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 @SuppressWarnings("ConstantConditions")
 public class ResultsFragment extends Fragment implements OnListItemClickedListener<Establishment>, ObservableProperty.PropertyChangedObserver<AppState> {
 
@@ -64,6 +61,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         MenuItem searchItem = menu.findItem(R.id.menu_results_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        searchView.setQuery(getMainModel().getContainingTextFilter(),false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -72,7 +70,11 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                resultsAdapter.setFilter(newText);
+                getMainModel().setContainingTextFilter(newText);
+                List<Establishment> results = getMainModel().getResults();
+                resultsAdapter.setEstablishments(results);
+                resultsAdapter.notifyDataSetChanged();
+                updateTitle(results.size());
                 return true;
             }
         });
@@ -116,13 +118,13 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
                 getActivity().setTitle("Loading...");
                 break;
             case loaded:
+                List<Establishment> results = getMainModel().getResults();
                 resultsAdapter.setSearchType(getMainModel().getSearchType());
-                reloadTable();
-                int size = getMainModel().getResults().size();
-                getActivity().setTitle(size+" Results Found");
+                resultsAdapter.setEstablishments(results);
+                resultsAdapter.notifyDataSetChanged();
+                updateTitle(results.size());
                 break;
             case connectionError:
-//                getActivity().onBackPressed();
                 getActivity().setTitle("No Connection");
                 break;
             case error:
@@ -131,19 +133,13 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         }
     }
 
-    void reloadTable(){
-        List<Establishment> results = getMainModel().getResults();
-        if (results.size()>0){
-            resultsAdapter.clear();
-            resultsAdapter.addItems(results);
-            resultsAdapter.notifyDataSetChanged();
-        }
-
-    }
-
     @Override
     public void onListItemClicked(Establishment item, int position) {
         MainModel.get(getContext()).setSelectedEstablishment(item);
         ((MainActivity) getActivity()).showDetails();
+    }
+
+    private void updateTitle(int resultsFound){
+        getActivity().setTitle(resultsFound+" Results Found");
     }
 }

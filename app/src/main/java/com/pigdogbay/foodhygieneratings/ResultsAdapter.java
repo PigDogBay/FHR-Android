@@ -24,10 +24,13 @@ import java.util.Locale;
 class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
 
-    private final List<Establishment> establishments;
-    private final List<Establishment> filteredEstablishments;
+    private List<Establishment> establishments;
     private final OnListItemClickedListener<Establishment> listener;
     private SearchType searchType = SearchType.quick;
+
+    public void setEstablishments(List<Establishment> establishments){
+        this.establishments = establishments;
+    }
 
     public void setSearchType(SearchType searchType) {
         this.searchType = searchType;
@@ -36,18 +39,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
     ResultsAdapter(OnListItemClickedListener<Establishment> listener){
 
         establishments = new ArrayList<>();
-        filteredEstablishments = new ArrayList<>();
         this.listener = listener;
-    }
-
-    void clear() {
-        establishments.clear();
-        filteredEstablishments.clear();
-    }
-    void addItems(List<Establishment> newItems){
-        establishments.addAll(newItems);
-        filteredEstablishments.clear();
-        filteredEstablishments.addAll(newItems);
     }
 
     @Override
@@ -58,7 +50,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.bindItem(filteredEstablishments.get(position));
+        holder.bindItem(establishments.get(position));
         if (listener!=null) {
             holder.view.setOnClickListener(view -> listener.onListItemClicked(holder.establishment,holder.getAdapterPosition()));
         }
@@ -66,18 +58,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return filteredEstablishments.size();
-    }
-
-    public void setFilter(final String filter){
-        final String lowercaseFilter = filter.toLowerCase();
-        filteredEstablishments.clear();
-        for (Establishment est : establishments){
-            if (est.getBusiness().getName().toLowerCase().contains(lowercaseFilter)){
-                filteredEstablishments.add(est);
-            }
-        }
-        notifyDataSetChanged();
+        return establishments.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

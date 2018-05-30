@@ -31,7 +31,6 @@ public class MainModel {
     }
 
     private static MainModel mainModel;
-    private PreferencesHelper preferencesHelper;
     private IDataProvider dataProvider;
     private Context appContext;
     private List<LocalAuthority> localAuthorities;
@@ -39,25 +38,16 @@ public class MainModel {
     private Establishment selectedEstablishment;
     private ObservableProperty<AppState> appStateObservableProperty;
     private List<Establishment> results;
+    private String containingTextFilter = "";
+    final private List<Establishment> filteredResults;
     private boolean isBusy = false;
 
     public ObservableProperty<AppState> getAppStateProperty() {
         return appStateObservableProperty;
     }
 
-    public List<Establishment> getResults() {
-        return results;
-    }
     public boolean isBusy() {
         return isBusy;
-    }
-
-    public PreferencesHelper getPreferencesHelper() {
-        if (preferencesHelper==null)
-        {
-            preferencesHelper = new PreferencesHelper(appContext);
-        }
-        return preferencesHelper;
     }
 
     public SearchType getSearchType() {
@@ -73,6 +63,13 @@ public class MainModel {
     public void setSelectedEstablishment(Establishment selectedEstablishment) {
         this.selectedEstablishment = selectedEstablishment;
     }
+    public String getContainingTextFilter() {
+        return containingTextFilter;
+    }
+    public void setContainingTextFilter(String containingTextFilter) {
+        this.containingTextFilter = containingTextFilter;
+    }
+
 
     public static MainModel get(Context c){
         if (mainModel==null){
@@ -97,6 +94,7 @@ public class MainModel {
         searchType = SearchType.local;
         appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
+        filteredResults = new ArrayList<>();
     }
 
     private void dummyData(){
@@ -138,12 +136,7 @@ public class MainModel {
 
     private void sortByDistance(){
         if (results!=null && results.size()>1){
-            Collections.sort(results, new Comparator<Establishment>() {
-                @Override
-                public int compare(Establishment establishment, Establishment t1) {
-                    return Double.compare(establishment.getDistance(),t1.getDistance());
-                }
-            });
+            Collections.sort(results, (establishment, t1) -> Double.compare(establishment.getDistance(),t1.getDistance()));
         }
     }
 
@@ -154,24 +147,45 @@ public class MainModel {
         }
         isBusy = true;
         results.clear();
+        filteredResults.clear();
+        containingTextFilter = "";
         appStateObservableProperty.setValue(AppState.loading);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    results = dataProvider.findEstablishments(query);
-                    sortResults();
-                    appStateObservableProperty.setValue(AppState.loaded);
-                } catch (IOException ioe){
-                    appStateObservableProperty.setValue(AppState.connectionError);
-                } catch (Exception e) {
-                    appStateObservableProperty.setValue(AppState.error);
-                }
-                isBusy = false;
+        new Thread(() -> {
+            try {
+                results = dataProvider.findEstablishments(query);
+                sortResults();
+                appStateObservableProperty.setValue(AppState.loaded);
+            } catch (IOException ioe){
+                appStateObservableProperty.setValue(AppState.connectionError);
+            } catch (Exception e) {
+                appStateObservableProperty.setValue(AppState.error);
             }
+            isBusy = false;
         }).start();
         return true;
     }
+
+    private void filterResults(final String containingText){
+        if (appStateObservableProperty.getValue().equals(AppState.loaded) && results!=null){
+            final String lowercaseText = containingText.toLowerCase();
+            for (Establishment est : results){
+                if (est.getBusiness().getName().toLowerCase().contains(lowercaseText)){
+                    filteredResults.add(est);
+                }
+            }
+        }
+    }
+    public List<Establishment> getResults()
+    {
+        filteredResults.clear();
+        if ("".equals(containingTextFilter)){
+            return results;
+        } else {
+            filterResults(containingTextFilter);
+        }
+        return filteredResults;
+    }
+
 
     public String getShareText(Establishment establishment){
         StringBuilder builder = new StringBuilder("Food Hygiene Rating\n\n");
