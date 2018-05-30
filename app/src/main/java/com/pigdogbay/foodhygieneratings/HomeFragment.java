@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,9 +20,6 @@ import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment{
 
 
@@ -75,64 +71,35 @@ public class HomeFragment extends Fragment{
     }
 
     private void wireUpControls(View view) {
-        placeTextView = (TextView) view.findViewById(R.id.home_place);
-        nameTextView = (TextView) view.findViewById(R.id.home_business_name);
-        placeTextView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (EditorInfo.IME_ACTION_SEARCH==i){
-                    quickSearch();
-                    return true;
-                }
-                return false;
+        placeTextView = view.findViewById(R.id.home_place);
+        nameTextView = view.findViewById(R.id.home_business_name);
+        placeTextView.setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (EditorInfo.IME_ACTION_SEARCH==i){
+                quickSearch();
+                return true;
             }
+            return false;
         });
 
-        view.findViewById(R.id.home_search_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quickSearch();
-            }
-        });
+        view.findViewById(R.id.home_search_btn).setOnClickListener(view1 -> quickSearch());
 
         //Vector drawables are still a pain in the ass
         //http://stackoverflow.com/questions/35761636/is-it-possible-to-use-vectordrawable-in-buttons-and-textviews-using-androiddraw
-        Button advancedButton = (Button) view.findViewById(R.id.home_advanced_search_btn);
+        Button advancedButton = view.findViewById(R.id.home_advanced_search_btn);
         Drawable searchIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_search_green_48);
         advancedButton.setCompoundDrawablesRelativeWithIntrinsicBounds(searchIcon,null,null,null);
-        advancedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                advancedSearch();
-            }
-        });
+        advancedButton.setOnClickListener(view15 -> advancedSearch());
 
-        Button nearMeButton = (Button) view.findViewById(R.id.home_places_near_me_btn);
+        Button nearMeButton = view.findViewById(R.id.home_places_near_me_btn);
         Drawable nearMeIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_near_me);
         nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
-        nearMeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                placesNearMe();
-            }
-        });
+        nearMeButton.setOnClickListener(view14 -> placesNearMe());
 
-        view.findViewById(R.id.home_business_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nameTextView.setText("");
-            }
-        });
-        view.findViewById(R.id.home_place_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                placeTextView.setText("");
-            }
-        });
+        view.findViewById(R.id.home_business_clear).setOnClickListener(view12 -> nameTextView.setText(""));
+        view.findViewById(R.id.home_place_clear).setOnClickListener(view13 -> placeTextView.setText(""));
     }
 
     private void quickSearch() {
-        ActivityUtils.hideKeyboard(getActivity(),placeTextView.getWindowToken());
         String place = placeTextView.getText().toString();
         String name = nameTextView.getText().toString();
         Query query = new Query();
@@ -151,13 +118,11 @@ public class HomeFragment extends Fragment{
     }
 
     private void placesNearMe() {
-        ActivityUtils.hideKeyboard(getActivity(),placeTextView.getWindowToken());
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.findLocalEstablishments();
     }
 
     private void advancedSearch() {
-        ActivityUtils.hideKeyboard(getActivity(),placeTextView.getWindowToken());
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.showAdvancedSearch();
     }

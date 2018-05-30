@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     private void pushFragment(Fragment fragment, String tag) {
-
+        ActivityUtils.hideKeyboard(this);
         FragmentManager manager = getSupportFragmentManager();
         manager
                 .beginTransaction()
@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     @Override
     public void onBackStackChanged() {
+        ActivityUtils.hideKeyboard(this);
         FragmentManager manager = getSupportFragmentManager();
         switch (manager.getBackStackEntryCount()) {
             case 0:
