@@ -40,5 +40,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:12.0.1'
     implementation 'com.google.android.gms:play-services-location:12.0.1'
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.json:json:20180130'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MainModel {
 
-    interface IDataProvider {
+    public interface IDataProvider {
         List<Establishment> findEstablishments(Query query) throws IOException, JSONException, ParseException;
     }
 
