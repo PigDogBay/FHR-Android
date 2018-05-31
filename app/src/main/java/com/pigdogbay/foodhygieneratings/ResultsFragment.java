@@ -84,9 +84,6 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.menu_results_map:
-                ((MainActivity) getActivity()).showMap();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

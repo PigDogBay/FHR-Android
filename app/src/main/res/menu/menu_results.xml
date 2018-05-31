@@ -7,9 +7,4 @@
         android:icon="@drawable/ic_search_24dp"
         app:actionViewClass="android.widget.SearchView"
         />
-
-    <item
-        android:id="@+id/menu_results_map"
-        android:title="@string/menu_results_map"
-        app:showAsAction="never"/>
 </menu>

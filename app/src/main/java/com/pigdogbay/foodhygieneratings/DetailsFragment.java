@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.pigdogbay.foodhygieneratings.cards.AddressCard;
-import com.pigdogbay.foodhygieneratings.cards.BusinessCard;
 import com.pigdogbay.foodhygieneratings.cards.CardsAdapter;
 import com.pigdogbay.foodhygieneratings.cards.ICard;
 import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
@@ -61,7 +60,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.recyler_view, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(cardsAdapter);
 
@@ -84,9 +83,6 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.menu_details_map:
-                ((MainActivity) getActivity()).showEstablishmentMap();
-                return true;
             case R.id.menu_details_share:
                 share();
                 return true;
