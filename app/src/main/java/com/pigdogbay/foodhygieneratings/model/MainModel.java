@@ -1,28 +1,16 @@
 package com.pigdogbay.foodhygieneratings.model;
 
-import android.content.Context;
-
-import com.pigdogbay.foodhygieneratings.R;
-import com.pigdogbay.lib.utils.ActivityUtils;
 import com.pigdogbay.lib.utils.ObservableProperty;
-import com.pigdogbay.lib.utils.PreferencesHelper;
-
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-
 
 /**
  * Created by Mark on 20/03/2017.
- * See P169 of Big Ranch Guide (Singletons and Centralized data storage)
- *
  */
 public class MainModel {
 
@@ -31,8 +19,6 @@ public class MainModel {
     }
 
     private IDataProvider dataProvider;
-    private Context appContext;
-    private List<LocalAuthority> localAuthorities;
     private SearchType searchType;
     private Establishment selectedEstablishment;
     private ObservableProperty<AppState> appStateObservableProperty;
@@ -44,18 +30,18 @@ public class MainModel {
     public ObservableProperty<AppState> getAppStateProperty() {
         return appStateObservableProperty;
     }
-
+    public void setDataProvider(IDataProvider dataProvider) {
+        this.dataProvider = dataProvider;
+    }
     public boolean isBusy() {
         return isBusy;
     }
-
     public SearchType getSearchType() {
         return searchType;
     }
     public void setSearchType(SearchType searchType) {
         this.searchType = searchType;
     }
-
     public Establishment getSelectedEstablishment() {
         return selectedEstablishment;
     }
@@ -69,37 +55,11 @@ public class MainModel {
         this.containingTextFilter = containingTextFilter;
     }
 
-    public MainModel(Context appContext) {
-        this.appContext = appContext;
-        dummyData();
-        //dataProvider = new WebDataProvider();
+    public MainModel() {
         searchType = SearchType.local;
         appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
         filteredResults = new ArrayList<>();
-    }
-
-    private void dummyData(){
-        try {
-            String data = ActivityUtils.readResource(appContext, R.raw.stoke);
-            dataProvider = new DummyDataProvider(data);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public List<LocalAuthority> getLocalAuthorities(){
-        if (localAuthorities==null) {
-            try {
-                String data = ActivityUtils.readResource(appContext, R.raw.authorities);
-                JSONObject jsonObject = new JSONObject(data);
-                localAuthorities = FoodHygieneAPI.parseAuthorities(jsonObject);
-            } catch (Exception e) {
-                e.printStackTrace();
-                localAuthorities =  new ArrayList<>();
-            }
-        }
-        return localAuthorities;
     }
 
     private void sortResults() {
@@ -121,7 +81,6 @@ public class MainModel {
             Collections.sort(results, (establishment, t1) -> Double.compare(establishment.getDistance(),t1.getDistance()));
         }
     }
-
 
     public boolean findEstablishments(final Query query) {
         if (isBusy){
@@ -157,6 +116,7 @@ public class MainModel {
             }
         }
     }
+
     public List<Establishment> getResults()
     {
         filteredResults.clear();
@@ -167,7 +127,6 @@ public class MainModel {
         }
         return filteredResults;
     }
-
 
     public String getShareText(Establishment establishment){
         StringBuilder builder = new StringBuilder("Food Hygiene Rating\n\n");
@@ -195,11 +154,10 @@ public class MainModel {
 
         builder.append("\nView this rating on the FSA Website\n").append(FoodHygieneAPI.createBusinessUrl(establishment)).append("\n");
         builder.append("\nGet the food hygiene ratings app on Android:\n");
-        builder.append(appContext.getString(R.string.web_app_url));
+        builder.append("https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings");
         builder.append("\n\nAnd iOS:\n");
-        builder.append(appContext.getString(R.string.web_app_url_ios));
+        builder.append("https://itunes.apple.com/app/id1213783338");
         builder.append("\n\n");
         return builder.toString();
     }
-
 }

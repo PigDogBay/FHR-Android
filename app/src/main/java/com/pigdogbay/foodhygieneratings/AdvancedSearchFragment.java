@@ -68,7 +68,7 @@ public class AdvancedSearchFragment extends Fragment {
 
         ArrayAdapter<LocalAuthority> localAuthorityArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
         localAuthorityArrayAdapter.add(LocalAuthority.getALL());
-        localAuthorityArrayAdapter.addAll(mainModel.getLocalAuthorities());
+        localAuthorityArrayAdapter.addAll(Injector.getInjector().getLocalAuthorities(getContext()));
         localAuthorityArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         areaSpinner.setAdapter(localAuthorityArrayAdapter);
 
