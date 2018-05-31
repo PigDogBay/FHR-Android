@@ -22,7 +22,7 @@ import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
-import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
 import java.util.ArrayList;
@@ -35,13 +35,12 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     Establishment establishment;
 
     public DetailsFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        establishment = MainModel.get(getContext()).getSelectedEstablishment();
+        establishment = Injector.getMainModel().getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
@@ -119,7 +118,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     private void share() {
         try {
             ActivityUtils.shareText(getActivity(), "Rating: "+establishment.getBusiness().getName(),
-                    MainModel.get(getContext()).getShareText(establishment),
+                    Injector.getMainModel().getShareText(establishment),
                     R.string.share_chooser_title);
         }
         catch (Exception e) {

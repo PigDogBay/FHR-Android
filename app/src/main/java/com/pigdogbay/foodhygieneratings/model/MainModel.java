@@ -30,7 +30,6 @@ public class MainModel {
         List<Establishment> findEstablishments(Query query) throws IOException, JSONException, ParseException;
     }
 
-    private static MainModel mainModel;
     private IDataProvider dataProvider;
     private Context appContext;
     private List<LocalAuthority> localAuthorities;
@@ -70,23 +69,6 @@ public class MainModel {
         this.containingTextFilter = containingTextFilter;
     }
 
-
-    public static MainModel get(Context c){
-        if (mainModel==null){
-            //According to big nerd ranch, application context is global to the application and so this should be used for singletons
-            //This is no good for testing, so I make the constructor public!
-            //https://books.google.co.uk/books?id=OFXJXbCXjTgC&pg=PA169&lpg=PA169&dq=big+nerd+ranch+model+singleton&source=bl&ots=Os93xEil5A&sig=At6cN7kY-IlTdeR7F5sNxEB129c&hl=en&sa=X&ved=0ahUKEwiwpJ_VlIXPAhVoDsAKHbrvAKYQ6AEIQDAF#v=onepage&q=big%20nerd%20ranch%20model%20singleton&f=false
-            mainModel = new MainModel(c.getApplicationContext());
-        }
-        return mainModel;
-    }
-
-    /**
-     * Public so that apps can pass in a test context
-     * See Uncle Bob
-     * https://8thlight.com/blog/uncle-bob/2015/06/30/the-little-singleton.html
-     * @param appContext - activity context
-     */
     public MainModel(Context appContext) {
         this.appContext = appContext;
         dummyData();

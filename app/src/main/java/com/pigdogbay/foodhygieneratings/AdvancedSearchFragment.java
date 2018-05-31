@@ -15,11 +15,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.model.Business;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.LocalAuthority;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
+
+import static com.pigdogbay.foodhygieneratings.model.Injector.getMainModel;
 
 public class AdvancedSearchFragment extends Fragment {
 
@@ -28,62 +31,44 @@ public class AdvancedSearchFragment extends Fragment {
 
     private TextView placeTextView,nameTextView;
     private Spinner businessTypeSpinner, areaSpinner, ratingSpinner, ratingOperatorSpinner, statusSpinner;
-
-    private MainModel getMainModel(){
-        return MainModel.get(getContext());
-    }
+    private MainModel mainModel;
 
     public AdvancedSearchFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        // Inflate the layout for this fragment
+        mainModel = Injector.getMainModel();
         View view = inflater.inflate(R.layout.fragment_advanced_search, container, false);
         wireUpControls(view);
         return view;
     }
 
     private void wireUpControls(View view){
-        placeTextView = (TextView) view.findViewById(R.id.advanced_place_text);
-        placeTextView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (EditorInfo.IME_ACTION_SEARCH==i){
-                    search();
-                    return true;
-                }
-                return false;
+        placeTextView = view.findViewById(R.id.advanced_place_text);
+        placeTextView.setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (EditorInfo.IME_ACTION_SEARCH==i){
+                search();
+                return true;
             }
+            return false;
         });
-        view.findViewById(R.id.advanced_name_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nameTextView.setText("");
-            }
-        });
+        view.findViewById(R.id.advanced_name_clear).setOnClickListener(view1 -> nameTextView.setText(""));
 
-        nameTextView = (TextView) view.findViewById(R.id.advanced_business_text);
-        view.findViewById(R.id.advanced_place_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                placeTextView.setText("");
-            }
-        });
+        nameTextView = view.findViewById(R.id.advanced_business_text);
+        view.findViewById(R.id.advanced_place_clear).setOnClickListener(view12 -> placeTextView.setText(""));
 
-        businessTypeSpinner = (Spinner) view.findViewById(R.id.advanced_business_spinner);
-        areaSpinner = (Spinner) view.findViewById(R.id.advanced_area_spinner);
-        ratingSpinner = (Spinner) view.findViewById(R.id.advanced_rating_spinner);
-        ratingOperatorSpinner = (Spinner) view.findViewById(R.id.advanced_rating_operator_spinner);
-        statusSpinner = (Spinner) view.findViewById(R.id.advanced_status_spinner);
+        businessTypeSpinner = view.findViewById(R.id.advanced_business_spinner);
+        areaSpinner = view.findViewById(R.id.advanced_area_spinner);
+        ratingSpinner = view.findViewById(R.id.advanced_rating_spinner);
+        ratingOperatorSpinner = view.findViewById(R.id.advanced_rating_operator_spinner);
+        statusSpinner = view.findViewById(R.id.advanced_status_spinner);
 
         ArrayAdapter<LocalAuthority> localAuthorityArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
         localAuthorityArrayAdapter.add(LocalAuthority.getALL());
-        localAuthorityArrayAdapter.addAll(getMainModel().getLocalAuthorities());
+        localAuthorityArrayAdapter.addAll(mainModel.getLocalAuthorities());
         localAuthorityArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         areaSpinner.setAdapter(localAuthorityArrayAdapter);
 
@@ -107,7 +92,6 @@ public class AdvancedSearchFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -123,11 +107,9 @@ public class AdvancedSearchFragment extends Fragment {
         LocalAuthority localAuthority = (LocalAuthority) areaSpinner.getSelectedItem();
         int business = Business.businessTypesIds[businessTypeSpinner.getSelectedItemPosition()];
 
-
         Query query = new Query();
         query.setPlaceName(place);
         query.setBusinessName(name);
-
 
         if (!ALL.equals(localAuthority.getName())){
             query.setLocalAuthorityId(String.valueOf(localAuthority.getId()));
@@ -144,18 +126,15 @@ public class AdvancedSearchFragment extends Fragment {
             query.setRatingKey(status);
         }
         return query;
-
     }
 
     private void search() {
         ActivityUtils.hideKeyboard(getActivity(),placeTextView.getWindowToken());
         Query query = createQuery();
-        if (getMainModel().findEstablishments(query)){
-            MainModel.get(getContext()).setSearchType(SearchType.advanced);
+        if (mainModel.findEstablishments(query)){
+            mainModel.setSearchType(SearchType.advanced);
             MainActivity mainActivity = (MainActivity) getActivity();
             mainActivity.showResults();
         }
-
     }
-
 }

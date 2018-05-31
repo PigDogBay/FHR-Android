@@ -13,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 
@@ -28,13 +29,12 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
     private Marker marker;
 
     public EstablishmentMapFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        establishment = MainModel.get(getContext()).getSelectedEstablishment();
+        establishment = Injector.getMainModel().getSelectedEstablishment();
         getMapAsync(this);
     }
 
@@ -55,20 +55,14 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
     }
 
     private void startGeocoderWorker(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final LatLng latLng = getGeocoderLocation();
-                if (latLng!=null){
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            marker.setPosition(latLng);
-                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(marker.getPosition(),16.0f);
-                            googleMap.animateCamera(cameraUpdate);
-                        }
-                    });
-                }
+        new Thread(() -> {
+            final LatLng latLng = getGeocoderLocation();
+            if (latLng!=null){
+                getActivity().runOnUiThread(() -> {
+                    marker.setPosition(latLng);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(marker.getPosition(),16.0f);
+                    googleMap.animateCamera(cameraUpdate);
+                });
             }
         }).start();
     }

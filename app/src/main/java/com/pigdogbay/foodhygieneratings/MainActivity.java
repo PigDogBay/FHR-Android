@@ -5,7 +5,6 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.pigdogbay.foodhygieneratings.model.AppState;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Injector.getInjector().build(this);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onResume() {
         super.onResume();
-        MainModel.get(this).getAppStateProperty().addObserver(this);
-        update(MainModel.get(this).getAppStateProperty().getValue());
+        Injector.getMainModel().getAppStateProperty().addObserver(this);
+        update(Injector.getMainModel().getAppStateProperty().getValue());
         //User gave permission to use location
         if (flagFindPlacesNearToMe){
             flagFindPlacesNearToMe = false;
@@ -105,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
-        MainModel.get(this).getAppStateProperty().removeObserver(this);
+        Injector.getMainModel().getAppStateProperty().removeObserver(this);
     }
 
     @Override
@@ -321,7 +323,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void findLocalEstablishments() {
-        MainModel mainModel = MainModel.get(this);
+        MainModel mainModel = Injector.getMainModel();
         if (!mainModel.isBusy() && getGoogleApiClient().isConnected()) {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_PERMISSION_REQUEST_CODE);

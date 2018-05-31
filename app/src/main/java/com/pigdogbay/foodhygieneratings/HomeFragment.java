@@ -15,7 +15,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
@@ -24,10 +24,6 @@ public class HomeFragment extends Fragment{
 
 
     public static final String TAG = "home";
-
-    private MainModel getMainModel() {
-        return MainModel.get(getContext());
-    }
 
     private TextView placeTextView;
     private TextView nameTextView;
@@ -110,8 +106,8 @@ public class HomeFragment extends Fragment{
             return;
         }
 
-        if (getMainModel().findEstablishments(query)) {
-            MainModel.get(getContext()).setSearchType(SearchType.quick);
+        if (Injector.getMainModel().findEstablishments(query)) {
+            Injector.getMainModel().setSearchType(SearchType.quick);
             MainActivity mainActivity = (MainActivity) getActivity();
             mainActivity.showResults();
         }

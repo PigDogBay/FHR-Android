@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 import com.pigdogbay.lib.utils.ObservableProperty;
@@ -31,7 +32,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     private ResultsAdapter resultsAdapter;
 
     private MainModel getMainModel(){
-        return MainModel.get(getContext());
+        return Injector.getMainModel();
     }
 
     public ResultsFragment() {
@@ -132,7 +133,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     @Override
     public void onListItemClicked(Establishment item, int position) {
-        MainModel.get(getContext()).setSelectedEstablishment(item);
+        getMainModel().setSelectedEstablishment(item);
         ((MainActivity) getActivity()).showDetails();
     }
 

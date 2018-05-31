@@ -17,6 +17,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Coordinate;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
+import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 import com.pigdogbay.foodhygieneratings.model.Query;
@@ -32,11 +33,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     private GoogleMap googleMap;
     private MapMarkers mapMarkers;
     private MainModel getMainModel(){
-        return MainModel.get(getContext());
+        return Injector.getMainModel();
     }
 
     public MapFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -127,18 +127,13 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onInfoWindowClick(Marker marker) {
         Establishment establishment = (Establishment) marker.getTag();
-        MainModel.get(getContext()).setSelectedEstablishment(establishment);
+        getMainModel().setSelectedEstablishment(establishment);
         ((MainActivity)getActivity()).showDetails();
     }
 
     @Override
     public void update(ObservableProperty<AppState> sender, final AppState update) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                update(update);
-            }
-        });
+        getActivity().runOnUiThread(() -> update(update));
     }
 
     private void update(){
@@ -198,6 +193,4 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         }
 
     }
-
-
 }
