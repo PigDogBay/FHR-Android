@@ -65,8 +65,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         setSupportActionBar(toolbar);
 
         fabFilter = findViewById(R.id.fab);
-        fabFilter.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        fabFilter.setOnClickListener(view -> mapFabClicked());
         fabFilter.setVisibility(View.GONE);
 
         setUpAds();
@@ -180,6 +179,21 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             default:
                 this.setNavigateHome(true);
                 break;
+
+        }
+        Fragment f= manager.findFragmentById(R.id.main_fragment_container);
+        String tag="";
+        if (f!=null){
+            tag = f.getTag();
+        }
+        switch (tag){
+            case ResultsFragment.TAG:
+            case DetailsFragment.TAG:
+                showMapFAB();
+                break;
+            default:
+                hideMapFAB();
+                break;
         }
     }
     private void checkAppRate() {
@@ -193,6 +207,24 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(enabled);
         }
+    }
+
+    private void mapFabClicked(){
+        Fragment f= getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
+        String tag="";
+        if (f!=null){
+            tag = f.getTag();
+        }
+
+        switch (tag){
+            case ResultsFragment.TAG:
+                showMap();
+                break;
+            case DetailsFragment.TAG:
+                showEstablishmentMap();
+                break;
+        }
+
     }
 
     public void showHome() {
@@ -268,6 +300,12 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         progressDialog.show();
     }
 
+    private void showMapFAB(){
+        fabFilter.setVisibility(View.VISIBLE);
+    }
+    private void hideMapFAB(){
+        fabFilter.setVisibility(View.GONE);
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

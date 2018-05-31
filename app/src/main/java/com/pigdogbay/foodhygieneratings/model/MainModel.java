@@ -89,8 +89,8 @@ public class MainModel {
      */
     public MainModel(Context appContext) {
         this.appContext = appContext;
-        //dummyData();
-        dataProvider = new WebDataProvider();
+        dummyData();
+        //dataProvider = new WebDataProvider();
         searchType = SearchType.local;
         appStateObservableProperty = new ObservableProperty<>(AppState.ready);
         results = new ArrayList<>();
