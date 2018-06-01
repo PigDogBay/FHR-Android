@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,13 +22,14 @@ import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
-public class HomeFragment extends Fragment{
+public class HomeFragment extends Fragment implements TextWatcher {
 
 
     public static final String TAG = "home";
 
     private TextView placeTextView;
     private TextView nameTextView;
+    private View placeClearButton, nameClearButton;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -68,7 +71,9 @@ public class HomeFragment extends Fragment{
 
     private void wireUpControls(View view) {
         placeTextView = view.findViewById(R.id.home_place);
+        placeTextView.addTextChangedListener(this);
         nameTextView = view.findViewById(R.id.home_business_name);
+        nameTextView.addTextChangedListener(this);
         placeTextView.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (EditorInfo.IME_ACTION_SEARCH==i){
                 quickSearch();
@@ -91,8 +96,12 @@ public class HomeFragment extends Fragment{
         nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
         nearMeButton.setOnClickListener(view14 -> placesNearMe());
 
-        view.findViewById(R.id.home_business_clear).setOnClickListener(view12 -> onNameFieldClearClicked());
-        view.findViewById(R.id.home_place_clear).setOnClickListener(view13 -> onPlaceFieldClearClicked());
+        nameClearButton = view.findViewById(R.id.home_business_clear);
+        nameClearButton.setOnClickListener(view12 -> onNameFieldClearClicked());
+        nameClearButton.setVisibility(View.GONE);
+        placeClearButton = view.findViewById(R.id.home_place_clear);
+        placeClearButton.setOnClickListener(view13 -> onPlaceFieldClearClicked());
+        placeClearButton.setVisibility(View.GONE);
     }
 
     private void quickSearch() {
@@ -134,4 +143,21 @@ public class HomeFragment extends Fragment{
         ActivityUtils.showKeyboard(getActivity(),placeTextView);
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        int visibility = placeTextView.getText().length()>0 ? View.VISIBLE : View.GONE;
+        placeClearButton.setVisibility(visibility);
+        visibility = nameTextView.getText().length()>0 ? View.VISIBLE : View.GONE;
+        nameClearButton.setVisibility(visibility);
+    }
 }
