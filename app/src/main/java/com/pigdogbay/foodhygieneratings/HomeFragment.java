@@ -91,8 +91,8 @@ public class HomeFragment extends Fragment{
         nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
         nearMeButton.setOnClickListener(view14 -> placesNearMe());
 
-        view.findViewById(R.id.home_business_clear).setOnClickListener(view12 -> nameTextView.setText(""));
-        view.findViewById(R.id.home_place_clear).setOnClickListener(view13 -> placeTextView.setText(""));
+        view.findViewById(R.id.home_business_clear).setOnClickListener(view12 -> onNameFieldClearClicked());
+        view.findViewById(R.id.home_place_clear).setOnClickListener(view13 -> onPlaceFieldClearClicked());
     }
 
     private void quickSearch() {
@@ -121,6 +121,17 @@ public class HomeFragment extends Fragment{
     private void advancedSearch() {
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.showAdvancedSearch();
+    }
+
+    private void onNameFieldClearClicked(){
+        nameTextView.setText("");
+        nameTextView.requestFocus();
+        ActivityUtils.showKeyboard(getActivity(),nameTextView);
+    }
+    private void onPlaceFieldClearClicked(){
+        placeTextView.setText("");
+        placeTextView.requestFocus();
+        ActivityUtils.showKeyboard(getActivity(),placeTextView);
     }
 
 }
