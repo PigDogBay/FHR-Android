@@ -44,6 +44,22 @@ public class MainModelTest implements ObservableProperty.PropertyChangedObserver
 
         mainModel.getAppStateProperty().removeObserver(this);
     }
+    /*
+       Set containing text filter "fish"
+     */
+    @Test
+    synchronized public void findEstablishments2() throws IOException, InterruptedException {
+        MainModel mainModel = createMainModel();
+        mainModel.getAppStateProperty().addObserver(this);
+        mainModel.findEstablishments(new Query());
+        wait();
+        assertEquals(AppState.loaded,mainModel.getAppStateProperty().getValue());
+        mainModel.setContainingTextFilter("fish");
+        List<Establishment> results =  mainModel.getResults();
+        assertEquals(3, results.size());
+        assertEquals("Riverside Fish Bar", results.get(0).getBusiness().getName());
+        mainModel.getAppStateProperty().removeObserver(this);
+    }
 
     @Override
     synchronized public void update(ObservableProperty<AppState> sender, AppState update) {
