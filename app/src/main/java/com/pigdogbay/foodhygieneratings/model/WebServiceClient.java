@@ -27,10 +27,11 @@ class WebServiceClient {
         return builder.build();
     }
 
-    static JSONObject getJson(Uri uri) throws IOException, JSONException {
+    static JSONObject getJson(Uri uri, int timeout) throws IOException, JSONException {
 
         URL url = new URL(uri.toString());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setReadTimeout(timeout);
 
         connection.addRequestProperty("x-api-version","2");
         connection.addRequestProperty("accept","application/json");
@@ -40,7 +41,7 @@ class WebServiceClient {
             StringBuilder sb = new StringBuilder();
             String line;
             while((line = reader.readLine())!=null){
-                sb.append(line+"\n");
+                sb.append(line).append("\n");
             }
             reader.close();
             return new JSONObject(sb.toString());

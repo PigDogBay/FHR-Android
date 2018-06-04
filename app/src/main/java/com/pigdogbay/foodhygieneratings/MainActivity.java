@@ -2,6 +2,7 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,12 +26,13 @@ import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
+import com.pigdogbay.foodhygieneratings.model.Settings;
 import com.pigdogbay.lib.utils.ActivityUtils;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState> {
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState>, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private FloatingActionButton fabFilter;
     private AdView _AdView;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     private ProgressDialog progressDialog;
     private GoogleApiClient googleApiClient;
     private boolean flagFindPlacesNearToMe = false;
+    private MainModel mainModel;
+    private Settings settings;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -62,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Injector.INSTANCE.build(this);
+        settings = Injector.settings;
+        mainModel = Injector.mainModel;
+        applySettings();
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -85,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onResume() {
         super.onResume();
-        Injector.INSTANCE.getMainModel().getAppStateProperty().addObserver(this);
-        update(Injector.INSTANCE.getMainModel().getAppStateProperty().getValue());
+        mainModel.getAppStateProperty().addObserver(this);
+        update(mainModel.getAppStateProperty().getValue());
         //User gave permission to use location
         if (flagFindPlacesNearToMe){
             flagFindPlacesNearToMe = false;
@@ -108,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
-        Injector.INSTANCE.getMainModel().getAppStateProperty().removeObserver(this);
+        mainModel.getAppStateProperty().removeObserver(this);
     }
 
     @Override
@@ -332,7 +339,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void findLocalEstablishments() {
-        MainModel mainModel = Injector.INSTANCE.getMainModel();
         if (!mainModel.isBusy() && getGoogleApiClient().isConnected()) {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_PERMISSION_REQUEST_CODE);
@@ -349,5 +355,13 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 ActivityUtils.showInfoDialog(this,R.string.alert_no_location_title,R.string.alert_no_location_description,R.string.ok);
             }
         }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        applySettings();
+    }
+    private void applySettings(){
+        mainModel.getDataProvider().setTimeout(settings.getSearchTimeout()*1000);
     }
 }

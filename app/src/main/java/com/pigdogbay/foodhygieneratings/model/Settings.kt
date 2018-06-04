@@ -3,7 +3,7 @@ package com.pigdogbay.foodhygieneratings.model
 import com.pigdogbay.foodhygieneratings.R
 import com.pigdogbay.lib.utils.PreferencesHelper
 
-class Settings(val preferencesHelper: PreferencesHelper) {
+class Settings(private val preferencesHelper: PreferencesHelper) {
 
     var searchRadius : Double
         get() = preferencesHelper.getDouble(R.string.key_pref_search_radius,1.0)

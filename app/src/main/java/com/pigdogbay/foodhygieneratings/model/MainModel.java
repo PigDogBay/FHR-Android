@@ -15,6 +15,7 @@ import java.util.List;
 public class MainModel {
 
     public interface IDataProvider {
+        void setTimeout(int timeout);
         List<Establishment> findEstablishments(Query query) throws IOException, JSONException, ParseException;
     }
 
@@ -29,6 +30,10 @@ public class MainModel {
 
     public ObservableProperty<AppState> getAppStateProperty() {
         return appStateObservableProperty;
+    }
+
+    public IDataProvider getDataProvider() {
+        return dataProvider;
     }
     public void setDataProvider(IDataProvider dataProvider) {
         this.dataProvider = dataProvider;

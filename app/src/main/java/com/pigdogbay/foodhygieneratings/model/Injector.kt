@@ -4,6 +4,7 @@ import android.content.Context
 
 import com.pigdogbay.foodhygieneratings.R
 import com.pigdogbay.lib.utils.ActivityUtils
+import com.pigdogbay.lib.utils.PreferencesHelper
 
 import org.json.JSONObject
 
@@ -14,6 +15,7 @@ object Injector {
 
     private var isBuilt = false
     lateinit var mainModel: MainModel
+    lateinit var settings: Settings
     private var localAuthorities: List<LocalAuthority>? = null
 
     fun build(context: Context) {
@@ -23,10 +25,13 @@ object Injector {
         isBuilt = true
 
         val applicationContext = context.applicationContext
+        val preferencesHelper = PreferencesHelper(applicationContext)
+        settings = Settings(preferencesHelper)
 
+        //val dataProvider = dummyDataProvider(applicationContext)
+        val dataProvider = WebDataProvider()
         mainModel = MainModel()
-        mainModel.setDataProvider(dummyDataProvider(applicationContext))
-        //mainModel.setDataProvider(new WebDataProvider());
+        mainModel.setDataProvider(dataProvider)
     }
 
     private fun dummyDataProvider(context: Context): MainModel.IDataProvider {

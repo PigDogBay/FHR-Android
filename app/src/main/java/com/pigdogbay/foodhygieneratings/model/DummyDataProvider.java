@@ -16,10 +16,14 @@ public class DummyDataProvider implements MainModel.IDataProvider {
     public DummyDataProvider(String jsonData) {
         this.jsonData = jsonData;
     }
+
+    @Override
+    public void setTimeout(int timeout) {
+    }
+
     @Override
     public List<Establishment> findEstablishments(Query query) throws JSONException, ParseException {
         JSONObject jsonObject = new JSONObject(jsonData);
         return FoodHygieneAPI.parseEstablishments(jsonObject);
-
     }
 }
