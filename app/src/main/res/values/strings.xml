@@ -45,11 +45,11 @@
     <string name="legal">Contains public sector information licensed under the Open Government Licence v3.0
     \n\nAll information is provided by the live data feed from the Food Standards Agency. If you find any issues with the data please contact the relevant local authority. For more information visit http://www.food.gov.uk
     </string>
-    <string translatable="false" name="market_pigdogbay_apps">market://search?q=pub:Pig%20Dog%20Bay</string>
-    <string translatable="false" name="market_app_url">market://details?id=com.pigdogbay.foodhygieneratings</string>
-    <string translatable="false" name="web_app_url">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
-    <string translatable="false" name="web_app_url_ios">https://itunes.apple.com/app/id1213783338</string>
-    <string translatable="false" name="release_notes_url">https://pigdogbay.blogspot.co.uk/</string>
+    <string name="market_pigdogbay_apps" translatable="false">market://search?q=pub:Pig%20Dog%20Bay</string>
+    <string name="market_app_url" translatable="false">market://details?id=com.pigdogbay.foodhygieneratings</string>
+    <string name="web_app_url" translatable="false">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
+    <string name="web_app_url_ios" translatable="false">https://itunes.apple.com/app/id1213783338</string>
+    <string name="release_notes_url" translatable="false">https://pigdogbay.blogspot.co.uk/</string>
     <string name="menu_share">Share</string>
     <string name="share_chooser_title">Share…</string>
     <string name="menu_results_search">Search</string>
@@ -102,4 +102,61 @@
         <item>Distributors/Transporters</item>
         <item>Manufacturers/packers</item>
     </string-array>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Settings for Search -->
+    <string name="pref_header_search_sync">Data</string>
+
+    <string name="pref_title_search_timeout">Search Timeout</string>
+    <string-array name="pref_search_timeout_titles">
+        <item>10 seconds</item>
+        <item>20 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+    <string-array name="pref_search_timeout_values">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+    </string-array>
+    <string name="pref_search_default_timeout_value">30</string>
+
+    <string name="pref_header_search">Search</string>
+
+    <string name="pref_title_search_radius">Search Radius</string>
+    <string-array name="pref_search_radius_titles">
+        <item>0.2 miles</item>
+        <item>0.5 miles</item>
+        <item>1 mile</item>
+        <item>2 miles</item>
+        <item>5 miles</item>
+        <item>10 miles</item>
+    </string-array>
+    <string-array name="pref_search_radius_values">
+        <item>0.2</item>
+        <item>0.5</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string name="pref_search_radius_default">1</string>
+
+    <string name="pref_title_search_results_text_filter">Results Text Filter</string>
+    <string-array name="pref_search_results_text_filter_titles">
+        <item>Search for text in the name only</item>
+        <item>Search for text in the name and address</item>
+    </string-array>
+    <string-array name="pref_search_results_text_filter_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string name="pref_search_default_results_text_filter">0</string>
+    <string name="main_menu_search">Search</string>
+
 </resources>

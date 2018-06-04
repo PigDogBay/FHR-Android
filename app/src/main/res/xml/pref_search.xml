@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="@string/pref_search_radius_default"
+        android:entries="@array/pref_search_radius_titles"
+        android:entryValues="@array/pref_search_radius_values"
+        android:key="@string/key_pref_search_radius"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_search_radius" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_search_default_results_text_filter"
+        android:entries="@array/pref_search_results_text_filter_titles"
+        android:entryValues="@array/pref_search_results_text_filter_values"
+        android:key="@string/key_pref_search_results_text_filter"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_search_results_text_filter" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_search_default_timeout_value"
+        android:entries="@array/pref_search_timeout_titles"
+        android:entryValues="@array/pref_search_timeout_values"
+        android:key="@string/key_pref_search_timeout"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_search_timeout" />
+
+</PreferenceScreen>

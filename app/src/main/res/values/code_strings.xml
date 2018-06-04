@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_pref_search_timeout">key_pref_search_timeout</string>
+    <string name="key_pref_search_radius">key_pref_search_radius</string>
+    <string name="key_pref_search_results_text_filter">key_pref_search_results_text_filter</string>
+</resources>

@@ -1,6 +1,7 @@
 package com.pigdogbay.foodhygieneratings;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -150,6 +151,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case R.id.menu_main_about:
                 showAbout();
                 return true;
+            case R.id.menu_main_settings:
+                showSettings();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -259,6 +263,11 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     public void showAbout(){
         pushFragment(new AboutFragment(), AboutFragment.TAG);
+    }
+
+    public void showSettings(){
+        Intent intent = new Intent(this,SettingsActivity.class);
+        startActivity(intent);
     }
 
     @Override

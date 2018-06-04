@@ -6,7 +6,10 @@
         android:id="@+id/menu_search"
         app:showAsAction="always"
         android:icon="@drawable/ic_search_24dp"
-        android:title="Search"/>
+        android:title="@string/main_menu_search"/>
+    <item android:id="@+id/menu_main_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/menu_main_about"
         android:title="@string/menu_main_about"
