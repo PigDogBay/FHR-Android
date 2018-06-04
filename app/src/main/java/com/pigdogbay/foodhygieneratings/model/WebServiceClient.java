@@ -32,6 +32,7 @@ class WebServiceClient {
         URL url = new URL(uri.toString());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setReadTimeout(timeout);
+        connection.setConnectTimeout(timeout);
 
         connection.addRequestProperty("x-api-version","2");
         connection.addRequestProperty("accept","application/json");
