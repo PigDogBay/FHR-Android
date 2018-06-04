@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         } else if (backStackCount > 1) {
             setNavigateHome(true);
         }
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -363,5 +365,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
     private void applySettings(){
         mainModel.getDataProvider().setTimeout(settings.getSearchTimeout()*1000);
+        mainModel.setTextFilterByNameAndAddress(settings.isTextFilterNameAndAddress());
     }
 }

@@ -27,6 +27,7 @@ public class MainModel {
     private String containingTextFilter = "";
     final private List<Establishment> filteredResults;
     private boolean isBusy = false;
+    private boolean isTextFilterByNameAndAddress = false;
 
     public ObservableProperty<AppState> getAppStateProperty() {
         return appStateObservableProperty;
@@ -58,6 +59,9 @@ public class MainModel {
     }
     public void setContainingTextFilter(String containingTextFilter) {
         this.containingTextFilter = containingTextFilter;
+    }
+    public void setTextFilterByNameAndAddress(boolean textFilterByNameAndAddress) {
+        isTextFilterByNameAndAddress = textFilterByNameAndAddress;
     }
 
     public MainModel() {
@@ -116,6 +120,8 @@ public class MainModel {
             final String lowercaseText = containingText.toLowerCase();
             for (Establishment est : results){
                 if (est.getBusiness().getName().toLowerCase().contains(lowercaseText)){
+                    filteredResults.add(est);
+                } else if (isTextFilterByNameAndAddress && est.getAddress().flatten().toLowerCase().contains(lowercaseText)){
                     filteredResults.add(est);
                 }
             }
