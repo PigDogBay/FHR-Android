@@ -346,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             }
             final Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(getGoogleApiClient());
             if (lastLocation != null) {
-                Query query = new Query(lastLocation.getLongitude(), lastLocation.getLatitude(), 1);
+                Query query = new Query(lastLocation.getLongitude(), lastLocation.getLatitude(), settings.getSearchRadius());
                 if (mainModel.findEstablishments(query)) {
                     mainModel.setSearchType(SearchType.local);
                     showResults();

@@ -130,19 +130,27 @@
 
     <string name="pref_title_search_radius">Search Radius</string>
     <string-array name="pref_search_radius_titles">
-        <item>0.2 miles</item>
-        <item>0.5 miles</item>
         <item>1 mile</item>
         <item>2 miles</item>
+        <item>3 miles</item>
+        <item>4 miles</item>
         <item>5 miles</item>
+        <item>6 miles</item>
+        <item>7 miles</item>
+        <item>8 miles</item>
+        <item>9 miles</item>
         <item>10 miles</item>
     </string-array>
     <string-array name="pref_search_radius_values">
-        <item>0.2</item>
-        <item>0.5</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
         <item>10</item>
     </string-array>
     <string name="pref_search_radius_default">1</string>

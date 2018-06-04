@@ -5,9 +5,9 @@ import com.pigdogbay.lib.utils.PreferencesHelper
 
 class Settings(private val preferencesHelper: PreferencesHelper) {
 
-    var searchRadius : Double
-        get() = preferencesHelper.getDouble(R.string.key_pref_search_radius,1.0)
-        set(value){preferencesHelper.setDouble(R.string.key_pref_search_radius,value)}
+    var searchRadius : Int
+        get() = preferencesHelper.getInt(R.string.key_pref_search_radius,1)
+        set(value){preferencesHelper.setInt(R.string.key_pref_search_radius,value)}
 
     var searchTimeout : Int
         get() = preferencesHelper.getInt(R.string.key_pref_search_timeout,30)
