@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
@@ -41,5 +42,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:12.0.1'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.json:json:20180130'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}
+apply plugin: 'kotlin-android-extensions'
