@@ -275,8 +275,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void showSettings(){
-        Intent intent = new Intent(this,SettingsActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this,SettingsActivity.class);
+//        startActivity(intent);
+        pushFragment(new SettingsFragment(),SettingsFragment.Companion.getTAG());
     }
 
     @Override

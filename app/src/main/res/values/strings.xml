@@ -128,7 +128,7 @@
 
     <string name="pref_header_search">Search</string>
 
-    <string name="pref_title_search_radius">Search Radius</string>
+    <string name="pref_title_search_radius">Search Radius (Near Me / Map)</string>
     <string-array name="pref_search_radius_titles">
         <item>1 mile</item>
         <item>2 miles</item>
@@ -166,5 +166,4 @@
     </string-array>
     <string name="pref_search_default_results_text_filter">0</string>
     <string name="main_menu_search">Search</string>
-
 </resources>
