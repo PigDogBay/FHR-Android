@@ -32,7 +32,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     private ResultsAdapter resultsAdapter;
 
     private MainModel getMainModel(){
-        return Injector.getMainModel();
+        return Injector.INSTANCE.getMainModel();
     }
 
     public ResultsFragment() {

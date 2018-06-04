@@ -14,7 +14,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.Injector;
-import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.MapMarkers;
 
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class EstablishmentMapFragment extends SupportMapFragment implements OnMa
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        establishment = Injector.getMainModel().getSelectedEstablishment();
+        establishment = Injector.INSTANCE.getMainModel().getSelectedEstablishment();
         getMapAsync(this);
     }
 

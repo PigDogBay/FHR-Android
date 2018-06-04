@@ -115,8 +115,8 @@ public class HomeFragment extends Fragment implements TextWatcher {
             return;
         }
 
-        if (Injector.getMainModel().findEstablishments(query)) {
-            Injector.getMainModel().setSearchType(SearchType.quick);
+        if (Injector.INSTANCE.getMainModel().findEstablishments(query)) {
+            Injector.INSTANCE.getMainModel().setSearchType(SearchType.quick);
             MainActivity mainActivity = (MainActivity) getActivity();
             mainActivity.showResults();
         }

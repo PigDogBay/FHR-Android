@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Injector.getInjector().build(this);
+        Injector.INSTANCE.build(this);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Override
     protected void onResume() {
         super.onResume();
-        Injector.getMainModel().getAppStateProperty().addObserver(this);
-        update(Injector.getMainModel().getAppStateProperty().getValue());
+        Injector.INSTANCE.getMainModel().getAppStateProperty().addObserver(this);
+        update(Injector.INSTANCE.getMainModel().getAppStateProperty().getValue());
         //User gave permission to use location
         if (flagFindPlacesNearToMe){
             flagFindPlacesNearToMe = false;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             _AdView.pause();
         }
         super.onPause();
-        Injector.getMainModel().getAppStateProperty().removeObserver(this);
+        Injector.INSTANCE.getMainModel().getAppStateProperty().removeObserver(this);
     }
 
     @Override
@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void findLocalEstablishments() {
-        MainModel mainModel = Injector.getMainModel();
+        MainModel mainModel = Injector.INSTANCE.getMainModel();
         if (!mainModel.isBusy() && getGoogleApiClient().isConnected()) {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_PERMISSION_REQUEST_CODE);

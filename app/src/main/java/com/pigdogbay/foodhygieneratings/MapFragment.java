@@ -33,7 +33,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     private GoogleMap googleMap;
     private MapMarkers mapMarkers;
     private MainModel getMainModel(){
-        return Injector.getMainModel();
+        return Injector.INSTANCE.getMainModel();
     }
 
     public MapFragment() {

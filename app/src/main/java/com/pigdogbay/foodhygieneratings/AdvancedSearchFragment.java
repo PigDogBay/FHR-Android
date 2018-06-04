@@ -2,7 +2,6 @@ package com.pigdogbay.foodhygieneratings;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,8 +21,6 @@ import com.pigdogbay.foodhygieneratings.model.Query;
 import com.pigdogbay.foodhygieneratings.model.SearchType;
 import com.pigdogbay.lib.utils.ActivityUtils;
 
-import static com.pigdogbay.foodhygieneratings.model.Injector.getMainModel;
-
 public class AdvancedSearchFragment extends Fragment {
 
     public static final String TAG = "advanced search";
@@ -40,7 +37,7 @@ public class AdvancedSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        mainModel = Injector.getMainModel();
+        mainModel = Injector.INSTANCE.getMainModel();
         View view = inflater.inflate(R.layout.fragment_advanced_search, container, false);
         wireUpControls(view);
         return view;
@@ -68,7 +65,7 @@ public class AdvancedSearchFragment extends Fragment {
 
         ArrayAdapter<LocalAuthority> localAuthorityArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
         localAuthorityArrayAdapter.add(LocalAuthority.getALL());
-        localAuthorityArrayAdapter.addAll(Injector.getInjector().getLocalAuthorities(getContext()));
+        localAuthorityArrayAdapter.addAll(Injector.INSTANCE.getLocalAuthorities(getContext()));
         localAuthorityArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         areaSpinner.setAdapter(localAuthorityArrayAdapter);
 

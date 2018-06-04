@@ -40,7 +40,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        establishment = Injector.getMainModel().getSelectedEstablishment();
+        establishment = Injector.INSTANCE.getMainModel().getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
@@ -118,7 +118,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     private void share() {
         try {
             ActivityUtils.shareText(getActivity(), "Rating: "+establishment.getBusiness().getName(),
-                    Injector.getMainModel().getShareText(establishment),
+                    Injector.INSTANCE.getMainModel().getShareText(establishment),
                     R.string.share_chooser_title);
         }
         catch (Exception e) {
