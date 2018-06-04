@@ -1,7 +1,6 @@
 package com.pigdogbay.foodhygieneratings;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
@@ -275,8 +274,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void showSettings(){
-//        Intent intent = new Intent(this,SettingsActivity.class);
-//        startActivity(intent);
         pushFragment(new SettingsFragment(),SettingsFragment.Companion.getTAG());
     }
 
