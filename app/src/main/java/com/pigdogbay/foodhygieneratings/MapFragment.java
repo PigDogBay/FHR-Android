@@ -95,7 +95,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         //If app is terminated by the OS, this next line will throw an IllegalStateArgument if user starts app
         try {
             googleMap.moveCamera(cameraUpdate);
-        }catch (Exception e){}
+        }catch (Exception e){e.printStackTrace();}
 
         update();
     }
@@ -187,7 +187,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             case connectionError:
             case error:
                 LatLng latLng = googleMap.getCameraPosition().target;
-                Query query = new Query(latLng.longitude, latLng.latitude, 1);
+                Query query = new Query(latLng.longitude, latLng.latitude, Injector.settings.getSearchRadius());
                 getMainModel().setSearchType(SearchType.map);
                 getMainModel().findEstablishments(query);
         }
