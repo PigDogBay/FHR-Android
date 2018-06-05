@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.AppState;
+import com.pigdogbay.foodhygieneratings.model.HeaderSectionConverter;
 import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
@@ -29,7 +30,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     public static final String TAG = "results";
 
-    private ResultsAdapter resultsAdapter;
+    private EstablishmentAdapter establishmentAdapter;
 
     private MainModel getMainModel(){
         return Injector.INSTANCE.getMainModel();
@@ -50,9 +51,9 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        resultsAdapter = new ResultsAdapter(this);
+        establishmentAdapter = new EstablishmentAdapter(this);
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(resultsAdapter);
+        recyclerView.setAdapter(establishmentAdapter);
     }
 
     @Override
@@ -73,8 +74,9 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
             public boolean onQueryTextChange(String newText) {
                 getMainModel().setContainingTextFilter(newText);
                 List<Establishment> results = getMainModel().getResults();
-                resultsAdapter.setEstablishments(results);
-                resultsAdapter.notifyDataSetChanged();
+                List<Object> groupedResults = HeaderSectionConverter.INSTANCE.convert(results,getMainModel().getSearchType());
+                establishmentAdapter.setEstablishments(groupedResults);
+                establishmentAdapter.notifyDataSetChanged();
                 updateTitle(results.size());
                 return true;
             }
@@ -117,9 +119,10 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
                 break;
             case loaded:
                 List<Establishment> results = getMainModel().getResults();
-                resultsAdapter.setSearchType(getMainModel().getSearchType());
-                resultsAdapter.setEstablishments(results);
-                resultsAdapter.notifyDataSetChanged();
+                establishmentAdapter.setSearchType(getMainModel().getSearchType());
+                List<Object> groupedResults = HeaderSectionConverter.INSTANCE.convert(results,getMainModel().getSearchType());
+                establishmentAdapter.setEstablishments(groupedResults);
+                establishmentAdapter.notifyDataSetChanged();
                 updateTitle(results.size());
                 break;
             case connectionError:
