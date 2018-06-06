@@ -53,6 +53,9 @@
     <string name="menu_share">Share</string>
     <string name="share_chooser_title">Share…</string>
     <string name="menu_results_search">Search</string>
+    <string name="dialog_map_search_enable_title">Map Searches</string>
+    <string name="dialog_map_search_enable_description">The geo co-ordinates for each establishment are inaccurate so establishments may not be positioned correctly on the map. Markers may also be stacked on top of each other. See the user guide for more information.</string>
+    <string name="dialog_map_search_enable_button">I understand</string>
 
     <string-array name="hygiene_rating">
         <item>All</item>

@@ -1,5 +1,6 @@
 package com.pigdogbay.foodhygieneratings;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.location.Location;
@@ -365,7 +366,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        applySettings();
+        if (getString(R.string.key_pref_map_enable_search).equals(key) && settings.isMapSearchEnabled()){
+            //display warning that the geo information for each establishment is inaccurate
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_map_search_enable_title)
+                    .setMessage(R.string.dialog_map_search_enable_description)
+                    .setPositiveButton(R.string.dialog_map_search_enable_button,null)
+                    .show();
+        } else {
+            applySettings();
+        }
     }
     private void applySettings(){
         mainModel.getDataProvider().setTimeout(settings.getSearchTimeout()*1000);
