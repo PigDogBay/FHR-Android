@@ -2,6 +2,7 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import com.pigdogbay.foodhygieneratings.model.AppState;
 import com.pigdogbay.foodhygieneratings.model.HeaderSectionConverter;
 import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
+import com.pigdogbay.foodhygieneratings.model.RatingValue;
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
@@ -30,7 +32,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     public static final String TAG = "results";
 
-    private MenuItem menu_checked;
+    private MenuItem menu_checked, menu_all;
     private EstablishmentAdapter establishmentAdapter;
 
     private MainModel getMainModel(){
@@ -43,7 +45,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         return inflater.inflate(R.layout.recyler_view, container, false);
@@ -61,10 +63,8 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_results, menu);
-
-        MenuItem menu_all = menu.findItem(R.id.menu_results_filter_all);
-        menu_all.setChecked(true);
-        menu_checked = menu_all;
+        menu_all = menu.findItem(R.id.menu_results_filter_all);
+        modelToMenu(menu);
 
         MenuItem searchItem = menu.findItem(R.id.menu_results_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
@@ -78,12 +78,14 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                //Reset rating filter
+                if (!menu_all.isChecked()){
+                    menu_all.setChecked(true);
+                    menu_checked.setChecked(false);
+                    menu_checked = menu_all;
+                }
                 getMainModel().setContainingTextFilter(newText);
-                List<Establishment> results = getMainModel().getResults();
-                List<Object> groupedResults = HeaderSectionConverter.INSTANCE.convert(results,getMainModel().getSearchType());
-                establishmentAdapter.setEstablishments(groupedResults);
-                establishmentAdapter.notifyDataSetChanged();
-                updateTitle(results.size());
+                updateResults();
                 return true;
             }
         });
@@ -99,9 +101,86 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
         }
         switch (item.getItemId())
         {
+            case R.id.menu_results_filter_all:
+                getMainModel().setRatingFilter(null);
+                break;
+            case R.id.menu_results_filter_0_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf0);
+                break;
+            case R.id.menu_results_filter_1_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf1);
+                break;
+            case R.id.menu_results_filter_2_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf2);
+                break;
+            case R.id.menu_results_filter_3_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf3);
+                break;
+            case R.id.menu_results_filter_4_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf4);
+                break;
+            case R.id.menu_results_filter_5_stars:
+                getMainModel().setRatingFilter(RatingValue.ratingOf5);
+                break;
+            case R.id.menu_results_filter_improvement_required:
+                getMainModel().setRatingFilter(RatingValue.fhis_improvementRequired);
+                break;
+            case R.id.menu_results_filter_pass:
+                getMainModel().setRatingFilter(RatingValue.fhis_pass);
+                break;
+            case R.id.menu_results_filter_pass_eat_safe:
+                getMainModel().setRatingFilter(RatingValue.fhis_passEatSafe);
+                break;
+            case R.id.menu_results_filter_not_rated:
+                getMainModel().setRatingFilter(RatingValue.other);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+        updateResults();
+        return true;
+    }
+
+    private void modelToMenu(Menu menu){
+        //Switch can not handle null (used for all)
+        if (getMainModel().getRatingFilter()==null){
+            menu_checked = menu_all;
+            menu_checked.setChecked(true);
+            return;
+        }
+        switch (getMainModel().getRatingFilter()){
+            case ratingOf0:
+                menu_checked = menu.findItem(R.id.menu_results_filter_0_stars);
+                break;
+            case ratingOf1:
+                menu_checked = menu.findItem(R.id.menu_results_filter_1_stars);
+                break;
+            case ratingOf2:
+                menu_checked = menu.findItem(R.id.menu_results_filter_2_stars);
+                break;
+            case ratingOf3:
+                menu_checked = menu.findItem(R.id.menu_results_filter_3_stars);
+                break;
+            case ratingOf4:
+                menu_checked = menu.findItem(R.id.menu_results_filter_4_stars);
+                break;
+            case ratingOf5:
+                menu_checked = menu.findItem(R.id.menu_results_filter_5_stars);
+                break;
+            case fhis_pass:
+                menu_checked = menu.findItem(R.id.menu_results_filter_pass);
+                break;
+            case fhis_passEatSafe:
+                menu_checked = menu.findItem(R.id.menu_results_filter_pass_eat_safe);
+                break;
+            case fhis_improvementRequired:
+                menu_checked = menu.findItem(R.id.menu_results_filter_improvement_required);
+                break;
+            case other:
+                menu_checked = menu.findItem(R.id.menu_results_filter_not_rated);
+                break;
+        }
+        menu_checked.setChecked(true);
     }
 
     @Override
@@ -130,12 +209,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
                 getActivity().setTitle("Loading...");
                 break;
             case loaded:
-                List<Establishment> results = getMainModel().getResults();
-                establishmentAdapter.setSearchType(getMainModel().getSearchType());
-                List<Object> groupedResults = HeaderSectionConverter.INSTANCE.convert(results,getMainModel().getSearchType());
-                establishmentAdapter.setEstablishments(groupedResults);
-                establishmentAdapter.notifyDataSetChanged();
-                updateTitle(results.size());
+                updateResults();
                 break;
             case connectionError:
                 getActivity().setTitle("No Connection");
@@ -154,5 +228,14 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     private void updateTitle(int resultsFound){
         getActivity().setTitle(resultsFound+" Results Found");
+    }
+
+    private void updateResults(){
+        List<Establishment> results = getMainModel().getResults();
+        establishmentAdapter.setSearchType(getMainModel().getSearchType());
+        List<Object> groupedResults = HeaderSectionConverter.INSTANCE.convert(results,getMainModel().getSearchType());
+        establishmentAdapter.setEstablishments(groupedResults);
+        establishmentAdapter.notifyDataSetChanged();
+        updateTitle(results.size());
     }
 }

@@ -62,6 +62,9 @@ public class MainModel {
         this.ratingFilter = null;
         this.containingTextFilter = containingTextFilter;
     }
+    public RatingValue getRatingFilter() {
+        return ratingFilter;
+    }
     public void setRatingFilter(RatingValue ratingFilter) {
         this.containingTextFilter = "";
         this.ratingFilter = ratingFilter;
