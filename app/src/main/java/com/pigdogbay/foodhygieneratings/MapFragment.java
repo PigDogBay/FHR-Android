@@ -179,10 +179,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         googleMap.clear();
         switch (state){
 
-            case ready:
-                break;
             case loading:
                 break;
+            case ready:
             case loaded:
             case connectionError:
             case error:

@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             tag = f.getTag();
         }
         switch (tag){
+            case HomeFragment.TAG:
             case ResultsFragment.TAG:
                 if (settings.isMapSearchEnabled()) {
                     showMapFAB();
@@ -235,6 +236,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
 
         switch (tag){
+            case HomeFragment.TAG:
             case ResultsFragment.TAG:
                 showMap();
                 break;
