@@ -78,12 +78,18 @@ class EstablishmentViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         this.establishment = establishment
         this.text.text = establishment.business.name
         this.subtitle.text = when (searchType){
-            SearchType.local -> String.format(Locale.UK, "%.1f miles, %s", establishment.distance, establishment.address.flatten())
+            SearchType.local -> distanceSubtitle(establishment)
+            SearchType.map -> distanceSubtitle(establishment)
             else -> establishment.address.flatten()
         }
         val drawable = ContextCompat.getDrawable(view.context, establishment.rating.iconId)
         this.imageView.setImageDrawable(drawable)
     }
+
+    private fun distanceSubtitle(establishment: Establishment) : String {
+        return String.format(Locale.UK, "%.1f miles, %s", establishment.distance, establishment.address.flatten())
+    }
+
 }
 class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view){
     private val text: TextView = view.findViewById(R.id.list_header)
