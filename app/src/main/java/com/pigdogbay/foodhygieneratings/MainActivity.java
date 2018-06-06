@@ -202,6 +202,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
         switch (tag){
             case ResultsFragment.TAG:
+                if (settings.isMapSearchEnabled()) {
+                    showMapFAB();
+                }
+                break;
             case DetailsFragment.TAG:
                 showMapFAB();
                 break;

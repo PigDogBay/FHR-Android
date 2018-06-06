@@ -30,5 +30,11 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="@string/pref_title_search_timeout" />
+    <CheckBoxPreference
+
+        android:key="@string/key_pref_map_enable_search"
+        android:title="@string/pref_title_map_enable_search"
+        android:defaultValue="false"
+        />
 
 </PreferenceScreen>
