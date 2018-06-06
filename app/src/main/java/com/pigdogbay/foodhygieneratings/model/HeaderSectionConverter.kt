@@ -14,7 +14,7 @@ object HeaderSectionConverter {
         establishments
             .groupBy { it.business.typeId}
                 .toSortedMap(compareBy {Business.getBusinessSortOrder(it)})
-                .forEach { key, value ->
+                .forEach { (key, value) ->
                     convertedList.add(String.format(Locale.UK,"%s (%d)", Business.getBusinessType(key).toUpperCase(), value.size))
                     when (searchType){
                         SearchType.local -> value.sortedBy { it.distance }
