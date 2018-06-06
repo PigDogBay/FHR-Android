@@ -28,8 +28,8 @@ object Injector {
         val preferencesHelper = PreferencesHelper(applicationContext)
         settings = Settings(preferencesHelper)
 
-        //val dataProvider = dummyDataProvider(applicationContext)
-        val dataProvider = WebDataProvider()
+        val dataProvider = dummyDataProvider(applicationContext)
+        //val dataProvider = WebDataProvider()
         mainModel = MainModel()
         mainModel.setDataProvider(dataProvider)
     }

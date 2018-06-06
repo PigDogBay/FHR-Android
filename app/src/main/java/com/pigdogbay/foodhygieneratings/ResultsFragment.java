@@ -30,6 +30,7 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     public static final String TAG = "results";
 
+    private MenuItem menu_checked;
     private EstablishmentAdapter establishmentAdapter;
 
     private MainModel getMainModel(){
@@ -60,6 +61,11 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_results, menu);
+
+        MenuItem menu_all = menu.findItem(R.id.menu_results_filter_all);
+        menu_all.setChecked(true);
+        menu_checked = menu_all;
+
         MenuItem searchItem = menu.findItem(R.id.menu_results_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
@@ -85,6 +91,12 @@ public class ResultsFragment extends Fragment implements OnListItemClickedListen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.isCheckable() && !item.isChecked())
+        {
+            item.setChecked(true);
+            menu_checked.setChecked(false);
+            menu_checked = item;
+        }
         switch (item.getItemId())
         {
             default:

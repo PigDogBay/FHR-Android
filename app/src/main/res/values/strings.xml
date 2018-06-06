@@ -171,6 +171,17 @@
     <string name="main_menu_search">Search</string>
 
     <string name="pref_title_map_enable_search">Enable Map Searches</string>
+    <string name="menu_results_filter_all">All Ratings</string>
+    <string name="menu_results_filter_0_stars">0 Star Rating</string>
+    <string name="menu_results_filter_1_stars">1 Star Rating</string>
+    <string name="menu_results_filter_2_stars">2 Star Rating</string>
+    <string name="menu_results_filter_3_stars">3 Star Rating</string>
+    <string name="menu_results_filter_4_stars">4 Star Rating</string>
+    <string name="menu_results_filter_5_stars">5 Star Rating</string>
+    <string name="menu_results_filter_improvement_required">Improvement Required</string>
+    <string name="menu_results_filter_pass">Pass</string>
+    <string name="menu_results_filter_pass_eat_safe">Pass Eat Safe</string>
+    <string name="menu_results_filter_not_rated">Not Rated</string>
 
 
 </resources>
