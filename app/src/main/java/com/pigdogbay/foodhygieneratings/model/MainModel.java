@@ -25,6 +25,7 @@ public class MainModel {
     private ObservableProperty<AppState> appStateObservableProperty;
     private List<Establishment> results;
     private String containingTextFilter = "";
+    private RatingValue ratingFilter = null;
     final private List<Establishment> filteredResults;
     private boolean isBusy = false;
     private boolean isTextFilterByNameAndAddress = false;
@@ -58,7 +59,12 @@ public class MainModel {
         return containingTextFilter;
     }
     public void setContainingTextFilter(String containingTextFilter) {
+        this.ratingFilter = null;
         this.containingTextFilter = containingTextFilter;
+    }
+    public void setRatingFilter(RatingValue ratingFilter) {
+        this.containingTextFilter = "";
+        this.ratingFilter = ratingFilter;
     }
     public void setTextFilterByNameAndAddress(boolean textFilterByNameAndAddress) {
         isTextFilterByNameAndAddress = textFilterByNameAndAddress;
@@ -98,6 +104,7 @@ public class MainModel {
         isBusy = true;
         results.clear();
         filteredResults.clear();
+        ratingFilter = null;
         containingTextFilter = "";
         appStateObservableProperty.setValue(AppState.loading);
         new Thread(() -> {
@@ -116,25 +123,48 @@ public class MainModel {
     }
 
     private void filterResults(final String containingText){
-        if (appStateObservableProperty.getValue().equals(AppState.loaded) && results!=null){
-            final String lowercaseText = containingText.toLowerCase();
-            for (Establishment est : results){
-                if (est.getBusiness().getName().toLowerCase().contains(lowercaseText)){
+        final String lowercaseText = containingText.toLowerCase();
+        for (Establishment est : results){
+            if (est.getBusiness().getName().toLowerCase().contains(lowercaseText)){
+                filteredResults.add(est);
+            } else if (isTextFilterByNameAndAddress && est.getAddress().flatten().toLowerCase().contains(lowercaseText)){
+                filteredResults.add(est);
+            }
+        }
+    }
+
+    private void filterResults(RatingValue ratingValue){
+        if (RatingValue.other == ratingValue){
+            for (Establishment est : results) {
+                if (!est.getRating().getRatingValue().isRated()) {
                     filteredResults.add(est);
-                } else if (isTextFilterByNameAndAddress && est.getAddress().flatten().toLowerCase().contains(lowercaseText)){
+                }
+            }
+        } else {
+            for (Establishment est : results) {
+                if (est.getRating().getRatingValue() == ratingValue) {
                     filteredResults.add(est);
                 }
             }
         }
     }
 
+    /*
+        Will filter by containing text, or filter by rating value or just return all results.
+        Note the filters are not chained
+     */
     public List<Establishment> getResults()
     {
         filteredResults.clear();
-        if ("".equals(containingTextFilter)){
-            return results;
-        } else {
-            filterResults(containingTextFilter);
+        if (appStateObservableProperty.getValue().equals(AppState.loaded) && results!=null) {
+            if (containingTextFilter!=null && containingTextFilter.length()>0) {
+                filterResults(containingTextFilter);
+            } else if (ratingFilter!=null){
+                filterResults(ratingFilter);
+            } else {
+                //no filters
+                return results;
+            }
         }
         return filteredResults;
     }

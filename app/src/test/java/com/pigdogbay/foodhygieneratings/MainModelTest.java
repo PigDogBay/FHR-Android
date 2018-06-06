@@ -4,6 +4,7 @@ import com.pigdogbay.foodhygieneratings.model.DummyDataProvider;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
+import com.pigdogbay.foodhygieneratings.model.RatingValue;
 import com.pigdogbay.lib.utils.ObservableProperty;
 
 import org.junit.Test;
@@ -19,13 +20,13 @@ public class MainModelTest implements ObservableProperty.PropertyChangedObserver
 
     private static final String STOKE_RESOURCE = "stoke.json";
 
-    MainModel.IDataProvider getDataProvider(String resourePath) throws IOException {
+    private MainModel.IDataProvider getDataProvider(String resourePath) throws IOException {
         String path = getClass().getClassLoader().getResource(resourePath).getPath();
         String json = new String(Files.readAllBytes(Paths.get(path)));
         return new DummyDataProvider(json);
     }
 
-    MainModel createMainModel() throws IOException {
+    private MainModel createMainModel() throws IOException {
         MainModel mainModel = new MainModel();
         mainModel.setDataProvider(getDataProvider(STOKE_RESOURCE));
         return mainModel;
@@ -75,6 +76,38 @@ public class MainModelTest implements ObservableProperty.PropertyChangedObserver
         List<Establishment> results =  mainModel.getResults();
         assertEquals(10, results.size());
         assertEquals("Riverside Fish Bar", results.get(2).getBusiness().getName());
+        mainModel.getAppStateProperty().removeObserver(this);
+    }
+    /*
+       Set rating filter to 1
+     */
+    @Test
+    synchronized public void findEstablishments4() throws IOException, InterruptedException {
+        MainModel mainModel = createMainModel();
+        mainModel.getAppStateProperty().addObserver(this);
+        mainModel.findEstablishments(new Query());
+        wait();
+        assertEquals(AppState.loaded,mainModel.getAppStateProperty().getValue());
+        mainModel.setRatingFilter(RatingValue.ratingOf1);
+        List<Establishment> results =  mainModel.getResults();
+        assertEquals(5, results.size());
+        assertEquals("Aroma", results.get(0).getBusiness().getName());
+        mainModel.getAppStateProperty().removeObserver(this);
+    }
+    /*
+       Set rating filter to other
+     */
+    @Test
+    synchronized public void findEstablishments5() throws IOException, InterruptedException {
+        MainModel mainModel = createMainModel();
+        mainModel.getAppStateProperty().addObserver(this);
+        mainModel.findEstablishments(new Query());
+        wait();
+        assertEquals(AppState.loaded,mainModel.getAppStateProperty().getValue());
+        mainModel.setRatingFilter(RatingValue.other);
+        List<Establishment> results =  mainModel.getResults();
+        assertEquals(9, results.size());
+        assertEquals("St John's Community Centre", results.get(1).getBusiness().getName());
         mainModel.getAppStateProperty().removeObserver(this);
     }
 
