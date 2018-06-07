@@ -106,6 +106,18 @@
             style="@style/AboutButton"
             android:text="@string/about_button_tell"
             />
+        <!--Data Policy-->
+        <TextView
+            style="@style/AboutHeader"
+            android:text="@string/about_header_data_policy" />
+        <TextView
+            style="@style/AboutBodyText"
+            android:text="@string/about_body_data_policy"/>
+        <Button
+            android:layout_marginRight="24dp"
+            style="@style/AboutButton"
+            android:id="@+id/aboutBtnGooglePolicy"
+            android:text="@string/about_button_google_policy"/>
 
     </LinearLayout>
 </ScrollView>

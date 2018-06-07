@@ -4,6 +4,7 @@ package com.pigdogbay.foodhygieneratings;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,46 +23,17 @@ public class AboutFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
-        rootView.findViewById(R.id.aboutBtnRate).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWebPage(getActivity(),R.string.market_app_url);
-            }
-        });
-        rootView.findViewById(R.id.aboutBtnSendFeedback).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendFeedback(getActivity());
-            }
-        });
-        rootView.findViewById(R.id.aboutBtnTellFriends).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tellFriends(getActivity());
-            }
-        });
-        rootView.findViewById(R.id.aboutBtnLegal).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showLegalNotices();
-            }
-        });
-        rootView.findViewById(R.id.aboutBtnReleaseNotes).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWebPage(getActivity(),R.string.release_notes_url);
-            }
-        });
-        rootView.findViewById(R.id.aboutBtnMoreApps).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWebPage(getActivity(),R.string.market_pigdogbay_apps);
-            }
-        });
+        rootView.findViewById(R.id.aboutBtnRate).setOnClickListener(v -> showWebPage(getActivity(),R.string.market_app_url));
+        rootView.findViewById(R.id.aboutBtnSendFeedback).setOnClickListener(v -> sendFeedback(getActivity()));
+        rootView.findViewById(R.id.aboutBtnTellFriends).setOnClickListener(v -> tellFriends(getActivity()));
+        rootView.findViewById(R.id.aboutBtnLegal).setOnClickListener(v -> showLegalNotices());
+        rootView.findViewById(R.id.aboutBtnReleaseNotes).setOnClickListener(v -> showWebPage(getActivity(),R.string.release_notes_url));
+        rootView.findViewById(R.id.aboutBtnMoreApps).setOnClickListener(v -> showWebPage(getActivity(),R.string.market_pigdogbay_apps));
+        rootView.findViewById(R.id.aboutBtnGooglePolicy).setOnClickListener(v -> showWebPage(getActivity(),R.string.google_data_policy));
 
         return rootView;
     }
