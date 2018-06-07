@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             setNavigateHome(true);
         }
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+        //Need this to ensure fab is shown when device is rotated
+        showFab();
     }
 
     @Override
@@ -185,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         switch (manager.getBackStackEntryCount()) {
             case 0:
                 finish();
-                break;
+                return;
             case 1:
                 //Home screen
                 this.setNavigateHome(false);
@@ -194,28 +196,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             default:
                 this.setNavigateHome(true);
                 break;
-
         }
-        Fragment f= manager.findFragmentById(R.id.main_fragment_container);
-        String tag="";
-        if (f!=null){
-            tag = f.getTag();
-        }
-        switch (tag){
-            case HomeFragment.TAG:
-            case ResultsFragment.TAG:
-                if (settings.isMapSearchEnabled()) {
-                    showMapFAB();
-                }
-                break;
-            case DetailsFragment.TAG:
-                showMapFAB();
-                break;
-            default:
-                hideMapFAB();
-                break;
-        }
+        showFab();
     }
+
     private void checkAppRate() {
         new com.pigdogbay.lib.apprate.AppRate(this)
                 .setMinDaysUntilPrompt(7).setMinLaunchesUntilPrompt(20).init();
@@ -325,11 +309,27 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         progressDialog.show();
     }
 
-    private void showMapFAB(){
-        fabFilter.setVisibility(View.VISIBLE);
-    }
-    private void hideMapFAB(){
-        fabFilter.setVisibility(View.GONE);
+    private void showFab(){
+        FragmentManager manager = getSupportFragmentManager();
+        Fragment f= manager.findFragmentById(R.id.main_fragment_container);
+        String tag="";
+        if (f!=null){
+            tag = f.getTag();
+        }
+        switch (tag){
+            case HomeFragment.TAG:
+            case ResultsFragment.TAG:
+                if (settings.isMapSearchEnabled()) {
+                    fabFilter.setVisibility(View.VISIBLE);
+                }
+                break;
+            case DetailsFragment.TAG:
+                fabFilter.setVisibility(View.VISIBLE);
+                break;
+            default:
+                fabFilter.setVisibility(View.GONE);
+                break;
+        }
     }
 
     @Override
