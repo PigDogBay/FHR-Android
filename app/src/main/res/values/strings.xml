@@ -167,7 +167,7 @@
         <item>0</item>
         <item>1</item>
     </string-array>
-    <string name="pref_search_default_results_text_filter">0</string>
+    <string name="pref_search_default_results_text_filter">1</string>
     <string name="main_menu_search">Search</string>
 
     <string name="pref_title_map_enable_search">Enable Map Searches</string>

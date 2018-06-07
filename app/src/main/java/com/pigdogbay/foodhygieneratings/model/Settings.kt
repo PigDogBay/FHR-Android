@@ -14,7 +14,7 @@ class Settings(private val preferencesHelper: PreferencesHelper) {
         set(value){preferencesHelper.setInt(R.string.key_pref_search_timeout,value)}
 
     var isTextFilterNameAndAddress : Boolean
-        get() = preferencesHelper.getInt(R.string.key_pref_search_results_text_filter,0)!=0
+        get() = preferencesHelper.getInt(R.string.key_pref_search_results_text_filter,1)!=0
         set(value){
             val filterType = if (value) 1 else 0
             preferencesHelper.setInt(R.string.key_pref_search_results_text_filter,filterType)
