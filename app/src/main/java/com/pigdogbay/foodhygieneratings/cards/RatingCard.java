@@ -65,11 +65,13 @@ public class RatingCard implements ICard {
                 }
             }
 
-            TextView text = (TextView) view.findViewById(R.id.card_text);
+            TextView text = view.findViewById(R.id.card_text);
             text.setText(builder.toString());
 
-            ImageView imageView = (ImageView) view.findViewById(R.id.card_rating_logo);
+            ImageView imageView = view.findViewById(R.id.card_rating_logo);
             imageView.setImageResource(rating.getLogoId());
+
+            view.findViewById(R.id.card_business_website_button).setOnClickListener(v -> listener.onButtonPressed(R.id.card_business_website_button,null));
         }
     }
 
