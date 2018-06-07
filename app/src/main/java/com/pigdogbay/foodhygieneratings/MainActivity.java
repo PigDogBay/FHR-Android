@@ -17,12 +17,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.pigdogbay.foodhygieneratings.model.AppState;
+import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.Injector;
 import com.pigdogbay.foodhygieneratings.model.MainModel;
 import com.pigdogbay.foodhygieneratings.model.Query;
@@ -256,7 +258,12 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     }
 
     public void showEstablishmentMap() {
-        pushFragment(new EstablishmentMapFragment(), EstablishmentMapFragment.TAG);
+        Establishment establishment = mainModel.getSelectedEstablishment();
+        if (establishment.getAddress().isAddressSpecified() && establishment.getCoordinate().isWithinUk()) {
+            pushFragment(new EstablishmentMapFragment(), EstablishmentMapFragment.TAG);
+        } else {
+            Toast.makeText(this,"No address or coordinates", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void showHtmlText(int resourceId) {

@@ -10,27 +10,26 @@ import java.util.List;
 public class Address {
 
     private final String line1, line2, line3, line4, postcode;
-
     private final List<String> address;
+    private final boolean isAddressSpecified;
 
     public String getLine1() {
         return line1;
     }
-
     public String getLine2() {
         return line2;
     }
-
     public String getLine3() {
         return line3;
     }
-
     public String getLine4() {
         return line4;
     }
-
     public String getPostcode() {
         return postcode;
+    }
+    public boolean isAddressSpecified() {
+        return isAddressSpecified;
     }
 
     public Address(String line1, String line2, String line3, String line4, String postcode) {
@@ -47,7 +46,10 @@ public class Address {
         if (!line4.isEmpty()){address.add(line4);}
         if (!postcode.isEmpty()){address.add(postcode);}
         if (address.size()==0){
+            isAddressSpecified = false;
             address.add("Not specified");
+        } else {
+            isAddressSpecified = true;
         }
     }
 
@@ -61,5 +63,4 @@ public class Address {
         return builder.toString();
 
     }
-
 }
