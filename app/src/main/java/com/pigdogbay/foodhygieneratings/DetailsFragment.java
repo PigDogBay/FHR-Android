@@ -2,6 +2,7 @@ package com.pigdogbay.foodhygieneratings;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +41,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        establishment = Injector.INSTANCE.getMainModel().getSelectedEstablishment();
+        establishment = Injector.mainModel.getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
@@ -54,7 +55,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.recyler_view, container, false);
@@ -104,7 +105,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
                 break;
             case R.id.card_la_email_button:
                 String email = establishment.getLocalAuthority().getEmail();
-                ActivityUtils.SendEmail(getActivity(),new String[]{email},"","");
+                ActivityUtils.SendEmail(getActivity(),new String[]{email},"Food Hygiene Rating",Injector.mainModel.getShareText(establishment));
                 break;
             case R.id.card_la_web_button:
                 ActivityUtils.ShowWebPage(getActivity(),establishment.getLocalAuthority().getWeb());
@@ -118,7 +119,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     private void share() {
         try {
             ActivityUtils.shareText(getActivity(), "Rating: "+establishment.getBusiness().getName(),
-                    Injector.INSTANCE.getMainModel().getShareText(establishment),
+                    Injector.mainModel.getShareText(establishment),
                     R.string.share_chooser_title);
         }
         catch (Exception e) {
