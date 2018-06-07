@@ -96,6 +96,11 @@ public class HomeFragment extends Fragment implements TextWatcher {
         nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
         nearMeButton.setOnClickListener(view14 -> placesNearMe());
 
+        Button userGuideButton = view.findViewById(R.id.home_user_guide);
+        Drawable userGuideIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_user_guide);
+        userGuideButton.setCompoundDrawablesRelativeWithIntrinsicBounds(userGuideIcon,null,null,null);
+        userGuideButton.setOnClickListener(view14 -> ((MainActivity)getActivity()).showUserGuide());
+
         nameClearButton = view.findViewById(R.id.home_business_clear);
         nameClearButton.setOnClickListener(view12 -> onNameFieldClearClicked());
         nameClearButton.setVisibility(View.GONE);
