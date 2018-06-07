@@ -46,6 +46,9 @@ public class Address {
         if (!line3.isEmpty()){address.add(line3);}
         if (!line4.isEmpty()){address.add(line4);}
         if (!postcode.isEmpty()){address.add(postcode);}
+        if (address.size()==0){
+            address.add("Not specified");
+        }
     }
 
     public String flatten() {
