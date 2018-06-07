@@ -165,6 +165,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case R.id.menu_main_settings:
                 showSettings();
                 return true;
+            case R.id.menu_main_user_guide:
+                showUserGuide();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -266,6 +269,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     public void showSettings(){
         pushFragment(new SettingsFragment(),SettingsFragment.Companion.getTAG());
+    }
+
+    public void showUserGuide(){
+        ActivityUtils.ShowWebPage(this,getString(R.string.user_guide_url));
     }
 
     @Override
