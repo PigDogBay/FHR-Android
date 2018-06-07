@@ -146,5 +146,14 @@
         app:layout_constraintEnd_toEndOf="@+id/home_places_near_me_btn"
         app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
         app:layout_constraintTop_toBottomOf="@+id/home_advanced_search_btn" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="All data is live from the FSA, www.food.gov.uk"
+        app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
+        app:layout_constraintTop_toBottomOf="@+id/home_user_guide" />
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
