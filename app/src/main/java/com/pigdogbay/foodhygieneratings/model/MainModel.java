@@ -197,10 +197,10 @@ public class MainModel {
         }
 
         builder.append("\nView this rating on the FSA Website\n").append(FoodHygieneAPI.createBusinessUrl(establishment)).append("\n");
-        builder.append("\nGet the food hygiene ratings app on Android:\n");
-        builder.append("https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings");
-        builder.append("\n\nAnd iOS:\n");
+        builder.append("\nGet the food hygiene ratings app on iOS:\n");
         builder.append("https://itunes.apple.com/app/id1213783338");
+        builder.append("\n\nAndroid:\n");
+        builder.append("https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings");
         builder.append("\n\n");
         return builder.toString();
     }
