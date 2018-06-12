@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Card"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/CardLayout"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/powered_by_google_on_white" />
+
+        <ImageView
+            android:id="@+id/imagePlace"
+            android:layout_width="0dp"
+            android:layout_height="320dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/fhrs_5" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePlace"
+            app:srcCompat="@drawable/ic_phone" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:srcCompat="@drawable/ic_web" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:numStars="5"
+            android:rating="4.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePlace" />
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:text="01782 865646"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/imageView4" />
+
+        <TextView
+            android:id="@+id/textWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:text="omg-restaurant.co.uk"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/textAttribution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mr Photographer"
+            app:layout_constraintEnd_toEndOf="@+id/imagePlace"
+            app:layout_constraintTop_toTopOf="@+id/imagePlace" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

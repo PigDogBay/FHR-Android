@@ -19,6 +19,7 @@ import com.pigdogbay.foodhygieneratings.cards.CardsAdapter;
 import com.pigdogbay.foodhygieneratings.cards.ICard;
 import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
 import com.pigdogbay.foodhygieneratings.cards.OnButtonClickListener;
+import com.pigdogbay.foodhygieneratings.cards.PlaceCard;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
@@ -43,6 +44,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         super.onCreate(savedInstanceState);
         establishment = Injector.mainModel.getSelectedEstablishment();
         List<ICard> cards = new ArrayList<>();
+        cards.add(new PlaceCard());
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
             if (establishment.getRating().hasScores()) {
