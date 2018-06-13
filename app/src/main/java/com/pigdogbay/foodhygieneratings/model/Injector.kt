@@ -3,7 +3,10 @@ package com.pigdogbay.foodhygieneratings.model
 import android.content.Context
 
 import com.pigdogbay.foodhygieneratings.R
+import com.pigdogbay.foodhygieneratings.places.DummyPlaceFactory
+import com.pigdogbay.foodhygieneratings.places.IPlaceFactory
 import com.pigdogbay.lib.utils.ActivityUtils
+import com.pigdogbay.lib.utils.BitmapUtils
 import com.pigdogbay.lib.utils.PreferencesHelper
 
 import org.json.JSONObject
@@ -16,6 +19,7 @@ object Injector {
     private var isBuilt = false
     lateinit var mainModel: MainModel
     lateinit var settings: Settings
+    lateinit var placeFactory : IPlaceFactory
     private var localAuthorities: List<LocalAuthority>? = null
 
     fun build(context: Context) {
@@ -31,6 +35,9 @@ object Injector {
         mainModel = MainModel()
         mainModel.dataProvider = dummyDataProvider(applicationContext)
 //        mainModel.dataProvider = WebDataProvider()
+
+        placeFactory = DummyPlaceFactory(BitmapUtils.getBitmap(context,R.drawable.fhis_pass_and_eat_safe))
+
     }
 
     private fun dummyDataProvider(context: Context): MainModel.IDataProvider {

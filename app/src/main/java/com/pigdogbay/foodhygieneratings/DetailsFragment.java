@@ -25,17 +25,24 @@ import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.Injector;
+import com.pigdogbay.foodhygieneratings.places.IPlaceFactory;
+import com.pigdogbay.foodhygieneratings.places.IPlaceImage;
+import com.pigdogbay.foodhygieneratings.places.MBPlace;
 import com.pigdogbay.lib.utils.ActivityUtils;
+import com.pigdogbay.lib.utils.ObservableProperty;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class DetailsFragment extends Fragment implements OnButtonClickListener {
+import kotlin.Unit;
+
+public class DetailsFragment extends Fragment implements OnButtonClickListener, ObservableProperty.PropertyChangedObserver<IPlaceImage.ImageStatus> {
 
     public static final String TAG = "details";
     private CardsAdapter cardsAdapter;
     Establishment establishment;
-
+    private IPlaceFactory placeFactory;
+    private ArrayList<ICard> cards;
+    private MBPlace place;
     public DetailsFragment() {
     }
 
@@ -43,8 +50,8 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         establishment = Injector.mainModel.getSelectedEstablishment();
-        List<ICard> cards = new ArrayList<>();
-        cards.add(new PlaceCard());
+        placeFactory = Injector.placeFactory;
+        cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
             if (establishment.getRating().hasScores()) {
@@ -54,6 +61,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
             cards.add(new LocalAuthorityCard(establishment, this));
         }
         cardsAdapter = new CardsAdapter(cards);
+        placeFactory.createPlace(this::onPlaceCreated);
     }
 
     @Override
@@ -72,7 +80,19 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(establishment.getBusiness().getName());
+        if (getActivity()!=null) {
+            getActivity().setTitle(establishment.getBusiness().getName());
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (place!=null){
+            for (IPlaceImage img : place.getImages()){
+                img.getObservableStatus().removeObserver(this);
+            }
+        }
     }
 
     @Override
@@ -96,6 +116,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
     @Override
     public void onButtonPressed(int id, String[] args) {
+        if (getActivity()==null) return;
         MainActivity mainActivity = (MainActivity) getActivity();
         switch (id){
             case R.id.card_business_website_button:
@@ -120,6 +141,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
 
     private void share() {
         try {
+            if (getActivity()==null) return;
             ActivityUtils.shareText(getActivity(), "Rating: "+establishment.getBusiness().getName(),
                     Injector.mainModel.getShareText(establishment),
                     R.string.share_chooser_title);
@@ -129,4 +151,36 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener {
         }
     }
 
+    private Unit onPlaceCreated(MBPlace place) {
+        this.place = place;
+        for (IPlaceImage img : place.getImages()){
+            img.getObservableStatus().addObserver(this);
+        }
+        if (getActivity()!=null) {
+            getActivity().runOnUiThread(() -> {
+                cards.add(1, new PlaceCard(place));
+                cardsAdapter.notifyItemInserted(1);
+            });
+        }
+        return null;
+    }
+
+    @Override
+    public void update(ObservableProperty<IPlaceImage.ImageStatus> sender, IPlaceImage.ImageStatus update) {
+        if (getActivity()==null) return;
+        getActivity().runOnUiThread(()->{
+            switch (update){
+                case Uninitialized:
+                    break;
+                case Fetching:
+                    break;
+                case Ready:
+                    cardsAdapter.notifyItemChanged(1);
+                    break;
+                case Error:
+                    cardsAdapter.notifyItemChanged(1);
+                    break;
+            }
+        });
+    }
 }
