@@ -61,7 +61,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener, 
             cards.add(new LocalAuthorityCard(establishment, this));
         }
         cardsAdapter = new CardsAdapter(cards);
-        placeFactory.createPlace(this::onPlaceCreated);
+        placeFactory.createPlace(establishment, this::onPlaceCreated);
     }
 
     @Override
