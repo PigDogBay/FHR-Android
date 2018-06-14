@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import com.pigdogbay.foodhygieneratings.R
-import com.pigdogbay.foodhygieneratings.places.IPlaceImage
+import com.pigdogbay.foodhygieneratings.places.FetchStatus
 import com.pigdogbay.foodhygieneratings.places.MBPlace
 
 class PlaceCard(val place: MBPlace) : ICard {
@@ -31,20 +31,20 @@ class PlaceCard(val place: MBPlace) : ICard {
             val firstImg = place.images[0]
             when (firstImg.observableStatus.value){
 
-                IPlaceImage.ImageStatus.Uninitialized -> {
+                FetchStatus.Uninitialized -> {
                     firstImg.fetchBitmap()
                     vh.textAttribution.text = "Loading..."
                     vh.imagePlace.setImageResource(R.drawable.ic_fetching_photo)
                 }
-                IPlaceImage.ImageStatus.Ready -> {
+                FetchStatus.Ready -> {
                     vh.imagePlace.setImageBitmap(firstImg.bitmap)
                     vh.textAttribution.text = firstImg.attribution
                 }
-                IPlaceImage.ImageStatus.Error -> {
+                FetchStatus.Error -> {
                     vh.textAttribution.text = "Oh fiddlesticks!"
                     vh.imagePlace.setImageResource(R.drawable.ic_broken_image)
                 }
-                IPlaceImage.ImageStatus.Fetching -> {}
+                FetchStatus.Fetching -> {}
             }
         } else {
             vh.textAttribution.visibility = View.GONE

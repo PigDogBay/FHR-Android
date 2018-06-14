@@ -25,22 +25,22 @@ import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.Injector;
-import com.pigdogbay.foodhygieneratings.places.IPlaceFactory;
+import com.pigdogbay.foodhygieneratings.places.FetchStatus;
+import com.pigdogbay.foodhygieneratings.places.IPlaceFetcher;
 import com.pigdogbay.foodhygieneratings.places.IPlaceImage;
 import com.pigdogbay.foodhygieneratings.places.MBPlace;
+import com.pigdogbay.lib.patterns.PropertyChangedObserver;
 import com.pigdogbay.lib.utils.ActivityUtils;
-import com.pigdogbay.lib.utils.ObservableProperty;
 
 import java.util.ArrayList;
 
-import kotlin.Unit;
-
-public class DetailsFragment extends Fragment implements OnButtonClickListener, ObservableProperty.PropertyChangedObserver<IPlaceImage.ImageStatus> {
+public class DetailsFragment extends Fragment implements OnButtonClickListener,
+        PropertyChangedObserver<Object,FetchStatus> {
 
     public static final String TAG = "details";
     private CardsAdapter cardsAdapter;
     Establishment establishment;
-    private IPlaceFactory placeFactory;
+    private IPlaceFetcher placeFetcher;
     private ArrayList<ICard> cards;
     private MBPlace place;
     public DetailsFragment() {
@@ -50,7 +50,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener, 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         establishment = Injector.mainModel.getSelectedEstablishment();
-        placeFactory = Injector.placeFactory;
+        placeFetcher = Injector.INSTANCE.createFetcher(getActivity());
         cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
@@ -61,7 +61,8 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener, 
             cards.add(new LocalAuthorityCard(establishment, this));
         }
         cardsAdapter = new CardsAdapter(cards);
-        placeFactory.createPlace(establishment, this::onPlaceCreated);
+        placeFetcher.getObservableStatus().addObserver(this);
+        placeFetcher.fetch(establishment);
     }
 
     @Override
@@ -88,6 +89,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener, 
     @Override
     public void onPause() {
         super.onPause();
+        placeFetcher.getObservableStatus().removeObserver(this);
         if (place!=null){
             for (IPlaceImage img : place.getImages()){
                 img.getObservableStatus().removeObserver(this);
@@ -151,35 +153,52 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener, 
         }
     }
 
-    private Unit onPlaceCreated(MBPlace place) {
+    private void updateMBPlace(FetchStatus update){
+        switch (update){
+            case Uninitialized:
+                break;
+            case Fetching:
+                break;
+            case Ready:
+                onPlaceCreated(placeFetcher.getMbPlace());
+                break;
+            case Error:
+                break;
+        }
+    }
+    private void updatePlaceImage(FetchStatus update){
+        switch (update){
+            case Uninitialized:
+                break;
+            case Fetching:
+                break;
+            case Ready:
+                cardsAdapter.notifyItemChanged(1);
+                break;
+            case Error:
+                cardsAdapter.notifyItemChanged(1);
+                break;
+        }
+    }
+    private void onPlaceCreated(MBPlace place) {
         this.place = place;
         for (IPlaceImage img : place.getImages()){
             img.getObservableStatus().addObserver(this);
         }
-        if (getActivity()!=null) {
-            getActivity().runOnUiThread(() -> {
-                cards.add(1, new PlaceCard(place));
-                cardsAdapter.notifyItemInserted(1);
-            });
-        }
-        return null;
+        cards.add(1, new PlaceCard(place));
+        cardsAdapter.notifyItemInserted(1);
     }
 
+
     @Override
-    public void update(ObservableProperty<IPlaceImage.ImageStatus> sender, IPlaceImage.ImageStatus update) {
+    public void update(Object sender, FetchStatus update) {
         if (getActivity()==null) return;
         getActivity().runOnUiThread(()->{
-            switch (update){
-                case Uninitialized:
-                    break;
-                case Fetching:
-                    break;
-                case Ready:
-                    cardsAdapter.notifyItemChanged(1);
-                    break;
-                case Error:
-                    cardsAdapter.notifyItemChanged(1);
-                    break;
+            if (getActivity()==null) return;
+            if (sender instanceof IPlaceFetcher) {
+                updateMBPlace(update);
+            } else {
+                updatePlaceImage(update);
             }
         });
     }
