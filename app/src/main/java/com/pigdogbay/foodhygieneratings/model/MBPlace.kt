@@ -1,8 +1,7 @@
-package com.pigdogbay.foodhygieneratings.places
+package com.pigdogbay.foodhygieneratings.model
 
 import android.graphics.Bitmap
 import com.pigdogbay.lib.patterns.ObservableProperty
-import com.pigdogbay.foodhygieneratings.model.Establishment
 
 data class MBPlace(val id : String, val telephone : String, val web : String, val rating : Float, val images : List<IPlaceImage>)
 enum class FetchStatus {
@@ -22,7 +21,7 @@ interface IPlaceFetcher{
 }
 
 
-class DummyPlaceImage(override val attribution: String, private val srcBitmap: Bitmap?) : IPlaceImage{
+class DummyPlaceImage(override val attribution: String, private val srcBitmap: Bitmap?) : IPlaceImage {
     private val status = ObservableProperty(this, FetchStatus.Uninitialized)
 
     override val bitmap: Bitmap?

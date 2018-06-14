@@ -25,10 +25,10 @@ import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
 import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
 import com.pigdogbay.foodhygieneratings.model.Injector;
-import com.pigdogbay.foodhygieneratings.places.FetchStatus;
-import com.pigdogbay.foodhygieneratings.places.IPlaceFetcher;
-import com.pigdogbay.foodhygieneratings.places.IPlaceImage;
-import com.pigdogbay.foodhygieneratings.places.MBPlace;
+import com.pigdogbay.foodhygieneratings.model.FetchStatus;
+import com.pigdogbay.foodhygieneratings.model.IPlaceFetcher;
+import com.pigdogbay.foodhygieneratings.model.IPlaceImage;
+import com.pigdogbay.foodhygieneratings.model.MBPlace;
 import com.pigdogbay.lib.patterns.PropertyChangedObserver;
 import com.pigdogbay.lib.utils.ActivityUtils;
 

@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import com.pigdogbay.foodhygieneratings.R
-import com.pigdogbay.foodhygieneratings.places.FetchStatus
-import com.pigdogbay.foodhygieneratings.places.MBPlace
+import com.pigdogbay.foodhygieneratings.model.FetchStatus
+import com.pigdogbay.foodhygieneratings.model.MBPlace
 
 class PlaceCard(val place: MBPlace) : ICard {
 
