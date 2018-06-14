@@ -90,6 +90,7 @@
             android:id="@+id/textAttribution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#80ffffff"
             android:text="Mr Photographer"
             app:layout_constraintEnd_toEndOf="@+id/imagePlace"
             app:layout_constraintTop_toTopOf="@+id/imagePlace" />

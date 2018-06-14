@@ -66,7 +66,7 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
             Thread {
                 observableStatus.value = FetchStatus.Fetching
                 val images: ArrayList<IPlaceImage> = ArrayList()
-                images.add(DummyPlaceImage("Dummy Photographer", bitmap))
+                images.add(DummyPlaceImage("<a href=\"https://maps.google.com/maps/contrib/110455252459989089441/photos\">OMG Grill</a>", bitmap))
                 Thread.sleep(500L)
                 srcMBPlace = MBPlace("ChIJYUPe12BoekgR6iLyIiC9DJk", "+44 1782 865646", "http://www.omg-restaurant.co.uk", 3.5F, images)
                 observableStatus.value = FetchStatus.Ready

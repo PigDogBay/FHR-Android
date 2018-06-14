@@ -1,6 +1,8 @@
 package com.pigdogbay.foodhygieneratings.cards
 
+import android.os.Build
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +40,11 @@ class PlaceCard(val place: MBPlace) : ICard {
                 }
                 FetchStatus.Ready -> {
                     vh.imagePlace.setImageBitmap(firstImg.bitmap)
-                    vh.textAttribution.text = firstImg.attribution
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        vh.textAttribution.text = Html.fromHtml(firstImg.attribution, Html.FROM_HTML_MODE_COMPACT)
+                    } else {
+                        vh.textAttribution.text = Html.fromHtml(firstImg.attribution)
+                    }
                 }
                 FetchStatus.Error -> {
                     vh.textAttribution.text = "Oh fiddlesticks!"
