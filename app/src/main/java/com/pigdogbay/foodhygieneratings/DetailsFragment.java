@@ -35,7 +35,7 @@ import com.pigdogbay.lib.utils.ActivityUtils;
 import java.util.ArrayList;
 
 public class DetailsFragment extends Fragment implements OnButtonClickListener,
-        PropertyChangedObserver<Object,FetchStatus> {
+        PropertyChangedObserver<FetchStatus> {
 
     public static final String TAG = "details";
     private CardsAdapter cardsAdapter;
@@ -191,7 +191,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
 
 
     @Override
-    public void update(Object sender, FetchStatus update) {
+    public void update(@NonNull Object sender, FetchStatus update) {
         if (getActivity()==null) return;
         getActivity().runOnUiThread(()->{
             if (getActivity()==null) return;

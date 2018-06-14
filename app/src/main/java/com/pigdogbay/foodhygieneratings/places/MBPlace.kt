@@ -10,20 +10,20 @@ enum class FetchStatus {
 }
 interface IPlaceImage {
     val attribution : String
-    val observableStatus : ObservableProperty<Any,FetchStatus>
+    val observableStatus : ObservableProperty<FetchStatus>
     val bitmap : Bitmap?
     fun fetchBitmap()
 }
 
 interface IPlaceFetcher{
-    val observableStatus : ObservableProperty<Any,FetchStatus>
+    val observableStatus : ObservableProperty<FetchStatus>
     val mbPlace : MBPlace?
     fun fetch(establishment: Establishment)
 }
 
 
 class DummyPlaceImage(override val attribution: String, private val srcBitmap: Bitmap?) : IPlaceImage{
-    private val status = ObservableProperty<Any,FetchStatus>(this, FetchStatus.Uninitialized)
+    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
 
     override val bitmap: Bitmap?
         get() = when (observableStatus.value){
@@ -33,7 +33,7 @@ class DummyPlaceImage(override val attribution: String, private val srcBitmap: B
             FetchStatus.Error -> null
         }
 
-    override val observableStatus: ObservableProperty<Any,FetchStatus>
+    override val observableStatus: ObservableProperty<FetchStatus>
         get() = status
 
     override fun fetchBitmap() {
@@ -51,8 +51,8 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
 
     private var srcMBPlace : MBPlace? = null
 
-    private val status = ObservableProperty<Any,FetchStatus>(this, FetchStatus.Uninitialized)
-    override val observableStatus: ObservableProperty<Any, FetchStatus>
+    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
+    override val observableStatus: ObservableProperty<FetchStatus>
         get() = status
 
     override val mbPlace: MBPlace?
