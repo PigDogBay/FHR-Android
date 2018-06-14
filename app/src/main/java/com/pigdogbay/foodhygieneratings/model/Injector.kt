@@ -1,6 +1,7 @@
 package com.pigdogbay.foodhygieneratings.model
 
 import android.content.Context
+import com.google.android.gms.location.places.Places
 
 import com.pigdogbay.foodhygieneratings.R
 import com.pigdogbay.lib.utils.ActivityUtils
@@ -30,16 +31,15 @@ object Injector {
         settings = Settings(preferencesHelper)
 
         mainModel = MainModel()
-        mainModel.dataProvider = dummyDataProvider(applicationContext)
-//        mainModel.dataProvider = WebDataProvider()
+//        mainModel.dataProvider = dummyDataProvider(applicationContext)
+        mainModel.dataProvider = WebDataProvider()
 
 
     }
 
     fun createFetcher(context: Context) : IPlaceFetcher {
-        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
-//        placeFetcher = GooglePlaceFactory(Places.getGeoDataClient(context))
-
+//        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
+        return GooglePlaceFetcher(Places.getGeoDataClient(context))
     }
 
     private fun dummyDataProvider(context: Context): MainModel.IDataProvider {

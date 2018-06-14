@@ -1,6 +1,10 @@
 package com.pigdogbay.foodhygieneratings.model
 
 import android.graphics.Bitmap
+import com.google.android.gms.common.data.DataBufferUtils
+import com.google.android.gms.location.places.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.pigdogbay.lib.patterns.ObservableProperty
 
 data class MBPlace(val id : String, val telephone : String, val web : String, val rating : Float, val images : List<IPlaceImage>)
@@ -70,73 +74,118 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
         }
     }
 }
-//class GooglePlaceImage(private val geoDataClient: GeoDataClient, private val metaData: PlacePhotoMetadata) : IPlaceImage {
-//    private val status = ObservableProperty<FetchStatus>(FetchStatus.Uninitialized)
-//    private var srcBitmap : Bitmap? = null
-//
-//    override val attribution: String
-//        get() = metaData.attributions.toString()
-//    override val observableStatus: ObservableProperty<FetchStatus>
-//        get() = status
-//    override val bitmap: Bitmap?
-//        get() = srcBitmap
-//
-//    override fun fetchBitmap() {
-//        val scaledPhotoResult = geoDataClient.getScaledPhoto(metaData, 640, 320)
-//        scaledPhotoResult.addOnFailureListener({ e -> status.value = FetchStatus.Error })
-//        scaledPhotoResult.addOnSuccessListener({ result ->
-//            srcBitmap = result.bitmap
-//            status.value = FetchStatus.Ready
-//        })
-//    }
-//}
-//
-//class GooglePlaceFactory(private val geoDataClient: GeoDataClient) : IPlaceFetcher {
-//
-//    override fun createPlace(establishment: Establishment, callback: (mbPlace: MBPlace?) -> Unit) {
-//        val bounds = createBounds(establishment)
-//        val findTask = geoDataClient.getAutocompletePredictions(establishment.business.name, bounds, GeoDataClient.BoundsMode.STRICT,null)
-//        //Fetch a list of matching places
-//        findTask.addOnSuccessListener { response ->
-//            val predictions = DataBufferUtils.freezeAndClose(response)
-//            if (predictions.size>0) {
-//                //Fetch details of the first place
-//                val placeTask = geoDataClient.getPlaceById(predictions[0].placeId)
-//                placeTask.addOnSuccessListener { placeResponse ->
-//                    val places = DataBufferUtils.freezeAndClose(placeResponse)
-//                    if (places.size>0){
-//                        //Fetch image meta data for the place
-//                        val metadataTask = geoDataClient.getPlacePhotos(places[0].id)
-//                        metadataTask.addOnSuccessListener { metadataResponse ->
-//                            //All done fetching, put it all together and send it off to the client
-//                            foundPlaceAndImages(places[0], metadataResponse, callback)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    private fun foundPlaceAndImages(place : Place, ppmr: PlacePhotoMetadataResponse, callback: (mbPlace: MBPlace?) -> Unit){
-//        val placePhotoMetadataList = DataBufferUtils.freezeAndClose(ppmr.photoMetadata)
-//        val placeImages : List<IPlaceImage> = placePhotoMetadataList.map{ it -> GooglePlaceImage(geoDataClient,it)}
-//        val phone = if (place.phoneNumber==null) "" else place.phoneNumber.toString()
-//        val web = if (place.websiteUri==null) "" else place.websiteUri.toString()
-//        val mbPlace = MBPlace(place.id,phone,web,place.rating,placeImages)
-//        callback(mbPlace)
-//    }
-//
-//    /*
-//       Returns bounds of about 0.25 mile radius about the establishment
-//       1° longitude ~ 66 miles, 1° latitude ~ 69 miles, so for at least quarter mile radius
-//     */
-//    private fun createBounds(establishment: Establishment) : LatLngBounds {
-//        val latitude = establishment.coordinate.latitude
-//        val longitude = establishment.coordinate.longitude
-//        val delta = 0.005
-//        val northeast = LatLng(latitude + delta, longitude + delta)
-//        val southwest = LatLng(latitude - delta, longitude - delta)
-//        return LatLngBounds(southwest, northeast)
-//    }
-//
-//}
+class GooglePlaceImage(private val geoDataClient: GeoDataClient, private val metaData: PlacePhotoMetadata) : IPlaceImage {
+    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
+    private var srcBitmap : Bitmap? = null
+
+    override val attribution: String
+        get() = metaData.attributions.toString()
+
+    override val observableStatus: ObservableProperty<FetchStatus>
+        get() = status
+
+    override val bitmap: Bitmap?
+        get() = srcBitmap
+
+    override fun fetchBitmap() {
+        status.value = FetchStatus.Fetching
+        val scaledPhotoResult = geoDataClient.getScaledPhoto(metaData, 640, 320)
+        scaledPhotoResult.addOnFailureListener{ _ -> status.value = FetchStatus.Error }
+        scaledPhotoResult.addOnSuccessListener{ result ->
+            srcBitmap = result.bitmap
+            status.value = FetchStatus.Ready
+        }
+    }
+}
+
+class GooglePlaceFetcher(private val geoDataClient: GeoDataClient) : IPlaceFetcher {
+    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
+    private var foundPlace : MBPlace? = null
+
+    override val observableStatus: ObservableProperty<FetchStatus>
+        get() = status
+
+    override val mbPlace: MBPlace?
+        get() = foundPlace
+
+    /**
+     * To fetch a place requires 3 tasks:
+     * Fetch matching places (only first one is used)
+     * Fetch place details
+     * Fetch metadata for the place images
+     *
+     * This information is then collated into MBPlace
+     */
+    override fun fetch(establishment: Establishment) {
+        status.value = FetchStatus.Fetching
+        val bounds = createBounds(establishment)
+        //First Task is to find a list of places that match the name and location
+        val firstTask = geoDataClient.getAutocompletePredictions(establishment.business.name, bounds, GeoDataClient.BoundsMode.STRICT,null)
+        firstTask.addOnSuccessListener { response ->
+            val predictions = DataBufferUtils.freezeAndClose(response)
+            if (predictions.size > 0) {
+                fetchPlace(predictions[0])
+            } else {
+                //nothing found, indicate error so as not to show any result
+                status.value = FetchStatus.Error
+            }
+        }
+        firstTask.addOnFailureListener { _ ->
+            status.value = FetchStatus.Error
+        }
+    }
+
+    private fun fetchPlace(autocompletePrediction: AutocompletePrediction) {
+        val placeTask = geoDataClient.getPlaceById(autocompletePrediction.placeId)
+        placeTask.addOnSuccessListener { placeResponse ->
+            val places = DataBufferUtils.freezeAndClose(placeResponse)
+            if (places.size > 0) {
+                fetchImageMetadata(places[0])
+            } else {
+                //no details found, indicate error so as not to show any result
+                status.value = FetchStatus.Error
+            }
+        }
+        placeTask.addOnFailureListener{ _ ->
+            status.value = FetchStatus.Error
+        }
+    }
+
+    private fun fetchImageMetadata(place: Place) {
+        val metadataTask = geoDataClient.getPlacePhotos(place.id)
+        metadataTask.addOnSuccessListener { metadataResponse ->
+            val placePhotoMetadataList = DataBufferUtils.freezeAndClose(metadataResponse.photoMetadata)
+            val placeImages : List<IPlaceImage> = placePhotoMetadataList.map{ it -> GooglePlaceImage(geoDataClient,it)}
+            foundPlace = createPlace(place,placeImages)
+            //All done now
+            status.value = FetchStatus.Ready
+        }
+
+        metadataTask.addOnFailureListener{_ ->
+            //even though the metadata failed, there are still the place details to be shown
+            foundPlace = createPlace(place,ArrayList())
+            status.value = FetchStatus.Ready
+        }
+    }
+
+    private fun createPlace(place: Place, placeImages : List<IPlaceImage>) : MBPlace {
+        val phone = if (place.phoneNumber==null) "" else place.phoneNumber.toString()
+        val web = if (place.websiteUri==null) "" else place.websiteUri.toString()
+        return MBPlace(place.id,phone,web,place.rating,placeImages)
+
+    }
+
+    /*
+       Returns bounds of about 0.25 mile radius about the establishment
+       1° longitude ~ 66 miles, 1° latitude ~ 69 miles, so for at least quarter mile radius
+     */
+    private fun createBounds(establishment: Establishment) : LatLngBounds {
+        val latitude = establishment.coordinate.latitude
+        val longitude = establishment.coordinate.longitude
+        val delta = 0.005
+        val northeast = LatLng(latitude + delta, longitude + delta)
+        val southwest = LatLng(latitude - delta, longitude - delta)
+        return LatLngBounds(southwest, northeast)
+    }
+
+}
