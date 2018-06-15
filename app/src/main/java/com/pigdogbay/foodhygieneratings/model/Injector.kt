@@ -31,7 +31,7 @@ object Injector {
         settings = Settings(preferencesHelper)
 
         mainModel = MainModel()
-        mainModel.dataProvider = dummyDataProvider(applicationContext)
+//        mainModel.dataProvider = dummyDataProvider(applicationContext)
         mainModel.dataProvider = WebDataProvider()
     }
 

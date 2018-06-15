@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +20,7 @@ import com.pigdogbay.foodhygieneratings.cards.CardsAdapter;
 import com.pigdogbay.foodhygieneratings.cards.ICard;
 import com.pigdogbay.foodhygieneratings.cards.LocalAuthorityCard;
 import com.pigdogbay.foodhygieneratings.cards.OnButtonClickListener;
+import com.pigdogbay.foodhygieneratings.cards.PhotoCard;
 import com.pigdogbay.foodhygieneratings.cards.PlaceCard;
 import com.pigdogbay.foodhygieneratings.cards.RatingCard;
 import com.pigdogbay.foodhygieneratings.cards.ScoresCard;
@@ -168,27 +170,45 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
                 break;
         }
     }
-    private void updatePlaceImage(FetchStatus update){
+    private void updatePlaceImage(FetchStatus update, int index){
+        Log.v("mpdb", String.format("Updating Image %s %d",update.name(),index));
         switch (update){
             case Uninitialized:
                 break;
             case Fetching:
                 break;
             case Ready:
-                cardsAdapter.notifyItemChanged(PLACE_CARD_INDEX);
+                cardsAdapter.notifyItemChanged(index);
                 break;
             case Error:
-                cardsAdapter.notifyItemChanged(PLACE_CARD_INDEX);
+                cardsAdapter.notifyItemChanged(index);
                 break;
         }
     }
     private void onPlaceCreated(MBPlace place) {
         this.place = place;
-        for (IPlaceImage img : place.getImages()){
+        for (IPlaceImage img : place.getImages()) {
             img.getObservableStatus().addObserver(this);
         }
+
         cards.add(PLACE_CARD_INDEX,new PlaceCard(place));
         cardsAdapter.notifyItemInserted(PLACE_CARD_INDEX);
+
+        int photoCount = place.getImages().size();
+        if (photoCount>0){
+            place.getImages().get(0).setIndex(PLACE_CARD_INDEX);
+        }
+        if (photoCount>1){
+            int startPosition = cards.size();
+            //add cards for the extra images
+            for (int i=1; i<photoCount;i++){
+                IPlaceImage img = place.getImages().get(i);
+                PhotoCard photoCard = new PhotoCard(img);
+                cards.add(photoCard);
+                img.setIndex(cards.size()-1);
+            }
+            cardsAdapter.notifyItemRangeChanged(startPosition,photoCount);
+        }
     }
 
 
@@ -200,7 +220,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
             if (sender instanceof IPlaceFetcher) {
                 updateMBPlace(update);
             } else {
-                updatePlaceImage(update);
+                updatePlaceImage(update, ((IPlaceImage)sender).getIndex());
             }
         });
     }

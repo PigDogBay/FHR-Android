@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         style="@style/CardLayout"
-        android:layout_height="match_parent">
+        >
 
         <ImageView
             android:id="@+id/imageView2"

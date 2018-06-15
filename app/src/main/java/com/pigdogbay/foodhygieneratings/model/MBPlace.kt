@@ -15,6 +15,7 @@ interface IPlaceImage {
     val attribution : String
     val observableStatus : ObservableProperty<FetchStatus>
     val bitmap : Bitmap?
+    var index : Int
     fun fetchBitmap()
 }
 
@@ -26,6 +27,7 @@ interface IPlaceFetcher{
 
 
 class DummyPlaceImage(override val attribution: String, private val srcBitmap: Bitmap?) : IPlaceImage {
+    override var index: Int = 0
     private val status = ObservableProperty(this, FetchStatus.Uninitialized)
 
     override val bitmap: Bitmap?
@@ -75,6 +77,7 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
     }
 }
 class GooglePlaceImage(private val geoDataClient: GeoDataClient, private val metaData: PlacePhotoMetadata) : IPlaceImage {
+    override var index: Int = 0
     private val status = ObservableProperty(this, FetchStatus.Uninitialized)
     private var srcBitmap : Bitmap? = null
 
