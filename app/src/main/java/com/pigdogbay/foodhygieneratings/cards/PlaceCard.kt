@@ -16,7 +16,7 @@ import com.pigdogbay.foodhygieneratings.model.FetchStatus
 import com.pigdogbay.foodhygieneratings.model.IPlaceFetcher
 import com.pigdogbay.foodhygieneratings.model.MBPlace
 
-class PlaceCard(private val placeFetcher: IPlaceFetcher, val establishment: Establishment) : ICard {
+class PlaceCard(val place: MBPlace) : ICard {
 
     override fun getViewType(): Int {
         return 6
@@ -29,21 +29,10 @@ class PlaceCard(private val placeFetcher: IPlaceFetcher, val establishment: Esta
 
     override fun bindViewHolder(viewHolder: RecyclerView.ViewHolder?) {
         val vh = viewHolder as PlaceViewHolder
-        when (placeFetcher.observableStatus.value) {
-            FetchStatus.Uninitialized -> {
-                placeFetcher.fetch(establishment)
-                vh.fetchingPlace()
-            }
-            FetchStatus.Fetching -> vh.fetchingPlace()
-            FetchStatus.Ready -> {
-                val place = placeFetcher.mbPlace!!
-                if (place.images.isNotEmpty()) {
-                    bindPlaceImage(vh,place)
-                } else {
-                    vh.readyNoImage(place)
-                }
-            }
-            FetchStatus.Error -> vh.fetchingPlaceError()
+        if (place.images.isNotEmpty()) {
+            bindPlaceImage(vh,place)
+        } else {
+            vh.readyNoImage(place)
         }
     }
     private fun bindPlaceImage(vh : PlaceViewHolder, place: MBPlace){
@@ -67,14 +56,6 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val imagePlace : ImageView = view.findViewById(R.id.imagePlace)
     val ratingBar : RatingBar = view.findViewById(R.id.ratingBar)
 
-    fun fetchingPlace(){
-        Log.v("mpdb","fetching place")
-        textPhone.text = ""
-        textAttribution.text = "Fetching Place Details..."
-        textWeb.text = ""
-        ratingBar.rating = 0.0f
-        imagePlace.setImageResource(R.drawable.ic_fetching_photo)
-    }
     fun fetchingImage(place : MBPlace){
         Log.v("mpdb","fetching image")
         textAttribution.text = "Fetching Photo..."
@@ -103,14 +84,6 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
         textAttribution.text = "Oh fiddlesticks!"
         imagePlace.setImageResource(R.drawable.ic_broken_image)
         setPlaceDetails(place)
-    }
-    fun fetchingPlaceError(){
-        Log.v("mpdb","fetching place error")
-        textAttribution.text = "Outside Context Problem"
-        imagePlace.visibility = View.GONE
-        textPhone.text = ""
-        textWeb.text = ""
-        ratingBar.rating = 0.0f
     }
 
     private fun setPlaceDetails(place: MBPlace){
