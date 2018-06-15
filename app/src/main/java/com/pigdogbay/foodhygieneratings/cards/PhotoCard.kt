@@ -3,6 +3,7 @@ package com.pigdogbay.foodhygieneratings.cards
 import android.os.Build
 import android.support.v7.widget.RecyclerView
 import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,12 @@ class PhotoCard (val placeImage: IPlaceImage) : ICard{
 class PhotoViewHolder(view : View) : RecyclerView.ViewHolder(view) {
     val textAttribution: TextView = view.findViewById(R.id.textAttribution)
     val imageView: ImageView = view.findViewById(R.id.imageView)
+
+    init {
+        //allow the link to be clickable and open map/web
+        //autolink does not work <a href>
+        textAttribution.movementMethod = LinkMovementMethod.getInstance()
+    }
 
     fun fetchingPhoto(){
         textAttribution.text = ""

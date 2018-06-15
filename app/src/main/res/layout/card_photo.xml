@@ -26,6 +26,8 @@
             android:layout_height="wrap_content"
             android:background="#80ffffff"
             android:text="Mrs Photographer"
+            android:linksClickable="true"
+            android:clickable="true"
             android:textColor="#000"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="@+id/imageView" />

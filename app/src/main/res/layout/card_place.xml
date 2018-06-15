@@ -14,10 +14,9 @@
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
             app:srcCompat="@drawable/powered_by_google_on_white" />
 
         <ImageView
@@ -75,6 +74,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginStart="8dp"
             android:text="01782 865646"
+            android:autoLink="phone"
+            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
@@ -84,6 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="8dp"
+            android:linksClickable="true"
+            android:maxLines="1"
+            android:autoLink="web"
             android:text="omg-restaurant.co.uk"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView5" />
@@ -94,6 +98,8 @@
             android:layout_height="wrap_content"
             android:background="#80ffffff"
             android:text="Mr Photographer"
+            android:linksClickable="true"
+            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/imagePlace"
             app:layout_constraintEnd_toEndOf="@+id/imagePlace" />
 

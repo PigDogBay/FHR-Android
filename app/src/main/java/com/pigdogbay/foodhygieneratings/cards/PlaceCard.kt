@@ -3,6 +3,7 @@ package com.pigdogbay.foodhygieneratings.cards
 import android.os.Build
 import android.support.v7.widget.RecyclerView
 import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +53,10 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val textWeb : TextView = view.findViewById(R.id.textWeb)
     val imagePlace : ImageView = view.findViewById(R.id.imagePlace)
     val ratingBar : RatingBar = view.findViewById(R.id.ratingBar)
+
+    init {
+        textAttribution.movementMethod = LinkMovementMethod.getInstance()
+    }
 
     fun fetchingImage(place : MBPlace){
         textAttribution.text =""
