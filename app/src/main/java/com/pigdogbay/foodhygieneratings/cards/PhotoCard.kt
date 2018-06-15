@@ -41,7 +41,7 @@ class PhotoViewHolder(view : View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
 
     fun fetchingPhoto(){
-        textAttribution.text = "Fetching Photo..."
+        textAttribution.text = ""
         imageView.setImageResource(R.drawable.ic_fetching_photo)
     }
     fun readyState(placeImage: IPlaceImage){
@@ -53,7 +53,7 @@ class PhotoViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         }
     }
     fun fetchingImageError(){
-        textAttribution.text = "Oh fiddlesticks!"
+        textAttribution.text = ""
         imageView.setImageResource(R.drawable.ic_broken_image)
     }
 }
