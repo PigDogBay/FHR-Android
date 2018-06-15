@@ -80,8 +80,12 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     }
 
     private fun setPlaceDetails(place: MBPlace){
-        textPhone.text = place.telephone
-        textWeb.text = place.web
-        ratingBar.rating = place.rating
+        textPhone.text = if (place.telephone.isEmpty()) "Not specified" else place.telephone
+        textWeb.text = if (place.web.isEmpty()) "Not specified" else place.web
+        if (place.rating>0.1) {
+            ratingBar.rating = place.rating
+        } else {
+            ratingBar.visibility = View.GONE
+        }
     }
 }
