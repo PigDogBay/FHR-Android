@@ -24,7 +24,7 @@
             android:id="@+id/imagePlace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="120dp"
+            android:minHeight="160dp"
             android:minWidth="160dp"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
