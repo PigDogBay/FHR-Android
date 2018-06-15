@@ -54,6 +54,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
         cards = new ArrayList<>();
         if (establishment!=null) {
             cards.add(new RatingCard(establishment, this));
+            cards.add(new PlaceCard(placeFetcher,establishment));
             if (establishment.getRating().hasScores()) {
                 cards.add(new ScoresCard(establishment, this));
             }
@@ -62,7 +63,6 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
         }
         cardsAdapter = new CardsAdapter(cards);
         placeFetcher.getObservableStatus().addObserver(this);
-        placeFetcher.fetch(establishment);
     }
 
     @Override
@@ -155,23 +155,19 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
 
     private void updateMBPlace(FetchStatus update){
         switch (update){
-            case Uninitialized:
-                break;
-            case Fetching:
-                break;
+            //Uninitialized/Fetching state should already be shown
             case Ready:
                 onPlaceCreated(placeFetcher.getMbPlace());
                 break;
             case Error:
+                cards.remove(1);
+                cardsAdapter.notifyItemRemoved(1);
                 break;
         }
     }
     private void updatePlaceImage(FetchStatus update){
         switch (update){
-            case Uninitialized:
-                break;
-            case Fetching:
-                break;
+            //Uninitialized/Fetching state should already be shown
             case Ready:
                 cardsAdapter.notifyItemChanged(1);
                 break;
@@ -185,8 +181,7 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
         for (IPlaceImage img : place.getImages()){
             img.getObservableStatus().addObserver(this);
         }
-        cards.add(1, new PlaceCard(place));
-        cardsAdapter.notifyItemInserted(1);
+        cardsAdapter.notifyItemChanged(1);
     }
 
 
