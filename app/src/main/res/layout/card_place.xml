@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
+            android:isIndicator="true"
             android:numStars="5"
             android:rating="4.5"
             app:layout_constraintEnd_toEndOf="parent"
