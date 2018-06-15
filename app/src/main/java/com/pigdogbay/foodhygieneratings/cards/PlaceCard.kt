@@ -3,7 +3,6 @@ package com.pigdogbay.foodhygieneratings.cards
 import android.os.Build
 import android.support.v7.widget.RecyclerView
 import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import com.pigdogbay.foodhygieneratings.R
-import com.pigdogbay.foodhygieneratings.model.Establishment
 import com.pigdogbay.foodhygieneratings.model.FetchStatus
-import com.pigdogbay.foodhygieneratings.model.IPlaceFetcher
 import com.pigdogbay.foodhygieneratings.model.MBPlace
 
 class PlaceCard(val place: MBPlace) : ICard {
@@ -57,19 +54,16 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val ratingBar : RatingBar = view.findViewById(R.id.ratingBar)
 
     fun fetchingImage(place : MBPlace){
-        Log.v("mpdb","fetching image")
-        textAttribution.text = "Fetching Photo..."
+        textAttribution.visibility = View.GONE
         imagePlace.setImageResource(R.drawable.ic_fetching_photo)
         setPlaceDetails(place)
     }
     fun readyNoImage(place : MBPlace){
-        Log.v("mpdb","ready no image")
         textAttribution.visibility = View.GONE
         imagePlace.visibility = View.GONE
         setPlaceDetails(place)
     }
     fun readyState(place : MBPlace){
-        Log.v("mpdb","ready state")
         val firstImg = place.images[0]
         imagePlace.setImageBitmap(firstImg.bitmap)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -80,8 +74,7 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
         setPlaceDetails(place)
     }
     fun fetchingImageError(place: MBPlace){
-        Log.v("mpdb","fetching image error")
-        textAttribution.text = "Oh fiddlesticks!"
+        textAttribution.visibility = View.GONE
         imagePlace.setImageResource(R.drawable.ic_broken_image)
         setPlaceDetails(place)
     }
