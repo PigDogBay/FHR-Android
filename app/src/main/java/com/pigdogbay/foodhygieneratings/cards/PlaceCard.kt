@@ -54,7 +54,7 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val ratingBar : RatingBar = view.findViewById(R.id.ratingBar)
 
     fun fetchingImage(place : MBPlace){
-        textAttribution.visibility = View.GONE
+        textAttribution.text =""
         imagePlace.setImageResource(R.drawable.ic_fetching_photo)
         setPlaceDetails(place)
     }
