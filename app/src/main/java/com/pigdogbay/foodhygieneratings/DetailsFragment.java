@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -171,7 +170,6 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
         }
     }
     private void updatePlaceImage(FetchStatus update, int index){
-        Log.v("mpdb", String.format("Updating Image %s %d",update.name(),index));
         switch (update){
             case Uninitialized:
                 break;
