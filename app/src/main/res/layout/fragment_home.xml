@@ -19,24 +19,23 @@
         style="@style/MaterialButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:layout_marginRight="0dp"
-        app:layout_constraintRight_toRightOf="@+id/home_place"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/home_place"/>
+        android:text="Search"
+        app:layout_constraintRight_toRightOf="@+id/home_place"
+        app:layout_constraintTop_toBottomOf="@+id/home_place" />
 
     <Button
         android:id="@+id/home_advanced_search_btn"
+        style="@style/MaterialButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
         android:layout_marginTop="16dp"
         android:text="Advanced Search"
+        android:drawablePadding="16dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/home_places_near_me_btn"
         app:layout_constraintRight_toRightOf="@+id/home_places_near_me_btn"
-        app:layout_constraintTop_toBottomOf="@+id/home_places_near_me_btn"/>
+        app:layout_constraintTop_toBottomOf="@+id/home_places_near_me_btn" />
 
     <TextView
         android:id="@+id/textView"
@@ -92,16 +91,16 @@
 
     <Button
         android:id="@+id/home_places_near_me_btn"
-        android:layout_width="0dp"
+        style="@style/MaterialButton"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="FIND PLACES NEAR ME"
-        app:layout_constraintLeft_toLeftOf="@+id/textView2"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_search_btn"
-        app:layout_constraintHorizontal_bias="0.0"/>
+        android:drawablePadding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_search_btn" />
 
     <ImageButton
         android:id="@+id/home_business_clear"
@@ -139,10 +138,12 @@
 
     <Button
         android:id="@+id/home_user_guide"
+        style="@style/MaterialButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="User Guide"
+        android:drawablePadding="16dp"
         app:layout_constraintEnd_toEndOf="@+id/home_places_near_me_btn"
         app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
         app:layout_constraintTop_toBottomOf="@+id/home_advanced_search_btn" />
@@ -151,9 +152,10 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="All data is live from the FSA, www.food.gov.uk"
-        app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_user_guide" />
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
