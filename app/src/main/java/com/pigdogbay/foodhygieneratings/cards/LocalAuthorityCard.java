@@ -45,31 +45,20 @@ public class LocalAuthorityCard implements ICard {
             super(itemView);
 
             LocalAuthority la = establishment.getLocalAuthority();
-            StringBuilder builder = new StringBuilder();
-            builder.append(la.getName());
-            builder.append("\n");
-            builder.append(la.getEmail());
-            builder.append("\n");
-            builder.append(la.getWeb());
+            String builder = la.getName() +
+                    "\n" +
+                    la.getEmail() +
+                    "\n" +
+                    la.getWeb();
 
-            TextView text = (TextView) itemView.findViewById(R.id.card_text);
-            text.setText(builder.toString());
+            TextView text = itemView.findViewById(R.id.card_text);
+            text.setText(builder);
+            //Email address can be quite long and will wrap over to the next line which looks ugly
+            //This prevents line wrapping, however I don't seem be able to scroll the text tho.
+            text.setHorizontallyScrolling(true);
 
-            itemView.findViewById(R.id.card_la_email_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_la_email_button, null);
-                }
-            });
-
-            itemView.findViewById(R.id.card_la_web_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_la_web_button, null);
-                }
-            });
-
+            itemView.findViewById(R.id.card_la_email_button).setOnClickListener(view -> listener.onButtonPressed(R.id.card_la_email_button, null));
+            itemView.findViewById(R.id.card_la_web_button).setOnClickListener(view -> listener.onButtonPressed(R.id.card_la_web_button, null));
         }
     }
-
 }
