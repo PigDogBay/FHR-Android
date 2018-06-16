@@ -19,8 +19,12 @@ class Settings(private val preferencesHelper: PreferencesHelper) {
             val filterType = if (value) 1 else 0
             preferencesHelper.setInt(R.string.key_pref_search_results_text_filter,filterType)
         }
+
     var isMapSearchEnabled : Boolean
         get() = preferencesHelper.getBoolean(R.string.key_pref_map_enable_search,false)
         set(value) = preferencesHelper.setBoolean(R.string.key_pref_map_enable_search,value)
 
+    var isPlaceInfoEnabled : Boolean
+        get() = preferencesHelper.getBoolean(R.string.key_pref_show_place_info,true)
+        set(value) = preferencesHelper.setBoolean(R.string.key_pref_show_place_info,value)
 }

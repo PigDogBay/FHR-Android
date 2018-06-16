@@ -4,4 +4,5 @@
     <string name="key_pref_search_radius">key_pref_search_radius</string>
     <string name="key_pref_search_results_text_filter">key_pref_search_results_text_filter</string>
     <string name="key_pref_map_enable_search">key_pref_map_enable_search</string>
+    <string name="key_pref_show_place_info">key_pref_show_place_info</string>
 </resources>

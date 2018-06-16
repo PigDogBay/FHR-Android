@@ -63,8 +63,10 @@ public class DetailsFragment extends Fragment implements OnButtonClickListener,
             cards.add(new LocalAuthorityCard(establishment, this));
         }
         cardsAdapter = new CardsAdapter(cards);
-        placeFetcher.getObservableStatus().addObserver(this);
-        placeFetcher.fetch(establishment);
+        if (Injector.settings.isPlaceInfoEnabled()) {
+            placeFetcher.getObservableStatus().addObserver(this);
+            placeFetcher.fetch(establishment);
+        }
     }
 
     @Override
