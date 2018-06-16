@@ -31,7 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Advanced Search"
-        android:drawablePadding="16dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/home_places_near_me_btn"
         app:layout_constraintRight_toRightOf="@+id/home_places_near_me_btn"
@@ -92,12 +91,12 @@
     <Button
         android:id="@+id/home_places_near_me_btn"
         style="@style/MaterialButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="FIND PLACES NEAR ME"
-        android:drawablePadding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_search_btn" />
@@ -143,7 +142,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="User Guide"
-        android:drawablePadding="16dp"
         app:layout_constraintEnd_toEndOf="@+id/home_places_near_me_btn"
         app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
         app:layout_constraintTop_toBottomOf="@+id/home_advanced_search_btn" />
