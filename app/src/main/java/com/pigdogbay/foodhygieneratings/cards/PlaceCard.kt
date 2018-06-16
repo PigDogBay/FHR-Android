@@ -52,7 +52,6 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val textPhone : TextView = view.findViewById(R.id.textPhone)
     val textWeb : TextView = view.findViewById(R.id.textWeb)
     val imagePlace : ImageView = view.findViewById(R.id.imagePlace)
-    val ratingBar : RatingBar = view.findViewById(R.id.ratingBar)
 
     init {
         textAttribution.movementMethod = LinkMovementMethod.getInstance()
@@ -87,10 +86,5 @@ class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
     private fun setPlaceDetails(place: MBPlace){
         textPhone.text = if (place.telephone.isEmpty()) "Not specified" else place.telephone
         textWeb.text = if (place.web.isEmpty()) "Not specified" else place.web
-        if (place.rating>0.1) {
-            ratingBar.rating = place.rating
-        } else {
-            ratingBar.visibility = View.GONE
-        }
     }
 }
