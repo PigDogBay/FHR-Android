@@ -71,7 +71,7 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
                 val images: ArrayList<IPlaceImage> = ArrayList()
                 images.add(DummyPlaceImage("<a href=\"https://maps.google.com/maps/contrib/110455252459989089441/photos\">OMG Grill</a>", bitmap))
                 Thread.sleep(500L)
-                srcMBPlace = MBPlace("ChIJYUPe12BoekgR6iLyIiC9DJk", "+44 1782 865646", "http://www.omg-restaurant.co.uk", 3.5F, images)
+                srcMBPlace = MBPlace("ChIJYUPe12BoekgR6iLyIiC9DJk", "07591 755084", "http://www.omg-restaurant.co.uk", 3.5F, images)
                 observableStatus.value = FetchStatus.Ready
             }.start()
         }
@@ -175,7 +175,8 @@ class GooglePlaceFetcher(private val geoDataClient: GeoDataClient) : IPlaceFetch
     }
 
     private fun createPlace(place: Place, placeImages : List<IPlaceImage>) : MBPlace {
-        val phone = if (place.phoneNumber==null) "" else place.phoneNumber.toString()
+        //Convert phone number from the international format to UK
+        val phone = if (place.phoneNumber==null) "" else place.phoneNumber.toString().replace("+44 ","0")
         val web = if (place.websiteUri==null) "" else place.websiteUri.toString()
         return MBPlace(place.id,phone,web,place.rating,placeImages)
 
