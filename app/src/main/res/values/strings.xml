@@ -63,7 +63,7 @@ limitations under the License.
     <string name="about_body_data_policy">This app uses Google\'s Admob and Firebase analytics to deliver relevant targeted ads to you. To find out more about how Google uses information from this app click on the link below.</string>
     <string name="about_button_google_policy">FIND OUT MORE</string>
     <string name="about_button_privacy_policy">PRIVACY POLICY</string>
-    <string name="about_body_privacy_policy">For further information about how this app uses data and terms of service, press the button below.</string>
+    <string name="about_body_privacy_policy">For further information about how this app uses data press the button below to review the Privacy Policy in full.</string>
     <string name="market_pigdogbay_apps" translatable="false">market://search?q=pub:Pig%20Dog%20Bay</string>
     <string name="market_app_url" translatable="false">market://details?id=com.pigdogbay.foodhygieneratings</string>
     <string name="web_app_url" translatable="false">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
