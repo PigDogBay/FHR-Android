@@ -38,8 +38,26 @@
     <string name="about_button_tell">EMAIL FRIENDS</string>
     <string name="web_error">No Web</string>
     <string name="legal_title">Legal</string>
-    <string name="legal">Contains public sector information licensed under the Open Government Licence v3.0
+    <string name="legal">
+        Contains public sector information licensed under the Open Government Licence v3.0
     \n\nAll information is provided by the live data feed from the Food Standards Agency. If you find any issues with the data please contact the relevant local authority. For more information visit http://www.food.gov.uk
+        \n\nUsing this app you agree that MPD Bailey Technology and its agents (Mark Bailey) are not liable for any information shown within the app.
+\n\nMPD Bailey Technology and its agents (Mark Bailey) take no responsibility for the actions of any users of this app.
+\n\nThe app EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. The app makes no warranty that (1) THE APP OR THE CONTENT WILL MEET OR SATISFY YOUR REQUIREMENTS (2) THE APP SHALL HAVE NO RESPONSIBILITY FOR ANY DAMAGE TO YOUR PHONE OR TABLET OR LOSS OF DATA THAT RESULTS FROM YOUR USE OF THE APP OR ITS CONTENT.
+\n\n
+Copyright 2018 MPD Bailey Technology
+\n\n
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+\n\n
+http://www.apache.org/licenses/LICENSE-2.0
+\n\n
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
     </string>
     <string name="about_header_data_policy">DATA POLICY</string>
     <string name="about_body_data_policy">This app uses Google\'s Admob and Firebase analytics to deliver relevant targeted ads to you. To find out more about how Google uses information from this app click on the link below.</string>
@@ -55,7 +73,7 @@
     <string name="share_chooser_title">Share…</string>
     <string name="menu_results_search">Search</string>
     <string name="dialog_map_search_enable_title">Map Searches</string>
-    <string name="dialog_map_search_enable_description">The geo co-ordinates for each establishment are inaccurate so establishments may not be positioned correctly on the map. Markers may also be stacked on top of each other. See the user guide for more information.</string>
+    <string name="dialog_map_search_enable_description">The geo-coordinates for each establishment are inaccurate so establishments may not be positioned correctly on the map. Markers may also be stacked on top of each other. See the user guide for more information.</string>
     <string name="dialog_map_search_enable_button">I understand</string>
 
     <string-array name="hygiene_rating">
