@@ -336,9 +336,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         switch (tag){
             case HomeFragment.TAG:
             case ResultsFragment.TAG:
-                if (settings.isMapSearchEnabled()) {
-                    fabFilter.setVisibility(View.VISIBLE);
-                }
+                int vis = settings.isMapSearchEnabled() ? View.VISIBLE : View.GONE;
+                fabFilter.setVisibility(vis);
                 break;
             case DetailsFragment.TAG:
                 fabFilter.setVisibility(View.VISIBLE);
