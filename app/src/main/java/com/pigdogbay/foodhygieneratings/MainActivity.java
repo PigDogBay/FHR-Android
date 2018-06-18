@@ -230,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         switch (tag){
             case HomeFragment.TAG:
+                mainModel.clearResults();
             case ResultsFragment.TAG:
                 showMap();
                 break;

@@ -100,15 +100,19 @@ public class MainModel {
         }
     }
 
+    public void clearResults(){
+        results.clear();
+        filteredResults.clear();
+        ratingFilter = null;
+        containingTextFilter = "";
+    }
+
     public boolean findEstablishments(final Query query) {
         if (isBusy){
             return false;
         }
         isBusy = true;
-        results.clear();
-        filteredResults.clear();
-        ratingFilter = null;
-        containingTextFilter = "";
+        clearResults();
         appStateObservableProperty.setValue(AppState.loading);
         new Thread(() -> {
             try {
