@@ -62,6 +62,8 @@ limitations under the License.
     <string name="about_header_data_policy">DATA POLICY</string>
     <string name="about_body_data_policy">This app uses Google\'s Admob and Firebase analytics to deliver relevant targeted ads to you. To find out more about how Google uses information from this app click on the link below.</string>
     <string name="about_button_google_policy">FIND OUT MORE</string>
+    <string name="about_button_privacy_policy">PRIVACY POLICY</string>
+    <string name="about_body_privacy_policy">For further information about how this app uses data and terms of service, press the button below.</string>
     <string name="market_pigdogbay_apps" translatable="false">market://search?q=pub:Pig%20Dog%20Bay</string>
     <string name="market_app_url" translatable="false">market://details?id=com.pigdogbay.foodhygieneratings</string>
     <string name="web_app_url" translatable="false">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
@@ -69,6 +71,7 @@ limitations under the License.
     <string name="release_notes_url" translatable="false">https://pigdogbay.blogspot.com/2018/06/food-hygiene-ratings-v102-release-notes.html</string>
     <string name="google_data_policy">https://www.google.com/policies/technologies/partner-sites/</string>
     <string name="user_guide_url">https://pigdogbay.blogspot.com/2018/06/food-hygiene-ratings-guide.html</string>
+    <string name="privacy_policy_url">https://pigdogbay.blogspot.com/2018/06/privacy-policy-food-hygiene-ratings.html</string>
     <string name="menu_share">Share</string>
     <string name="share_chooser_title">Share…</string>
     <string name="menu_results_search">Search</string>

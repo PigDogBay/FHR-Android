@@ -34,6 +34,7 @@ public class AboutFragment extends Fragment {
         rootView.findViewById(R.id.aboutBtnReleaseNotes).setOnClickListener(v -> showWebPage(getActivity(),R.string.release_notes_url));
         rootView.findViewById(R.id.aboutBtnMoreApps).setOnClickListener(v -> showWebPage(getActivity(),R.string.market_pigdogbay_apps));
         rootView.findViewById(R.id.aboutBtnGooglePolicy).setOnClickListener(v -> showWebPage(getActivity(),R.string.google_data_policy));
+        rootView.findViewById(R.id.aboutBtnPrivatePolicy).setOnClickListener(v -> showWebPage(getActivity(),R.string.privacy_policy_url));
 
         return rootView;
     }
