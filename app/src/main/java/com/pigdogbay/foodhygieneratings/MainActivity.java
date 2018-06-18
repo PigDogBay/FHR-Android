@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         if (f!=null){
             tag = f.getTag();
         }
-
+        if (tag==null) return;
         switch (tag){
             case HomeFragment.TAG:
                 mainModel.clearResults();
@@ -334,6 +334,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         if (f!=null){
             tag = f.getTag();
         }
+        if (tag==null) {
+            fabFilter.setVisibility(View.GONE);
+            return;
+        }
         switch (tag){
             case HomeFragment.TAG:
             case ResultsFragment.TAG:
@@ -368,17 +372,25 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_PERMISSION_REQUEST_CODE);
                 return;
             }
-            final Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(getGoogleApiClient());
-            if (lastLocation != null) {
-                Query query = new Query(lastLocation.getLongitude(), lastLocation.getLatitude(), settings.getSearchRadius());
-                if (mainModel.findEstablishments(query)) {
-                    mainModel.setSearchType(SearchType.local);
-                    showResults();
-                }
-            } else {
-                ActivityUtils.showInfoDialog(this,R.string.alert_no_location_title,R.string.alert_no_location_description,R.string.ok);
-            }
+            LocationServices.getFusedLocationProviderClient(this)
+                    .getLastLocation()
+                    .addOnSuccessListener(this, this::locationSuccess)
+                    .addOnFailureListener(this, this::locationFail);
         }
+    }
+    private void locationSuccess(Location location){
+        if (location != null) {
+            Query query = new Query(location.getLongitude(), location.getLatitude(), settings.getSearchRadius());
+            if (mainModel.findEstablishments(query)) {
+                mainModel.setSearchType(SearchType.local);
+                showResults();
+            }
+        } else {
+            ActivityUtils.showInfoDialog(this,R.string.alert_no_location_title,R.string.alert_no_location_description,R.string.ok);
+        }
+    }
+    private void locationFail(Exception e){
+        ActivityUtils.showInfoDialog(this,R.string.alert_no_location_title,R.string.alert_no_location_description,R.string.ok);
     }
 
     @Override
