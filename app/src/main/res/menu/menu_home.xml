@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_search"
+        android:id="@+id/menu_main_user_guide"
         app:showAsAction="always"
-        android:icon="@drawable/ic_search_24dp"
-        android:title="@string/main_menu_search"/>
-    <item android:id="@+id/menu_main_user_guide"
-        android:title="@string/action_user_guide"
+        android:icon="@drawable/ic_help_outline_white_24dp"
+        android:title="@string/action_user_guide"/>
+    <item
+        android:id="@+id/menu_main_advanced_search"
+        android:title="@string/menu_main_advanced_search"
+        app:showAsAction="never"/>
+    <item android:id="@+id/menu_main_settings"
+        android:title="@string/action_settings"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_main_about"
         android:title="@string/menu_main_about"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_main_settings"
-        android:title="@string/action_settings"
         app:showAsAction="never"/>
 </menu>

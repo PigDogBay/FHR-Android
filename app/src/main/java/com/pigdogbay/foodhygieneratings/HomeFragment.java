@@ -86,20 +86,10 @@ public class HomeFragment extends Fragment implements TextWatcher {
 
         //Vector drawables are still a pain in the ass
         //http://stackoverflow.com/questions/35761636/is-it-possible-to-use-vectordrawable-in-buttons-and-textviews-using-androiddraw
-        Button advancedButton = view.findViewById(R.id.home_advanced_search_btn);
-        Drawable searchIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_search_green_48);
-        advancedButton.setCompoundDrawablesRelativeWithIntrinsicBounds(searchIcon,null,null,null);
-        advancedButton.setOnClickListener(view15 -> advancedSearch());
-
         Button nearMeButton = view.findViewById(R.id.home_places_near_me_btn);
         Drawable nearMeIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_near_me);
         nearMeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(nearMeIcon,null,null,null);
         nearMeButton.setOnClickListener(view14 -> placesNearMe());
-
-        Button userGuideButton = view.findViewById(R.id.home_user_guide);
-        Drawable userGuideIcon = ContextCompat.getDrawable(getContext(),R.drawable.ic_user_guide);
-        userGuideButton.setCompoundDrawablesRelativeWithIntrinsicBounds(userGuideIcon,null,null,null);
-        userGuideButton.setOnClickListener(view14 -> ((MainActivity)getActivity()).showUserGuide());
 
         nameClearButton = view.findViewById(R.id.home_business_clear);
         nameClearButton.setOnClickListener(view12 -> onNameFieldClearClicked());

@@ -170,6 +170,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             case R.id.menu_main_user_guide:
                 showUserGuide();
                 return true;
+            case R.id.menu_main_advanced_search:
+                showAdvancedSearch();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -24,18 +24,6 @@
         app:layout_constraintRight_toRightOf="@+id/home_place"
         app:layout_constraintTop_toBottomOf="@+id/home_place" />
 
-    <Button
-        android:id="@+id/home_advanced_search_btn"
-        style="@style/MaterialButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Advanced Search"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/home_places_near_me_btn"
-        app:layout_constraintRight_toRightOf="@+id/home_places_near_me_btn"
-        app:layout_constraintTop_toBottomOf="@+id/home_places_near_me_btn" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -91,11 +79,12 @@
     <Button
         android:id="@+id/home_places_near_me_btn"
         style="@style/MaterialButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:drawablePadding="24dp"
         android:text="FIND PLACES NEAR ME"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,25 +124,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fhrs_5"/>
 
-    <Button
-        android:id="@+id/home_user_guide"
-        style="@style/MaterialButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="User Guide"
-        app:layout_constraintEnd_toEndOf="@+id/home_places_near_me_btn"
-        app:layout_constraintStart_toStartOf="@+id/home_places_near_me_btn"
-        app:layout_constraintTop_toBottomOf="@+id/home_advanced_search_btn" />
-
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:text="All data is live from the FSA, www.food.gov.uk"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_user_guide" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
