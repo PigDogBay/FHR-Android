@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -141,7 +142,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     void setUpAds() {
         // Look up the AdView as a resource and load a request.
         _AdView = findViewById(R.id.adView);
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating", "G");
         AdRequest adRequest = new AdRequest.Builder()
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(getString(R.string.code_test_device_acer_tablet))
                 .addTestDevice(getString(R.string.code_test_device_moto_g))
