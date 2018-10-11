@@ -50,6 +50,15 @@ object Injector {
 
     }
 
+    /*
+        To update R.raw.authorities, go to
+        http://api.ratings.food.gov.uk/Help/Api/GET-Authorities-basic
+        Press test API and copy JSON into https://jsonformatter.org/json-pretty-print
+
+        To get a more detailed authorities info see
+        http://ratings.food.gov.uk/authorities/json
+
+     */
     fun getLocalAuthorities(context: Context): List<LocalAuthority> {
         if (localAuthorities == null) {
             try {
