@@ -145,9 +145,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         // Look up the AdView as a resource and load a request.
         _AdView = findViewById(R.id.adView);
         Bundle extras = new Bundle();
-//        extras.putString("max_ad_content_rating", "G");
-        //11 OCt 2018, lets see if Mature Adult rating improves eCPM
-        extras.putString("max_ad_content_rating", "MA");
+        extras.putString("max_ad_content_rating", "G");
+        //MA = Mature Adult, may improve eCPM?
+        //extras.putString("max_ad_content_rating", "MA");
         AdRequest adRequest = new AdRequest.Builder()
                 .addNetworkExtrasBundle(AdMobAdapter.class, extras)
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
