@@ -187,9 +187,9 @@ public class MainModel {
             if (establishment.getRating().hasScores()) {
                 builder.append("\nScores\n");
                 final Scores scores = establishment.getRating().getScores();
-                builder.append(" * Hygiene Points: ").append(String.valueOf(scores.getHygiene())).append(" - ").append(scores.getHygieneDescription()).append("\n");
-                builder.append(" * Management Points: ").append(String.valueOf(scores.getManagement())).append(" - ").append(scores.getManagementDescription()).append("\n");
-                builder.append(" * Structural Points: ").append(String.valueOf(scores.getStructural())).append(" - ").append(scores.getStructuralDescription()).append("\n");
+                builder.append(" * Hygiene: ").append(scores.getHygieneDescription()).append("\n");
+                builder.append(" * Management: ").append(scores.getManagementDescription()).append("\n");
+                builder.append(" * Structural: ").append(scores.getStructuralDescription()).append("\n");
             }
         }
         LocalAuthority la = establishment.getLocalAuthority();

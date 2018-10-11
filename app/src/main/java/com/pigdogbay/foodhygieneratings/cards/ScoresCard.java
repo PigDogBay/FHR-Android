@@ -47,32 +47,21 @@ public class ScoresCard implements ICard {
             Scores scores = establishment.getRating().getScores();
             StringBuilder builder = new StringBuilder();
             builder.append("Hygiene: ");
-            builder.append(scores.getHygiene());
-            builder.append(" - ");
             builder.append(scores.getHygieneDescription());
             builder.append("\n");
 
             builder.append("Structural: ");
-            builder.append(scores.getStructural());
-            builder.append(" - ");
             builder.append(scores.getStructuralDescription());
             builder.append("\n");
 
             builder.append("Management: ");
-            builder.append(scores.getManagement());
-            builder.append(" - ");
             builder.append(scores.getManagementDescription());
             builder.append("\n");
 
-            TextView text = (TextView) itemView.findViewById(R.id.card_text);
+            TextView text = itemView.findViewById(R.id.card_text);
             text.setText(builder.toString());
 
-            itemView.findViewById(R.id.card_scores_info_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onButtonPressed(R.id.card_scores_info_button, null);
-                }
-            });
+            itemView.findViewById(R.id.card_scores_info_button).setOnClickListener(view -> listener.onButtonPressed(R.id.card_scores_info_button, null));
 
         }
     }

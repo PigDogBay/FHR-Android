@@ -16,7 +16,8 @@ public class Scores {
     public static final String  managementTitle = "Management of food safety";
     public static final String  managementDescription = "System or checks in place to ensure that food sold or served is safe to eat, evidence that staff know about food safety, and the food safety officer has confidence that standards will be maintained in the future.";
 
-    private static Scores nullScores = new Scores(0,0,0);
+    private static final int NO_SCORE = -1;
+    private static Scores nullScores = new Scores(NO_SCORE,NO_SCORE,NO_SCORE);
 
     public static Scores getNullScores() {
         return nullScores;
@@ -53,6 +54,8 @@ public class Scores {
     //Taken from fhrsguidance.pdf
     private String getDescription(int score) {
         switch (score) {
+            case -1:
+                return "not available";
             case 0:
                 return "very good";
             case 5:
