@@ -6,7 +6,6 @@ import com.google.android.gms.location.places.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.pigdogbay.lib.patterns.ObservableProperty
-import com.pigdogbay.lib.utils.DisplayUtils
 
 data class MBPlace(val id : String, val telephone : String, val web : String, val rating : Float, val images : List<IPlaceImage>)
 enum class FetchStatus {
@@ -93,9 +92,7 @@ class GooglePlaceImage(private val geoDataClient: GeoDataClient, private val met
 
     override fun fetchBitmap() {
         status.value = FetchStatus.Fetching
-        val w = DisplayUtils.getScreenWidth()
-        val h = DisplayUtils.getScreenHeight()
-        val scaledPhotoResult = geoDataClient.getScaledPhoto(metaData, w, h)
+        val scaledPhotoResult = geoDataClient.getPhoto(metaData)
         scaledPhotoResult.addOnFailureListener{ _ -> status.value = FetchStatus.Error }
         scaledPhotoResult.addOnSuccessListener{ result ->
             srcBitmap = result.bitmap
