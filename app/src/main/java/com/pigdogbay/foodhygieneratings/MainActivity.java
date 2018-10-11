@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         fabFilter = findViewById(R.id.fab);
         fabFilter.setOnClickListener(view -> mapFabClicked());
-        fabFilter.setVisibility(View.GONE);
+        fabFilter.hide();
 
         setUpAds();
 
@@ -342,20 +342,23 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             tag = f.getTag();
         }
         if (tag==null) {
-            fabFilter.setVisibility(View.GONE);
+            fabFilter.hide();
             return;
         }
         switch (tag){
             case HomeFragment.TAG:
             case ResultsFragment.TAG:
-                int vis = settings.isMapSearchEnabled() ? View.VISIBLE : View.GONE;
-                fabFilter.setVisibility(vis);
+                if (settings.isMapSearchEnabled()){
+                    fabFilter.show();
+                } else {
+                    fabFilter.hide();
+                }
                 break;
             case DetailsFragment.TAG:
-                fabFilter.setVisibility(View.VISIBLE);
+                fabFilter.show();
                 break;
             default:
-                fabFilter.setVisibility(View.GONE);
+                fabFilter.hide();
                 break;
         }
     }
