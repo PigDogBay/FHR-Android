@@ -105,7 +105,7 @@ public class FoodHygieneAPITest {
         "LocalAuthorityId":334,
         "LocalAuthorityIdCode":"551",
         "Name":"Anglesey",
-        "EstablishmentCount":641,
+        "EstablishmentCount":690,
         "SchemeType":1,
      */
     @Test
@@ -115,7 +115,7 @@ public class FoodHygieneAPITest {
         assertThat(la.getName(), is("Anglesey"));
         assertThat(la.getCode(),is("551"));
         assertThat(la.getId(), is(334));
-        assertThat(la.getEstablishmentCount(),is(641));
+        assertThat(la.getEstablishmentCount(),is(690));
         assertThat(la.getSchemeType(),is(1));
     }
 
