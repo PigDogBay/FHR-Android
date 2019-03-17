@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android.libraries.places:places:1.0.0'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.json:json:20180130'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
