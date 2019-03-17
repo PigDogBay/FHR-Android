@@ -12,10 +12,7 @@ import org.json.JSONObject
 
 import java.io.IOException
 import java.util.ArrayList
-import android.os.Bundle
 import android.content.pm.PackageManager
-import android.content.pm.ApplicationInfo
-
 
 
 object Injector {
@@ -49,9 +46,8 @@ object Injector {
     }
 
     fun createFetcher(context: Context) : IPlaceFetcher {
-
-        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
-//        return GooglePlaceFetcher(Places.getGeoDataClient(context))
+//        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
+        return GooglePlaceFetcher(Places.createClient(context))
     }
 
     private fun dummyDataProvider(context: Context): MainModel.IDataProvider {

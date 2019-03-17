@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import com.google.android.gms.common.data.DataBufferUtils
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.net.PlacesClient
 import com.pigdogbay.lib.patterns.ObservableProperty
 
 data class MBPlace(val id : String, val telephone : String, val web : String, val rating : Float, val images : List<IPlaceImage>)
@@ -100,7 +102,22 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
 //    }
 //}
 //
-//class GooglePlaceFetcher(private val geoDataClient: GeoDataClient) : IPlaceFetcher {
+class GooglePlaceFetcher(private val placesClient: PlacesClient) : IPlaceFetcher {
+    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
+    private var foundPlace : MBPlace? = null
+
+    override val observableStatus: ObservableProperty<FetchStatus>
+        get() = status
+    override val mbPlace: MBPlace?
+        get() = foundPlace
+
+    override fun fetch(establishment: Establishment) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+}
+
+//class GooglePlaceFetcherOld(private val geoDataClient: GeoDataClient) : IPlaceFetcher {
 //    private val status = ObservableProperty(this, FetchStatus.Uninitialized)
 //    private var foundPlace : MBPlace? = null
 //
