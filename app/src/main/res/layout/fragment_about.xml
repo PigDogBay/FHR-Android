@@ -41,7 +41,7 @@
                 android:id="@+id/aboutBtnReleaseNotes"
                 style="@style/AboutButton"
                 android:text="@string/about_release_notes"
-                />
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/aboutBtnLegal"
