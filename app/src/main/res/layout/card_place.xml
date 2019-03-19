@@ -17,7 +17,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:srcCompat="@drawable/powered_by_google_on_white" />
+            app:srcCompat="@drawable/places_powered_by_google_light" />
 
         <ImageView
             android:id="@+id/imagePlace"
