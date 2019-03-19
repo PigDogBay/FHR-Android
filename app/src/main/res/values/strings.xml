@@ -18,15 +18,15 @@
     <string name="alert_connection_error_description">Unable to connect to the Food Standards Authority\'s database. Ensure your internet connection is enabled.</string>
     <string name="about_release_notes">RELEASE NOTES</string>
     <string name="about_web">www.mpdbailey.co.uk</string>
-    <string name="about_version">Version 1.04.00</string>
-    <string name="about_copyright">\u00A92018 MPD Bailey Technology</string>
+    <string name="about_version">Version 1.05.00</string>
+    <string name="about_copyright">\u00A92019 MPD Bailey Technology</string>
     <string name="about_header_info">INFO</string>
     <string name="about_header_feedback">HELP OUT</string>
     <string name="about_body_feedback">Keep updates coming by rating the app, your feedback is most welcome. </string>
     <string name="about_button_rate">RATE</string>
     <string name="about_button_send_feedback">FEEDBACK</string>
     <string name="about_button_legal">Legal</string>
-    <string name="about_button_feedback_subject">FHR (Android) v1.04 Feedback</string>
+    <string name="about_button_feedback_subject">FHR (Android) v1.05 Feedback</string>
     <string name="about_button_feedback_body">Your feedback is most welcome\n *Report Bugs\n *Suggest new features\n *Ask for help\n\n</string>
     <string name="about_tell_a_friend_subject">Take a look at Food Hygiene Ratings</string>
     <string name="about_tell_a_friend_body">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
@@ -45,7 +45,7 @@
 \n\nMPD Bailey Technology and its agents (Mark Bailey) take no responsibility for the actions of any users of this app.
 \n\nThe app EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. The app makes no warranty that (1) THE APP OR THE CONTENT WILL MEET OR SATISFY YOUR REQUIREMENTS (2) THE APP SHALL HAVE NO RESPONSIBILITY FOR ANY DAMAGE TO YOUR PHONE OR TABLET OR LOSS OF DATA THAT RESULTS FROM YOUR USE OF THE APP OR ITS CONTENT.
 \n\n
-Copyright 2018 MPD Bailey Technology
+Copyright 2019 MPD Bailey Technology
 \n\n
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
