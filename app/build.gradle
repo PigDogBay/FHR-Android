@@ -8,8 +8,8 @@ android {
         applicationId "com.pigdogbay.foodhygieneratings"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 10500
-        versionName "1.05.00"
+        versionCode 10501
+        versionName "1.05.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
     }
