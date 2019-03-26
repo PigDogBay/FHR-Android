@@ -1,5 +1,6 @@
 package com.pigdogbay.foodhygieneratings.model
 
+import android.content.res.Resources
 import android.graphics.Bitmap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
@@ -96,7 +97,11 @@ class GooglePlaceImage(private val placesClient: PlacesClient, private val metaD
 
     override fun fetchBitmap() {
         status.value = FetchStatus.Fetching
-        val request = FetchPhotoRequest.builder(metaData).build()
+        //set width to be 80% of the screen width
+        val width =  (Resources.getSystem().displayMetrics.widthPixels*80)/100
+        val request = FetchPhotoRequest.builder(metaData)
+                .setMaxWidth(width)
+                .build()
         placesClient.fetchPhoto(request)
                 .addOnSuccessListener {
                     response ->
