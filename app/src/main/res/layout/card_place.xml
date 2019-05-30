@@ -2,7 +2,6 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Card"
     >
 
@@ -17,7 +16,8 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:srcCompat="@drawable/places_powered_by_google_light" />
+            />
+            <!--app:srcCompat="@drawable/places_powered_by_google_light"-->
 
         <ImageView
             android:id="@+id/imagePlace"

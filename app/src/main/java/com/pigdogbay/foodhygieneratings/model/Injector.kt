@@ -2,7 +2,6 @@ package com.pigdogbay.foodhygieneratings.model
 
 import android.content.Context
 
-import com.google.android.libraries.places.api.Places
 import com.pigdogbay.foodhygieneratings.R
 import com.pigdogbay.lib.utils.ActivityUtils
 import com.pigdogbay.lib.utils.BitmapUtils
@@ -12,7 +11,6 @@ import org.json.JSONObject
 
 import java.io.IOException
 import java.util.ArrayList
-import android.content.pm.PackageManager
 
 
 object Injector {
@@ -33,21 +31,11 @@ object Injector {
         settings = Settings(preferencesHelper)
 
         mainModel = MainModel()
-//        mainModel.dataProvider = dummyDataProvider(applicationContext)
         mainModel.dataProvider = WebDataProvider()
-        initializePlaces(applicationContext)
-    }
-
-    fun initializePlaces(context : Context){
-        val app = context.packageManager.getApplicationInfo(context.packageName, PackageManager.GET_META_DATA)
-        val bundle = app.metaData
-        val apiKey = bundle.getString("com.google.android.geo.API_KEY")
-        Places.initialize(context, apiKey)
     }
 
     fun createFetcher(context: Context) : IPlaceFetcher {
-//        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
-        return GooglePlaceFetcher(Places.createClient(context))
+        return DummyPlace(BitmapUtils.getBitmap(context, R.drawable.fhis_pass_and_eat_safe))
     }
 
     private fun dummyDataProvider(context: Context): MainModel.IDataProvider {

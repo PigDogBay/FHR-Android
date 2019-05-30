@@ -35,10 +35,4 @@
         android:title="@string/pref_title_map_enable_search"
         android:defaultValue="false"
         />
-    <CheckBoxPreference
-        android:key="@string/key_pref_show_place_info"
-        android:title="@string/pref_title_show_place_info"
-        android:defaultValue="true"
-        />
-
 </PreferenceScreen>

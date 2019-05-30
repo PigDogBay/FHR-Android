@@ -1,14 +1,14 @@
 package com.pigdogbay.foodhygieneratings.model
 
-import android.content.res.Resources
+//import android.content.res.Resources
 import android.graphics.Bitmap
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.libraries.places.api.model.*
-import com.google.android.libraries.places.api.net.FetchPhotoRequest
-import com.google.android.libraries.places.api.net.FetchPlaceRequest
-import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
-import com.google.android.libraries.places.api.net.PlacesClient
+//import com.google.android.gms.maps.model.LatLng
+//import com.google.android.gms.maps.model.LatLngBounds
+//import com.google.android.libraries.places.api.model.*
+//import com.google.android.libraries.places.api.net.FetchPhotoRequest
+//import com.google.android.libraries.places.api.net.FetchPlaceRequest
+//import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
+//import com.google.android.libraries.places.api.net.PlacesClient
 import com.pigdogbay.lib.patterns.ObservableProperty
 
 data class MBPlace(val id : String, val telephone : String, val web : String, val rating : Double?, val images : List<IPlaceImage>)
@@ -80,7 +80,7 @@ class DummyPlace(val bitmap: Bitmap) : IPlaceFetcher {
         }
     }
 }
-
+/*
 class GooglePlaceImage(private val placesClient: PlacesClient, private val metaData: PhotoMetadata) : IPlaceImage {
     override var index: Int = 0
     private val status = ObservableProperty(this, FetchStatus.Uninitialized)
@@ -188,3 +188,4 @@ class GooglePlaceFetcher(private val placesClient: PlacesClient) : IPlaceFetcher
     }
 
 }
+*/

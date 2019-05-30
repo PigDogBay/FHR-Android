@@ -25,6 +25,6 @@ class Settings(private val preferencesHelper: PreferencesHelper) {
         set(value) = preferencesHelper.setBoolean(R.string.key_pref_map_enable_search,value)
 
     var isPlaceInfoEnabled : Boolean
-        get() = preferencesHelper.getBoolean(R.string.key_pref_show_place_info,true)
+        get() = false
         set(value) = preferencesHelper.setBoolean(R.string.key_pref_show_place_info,value)
 }
