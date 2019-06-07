@@ -42,12 +42,18 @@ class Ads(private val activity : Activity){
         consentInformation.addTestDevice(activity.getString(R.string.code_test_device_acer_tablet))
         consentInformation.addTestDevice(activity.getString(R.string.code_test_device_moto_g))
         consentInformation.addTestDevice(activity.getString(R.string.code_test_device_nokia_6))
-        //consentInformation.setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
+        //consentInformation.debugGeography = DebugGeography.DEBUG_GEOGRAPHY_NOT_EEA
 
         consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
                 when (consentStatus) {
-                    ConsentStatus.UNKNOWN -> showConsentForm()
+                    ConsentStatus.UNKNOWN -> {
+                        if (consentInformation.isRequestLocationInEeaOrUnknown){
+                            showConsentForm()
+                        } else {
+                            requestAd(false)
+                        }
+                    }
                     ConsentStatus.NON_PERSONALIZED -> requestAd(true)
                     ConsentStatus.PERSONALIZED -> requestAd(false)
                 }
