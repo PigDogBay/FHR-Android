@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.ads.consent:consent-library:1.0.7'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.json:json:20180130'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

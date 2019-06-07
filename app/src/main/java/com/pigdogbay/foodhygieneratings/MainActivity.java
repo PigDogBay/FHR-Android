@@ -16,13 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.google.ads.mediation.admob.AdMobAdapter;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.pigdogbay.foodhygieneratings.model.AppState;
@@ -40,7 +35,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, ObservableProperty.PropertyChangedObserver<AppState>, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private FloatingActionButton fabFilter;
-    private AdView _AdView;
+    private Ads ads;
 
     private HomeFragment homeFragment;
     private ProgressDialog progressDialog;
@@ -83,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         fabFilter.setOnClickListener(view -> mapFabClicked());
         fabFilter.hide();
 
-        setUpAds();
+        ads = new Ads(this);
+        ads.showAds();
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
@@ -111,17 +107,13 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     @Override
     protected void onRestart() {
-        if (_AdView != null) {
-            _AdView.resume();
-        }
+        ads.onRestart();
         super.onRestart();
     }
 
     @Override
     protected void onPause() {
-        if (_AdView != null) {
-            _AdView.pause();
-        }
+        ads.onPause();
         super.onPause();
         mainModel.getAppStateProperty().removeObserver(this);
     }
@@ -138,24 +130,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             googleApiClient.disconnect();
         }
         super.onStop();
-    }
-
-    void setUpAds() {
-        MobileAds.initialize(this, "ca-app-pub-3582986480189311~2972071182");
-        // Look up the AdView as a resource and load a request.
-        _AdView = findViewById(R.id.adView);
-        Bundle extras = new Bundle();
-        extras.putString("max_ad_content_rating", "G");
-        //MA = Mature Adult, may improve eCPM?
-        //extras.putString("max_ad_content_rating", "MA");
-        AdRequest adRequest = new AdRequest.Builder()
-                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(getString(R.string.code_test_device_acer_tablet))
-                .addTestDevice(getString(R.string.code_test_device_moto_g))
-                .addTestDevice(getString(R.string.code_test_device_nokia_6))
-                .build();
-        _AdView.loadAd(adRequest);
     }
 
     @Override
