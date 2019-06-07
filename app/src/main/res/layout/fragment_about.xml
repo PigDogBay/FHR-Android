@@ -127,6 +127,15 @@
             style="@style/AboutButton"
             android:id="@+id/aboutBtnPrivatePolicy"
             android:text="@string/about_button_privacy_policy"/>
+        <TextView
+            style="@style/AboutBodyText"
+            android:text="@string/about_body_eu_consent"/>
+        <Button
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="64dp"
+            style="@style/AboutButton"
+            android:id="@+id/aboutBtnEuConsent"
+            android:text="@string/about_button_eu_consent"/>
 
     </LinearLayout>
 </ScrollView>

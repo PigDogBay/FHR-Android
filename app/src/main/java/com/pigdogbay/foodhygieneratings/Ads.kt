@@ -2,6 +2,7 @@ package com.pigdogbay.foodhygieneratings
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.ads.consent.*
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
@@ -83,12 +84,14 @@ class Ads(private val activity : Activity){
         adView.loadAd(adRequest)
     }
 
-    private fun showConsentForm() {
-        var privacyUrl: URL? = null
+    fun showConsentForm() {
+        val privacyUrl: URL?
         try {
             privacyUrl = URL(activity.getString(R.string.privacy_policy_url))
         } catch (e: MalformedURLException) {
             e.printStackTrace()
+            Toast.makeText(activity,"EU Consent Error", Toast.LENGTH_SHORT).show()
+            return
         }
 
         form = ConsentForm.Builder(activity, privacyUrl)

@@ -396,4 +396,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         mainModel.getDataProvider().setTimeout(settings.getSearchTimeout()*1000);
         mainModel.setTextFilterByNameAndAddress(settings.isTextFilterNameAndAddress());
     }
+
+    public void showEuConsentForm(){
+        ads.showConsentForm();
+    }
 }

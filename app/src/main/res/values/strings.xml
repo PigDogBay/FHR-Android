@@ -64,6 +64,8 @@ limitations under the License.
     <string name="about_button_google_policy">FIND OUT MORE</string>
     <string name="about_button_privacy_policy">PRIVACY POLICY</string>
     <string name="about_body_privacy_policy">For further information about how this app uses data press the button below to review the Privacy Policy in full.</string>
+    <string name="about_button_eu_consent">EU CONSENT</string>
+    <string name="about_body_eu_consent">If you are within Europe you may change your Ad personalisation settings.</string>
     <string name="market_pigdogbay_apps" translatable="false">market://search?q=pub:Pig%20Dog%20Bay</string>
     <string name="market_app_url" translatable="false">market://details?id=com.pigdogbay.foodhygieneratings</string>
     <string name="web_app_url" translatable="false">https://play.google.com/store/apps/details?id=com.pigdogbay.foodhygieneratings</string>
