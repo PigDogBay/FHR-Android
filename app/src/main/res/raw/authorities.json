@@ -4,7 +4,7 @@
       "LocalAuthorityId": 197,
       "LocalAuthorityIdCode": "760",
       "Name": "Aberdeen City",
-      "EstablishmentCount": 1776,
+      "EstablishmentCount": 1787,
       "SchemeType": 2,
       "links": [
         {
@@ -17,7 +17,7 @@
       "LocalAuthorityId": 198,
       "LocalAuthorityIdCode": "761",
       "Name": "Aberdeenshire",
-      "EstablishmentCount": 2095,
+      "EstablishmentCount": 2092,
       "SchemeType": 2,
       "links": [
         {
@@ -43,7 +43,7 @@
       "LocalAuthorityId": 158,
       "LocalAuthorityIdCode": "055",
       "Name": "Allerdale",
-      "EstablishmentCount": 1106,
+      "EstablishmentCount": 1110,
       "SchemeType": 1,
       "links": [
         {
@@ -56,7 +56,7 @@
       "LocalAuthorityId": 48,
       "LocalAuthorityIdCode": "062",
       "Name": "Amber Valley",
-      "EstablishmentCount": 994,
+      "EstablishmentCount": 1005,
       "SchemeType": 1,
       "links": [
         {
@@ -69,7 +69,7 @@
       "LocalAuthorityId": 334,
       "LocalAuthorityIdCode": "551",
       "Name": "Anglesey",
-      "EstablishmentCount": 690,
+      "EstablishmentCount": 708,
       "SchemeType": 1,
       "links": [
         {
@@ -82,7 +82,7 @@
       "LocalAuthorityId": 199,
       "LocalAuthorityIdCode": "762",
       "Name": "Angus",
-      "EstablishmentCount": 902,
+      "EstablishmentCount": 925,
       "SchemeType": 2,
       "links": [
         {
@@ -95,7 +95,7 @@
       "LocalAuthorityId": 132,
       "LocalAuthorityIdCode": "801",
       "Name": "Antrim and Newtownabbey",
-      "EstablishmentCount": 1121,
+      "EstablishmentCount": 1111,
       "SchemeType": 1,
       "links": [
         {
@@ -108,7 +108,7 @@
       "LocalAuthorityId": 133,
       "LocalAuthorityIdCode": "802",
       "Name": "Ards and North Down",
-      "EstablishmentCount": 1285,
+      "EstablishmentCount": 1294,
       "SchemeType": 1,
       "links": [
         {
@@ -121,7 +121,7 @@
       "LocalAuthorityId": 200,
       "LocalAuthorityIdCode": "763",
       "Name": "Argyll and Bute",
-      "EstablishmentCount": 918,
+      "EstablishmentCount": 900,
       "SchemeType": 2,
       "links": [
         {
@@ -134,7 +134,7 @@
       "LocalAuthorityId": 134,
       "LocalAuthorityIdCode": "803",
       "Name": "Armagh City, Banbridge and Craigavon",
-      "EstablishmentCount": 1636,
+      "EstablishmentCount": 1658,
       "SchemeType": 1,
       "links": [
         {
@@ -147,7 +147,7 @@
       "LocalAuthorityId": 278,
       "LocalAuthorityIdCode": "324",
       "Name": "Arun",
-      "EstablishmentCount": 1021,
+      "EstablishmentCount": 1084,
       "SchemeType": 1,
       "links": [
         {
@@ -160,7 +160,7 @@
       "LocalAuthorityId": 77,
       "LocalAuthorityIdCode": "259",
       "Name": "Ashfield",
-      "EstablishmentCount": 847,
+      "EstablishmentCount": 819,
       "SchemeType": 1,
       "links": [
         {
@@ -173,7 +173,7 @@
       "LocalAuthorityId": 249,
       "LocalAuthorityIdCode": "179",
       "Name": "Ashford",
-      "EstablishmentCount": 1085,
+      "EstablishmentCount": 1083,
       "SchemeType": 1,
       "links": [
         {
@@ -186,7 +186,7 @@
       "LocalAuthorityId": 229,
       "LocalAuthorityIdCode": "021",
       "Name": "Aylesbury Vale",
-      "EstablishmentCount": 1366,
+      "EstablishmentCount": 1380,
       "SchemeType": 1,
       "links": [
         {
@@ -199,7 +199,7 @@
       "LocalAuthorityId": 35,
       "LocalAuthorityIdCode": "297",
       "Name": "Babergh",
-      "EstablishmentCount": 849,
+      "EstablishmentCount": 857,
       "SchemeType": 1,
       "links": [
         {
@@ -212,7 +212,7 @@
       "LocalAuthorityId": 88,
       "LocalAuthorityIdCode": "501",
       "Name": "Barking and Dagenham",
-      "EstablishmentCount": 829,
+      "EstablishmentCount": 1025,
       "SchemeType": 1,
       "links": [
         {
@@ -225,7 +225,7 @@
       "LocalAuthorityId": 89,
       "LocalAuthorityIdCode": "502",
       "Name": "Barnet",
-      "EstablishmentCount": 2046,
+      "EstablishmentCount": 2083,
       "SchemeType": 1,
       "links": [
         {
@@ -238,7 +238,7 @@
       "LocalAuthorityId": 392,
       "LocalAuthorityIdCode": "401",
       "Name": "Barnsley",
-      "EstablishmentCount": 1808,
+      "EstablishmentCount": 1787,
       "SchemeType": 1,
       "links": [
         {
@@ -251,7 +251,7 @@
       "LocalAuthorityId": 159,
       "LocalAuthorityIdCode": "056",
       "Name": "Barrow-in-Furness",
-      "EstablishmentCount": 531,
+      "EstablishmentCount": 530,
       "SchemeType": 1,
       "links": [
         {
@@ -264,7 +264,7 @@
       "LocalAuthorityId": 6,
       "LocalAuthorityIdCode": "109",
       "Name": "Basildon",
-      "EstablishmentCount": 1165,
+      "EstablishmentCount": 1158,
       "SchemeType": 1,
       "links": [
         {
@@ -277,7 +277,7 @@
       "LocalAuthorityId": 238,
       "LocalAuthorityIdCode": "131",
       "Name": "Basingstoke and Deane",
-      "EstablishmentCount": 1026,
+      "EstablishmentCount": 1038,
       "SchemeType": 1,
       "links": [
         {
@@ -290,7 +290,7 @@
       "LocalAuthorityId": 78,
       "LocalAuthorityIdCode": "260",
       "Name": "Bassetlaw",
-      "EstablishmentCount": 952,
+      "EstablishmentCount": 946,
       "SchemeType": 1,
       "links": [
         {
@@ -303,7 +303,7 @@
       "LocalAuthorityId": 326,
       "LocalAuthorityIdCode": "857",
       "Name": "Bath and North East Somerset",
-      "EstablishmentCount": 1724,
+      "EstablishmentCount": 1729,
       "SchemeType": 1,
       "links": [
         {
@@ -316,7 +316,7 @@
       "LocalAuthorityId": 42,
       "LocalAuthorityIdCode": "701",
       "Name": "Bedford",
-      "EstablishmentCount": 1386,
+      "EstablishmentCount": 1366,
       "SchemeType": 1,
       "links": [
         {
@@ -329,7 +329,7 @@
       "LocalAuthorityId": 138,
       "LocalAuthorityIdCode": "807",
       "Name": "Belfast City",
-      "EstablishmentCount": 3039,
+      "EstablishmentCount": 3026,
       "SchemeType": 1,
       "links": [
         {
@@ -342,7 +342,7 @@
       "LocalAuthorityId": 90,
       "LocalAuthorityIdCode": "503",
       "Name": "Bexley",
-      "EstablishmentCount": 1463,
+      "EstablishmentCount": 1478,
       "SchemeType": 1,
       "links": [
         {
@@ -355,7 +355,7 @@
       "LocalAuthorityId": 374,
       "LocalAuthorityIdCode": "402",
       "Name": "Birmingham",
-      "EstablishmentCount": 6235,
+      "EstablishmentCount": 7055,
       "SchemeType": 1,
       "links": [
         {
@@ -368,7 +368,7 @@
       "LocalAuthorityId": 56,
       "LocalAuthorityIdCode": "209",
       "Name": "Blaby",
-      "EstablishmentCount": 639,
+      "EstablishmentCount": 634,
       "SchemeType": 1,
       "links": [
         {
@@ -381,7 +381,7 @@
       "LocalAuthorityId": 195,
       "LocalAuthorityIdCode": "897",
       "Name": "Blackburn",
-      "EstablishmentCount": 1240,
+      "EstablishmentCount": 1148,
       "SchemeType": 1,
       "links": [
         {
@@ -394,7 +394,7 @@
       "LocalAuthorityId": 196,
       "LocalAuthorityIdCode": "898",
       "Name": "Blackpool",
-      "EstablishmentCount": 1763,
+      "EstablishmentCount": 1720,
       "SchemeType": 1,
       "links": [
         {
@@ -407,7 +407,7 @@
       "LocalAuthorityId": 335,
       "LocalAuthorityIdCode": "552",
       "Name": "Blaenau Gwent",
-      "EstablishmentCount": 624,
+      "EstablishmentCount": 625,
       "SchemeType": 1,
       "links": [
         {
@@ -420,7 +420,7 @@
       "LocalAuthorityId": 49,
       "LocalAuthorityIdCode": "063",
       "Name": "Bolsover",
-      "EstablishmentCount": 689,
+      "EstablishmentCount": 690,
       "SchemeType": 1,
       "links": [
         {
@@ -433,7 +433,7 @@
       "LocalAuthorityId": 176,
       "LocalAuthorityIdCode": "403",
       "Name": "Bolton",
-      "EstablishmentCount": 2314,
+      "EstablishmentCount": 2172,
       "SchemeType": 1,
       "links": [
         {
@@ -458,8 +458,8 @@
     {
       "LocalAuthorityId": 328,
       "LocalAuthorityIdCode": "872",
-      "Name": "Bournemouth",
-      "EstablishmentCount": 1862,
+      "Name": "Bournemouth, Christchurch and Poole",
+      "EstablishmentCount": 3112,
       "SchemeType": 1,
       "links": [
         {
@@ -472,7 +472,7 @@
       "LocalAuthorityId": 289,
       "LocalAuthorityIdCode": "882",
       "Name": "Bracknell Forest",
-      "EstablishmentCount": 689,
+      "EstablishmentCount": 662,
       "SchemeType": 1,
       "links": [
         {
@@ -485,7 +485,7 @@
       "LocalAuthorityId": 393,
       "LocalAuthorityIdCode": "404",
       "Name": "Bradford",
-      "EstablishmentCount": 3991,
+      "EstablishmentCount": 3936,
       "SchemeType": 1,
       "links": [
         {
@@ -498,7 +498,7 @@
       "LocalAuthorityId": 7,
       "LocalAuthorityIdCode": "110",
       "Name": "Braintree",
-      "EstablishmentCount": 1101,
+      "EstablishmentCount": 1126,
       "SchemeType": 1,
       "links": [
         {
@@ -511,7 +511,7 @@
       "LocalAuthorityId": 28,
       "LocalAuthorityIdCode": "227",
       "Name": "Breckland",
-      "EstablishmentCount": 1254,
+      "EstablishmentCount": 1234,
       "SchemeType": 1,
       "links": [
         {
@@ -524,7 +524,7 @@
       "LocalAuthorityId": 91,
       "LocalAuthorityIdCode": "504",
       "Name": "Brent",
-      "EstablishmentCount": 1979,
+      "EstablishmentCount": 2038,
       "SchemeType": 1,
       "links": [
         {
@@ -537,7 +537,7 @@
       "LocalAuthorityId": 8,
       "LocalAuthorityIdCode": "111",
       "Name": "Brentwood",
-      "EstablishmentCount": 619,
+      "EstablishmentCount": 598,
       "SchemeType": 1,
       "links": [
         {
@@ -550,7 +550,7 @@
       "LocalAuthorityId": 336,
       "LocalAuthorityIdCode": "553",
       "Name": "Bridgend",
-      "EstablishmentCount": 1265,
+      "EstablishmentCount": 1310,
       "SchemeType": 1,
       "links": [
         {
@@ -563,7 +563,7 @@
       "LocalAuthorityId": 286,
       "LocalAuthorityIdCode": "875",
       "Name": "Brighton and Hove",
-      "EstablishmentCount": 3037,
+      "EstablishmentCount": 3082,
       "SchemeType": 1,
       "links": [
         {
@@ -576,7 +576,7 @@
       "LocalAuthorityId": 324,
       "LocalAuthorityIdCode": "855",
       "Name": "Bristol",
-      "EstablishmentCount": 4086,
+      "EstablishmentCount": 3960,
       "SchemeType": 1,
       "links": [
         {
@@ -589,7 +589,7 @@
       "LocalAuthorityId": 29,
       "LocalAuthorityIdCode": "228",
       "Name": "Broadland",
-      "EstablishmentCount": 907,
+      "EstablishmentCount": 917,
       "SchemeType": 1,
       "links": [
         {
@@ -602,7 +602,7 @@
       "LocalAuthorityId": 92,
       "LocalAuthorityIdCode": "505",
       "Name": "Bromley",
-      "EstablishmentCount": 2216,
+      "EstablishmentCount": 2234,
       "SchemeType": 1,
       "links": [
         {
@@ -615,7 +615,7 @@
       "LocalAuthorityId": 355,
       "LocalAuthorityIdCode": "145",
       "Name": "Bromsgrove",
-      "EstablishmentCount": 683,
+      "EstablishmentCount": 669,
       "SchemeType": 1,
       "links": [
         {
@@ -628,7 +628,7 @@
       "LocalAuthorityId": 18,
       "LocalAuthorityIdCode": "155",
       "Name": "Broxbourne",
-      "EstablishmentCount": 653,
+      "EstablishmentCount": 660,
       "SchemeType": 1,
       "links": [
         {
@@ -641,7 +641,7 @@
       "LocalAuthorityId": 79,
       "LocalAuthorityIdCode": "261",
       "Name": "Broxtowe",
-      "EstablishmentCount": 786,
+      "EstablishmentCount": 789,
       "SchemeType": 1,
       "links": [
         {
@@ -654,7 +654,7 @@
       "LocalAuthorityId": 164,
       "LocalAuthorityIdCode": "196",
       "Name": "Burnley",
-      "EstablishmentCount": 880,
+      "EstablishmentCount": 874,
       "SchemeType": 1,
       "links": [
         {
@@ -667,7 +667,7 @@
       "LocalAuthorityId": 177,
       "LocalAuthorityIdCode": "405",
       "Name": "Bury",
-      "EstablishmentCount": 1159,
+      "EstablishmentCount": 1160,
       "SchemeType": 1,
       "links": [
         {
@@ -680,7 +680,7 @@
       "LocalAuthorityId": 338,
       "LocalAuthorityIdCode": "555",
       "Name": "Caerphilly",
-      "EstablishmentCount": 1409,
+      "EstablishmentCount": 1450,
       "SchemeType": 1,
       "links": [
         {
@@ -693,7 +693,7 @@
       "LocalAuthorityId": 394,
       "LocalAuthorityIdCode": "406",
       "Name": "Calderdale",
-      "EstablishmentCount": 2134,
+      "EstablishmentCount": 2091,
       "SchemeType": 1,
       "links": [
         {
@@ -706,7 +706,7 @@
       "LocalAuthorityId": 1,
       "LocalAuthorityIdCode": "027",
       "Name": "Cambridge City",
-      "EstablishmentCount": 1372,
+      "EstablishmentCount": 1332,
       "SchemeType": 1,
       "links": [
         {
@@ -719,7 +719,7 @@
       "LocalAuthorityId": 93,
       "LocalAuthorityIdCode": "506",
       "Name": "Camden",
-      "EstablishmentCount": 2854,
+      "EstablishmentCount": 2904,
       "SchemeType": 1,
       "links": [
         {
@@ -732,7 +732,7 @@
       "LocalAuthorityId": 361,
       "LocalAuthorityIdCode": "287",
       "Name": "Cannock Chase",
-      "EstablishmentCount": 776,
+      "EstablishmentCount": 773,
       "SchemeType": 1,
       "links": [
         {
@@ -745,7 +745,7 @@
       "LocalAuthorityId": 250,
       "LocalAuthorityIdCode": "180",
       "Name": "Canterbury City",
-      "EstablishmentCount": 1543,
+      "EstablishmentCount": 1595,
       "SchemeType": 1,
       "links": [
         {
@@ -758,7 +758,7 @@
       "LocalAuthorityId": 339,
       "LocalAuthorityIdCode": "556",
       "Name": "Cardiff",
-      "EstablishmentCount": 3286,
+      "EstablishmentCount": 3294,
       "SchemeType": 1,
       "links": [
         {
@@ -771,7 +771,7 @@
       "LocalAuthorityId": 160,
       "LocalAuthorityIdCode": "057",
       "Name": "Carlisle City",
-      "EstablishmentCount": 845,
+      "EstablishmentCount": 869,
       "SchemeType": 1,
       "links": [
         {
@@ -784,7 +784,7 @@
       "LocalAuthorityId": 341,
       "LocalAuthorityIdCode": "558",
       "Name": "Carmarthenshire",
-      "EstablishmentCount": 1716,
+      "EstablishmentCount": 1691,
       "SchemeType": 1,
       "links": [
         {
@@ -797,7 +797,7 @@
       "LocalAuthorityId": 9,
       "LocalAuthorityIdCode": "112",
       "Name": "Castle Point",
-      "EstablishmentCount": 469,
+      "EstablishmentCount": 456,
       "SchemeType": 1,
       "links": [
         {
@@ -810,7 +810,7 @@
       "LocalAuthorityId": 136,
       "LocalAuthorityIdCode": "805",
       "Name": "Causeway Coast and Glens",
-      "EstablishmentCount": 1482,
+      "EstablishmentCount": 1472,
       "SchemeType": 1,
       "links": [
         {
@@ -823,7 +823,7 @@
       "LocalAuthorityId": 43,
       "LocalAuthorityIdCode": "702",
       "Name": "Central Bedfordshire",
-      "EstablishmentCount": 1316,
+      "EstablishmentCount": 1372,
       "SchemeType": 1,
       "links": [
         {
@@ -836,7 +836,7 @@
       "LocalAuthorityId": 340,
       "LocalAuthorityIdCode": "557",
       "Name": "Ceredigion",
-      "EstablishmentCount": 1117,
+      "EstablishmentCount": 1161,
       "SchemeType": 1,
       "links": [
         {
@@ -849,7 +849,7 @@
       "LocalAuthorityId": 57,
       "LocalAuthorityIdCode": "210",
       "Name": "Charnwood",
-      "EstablishmentCount": 1332,
+      "EstablishmentCount": 1293,
       "SchemeType": 1,
       "links": [
         {
@@ -862,7 +862,7 @@
       "LocalAuthorityId": 10,
       "LocalAuthorityIdCode": "113",
       "Name": "Chelmsford",
-      "EstablishmentCount": 1287,
+      "EstablishmentCount": 1289,
       "SchemeType": 1,
       "links": [
         {
@@ -875,7 +875,7 @@
       "LocalAuthorityId": 310,
       "LocalAuthorityIdCode": "124",
       "Name": "Cheltenham",
-      "EstablishmentCount": 891,
+      "EstablishmentCount": 904,
       "SchemeType": 1,
       "links": [
         {
@@ -888,7 +888,7 @@
       "LocalAuthorityId": 261,
       "LocalAuthorityIdCode": "268",
       "Name": "Cherwell",
-      "EstablishmentCount": 1090,
+      "EstablishmentCount": 1123,
       "SchemeType": 1,
       "links": [
         {
@@ -901,7 +901,7 @@
       "LocalAuthorityId": 191,
       "LocalAuthorityIdCode": "703",
       "Name": "Cheshire East",
-      "EstablishmentCount": 2502,
+      "EstablishmentCount": 2449,
       "SchemeType": 1,
       "links": [
         {
@@ -914,7 +914,7 @@
       "LocalAuthorityId": 192,
       "LocalAuthorityIdCode": "704",
       "Name": "Cheshire West and Chester",
-      "EstablishmentCount": 2985,
+      "EstablishmentCount": 3017,
       "SchemeType": 1,
       "links": [
         {
@@ -927,7 +927,7 @@
       "LocalAuthorityId": 50,
       "LocalAuthorityIdCode": "064",
       "Name": "Chesterfield",
-      "EstablishmentCount": 919,
+      "EstablishmentCount": 924,
       "SchemeType": 1,
       "links": [
         {
@@ -940,7 +940,7 @@
       "LocalAuthorityId": 279,
       "LocalAuthorityIdCode": "325",
       "Name": "Chichester",
-      "EstablishmentCount": 1351,
+      "EstablishmentCount": 1363,
       "SchemeType": 1,
       "links": [
         {
@@ -953,7 +953,7 @@
       "LocalAuthorityId": 230,
       "LocalAuthorityIdCode": "022",
       "Name": "Chiltern",
-      "EstablishmentCount": 735,
+      "EstablishmentCount": 707,
       "SchemeType": 1,
       "links": [
         {
@@ -966,7 +966,7 @@
       "LocalAuthorityId": 165,
       "LocalAuthorityIdCode": "197",
       "Name": "Chorley",
-      "EstablishmentCount": 890,
+      "EstablishmentCount": 896,
       "SchemeType": 1,
       "links": [
         {
@@ -976,23 +976,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 304,
-      "LocalAuthorityIdCode": "084",
-      "Name": "Christchurch",
-      "EstablishmentCount": 410,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/304"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 95,
       "LocalAuthorityIdCode": "508",
       "Name": "City of London Corporation",
-      "EstablishmentCount": 1829,
+      "EstablishmentCount": 1815,
       "SchemeType": 1,
       "links": [
         {
@@ -1005,7 +992,7 @@
       "LocalAuthorityId": 205,
       "LocalAuthorityIdCode": "768",
       "Name": "Clackmannanshire",
-      "EstablishmentCount": 435,
+      "EstablishmentCount": 520,
       "SchemeType": 2,
       "links": [
         {
@@ -1018,7 +1005,7 @@
       "LocalAuthorityId": 11,
       "LocalAuthorityIdCode": "114",
       "Name": "Colchester",
-      "EstablishmentCount": 1473,
+      "EstablishmentCount": 1487,
       "SchemeType": 1,
       "links": [
         {
@@ -1031,7 +1018,7 @@
       "LocalAuthorityId": 228,
       "LocalAuthorityIdCode": "791",
       "Name": "Comhairle nan Eilean Siar (Western Isles)",
-      "EstablishmentCount": 461,
+      "EstablishmentCount": 443,
       "SchemeType": 2,
       "links": [
         {
@@ -1044,7 +1031,7 @@
       "LocalAuthorityId": 333,
       "LocalAuthorityIdCode": "550",
       "Name": "Conwy",
-      "EstablishmentCount": 1655,
+      "EstablishmentCount": 1654,
       "SchemeType": 1,
       "links": [
         {
@@ -1057,7 +1044,7 @@
       "LocalAuthorityId": 161,
       "LocalAuthorityIdCode": "058",
       "Name": "Copeland",
-      "EstablishmentCount": 650,
+      "EstablishmentCount": 651,
       "SchemeType": 1,
       "links": [
         {
@@ -1070,7 +1057,7 @@
       "LocalAuthorityId": 70,
       "LocalAuthorityIdCode": "235",
       "Name": "Corby",
-      "EstablishmentCount": 360,
+      "EstablishmentCount": 389,
       "SchemeType": 1,
       "links": [
         {
@@ -1083,7 +1070,7 @@
       "LocalAuthorityId": 322,
       "LocalAuthorityIdCode": "705",
       "Name": "Cornwall",
-      "EstablishmentCount": 4635,
+      "EstablishmentCount": 4643,
       "SchemeType": 1,
       "links": [
         {
@@ -1096,7 +1083,7 @@
       "LocalAuthorityId": 311,
       "LocalAuthorityIdCode": "125",
       "Name": "Cotswold",
-      "EstablishmentCount": 904,
+      "EstablishmentCount": 909,
       "SchemeType": 1,
       "links": [
         {
@@ -1109,7 +1096,7 @@
       "LocalAuthorityId": 375,
       "LocalAuthorityIdCode": "407",
       "Name": "Coventry",
-      "EstablishmentCount": 2337,
+      "EstablishmentCount": 2352,
       "SchemeType": 1,
       "links": [
         {
@@ -1122,7 +1109,7 @@
       "LocalAuthorityId": 385,
       "LocalAuthorityIdCode": "250",
       "Name": "Craven",
-      "EstablishmentCount": 835,
+      "EstablishmentCount": 539,
       "SchemeType": 1,
       "links": [
         {
@@ -1135,7 +1122,7 @@
       "LocalAuthorityId": 280,
       "LocalAuthorityIdCode": "326",
       "Name": "Crawley",
-      "EstablishmentCount": 830,
+      "EstablishmentCount": 835,
       "SchemeType": 1,
       "links": [
         {
@@ -1148,7 +1135,7 @@
       "LocalAuthorityId": 94,
       "LocalAuthorityIdCode": "507",
       "Name": "Croydon",
-      "EstablishmentCount": 2616,
+      "EstablishmentCount": 2598,
       "SchemeType": 1,
       "links": [
         {
@@ -1161,7 +1148,7 @@
       "LocalAuthorityId": 19,
       "LocalAuthorityIdCode": "156",
       "Name": "Dacorum",
-      "EstablishmentCount": 1141,
+      "EstablishmentCount": 1119,
       "SchemeType": 1,
       "links": [
         {
@@ -1174,7 +1161,7 @@
       "LocalAuthorityId": 131,
       "LocalAuthorityIdCode": "874",
       "Name": "Darlington",
-      "EstablishmentCount": 924,
+      "EstablishmentCount": 897,
       "SchemeType": 1,
       "links": [
         {
@@ -1187,7 +1174,7 @@
       "LocalAuthorityId": 251,
       "LocalAuthorityIdCode": "181",
       "Name": "Dartford",
-      "EstablishmentCount": 841,
+      "EstablishmentCount": 842,
       "SchemeType": 1,
       "links": [
         {
@@ -1200,7 +1187,7 @@
       "LocalAuthorityId": 71,
       "LocalAuthorityIdCode": "236",
       "Name": "Daventry",
-      "EstablishmentCount": 747,
+      "EstablishmentCount": 777,
       "SchemeType": 1,
       "links": [
         {
@@ -1213,7 +1200,7 @@
       "LocalAuthorityId": 342,
       "LocalAuthorityIdCode": "559",
       "Name": "Denbighshire",
-      "EstablishmentCount": 978,
+      "EstablishmentCount": 995,
       "SchemeType": 1,
       "links": [
         {
@@ -1226,7 +1213,7 @@
       "LocalAuthorityId": 84,
       "LocalAuthorityIdCode": "871",
       "Name": "Derby City",
-      "EstablishmentCount": 1768,
+      "EstablishmentCount": 1760,
       "SchemeType": 1,
       "links": [
         {
@@ -1239,7 +1226,7 @@
       "LocalAuthorityId": 55,
       "LocalAuthorityIdCode": "070",
       "Name": "Derbyshire Dales",
-      "EstablishmentCount": 924,
+      "EstablishmentCount": 945,
       "SchemeType": 1,
       "links": [
         {
@@ -1252,7 +1239,7 @@
       "LocalAuthorityId": 144,
       "LocalAuthorityIdCode": "813",
       "Name": "Derry City and Strabane",
-      "EstablishmentCount": 1300,
+      "EstablishmentCount": 1295,
       "SchemeType": 1,
       "links": [
         {
@@ -1265,7 +1252,7 @@
       "LocalAuthorityId": 395,
       "LocalAuthorityIdCode": "408",
       "Name": "Doncaster",
-      "EstablishmentCount": 2724,
+      "EstablishmentCount": 2776,
       "SchemeType": 1,
       "links": [
         {
@@ -1275,10 +1262,23 @@
       ]
     },
     {
+      "LocalAuthorityId": 305,
+      "LocalAuthorityIdCode": "085",
+      "Name": "Dorset",
+      "EstablishmentCount": 4419,
+      "SchemeType": 1,
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://api.ratings.food.gov.uk/authorities/305"
+        }
+      ]
+    },
+    {
       "LocalAuthorityId": 252,
       "LocalAuthorityIdCode": "182",
       "Name": "Dover",
-      "EstablishmentCount": 1137,
+      "EstablishmentCount": 1151,
       "SchemeType": 1,
       "links": [
         {
@@ -1291,7 +1291,7 @@
       "LocalAuthorityId": 376,
       "LocalAuthorityIdCode": "409",
       "Name": "Dudley",
-      "EstablishmentCount": 2308,
+      "EstablishmentCount": 2243,
       "SchemeType": 1,
       "links": [
         {
@@ -1304,7 +1304,7 @@
       "LocalAuthorityId": 207,
       "LocalAuthorityIdCode": "770",
       "Name": "Dumfries and Galloway",
-      "EstablishmentCount": 1490,
+      "EstablishmentCount": 1515,
       "SchemeType": 2,
       "links": [
         {
@@ -1317,7 +1317,7 @@
       "LocalAuthorityId": 209,
       "LocalAuthorityIdCode": "772",
       "Name": "Dundee City",
-      "EstablishmentCount": 1437,
+      "EstablishmentCount": 1425,
       "SchemeType": 2,
       "links": [
         {
@@ -1330,7 +1330,7 @@
       "LocalAuthorityId": 126,
       "LocalAuthorityIdCode": "706",
       "Name": "Durham",
-      "EstablishmentCount": 4329,
+      "EstablishmentCount": 4389,
       "SchemeType": 1,
       "links": [
         {
@@ -1343,7 +1343,7 @@
       "LocalAuthorityId": 96,
       "LocalAuthorityIdCode": "509",
       "Name": "Ealing",
-      "EstablishmentCount": 2485,
+      "EstablishmentCount": 2552,
       "SchemeType": 1,
       "links": [
         {
@@ -1356,7 +1356,7 @@
       "LocalAuthorityId": 201,
       "LocalAuthorityIdCode": "764",
       "Name": "East Ayrshire",
-      "EstablishmentCount": 1086,
+      "EstablishmentCount": 1049,
       "SchemeType": 2,
       "links": [
         {
@@ -1369,7 +1369,7 @@
       "LocalAuthorityId": 2,
       "LocalAuthorityIdCode": "028",
       "Name": "East Cambridgeshire",
-      "EstablishmentCount": 657,
+      "EstablishmentCount": 681,
       "SchemeType": 1,
       "links": [
         {
@@ -1382,7 +1382,7 @@
       "LocalAuthorityId": 296,
       "LocalAuthorityIdCode": "072",
       "Name": "East Devon",
-      "EstablishmentCount": 1452,
+      "EstablishmentCount": 1457,
       "SchemeType": 1,
       "links": [
         {
@@ -1392,23 +1392,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 305,
-      "LocalAuthorityIdCode": "085",
-      "Name": "East Dorset",
-      "EstablishmentCount": 652,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/305"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 208,
       "LocalAuthorityIdCode": "771",
       "Name": "East Dunbartonshire",
-      "EstablishmentCount": 568,
+      "EstablishmentCount": 571,
       "SchemeType": 2,
       "links": [
         {
@@ -1421,7 +1408,7 @@
       "LocalAuthorityId": 239,
       "LocalAuthorityIdCode": "132",
       "Name": "East Hampshire",
-      "EstablishmentCount": 898,
+      "EstablishmentCount": 897,
       "SchemeType": 1,
       "links": [
         {
@@ -1434,7 +1421,7 @@
       "LocalAuthorityId": 20,
       "LocalAuthorityIdCode": "157",
       "Name": "East Hertfordshire",
-      "EstablishmentCount": 1276,
+      "EstablishmentCount": 1283,
       "SchemeType": 1,
       "links": [
         {
@@ -1447,7 +1434,7 @@
       "LocalAuthorityId": 64,
       "LocalAuthorityIdCode": "220",
       "Name": "East Lindsey",
-      "EstablishmentCount": 1807,
+      "EstablishmentCount": 1843,
       "SchemeType": 1,
       "links": [
         {
@@ -1460,7 +1447,7 @@
       "LocalAuthorityId": 218,
       "LocalAuthorityIdCode": "781",
       "Name": "East Lothian",
-      "EstablishmentCount": 851,
+      "EstablishmentCount": 860,
       "SchemeType": 2,
       "links": [
         {
@@ -1473,7 +1460,7 @@
       "LocalAuthorityId": 72,
       "LocalAuthorityIdCode": "237",
       "Name": "East Northamptonshire",
-      "EstablishmentCount": 757,
+      "EstablishmentCount": 754,
       "SchemeType": 1,
       "links": [
         {
@@ -1486,7 +1473,7 @@
       "LocalAuthorityId": 224,
       "LocalAuthorityIdCode": "787",
       "Name": "East Renfrewshire",
-      "EstablishmentCount": 654,
+      "EstablishmentCount": 559,
       "SchemeType": 2,
       "links": [
         {
@@ -1499,7 +1486,7 @@
       "LocalAuthorityId": 402,
       "LocalAuthorityIdCode": "863",
       "Name": "East Riding of Yorkshire",
-      "EstablishmentCount": 2947,
+      "EstablishmentCount": 2962,
       "SchemeType": 1,
       "links": [
         {
@@ -1512,7 +1499,7 @@
       "LocalAuthorityId": 362,
       "LocalAuthorityIdCode": "288",
       "Name": "East Staffordshire",
-      "EstablishmentCount": 954,
+      "EstablishmentCount": 985,
       "SchemeType": 1,
       "links": [
         {
@@ -1525,7 +1512,7 @@
       "LocalAuthorityId": 40,
       "LocalAuthorityIdCode": "302",
       "Name": "East Suffolk",
-      "EstablishmentCount": 2365,
+      "EstablishmentCount": 2336,
       "SchemeType": 1,
       "links": [
         {
@@ -1538,7 +1525,7 @@
       "LocalAuthorityId": 233,
       "LocalAuthorityIdCode": "102",
       "Name": "Eastbourne",
-      "EstablishmentCount": 1023,
+      "EstablishmentCount": 976,
       "SchemeType": 1,
       "links": [
         {
@@ -1551,7 +1538,7 @@
       "LocalAuthorityId": 240,
       "LocalAuthorityIdCode": "133",
       "Name": "Eastleigh",
-      "EstablishmentCount": 860,
+      "EstablishmentCount": 878,
       "SchemeType": 1,
       "links": [
         {
@@ -1564,7 +1551,7 @@
       "LocalAuthorityId": 162,
       "LocalAuthorityIdCode": "059",
       "Name": "Eden",
-      "EstablishmentCount": 876,
+      "EstablishmentCount": 872,
       "SchemeType": 1,
       "links": [
         {
@@ -1577,7 +1564,7 @@
       "LocalAuthorityId": 210,
       "LocalAuthorityIdCode": "773",
       "Name": "Edinburgh (City of)",
-      "EstablishmentCount": 4239,
+      "EstablishmentCount": 4291,
       "SchemeType": 2,
       "links": [
         {
@@ -1590,7 +1577,7 @@
       "LocalAuthorityId": 266,
       "LocalAuthorityIdCode": "305",
       "Name": "Elmbridge",
-      "EstablishmentCount": 1016,
+      "EstablishmentCount": 1020,
       "SchemeType": 1,
       "links": [
         {
@@ -1603,7 +1590,7 @@
       "LocalAuthorityId": 97,
       "LocalAuthorityIdCode": "510",
       "Name": "Enfield",
-      "EstablishmentCount": 2139,
+      "EstablishmentCount": 2146,
       "SchemeType": 1,
       "links": [
         {
@@ -1616,7 +1603,7 @@
       "LocalAuthorityId": 12,
       "LocalAuthorityIdCode": "115",
       "Name": "Epping Forest",
-      "EstablishmentCount": 1040,
+      "EstablishmentCount": 1065,
       "SchemeType": 1,
       "links": [
         {
@@ -1629,7 +1616,7 @@
       "LocalAuthorityId": 267,
       "LocalAuthorityIdCode": "306",
       "Name": "Epsom and Ewell",
-      "EstablishmentCount": 463,
+      "EstablishmentCount": 470,
       "SchemeType": 1,
       "links": [
         {
@@ -1642,7 +1629,7 @@
       "LocalAuthorityId": 51,
       "LocalAuthorityIdCode": "066",
       "Name": "Erewash",
-      "EstablishmentCount": 881,
+      "EstablishmentCount": 896,
       "SchemeType": 1,
       "links": [
         {
@@ -1655,7 +1642,7 @@
       "LocalAuthorityId": 297,
       "LocalAuthorityIdCode": "073",
       "Name": "Exeter City",
-      "EstablishmentCount": 984,
+      "EstablishmentCount": 1004,
       "SchemeType": 1,
       "links": [
         {
@@ -1668,7 +1655,7 @@
       "LocalAuthorityId": 211,
       "LocalAuthorityIdCode": "774",
       "Name": "Falkirk",
-      "EstablishmentCount": 1267,
+      "EstablishmentCount": 1234,
       "SchemeType": 2,
       "links": [
         {
@@ -1681,7 +1668,7 @@
       "LocalAuthorityId": 241,
       "LocalAuthorityIdCode": "134",
       "Name": "Fareham",
-      "EstablishmentCount": 619,
+      "EstablishmentCount": 648,
       "SchemeType": 1,
       "links": [
         {
@@ -1694,7 +1681,7 @@
       "LocalAuthorityId": 3,
       "LocalAuthorityIdCode": "029",
       "Name": "Fenland",
-      "EstablishmentCount": 676,
+      "EstablishmentCount": 703,
       "SchemeType": 1,
       "links": [
         {
@@ -1707,7 +1694,7 @@
       "LocalAuthorityId": 147,
       "LocalAuthorityIdCode": "816",
       "Name": "Fermanagh and Omagh",
-      "EstablishmentCount": 1364,
+      "EstablishmentCount": 1358,
       "SchemeType": 1,
       "links": [
         {
@@ -1720,7 +1707,7 @@
       "LocalAuthorityId": 212,
       "LocalAuthorityIdCode": "775",
       "Name": "Fife",
-      "EstablishmentCount": 4067,
+      "EstablishmentCount": 4113,
       "SchemeType": 2,
       "links": [
         {
@@ -1733,7 +1720,7 @@
       "LocalAuthorityId": 343,
       "LocalAuthorityIdCode": "560",
       "Name": "Flintshire",
-      "EstablishmentCount": 1149,
+      "EstablishmentCount": 1159,
       "SchemeType": 1,
       "links": [
         {
@@ -1746,7 +1733,7 @@
       "LocalAuthorityId": 256,
       "LocalAuthorityIdCode": "188",
       "Name": "Folkestone and Hythe",
-      "EstablishmentCount": 1067,
+      "EstablishmentCount": 1073,
       "SchemeType": 1,
       "links": [
         {
@@ -1756,23 +1743,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 36,
-      "LocalAuthorityIdCode": "298",
-      "Name": "Forest Heath",
-      "EstablishmentCount": 560,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/36"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 312,
       "LocalAuthorityIdCode": "126",
       "Name": "Forest of Dean",
-      "EstablishmentCount": 687,
+      "EstablishmentCount": 677,
       "SchemeType": 1,
       "links": [
         {
@@ -1785,7 +1759,7 @@
       "LocalAuthorityId": 166,
       "LocalAuthorityIdCode": "198",
       "Name": "Fylde",
-      "EstablishmentCount": 763,
+      "EstablishmentCount": 752,
       "SchemeType": 1,
       "links": [
         {
@@ -1798,7 +1772,7 @@
       "LocalAuthorityId": 121,
       "LocalAuthorityIdCode": "410",
       "Name": "Gateshead",
-      "EstablishmentCount": 1578,
+      "EstablishmentCount": 1539,
       "SchemeType": 1,
       "links": [
         {
@@ -1811,7 +1785,7 @@
       "LocalAuthorityId": 80,
       "LocalAuthorityIdCode": "262",
       "Name": "Gedling",
-      "EstablishmentCount": 678,
+      "EstablishmentCount": 682,
       "SchemeType": 1,
       "links": [
         {
@@ -1824,7 +1798,7 @@
       "LocalAuthorityId": 213,
       "LocalAuthorityIdCode": "776",
       "Name": "Glasgow City",
-      "EstablishmentCount": 5227,
+      "EstablishmentCount": 5312,
       "SchemeType": 2,
       "links": [
         {
@@ -1837,7 +1811,7 @@
       "LocalAuthorityId": 313,
       "LocalAuthorityIdCode": "127",
       "Name": "Gloucester City",
-      "EstablishmentCount": 907,
+      "EstablishmentCount": 899,
       "SchemeType": 1,
       "links": [
         {
@@ -1850,7 +1824,7 @@
       "LocalAuthorityId": 242,
       "LocalAuthorityIdCode": "135",
       "Name": "Gosport",
-      "EstablishmentCount": 518,
+      "EstablishmentCount": 539,
       "SchemeType": 1,
       "links": [
         {
@@ -1863,7 +1837,7 @@
       "LocalAuthorityId": 253,
       "LocalAuthorityIdCode": "184",
       "Name": "Gravesham",
-      "EstablishmentCount": 684,
+      "EstablishmentCount": 683,
       "SchemeType": 1,
       "links": [
         {
@@ -1876,7 +1850,7 @@
       "LocalAuthorityId": 30,
       "LocalAuthorityIdCode": "229",
       "Name": "Great Yarmouth",
-      "EstablishmentCount": 1044,
+      "EstablishmentCount": 1034,
       "SchemeType": 1,
       "links": [
         {
@@ -1889,7 +1863,7 @@
       "LocalAuthorityId": 98,
       "LocalAuthorityIdCode": "511",
       "Name": "Greenwich",
-      "EstablishmentCount": 1762,
+      "EstablishmentCount": 1728,
       "SchemeType": 1,
       "links": [
         {
@@ -1902,7 +1876,7 @@
       "LocalAuthorityId": 268,
       "LocalAuthorityIdCode": "307",
       "Name": "Guildford",
-      "EstablishmentCount": 888,
+      "EstablishmentCount": 916,
       "SchemeType": 1,
       "links": [
         {
@@ -1915,7 +1889,7 @@
       "LocalAuthorityId": 337,
       "LocalAuthorityIdCode": "554",
       "Name": "Gwynedd",
-      "EstablishmentCount": 2093,
+      "EstablishmentCount": 2055,
       "SchemeType": 1,
       "links": [
         {
@@ -1928,7 +1902,7 @@
       "LocalAuthorityId": 99,
       "LocalAuthorityIdCode": "512",
       "Name": "Hackney",
-      "EstablishmentCount": 2458,
+      "EstablishmentCount": 2346,
       "SchemeType": 1,
       "links": [
         {
@@ -1941,7 +1915,7 @@
       "LocalAuthorityId": 193,
       "LocalAuthorityIdCode": "889",
       "Name": "Halton",
-      "EstablishmentCount": 910,
+      "EstablishmentCount": 908,
       "SchemeType": 1,
       "links": [
         {
@@ -1954,7 +1928,7 @@
       "LocalAuthorityId": 386,
       "LocalAuthorityIdCode": "251",
       "Name": "Hambleton",
-      "EstablishmentCount": 899,
+      "EstablishmentCount": 907,
       "SchemeType": 1,
       "links": [
         {
@@ -1967,7 +1941,7 @@
       "LocalAuthorityId": 100,
       "LocalAuthorityIdCode": "513",
       "Name": "Hammersmith and Fulham",
-      "EstablishmentCount": 1813,
+      "EstablishmentCount": 1792,
       "SchemeType": 1,
       "links": [
         {
@@ -1980,7 +1954,7 @@
       "LocalAuthorityId": 58,
       "LocalAuthorityIdCode": "211",
       "Name": "Harborough",
-      "EstablishmentCount": 762,
+      "EstablishmentCount": 765,
       "SchemeType": 1,
       "links": [
         {
@@ -1993,7 +1967,7 @@
       "LocalAuthorityId": 101,
       "LocalAuthorityIdCode": "514",
       "Name": "Haringey",
-      "EstablishmentCount": 1712,
+      "EstablishmentCount": 1812,
       "SchemeType": 1,
       "links": [
         {
@@ -2006,7 +1980,7 @@
       "LocalAuthorityId": 13,
       "LocalAuthorityIdCode": "116",
       "Name": "Harlow",
-      "EstablishmentCount": 588,
+      "EstablishmentCount": 586,
       "SchemeType": 1,
       "links": [
         {
@@ -2019,7 +1993,7 @@
       "LocalAuthorityId": 387,
       "LocalAuthorityIdCode": "252",
       "Name": "Harrogate",
-      "EstablishmentCount": 1411,
+      "EstablishmentCount": 1418,
       "SchemeType": 1,
       "links": [
         {
@@ -2032,7 +2006,7 @@
       "LocalAuthorityId": 102,
       "LocalAuthorityIdCode": "515",
       "Name": "Harrow",
-      "EstablishmentCount": 1308,
+      "EstablishmentCount": 1347,
       "SchemeType": 1,
       "links": [
         {
@@ -2045,7 +2019,7 @@
       "LocalAuthorityId": 243,
       "LocalAuthorityIdCode": "136",
       "Name": "Hart",
-      "EstablishmentCount": 609,
+      "EstablishmentCount": 604,
       "SchemeType": 1,
       "links": [
         {
@@ -2058,7 +2032,7 @@
       "LocalAuthorityId": 128,
       "LocalAuthorityIdCode": "859",
       "Name": "Hartlepool",
-      "EstablishmentCount": 744,
+      "EstablishmentCount": 755,
       "SchemeType": 1,
       "links": [
         {
@@ -2071,7 +2045,7 @@
       "LocalAuthorityId": 234,
       "LocalAuthorityIdCode": "103",
       "Name": "Hastings",
-      "EstablishmentCount": 846,
+      "EstablishmentCount": 828,
       "SchemeType": 1,
       "links": [
         {
@@ -2084,7 +2058,7 @@
       "LocalAuthorityId": 244,
       "LocalAuthorityIdCode": "137",
       "Name": "Havant",
-      "EstablishmentCount": 850,
+      "EstablishmentCount": 863,
       "SchemeType": 1,
       "links": [
         {
@@ -2097,7 +2071,7 @@
       "LocalAuthorityId": 103,
       "LocalAuthorityIdCode": "516",
       "Name": "Havering",
-      "EstablishmentCount": 1720,
+      "EstablishmentCount": 1668,
       "SchemeType": 1,
       "links": [
         {
@@ -2110,7 +2084,7 @@
       "LocalAuthorityId": 383,
       "LocalAuthorityIdCode": "895",
       "Name": "Herefordshire",
-      "EstablishmentCount": 1890,
+      "EstablishmentCount": 1908,
       "SchemeType": 1,
       "links": [
         {
@@ -2136,7 +2110,7 @@
       "LocalAuthorityId": 52,
       "LocalAuthorityIdCode": "067",
       "Name": "High Peak",
-      "EstablishmentCount": 825,
+      "EstablishmentCount": 727,
       "SchemeType": 1,
       "links": [
         {
@@ -2149,7 +2123,7 @@
       "LocalAuthorityId": 214,
       "LocalAuthorityIdCode": "777",
       "Name": "Highland",
-      "EstablishmentCount": 3883,
+      "EstablishmentCount": 3932,
       "SchemeType": 2,
       "links": [
         {
@@ -2162,7 +2136,7 @@
       "LocalAuthorityId": 104,
       "LocalAuthorityIdCode": "517",
       "Name": "Hillingdon",
-      "EstablishmentCount": 1967,
+      "EstablishmentCount": 1916,
       "SchemeType": 1,
       "links": [
         {
@@ -2175,7 +2149,7 @@
       "LocalAuthorityId": 59,
       "LocalAuthorityIdCode": "212",
       "Name": "Hinckley and Bosworth",
-      "EstablishmentCount": 858,
+      "EstablishmentCount": 859,
       "SchemeType": 1,
       "links": [
         {
@@ -2188,7 +2162,7 @@
       "LocalAuthorityId": 281,
       "LocalAuthorityIdCode": "327",
       "Name": "Horsham",
-      "EstablishmentCount": 1050,
+      "EstablishmentCount": 1088,
       "SchemeType": 1,
       "links": [
         {
@@ -2201,7 +2175,7 @@
       "LocalAuthorityId": 105,
       "LocalAuthorityIdCode": "518",
       "Name": "Hounslow",
-      "EstablishmentCount": 1610,
+      "EstablishmentCount": 1652,
       "SchemeType": 1,
       "links": [
         {
@@ -2214,7 +2188,7 @@
       "LocalAuthorityId": 409,
       "LocalAuthorityIdCode": "626",
       "Name": "Hull and Goole Port",
-      "EstablishmentCount": 9,
+      "EstablishmentCount": 8,
       "SchemeType": 1,
       "links": [
         {
@@ -2227,7 +2201,7 @@
       "LocalAuthorityId": 405,
       "LocalAuthorityIdCode": "866",
       "Name": "Hull City",
-      "EstablishmentCount": 1995,
+      "EstablishmentCount": 2073,
       "SchemeType": 1,
       "links": [
         {
@@ -2240,7 +2214,7 @@
       "LocalAuthorityId": 4,
       "LocalAuthorityIdCode": "030",
       "Name": "Huntingdonshire",
-      "EstablishmentCount": 1273,
+      "EstablishmentCount": 1282,
       "SchemeType": 1,
       "links": [
         {
@@ -2253,7 +2227,7 @@
       "LocalAuthorityId": 167,
       "LocalAuthorityIdCode": "199",
       "Name": "Hyndburn",
-      "EstablishmentCount": 716,
+      "EstablishmentCount": 719,
       "SchemeType": 1,
       "links": [
         {
@@ -2266,7 +2240,7 @@
       "LocalAuthorityId": 215,
       "LocalAuthorityIdCode": "778",
       "Name": "Inverclyde",
-      "EstablishmentCount": 599,
+      "EstablishmentCount": 588,
       "SchemeType": 2,
       "links": [
         {
@@ -2279,7 +2253,7 @@
       "LocalAuthorityId": 37,
       "LocalAuthorityIdCode": "299",
       "Name": "Ipswich",
-      "EstablishmentCount": 1034,
+      "EstablishmentCount": 1013,
       "SchemeType": 1,
       "links": [
         {
@@ -2292,7 +2266,7 @@
       "LocalAuthorityId": 284,
       "LocalAuthorityIdCode": "867",
       "Name": "Isle of Wight",
-      "EstablishmentCount": 1951,
+      "EstablishmentCount": 1941,
       "SchemeType": 1,
       "links": [
         {
@@ -2305,7 +2279,7 @@
       "LocalAuthorityId": 321,
       "LocalAuthorityIdCode": "336",
       "Name": "Isles of Scilly",
-      "EstablishmentCount": 108,
+      "EstablishmentCount": 116,
       "SchemeType": 1,
       "links": [
         {
@@ -2318,7 +2292,7 @@
       "LocalAuthorityId": 106,
       "LocalAuthorityIdCode": "519",
       "Name": "Islington",
-      "EstablishmentCount": 1803,
+      "EstablishmentCount": 2147,
       "SchemeType": 1,
       "links": [
         {
@@ -2331,7 +2305,7 @@
       "LocalAuthorityId": 107,
       "LocalAuthorityIdCode": "520",
       "Name": "Kensington and Chelsea",
-      "EstablishmentCount": 1729,
+      "EstablishmentCount": 1730,
       "SchemeType": 1,
       "links": [
         {
@@ -2344,7 +2318,7 @@
       "LocalAuthorityId": 73,
       "LocalAuthorityIdCode": "238",
       "Name": "Kettering",
-      "EstablishmentCount": 815,
+      "EstablishmentCount": 776,
       "SchemeType": 1,
       "links": [
         {
@@ -2357,7 +2331,7 @@
       "LocalAuthorityId": 31,
       "LocalAuthorityIdCode": "230",
       "Name": "King's Lynn and West Norfolk",
-      "EstablishmentCount": 1522,
+      "EstablishmentCount": 1482,
       "SchemeType": 1,
       "links": [
         {
@@ -2370,7 +2344,7 @@
       "LocalAuthorityId": 108,
       "LocalAuthorityIdCode": "521",
       "Name": "Kingston-Upon-Thames",
-      "EstablishmentCount": 1071,
+      "EstablishmentCount": 1069,
       "SchemeType": 1,
       "links": [
         {
@@ -2383,7 +2357,7 @@
       "LocalAuthorityId": 396,
       "LocalAuthorityIdCode": "411",
       "Name": "Kirklees",
-      "EstablishmentCount": 3646,
+      "EstablishmentCount": 3636,
       "SchemeType": 1,
       "links": [
         {
@@ -2396,7 +2370,7 @@
       "LocalAuthorityId": 178,
       "LocalAuthorityIdCode": "412",
       "Name": "Knowsley",
-      "EstablishmentCount": 657,
+      "EstablishmentCount": 670,
       "SchemeType": 1,
       "links": [
         {
@@ -2409,7 +2383,7 @@
       "LocalAuthorityId": 109,
       "LocalAuthorityIdCode": "522",
       "Name": "Lambeth",
-      "EstablishmentCount": 3035,
+      "EstablishmentCount": 3067,
       "SchemeType": 1,
       "links": [
         {
@@ -2422,7 +2396,7 @@
       "LocalAuthorityId": 168,
       "LocalAuthorityIdCode": "200",
       "Name": "Lancaster City",
-      "EstablishmentCount": 1181,
+      "EstablishmentCount": 1185,
       "SchemeType": 1,
       "links": [
         {
@@ -2435,7 +2409,7 @@
       "LocalAuthorityId": 397,
       "LocalAuthorityIdCode": "413",
       "Name": "Leeds",
-      "EstablishmentCount": 4952,
+      "EstablishmentCount": 4871,
       "SchemeType": 1,
       "links": [
         {
@@ -2448,7 +2422,7 @@
       "LocalAuthorityId": 85,
       "LocalAuthorityIdCode": "878",
       "Name": "Leicester City",
-      "EstablishmentCount": 2680,
+      "EstablishmentCount": 2803,
       "SchemeType": 1,
       "links": [
         {
@@ -2461,7 +2435,7 @@
       "LocalAuthorityId": 235,
       "LocalAuthorityIdCode": "105",
       "Name": "Lewes",
-      "EstablishmentCount": 1037,
+      "EstablishmentCount": 1072,
       "SchemeType": 1,
       "links": [
         {
@@ -2474,7 +2448,7 @@
       "LocalAuthorityId": 110,
       "LocalAuthorityIdCode": "523",
       "Name": "Lewisham",
-      "EstablishmentCount": 1978,
+      "EstablishmentCount": 2063,
       "SchemeType": 1,
       "links": [
         {
@@ -2487,7 +2461,7 @@
       "LocalAuthorityId": 363,
       "LocalAuthorityIdCode": "289",
       "Name": "Lichfield",
-      "EstablishmentCount": 805,
+      "EstablishmentCount": 815,
       "SchemeType": 1,
       "links": [
         {
@@ -2500,7 +2474,7 @@
       "LocalAuthorityId": 65,
       "LocalAuthorityIdCode": "221",
       "Name": "Lincoln City",
-      "EstablishmentCount": 977,
+      "EstablishmentCount": 965,
       "SchemeType": 1,
       "links": [
         {
@@ -2513,7 +2487,7 @@
       "LocalAuthorityId": 140,
       "LocalAuthorityIdCode": "809",
       "Name": "Lisburn and Castlereagh City",
-      "EstablishmentCount": 858,
+      "EstablishmentCount": 854,
       "SchemeType": 1,
       "links": [
         {
@@ -2526,7 +2500,7 @@
       "LocalAuthorityId": 179,
       "LocalAuthorityIdCode": "414",
       "Name": "Liverpool",
-      "EstablishmentCount": 3532,
+      "EstablishmentCount": 3437,
       "SchemeType": 1,
       "links": [
         {
@@ -2539,7 +2513,7 @@
       "LocalAuthorityId": 44,
       "LocalAuthorityIdCode": "869",
       "Name": "Luton",
-      "EstablishmentCount": 1103,
+      "EstablishmentCount": 1097,
       "SchemeType": 1,
       "links": [
         {
@@ -2552,7 +2526,7 @@
       "LocalAuthorityId": 254,
       "LocalAuthorityIdCode": "185",
       "Name": "Maidstone",
-      "EstablishmentCount": 1143,
+      "EstablishmentCount": 1146,
       "SchemeType": 1,
       "links": [
         {
@@ -2565,7 +2539,7 @@
       "LocalAuthorityId": 14,
       "LocalAuthorityIdCode": "117",
       "Name": "Maldon",
-      "EstablishmentCount": 570,
+      "EstablishmentCount": 573,
       "SchemeType": 1,
       "links": [
         {
@@ -2578,7 +2552,7 @@
       "LocalAuthorityId": 356,
       "LocalAuthorityIdCode": "148",
       "Name": "Malvern Hills",
-      "EstablishmentCount": 740,
+      "EstablishmentCount": 742,
       "SchemeType": 1,
       "links": [
         {
@@ -2591,7 +2565,7 @@
       "LocalAuthorityId": 180,
       "LocalAuthorityIdCode": "415",
       "Name": "Manchester",
-      "EstablishmentCount": 4199,
+      "EstablishmentCount": 4219,
       "SchemeType": 1,
       "links": [
         {
@@ -2604,7 +2578,7 @@
       "LocalAuthorityId": 81,
       "LocalAuthorityIdCode": "263",
       "Name": "Mansfield",
-      "EstablishmentCount": 778,
+      "EstablishmentCount": 773,
       "SchemeType": 1,
       "links": [
         {
@@ -2617,7 +2591,7 @@
       "LocalAuthorityId": 295,
       "LocalAuthorityIdCode": "896",
       "Name": "Medway",
-      "EstablishmentCount": 1722,
+      "EstablishmentCount": 1747,
       "SchemeType": 1,
       "links": [
         {
@@ -2630,7 +2604,7 @@
       "LocalAuthorityId": 60,
       "LocalAuthorityIdCode": "214",
       "Name": "Melton",
-      "EstablishmentCount": 458,
+      "EstablishmentCount": 457,
       "SchemeType": 1,
       "links": [
         {
@@ -2643,7 +2617,7 @@
       "LocalAuthorityId": 316,
       "LocalAuthorityIdCode": "281",
       "Name": "Mendip",
-      "EstablishmentCount": 1242,
+      "EstablishmentCount": 1251,
       "SchemeType": 1,
       "links": [
         {
@@ -2656,7 +2630,7 @@
       "LocalAuthorityId": 344,
       "LocalAuthorityIdCode": "561",
       "Name": "Merthyr Tydfil",
-      "EstablishmentCount": 506,
+      "EstablishmentCount": 485,
       "SchemeType": 1,
       "links": [
         {
@@ -2669,7 +2643,7 @@
       "LocalAuthorityId": 111,
       "LocalAuthorityIdCode": "524",
       "Name": "Merton",
-      "EstablishmentCount": 1332,
+      "EstablishmentCount": 1333,
       "SchemeType": 1,
       "links": [
         {
@@ -2682,7 +2656,7 @@
       "LocalAuthorityId": 135,
       "LocalAuthorityIdCode": "804",
       "Name": "Mid and East Antrim",
-      "EstablishmentCount": 1161,
+      "EstablishmentCount": 1147,
       "SchemeType": 1,
       "links": [
         {
@@ -2695,7 +2669,7 @@
       "LocalAuthorityId": 298,
       "LocalAuthorityIdCode": "074",
       "Name": "Mid Devon",
-      "EstablishmentCount": 513,
+      "EstablishmentCount": 520,
       "SchemeType": 1,
       "links": [
         {
@@ -2708,7 +2682,7 @@
       "LocalAuthorityId": 38,
       "LocalAuthorityIdCode": "300",
       "Name": "Mid Suffolk",
-      "EstablishmentCount": 846,
+      "EstablishmentCount": 849,
       "SchemeType": 1,
       "links": [
         {
@@ -2721,7 +2695,7 @@
       "LocalAuthorityId": 282,
       "LocalAuthorityIdCode": "328",
       "Name": "Mid Sussex",
-      "EstablishmentCount": 1227,
+      "EstablishmentCount": 1218,
       "SchemeType": 1,
       "links": [
         {
@@ -2734,7 +2708,7 @@
       "LocalAuthorityId": 142,
       "LocalAuthorityIdCode": "811",
       "Name": "Mid Ulster",
-      "EstablishmentCount": 1281,
+      "EstablishmentCount": 1284,
       "SchemeType": 1,
       "links": [
         {
@@ -2747,7 +2721,7 @@
       "LocalAuthorityId": 401,
       "LocalAuthorityIdCode": "861",
       "Name": "Middlesbrough",
-      "EstablishmentCount": 1136,
+      "EstablishmentCount": 1115,
       "SchemeType": 1,
       "links": [
         {
@@ -2760,7 +2734,7 @@
       "LocalAuthorityId": 220,
       "LocalAuthorityIdCode": "783",
       "Name": "Midlothian",
-      "EstablishmentCount": 629,
+      "EstablishmentCount": 622,
       "SchemeType": 2,
       "links": [
         {
@@ -2773,7 +2747,7 @@
       "LocalAuthorityId": 285,
       "LocalAuthorityIdCode": "870",
       "Name": "Milton Keynes",
-      "EstablishmentCount": 2006,
+      "EstablishmentCount": 1992,
       "SchemeType": 1,
       "links": [
         {
@@ -2786,7 +2760,7 @@
       "LocalAuthorityId": 269,
       "LocalAuthorityIdCode": "308",
       "Name": "Mole Valley",
-      "EstablishmentCount": 690,
+      "EstablishmentCount": 696,
       "SchemeType": 1,
       "links": [
         {
@@ -2799,7 +2773,7 @@
       "LocalAuthorityId": 345,
       "LocalAuthorityIdCode": "562",
       "Name": "Monmouthshire",
-      "EstablishmentCount": 900,
+      "EstablishmentCount": 929,
       "SchemeType": 1,
       "links": [
         {
@@ -2812,7 +2786,7 @@
       "LocalAuthorityId": 221,
       "LocalAuthorityIdCode": "784",
       "Name": "Moray",
-      "EstablishmentCount": 1057,
+      "EstablishmentCount": 1079,
       "SchemeType": 2,
       "links": [
         {
@@ -2825,7 +2799,7 @@
       "LocalAuthorityId": 346,
       "LocalAuthorityIdCode": "563",
       "Name": "Neath Port Talbot",
-      "EstablishmentCount": 1043,
+      "EstablishmentCount": 1034,
       "SchemeType": 1,
       "links": [
         {
@@ -2838,7 +2812,7 @@
       "LocalAuthorityId": 245,
       "LocalAuthorityIdCode": "138",
       "Name": "New Forest",
-      "EstablishmentCount": 1402,
+      "EstablishmentCount": 1425,
       "SchemeType": 1,
       "links": [
         {
@@ -2851,7 +2825,7 @@
       "LocalAuthorityId": 82,
       "LocalAuthorityIdCode": "264",
       "Name": "Newark and Sherwood",
-      "EstablishmentCount": 1017,
+      "EstablishmentCount": 1015,
       "SchemeType": 1,
       "links": [
         {
@@ -2877,7 +2851,7 @@
       "LocalAuthorityId": 364,
       "LocalAuthorityIdCode": "290",
       "Name": "Newcastle-Under-Lyme",
-      "EstablishmentCount": 975,
+      "EstablishmentCount": 969,
       "SchemeType": 1,
       "links": [
         {
@@ -2890,7 +2864,7 @@
       "LocalAuthorityId": 112,
       "LocalAuthorityIdCode": "525",
       "Name": "Newham",
-      "EstablishmentCount": 1876,
+      "EstablishmentCount": 1889,
       "SchemeType": 1,
       "links": [
         {
@@ -2903,7 +2877,7 @@
       "LocalAuthorityId": 347,
       "LocalAuthorityIdCode": "564",
       "Name": "Newport",
-      "EstablishmentCount": 1356,
+      "EstablishmentCount": 1373,
       "SchemeType": 1,
       "links": [
         {
@@ -2916,7 +2890,7 @@
       "LocalAuthorityId": 145,
       "LocalAuthorityIdCode": "814",
       "Name": "Newry, Mourne and Down",
-      "EstablishmentCount": 1567,
+      "EstablishmentCount": 1596,
       "SchemeType": 1,
       "links": [
         {
@@ -2929,7 +2903,7 @@
       "LocalAuthorityId": 202,
       "LocalAuthorityIdCode": "765",
       "Name": "North Ayrshire",
-      "EstablishmentCount": 1333,
+      "EstablishmentCount": 1328,
       "SchemeType": 2,
       "links": [
         {
@@ -2952,19 +2926,6 @@
       ]
     },
     {
-      "LocalAuthorityId": 306,
-      "LocalAuthorityIdCode": "086",
-      "Name": "North Dorset",
-      "EstablishmentCount": 768,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/306"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 53,
       "LocalAuthorityIdCode": "068",
       "Name": "North East Derbyshire",
@@ -2981,7 +2942,7 @@
       "LocalAuthorityId": 404,
       "LocalAuthorityIdCode": "865",
       "Name": "North East Lincolnshire",
-      "EstablishmentCount": 1355,
+      "EstablishmentCount": 1349,
       "SchemeType": 1,
       "links": [
         {
@@ -2994,7 +2955,7 @@
       "LocalAuthorityId": 22,
       "LocalAuthorityIdCode": "159",
       "Name": "North Hertfordshire",
-      "EstablishmentCount": 1045,
+      "EstablishmentCount": 1060,
       "SchemeType": 1,
       "links": [
         {
@@ -3007,7 +2968,7 @@
       "LocalAuthorityId": 66,
       "LocalAuthorityIdCode": "222",
       "Name": "North Kesteven",
-      "EstablishmentCount": 873,
+      "EstablishmentCount": 876,
       "SchemeType": 1,
       "links": [
         {
@@ -3020,7 +2981,7 @@
       "LocalAuthorityId": 216,
       "LocalAuthorityIdCode": "779",
       "Name": "North Lanarkshire",
-      "EstablishmentCount": 2615,
+      "EstablishmentCount": 2635,
       "SchemeType": 2,
       "links": [
         {
@@ -3033,7 +2994,7 @@
       "LocalAuthorityId": 403,
       "LocalAuthorityIdCode": "864",
       "Name": "North Lincolnshire",
-      "EstablishmentCount": 1379,
+      "EstablishmentCount": 1361,
       "SchemeType": 1,
       "links": [
         {
@@ -3046,7 +3007,7 @@
       "LocalAuthorityId": 32,
       "LocalAuthorityIdCode": "231",
       "Name": "North Norfolk",
-      "EstablishmentCount": 1708,
+      "EstablishmentCount": 1716,
       "SchemeType": 1,
       "links": [
         {
@@ -3059,7 +3020,7 @@
       "LocalAuthorityId": 327,
       "LocalAuthorityIdCode": "858",
       "Name": "North Somerset",
-      "EstablishmentCount": 965,
+      "EstablishmentCount": 1541,
       "SchemeType": 1,
       "links": [
         {
@@ -3072,7 +3033,7 @@
       "LocalAuthorityId": 123,
       "LocalAuthorityIdCode": "417",
       "Name": "North Tyneside",
-      "EstablishmentCount": 1327,
+      "EstablishmentCount": 1312,
       "SchemeType": 1,
       "links": [
         {
@@ -3085,7 +3046,7 @@
       "LocalAuthorityId": 369,
       "LocalAuthorityIdCode": "317",
       "Name": "North Warwickshire",
-      "EstablishmentCount": 568,
+      "EstablishmentCount": 579,
       "SchemeType": 1,
       "links": [
         {
@@ -3098,7 +3059,7 @@
       "LocalAuthorityId": 61,
       "LocalAuthorityIdCode": "215",
       "Name": "North West Leicestershire",
-      "EstablishmentCount": 806,
+      "EstablishmentCount": 792,
       "SchemeType": 1,
       "links": [
         {
@@ -3111,7 +3072,7 @@
       "LocalAuthorityId": 74,
       "LocalAuthorityIdCode": "239",
       "Name": "Northampton",
-      "EstablishmentCount": 1622,
+      "EstablishmentCount": 1561,
       "SchemeType": 1,
       "links": [
         {
@@ -3124,7 +3085,7 @@
       "LocalAuthorityId": 127,
       "LocalAuthorityIdCode": "707",
       "Name": "Northumberland",
-      "EstablishmentCount": 3434,
+      "EstablishmentCount": 3405,
       "SchemeType": 1,
       "links": [
         {
@@ -3137,7 +3098,7 @@
       "LocalAuthorityId": 33,
       "LocalAuthorityIdCode": "232",
       "Name": "Norwich City",
-      "EstablishmentCount": 1460,
+      "EstablishmentCount": 1455,
       "SchemeType": 1,
       "links": [
         {
@@ -3150,7 +3111,7 @@
       "LocalAuthorityId": 87,
       "LocalAuthorityIdCode": "899",
       "Name": "Nottingham City",
-      "EstablishmentCount": 2789,
+      "EstablishmentCount": 2647,
       "SchemeType": 1,
       "links": [
         {
@@ -3163,7 +3124,7 @@
       "LocalAuthorityId": 370,
       "LocalAuthorityIdCode": "318",
       "Name": "Nuneaton and Bedworth",
-      "EstablishmentCount": 819,
+      "EstablishmentCount": 813,
       "SchemeType": 1,
       "links": [
         {
@@ -3176,7 +3137,7 @@
       "LocalAuthorityId": 62,
       "LocalAuthorityIdCode": "216",
       "Name": "Oadby and Wigston",
-      "EstablishmentCount": 355,
+      "EstablishmentCount": 354,
       "SchemeType": 1,
       "links": [
         {
@@ -3189,7 +3150,7 @@
       "LocalAuthorityId": 181,
       "LocalAuthorityIdCode": "418",
       "Name": "Oldham",
-      "EstablishmentCount": 1689,
+      "EstablishmentCount": 1701,
       "SchemeType": 1,
       "links": [
         {
@@ -3215,7 +3176,7 @@
       "LocalAuthorityId": 262,
       "LocalAuthorityIdCode": "269",
       "Name": "Oxford City",
-      "EstablishmentCount": 1354,
+      "EstablishmentCount": 1343,
       "SchemeType": 1,
       "links": [
         {
@@ -3228,7 +3189,7 @@
       "LocalAuthorityId": 348,
       "LocalAuthorityIdCode": "565",
       "Name": "Pembrokeshire",
-      "EstablishmentCount": 1859,
+      "EstablishmentCount": 1851,
       "SchemeType": 1,
       "links": [
         {
@@ -3241,7 +3202,7 @@
       "LocalAuthorityId": 169,
       "LocalAuthorityIdCode": "201",
       "Name": "Pendle",
-      "EstablishmentCount": 813,
+      "EstablishmentCount": 773,
       "SchemeType": 1,
       "links": [
         {
@@ -3254,7 +3215,7 @@
       "LocalAuthorityId": 223,
       "LocalAuthorityIdCode": "786",
       "Name": "Perth and Kinross",
-      "EstablishmentCount": 1071,
+      "EstablishmentCount": 1048,
       "SchemeType": 2,
       "links": [
         {
@@ -3267,7 +3228,7 @@
       "LocalAuthorityId": 45,
       "LocalAuthorityIdCode": "888",
       "Name": "Peterborough City",
-      "EstablishmentCount": 1521,
+      "EstablishmentCount": 1640,
       "SchemeType": 1,
       "links": [
         {
@@ -3280,7 +3241,7 @@
       "LocalAuthorityId": 331,
       "LocalAuthorityIdCode": "891",
       "Name": "Plymouth City",
-      "EstablishmentCount": 1476,
+      "EstablishmentCount": 1535,
       "SchemeType": 1,
       "links": [
         {
@@ -3290,23 +3251,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 329,
-      "LocalAuthorityIdCode": "873",
-      "Name": "Poole",
-      "EstablishmentCount": 795,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/329"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 287,
       "LocalAuthorityIdCode": "876",
       "Name": "Portsmouth",
-      "EstablishmentCount": 1768,
+      "EstablishmentCount": 1790,
       "SchemeType": 1,
       "links": [
         {
@@ -3319,7 +3267,7 @@
       "LocalAuthorityId": 349,
       "LocalAuthorityIdCode": "566",
       "Name": "Powys",
-      "EstablishmentCount": 2318,
+      "EstablishmentCount": 2319,
       "SchemeType": 1,
       "links": [
         {
@@ -3332,7 +3280,7 @@
       "LocalAuthorityId": 170,
       "LocalAuthorityIdCode": "202",
       "Name": "Preston",
-      "EstablishmentCount": 1269,
+      "EstablishmentCount": 1266,
       "SchemeType": 1,
       "links": [
         {
@@ -3342,23 +3290,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 307,
-      "LocalAuthorityIdCode": "088",
-      "Name": "Purbeck",
-      "EstablishmentCount": 569,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/307"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 291,
       "LocalAuthorityIdCode": "884",
       "Name": "Reading",
-      "EstablishmentCount": 1206,
+      "EstablishmentCount": 1228,
       "SchemeType": 1,
       "links": [
         {
@@ -3371,7 +3306,7 @@
       "LocalAuthorityId": 113,
       "LocalAuthorityIdCode": "526",
       "Name": "Redbridge",
-      "EstablishmentCount": 1677,
+      "EstablishmentCount": 1651,
       "SchemeType": 1,
       "links": [
         {
@@ -3397,7 +3332,7 @@
       "LocalAuthorityId": 357,
       "LocalAuthorityIdCode": "149",
       "Name": "Redditch",
-      "EstablishmentCount": 497,
+      "EstablishmentCount": 501,
       "SchemeType": 1,
       "links": [
         {
@@ -3410,7 +3345,7 @@
       "LocalAuthorityId": 270,
       "LocalAuthorityIdCode": "309",
       "Name": "Reigate and Banstead",
-      "EstablishmentCount": 854,
+      "EstablishmentCount": 853,
       "SchemeType": 1,
       "links": [
         {
@@ -3423,7 +3358,7 @@
       "LocalAuthorityId": 225,
       "LocalAuthorityIdCode": "788",
       "Name": "Renfrewshire",
-      "EstablishmentCount": 1347,
+      "EstablishmentCount": 1372,
       "SchemeType": 2,
       "links": [
         {
@@ -3436,7 +3371,7 @@
       "LocalAuthorityId": 350,
       "LocalAuthorityIdCode": "567",
       "Name": "Rhondda Cynon Taf",
-      "EstablishmentCount": 1928,
+      "EstablishmentCount": 1949,
       "SchemeType": 1,
       "links": [
         {
@@ -3449,7 +3384,7 @@
       "LocalAuthorityId": 171,
       "LocalAuthorityIdCode": "203",
       "Name": "Ribble Valley",
-      "EstablishmentCount": 635,
+      "EstablishmentCount": 637,
       "SchemeType": 1,
       "links": [
         {
@@ -3462,7 +3397,7 @@
       "LocalAuthorityId": 388,
       "LocalAuthorityIdCode": "253",
       "Name": "Richmondshire",
-      "EstablishmentCount": 570,
+      "EstablishmentCount": 608,
       "SchemeType": 1,
       "links": [
         {
@@ -3475,7 +3410,7 @@
       "LocalAuthorityId": 114,
       "LocalAuthorityIdCode": "527",
       "Name": "Richmond-Upon-Thames",
-      "EstablishmentCount": 1453,
+      "EstablishmentCount": 1431,
       "SchemeType": 1,
       "links": [
         {
@@ -3501,7 +3436,7 @@
       "LocalAuthorityId": 182,
       "LocalAuthorityIdCode": "419",
       "Name": "Rochdale",
-      "EstablishmentCount": 1550,
+      "EstablishmentCount": 1578,
       "SchemeType": 1,
       "links": [
         {
@@ -3514,7 +3449,7 @@
       "LocalAuthorityId": 15,
       "LocalAuthorityIdCode": "118",
       "Name": "Rochford",
-      "EstablishmentCount": 539,
+      "EstablishmentCount": 589,
       "SchemeType": 1,
       "links": [
         {
@@ -3527,7 +3462,7 @@
       "LocalAuthorityId": 172,
       "LocalAuthorityIdCode": "204",
       "Name": "Rossendale",
-      "EstablishmentCount": 589,
+      "EstablishmentCount": 592,
       "SchemeType": 1,
       "links": [
         {
@@ -3540,7 +3475,7 @@
       "LocalAuthorityId": 236,
       "LocalAuthorityIdCode": "106",
       "Name": "Rother",
-      "EstablishmentCount": 965,
+      "EstablishmentCount": 943,
       "SchemeType": 1,
       "links": [
         {
@@ -3553,7 +3488,7 @@
       "LocalAuthorityId": 398,
       "LocalAuthorityIdCode": "420",
       "Name": "Rotherham",
-      "EstablishmentCount": 1964,
+      "EstablishmentCount": 1894,
       "SchemeType": 1,
       "links": [
         {
@@ -3566,7 +3501,7 @@
       "LocalAuthorityId": 371,
       "LocalAuthorityIdCode": "319",
       "Name": "Rugby",
-      "EstablishmentCount": 810,
+      "EstablishmentCount": 818,
       "SchemeType": 1,
       "links": [
         {
@@ -3579,7 +3514,7 @@
       "LocalAuthorityId": 271,
       "LocalAuthorityIdCode": "310",
       "Name": "Runnymede",
-      "EstablishmentCount": 619,
+      "EstablishmentCount": 617,
       "SchemeType": 1,
       "links": [
         {
@@ -3592,7 +3527,7 @@
       "LocalAuthorityId": 83,
       "LocalAuthorityIdCode": "266",
       "Name": "Rushcliffe",
-      "EstablishmentCount": 755,
+      "EstablishmentCount": 765,
       "SchemeType": 1,
       "links": [
         {
@@ -3605,7 +3540,7 @@
       "LocalAuthorityId": 246,
       "LocalAuthorityIdCode": "140",
       "Name": "Rushmoor",
-      "EstablishmentCount": 651,
+      "EstablishmentCount": 658,
       "SchemeType": 1,
       "links": [
         {
@@ -3618,7 +3553,7 @@
       "LocalAuthorityId": 86,
       "LocalAuthorityIdCode": "879",
       "Name": "Rutland",
-      "EstablishmentCount": 416,
+      "EstablishmentCount": 409,
       "SchemeType": 1,
       "links": [
         {
@@ -3631,7 +3566,7 @@
       "LocalAuthorityId": 389,
       "LocalAuthorityIdCode": "254",
       "Name": "Ryedale",
-      "EstablishmentCount": 568,
+      "EstablishmentCount": 567,
       "SchemeType": 1,
       "links": [
         {
@@ -3644,7 +3579,7 @@
       "LocalAuthorityId": 184,
       "LocalAuthorityIdCode": "422",
       "Name": "Salford",
-      "EstablishmentCount": 1851,
+      "EstablishmentCount": 1886,
       "SchemeType": 1,
       "links": [
         {
@@ -3657,7 +3592,7 @@
       "LocalAuthorityId": 377,
       "LocalAuthorityIdCode": "423",
       "Name": "Sandwell",
-      "EstablishmentCount": 2170,
+      "EstablishmentCount": 2213,
       "SchemeType": 1,
       "links": [
         {
@@ -3670,7 +3605,7 @@
       "LocalAuthorityId": 390,
       "LocalAuthorityIdCode": "255",
       "Name": "Scarborough",
-      "EstablishmentCount": 1608,
+      "EstablishmentCount": 1571,
       "SchemeType": 1,
       "links": [
         {
@@ -3683,7 +3618,7 @@
       "LocalAuthorityId": 204,
       "LocalAuthorityIdCode": "767",
       "Name": "Scottish Borders",
-      "EstablishmentCount": 1563,
+      "EstablishmentCount": 1526,
       "SchemeType": 2,
       "links": [
         {
@@ -3696,7 +3631,7 @@
       "LocalAuthorityId": 317,
       "LocalAuthorityIdCode": "282",
       "Name": "Sedgemoor",
-      "EstablishmentCount": 1261,
+      "EstablishmentCount": 1286,
       "SchemeType": 1,
       "links": [
         {
@@ -3709,7 +3644,7 @@
       "LocalAuthorityId": 185,
       "LocalAuthorityIdCode": "424",
       "Name": "Sefton",
-      "EstablishmentCount": 2058,
+      "EstablishmentCount": 2151,
       "SchemeType": 1,
       "links": [
         {
@@ -3722,7 +3657,7 @@
       "LocalAuthorityId": 391,
       "LocalAuthorityIdCode": "256",
       "Name": "Selby",
-      "EstablishmentCount": 627,
+      "EstablishmentCount": 625,
       "SchemeType": 1,
       "links": [
         {
@@ -3735,7 +3670,7 @@
       "LocalAuthorityId": 255,
       "LocalAuthorityIdCode": "187",
       "Name": "Sevenoaks",
-      "EstablishmentCount": 837,
+      "EstablishmentCount": 838,
       "SchemeType": 1,
       "links": [
         {
@@ -3748,7 +3683,7 @@
       "LocalAuthorityId": 399,
       "LocalAuthorityIdCode": "425",
       "Name": "Sheffield",
-      "EstablishmentCount": 4196,
+      "EstablishmentCount": 3977,
       "SchemeType": 1,
       "links": [
         {
@@ -3761,7 +3696,7 @@
       "LocalAuthorityId": 226,
       "LocalAuthorityIdCode": "789",
       "Name": "Shetland Islands",
-      "EstablishmentCount": 346,
+      "EstablishmentCount": 348,
       "SchemeType": 2,
       "links": [
         {
@@ -3774,7 +3709,7 @@
       "LocalAuthorityId": 381,
       "LocalAuthorityIdCode": "708",
       "Name": "Shropshire",
-      "EstablishmentCount": 2401,
+      "EstablishmentCount": 2419,
       "SchemeType": 1,
       "links": [
         {
@@ -3787,7 +3722,7 @@
       "LocalAuthorityId": 292,
       "LocalAuthorityIdCode": "885",
       "Name": "Slough",
-      "EstablishmentCount": 693,
+      "EstablishmentCount": 720,
       "SchemeType": 1,
       "links": [
         {
@@ -3800,7 +3735,7 @@
       "LocalAuthorityId": 378,
       "LocalAuthorityIdCode": "426",
       "Name": "Solihull",
-      "EstablishmentCount": 1427,
+      "EstablishmentCount": 1461,
       "SchemeType": 1,
       "links": [
         {
@@ -3810,10 +3745,23 @@
       ]
     },
     {
+      "LocalAuthorityId": 319,
+      "LocalAuthorityIdCode": "284",
+      "Name": "Somerset West and Taunton",
+      "EstablishmentCount": 1436,
+      "SchemeType": 1,
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://api.ratings.food.gov.uk/authorities/319"
+        }
+      ]
+    },
+    {
       "LocalAuthorityId": 203,
       "LocalAuthorityIdCode": "766",
       "Name": "South Ayrshire",
-      "EstablishmentCount": 1305,
+      "EstablishmentCount": 1303,
       "SchemeType": 2,
       "links": [
         {
@@ -3826,7 +3774,7 @@
       "LocalAuthorityId": 231,
       "LocalAuthorityIdCode": "024",
       "Name": "South Buckinghamshire",
-      "EstablishmentCount": 575,
+      "EstablishmentCount": 569,
       "SchemeType": 1,
       "links": [
         {
@@ -3839,7 +3787,7 @@
       "LocalAuthorityId": 5,
       "LocalAuthorityIdCode": "032",
       "Name": "South Cambridgeshire",
-      "EstablishmentCount": 1049,
+      "EstablishmentCount": 1027,
       "SchemeType": 1,
       "links": [
         {
@@ -3852,7 +3800,7 @@
       "LocalAuthorityId": 54,
       "LocalAuthorityIdCode": "069",
       "Name": "South Derbyshire",
-      "EstablishmentCount": 712,
+      "EstablishmentCount": 730,
       "SchemeType": 1,
       "links": [
         {
@@ -3865,7 +3813,7 @@
       "LocalAuthorityId": 325,
       "LocalAuthorityIdCode": "856",
       "Name": "South Gloucestershire",
-      "EstablishmentCount": 1805,
+      "EstablishmentCount": 1828,
       "SchemeType": 1,
       "links": [
         {
@@ -3878,7 +3826,7 @@
       "LocalAuthorityId": 300,
       "LocalAuthorityIdCode": "077",
       "Name": "South Hams",
-      "EstablishmentCount": 794,
+      "EstablishmentCount": 1091,
       "SchemeType": 1,
       "links": [
         {
@@ -3891,7 +3839,7 @@
       "LocalAuthorityId": 67,
       "LocalAuthorityIdCode": "223",
       "Name": "South Holland",
-      "EstablishmentCount": 753,
+      "EstablishmentCount": 746,
       "SchemeType": 1,
       "links": [
         {
@@ -3904,7 +3852,7 @@
       "LocalAuthorityId": 68,
       "LocalAuthorityIdCode": "224",
       "Name": "South Kesteven",
-      "EstablishmentCount": 1190,
+      "EstablishmentCount": 1157,
       "SchemeType": 1,
       "links": [
         {
@@ -3917,7 +3865,7 @@
       "LocalAuthorityId": 163,
       "LocalAuthorityIdCode": "060",
       "Name": "South Lakeland",
-      "EstablishmentCount": 1668,
+      "EstablishmentCount": 1675,
       "SchemeType": 1,
       "links": [
         {
@@ -3930,7 +3878,7 @@
       "LocalAuthorityId": 217,
       "LocalAuthorityIdCode": "780",
       "Name": "South Lanarkshire",
-      "EstablishmentCount": 2210,
+      "EstablishmentCount": 2213,
       "SchemeType": 2,
       "links": [
         {
@@ -3943,7 +3891,7 @@
       "LocalAuthorityId": 34,
       "LocalAuthorityIdCode": "233",
       "Name": "South Norfolk",
-      "EstablishmentCount": 1036,
+      "EstablishmentCount": 1006,
       "SchemeType": 1,
       "links": [
         {
@@ -3956,7 +3904,7 @@
       "LocalAuthorityId": 75,
       "LocalAuthorityIdCode": "240",
       "Name": "South Northamptonshire",
-      "EstablishmentCount": 785,
+      "EstablishmentCount": 789,
       "SchemeType": 1,
       "links": [
         {
@@ -3969,7 +3917,7 @@
       "LocalAuthorityId": 263,
       "LocalAuthorityIdCode": "270",
       "Name": "South Oxfordshire",
-      "EstablishmentCount": 1171,
+      "EstablishmentCount": 1177,
       "SchemeType": 1,
       "links": [
         {
@@ -3982,7 +3930,7 @@
       "LocalAuthorityId": 173,
       "LocalAuthorityIdCode": "205",
       "Name": "South Ribble",
-      "EstablishmentCount": 521,
+      "EstablishmentCount": 580,
       "SchemeType": 1,
       "links": [
         {
@@ -3995,7 +3943,7 @@
       "LocalAuthorityId": 318,
       "LocalAuthorityIdCode": "283",
       "Name": "South Somerset",
-      "EstablishmentCount": 1748,
+      "EstablishmentCount": 1749,
       "SchemeType": 1,
       "links": [
         {
@@ -4008,7 +3956,7 @@
       "LocalAuthorityId": 365,
       "LocalAuthorityIdCode": "291",
       "Name": "South Staffordshire",
-      "EstablishmentCount": 643,
+      "EstablishmentCount": 646,
       "SchemeType": 1,
       "links": [
         {
@@ -4021,7 +3969,7 @@
       "LocalAuthorityId": 124,
       "LocalAuthorityIdCode": "427",
       "Name": "South Tyneside",
-      "EstablishmentCount": 1064,
+      "EstablishmentCount": 1065,
       "SchemeType": 1,
       "links": [
         {
@@ -4034,7 +3982,7 @@
       "LocalAuthorityId": 288,
       "LocalAuthorityIdCode": "877",
       "Name": "Southampton",
-      "EstablishmentCount": 1325,
+      "EstablishmentCount": 1332,
       "SchemeType": 1,
       "links": [
         {
@@ -4047,7 +3995,7 @@
       "LocalAuthorityId": 46,
       "LocalAuthorityIdCode": "893",
       "Name": "Southend-On-Sea",
-      "EstablishmentCount": 1561,
+      "EstablishmentCount": 1559,
       "SchemeType": 1,
       "links": [
         {
@@ -4060,7 +4008,7 @@
       "LocalAuthorityId": 115,
       "LocalAuthorityIdCode": "528",
       "Name": "Southwark",
-      "EstablishmentCount": 2799,
+      "EstablishmentCount": 2764,
       "SchemeType": 1,
       "links": [
         {
@@ -4073,7 +4021,7 @@
       "LocalAuthorityId": 272,
       "LocalAuthorityIdCode": "311",
       "Name": "Spelthorne",
-      "EstablishmentCount": 718,
+      "EstablishmentCount": 699,
       "SchemeType": 1,
       "links": [
         {
@@ -4086,7 +4034,7 @@
       "LocalAuthorityId": 23,
       "LocalAuthorityIdCode": "160",
       "Name": "St Albans City",
-      "EstablishmentCount": 911,
+      "EstablishmentCount": 915,
       "SchemeType": 1,
       "links": [
         {
@@ -4096,23 +4044,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 39,
-      "LocalAuthorityIdCode": "301",
-      "Name": "St Edmundsbury",
-      "EstablishmentCount": 940,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/39"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 183,
       "LocalAuthorityIdCode": "421",
       "Name": "St Helens",
-      "EstablishmentCount": 1109,
+      "EstablishmentCount": 1105,
       "SchemeType": 1,
       "links": [
         {
@@ -4125,7 +4060,7 @@
       "LocalAuthorityId": 366,
       "LocalAuthorityIdCode": "292",
       "Name": "Stafford",
-      "EstablishmentCount": 1131,
+      "EstablishmentCount": 1156,
       "SchemeType": 1,
       "links": [
         {
@@ -4138,7 +4073,7 @@
       "LocalAuthorityId": 367,
       "LocalAuthorityIdCode": "293",
       "Name": "Staffordshire Moorlands",
-      "EstablishmentCount": 717,
+      "EstablishmentCount": 695,
       "SchemeType": 1,
       "links": [
         {
@@ -4151,7 +4086,7 @@
       "LocalAuthorityId": 24,
       "LocalAuthorityIdCode": "161",
       "Name": "Stevenage",
-      "EstablishmentCount": 510,
+      "EstablishmentCount": 509,
       "SchemeType": 1,
       "links": [
         {
@@ -4164,7 +4099,7 @@
       "LocalAuthorityId": 227,
       "LocalAuthorityIdCode": "790",
       "Name": "Stirling",
-      "EstablishmentCount": 1315,
+      "EstablishmentCount": 1279,
       "SchemeType": 2,
       "links": [
         {
@@ -4177,7 +4112,7 @@
       "LocalAuthorityId": 186,
       "LocalAuthorityIdCode": "428",
       "Name": "Stockport",
-      "EstablishmentCount": 2145,
+      "EstablishmentCount": 2140,
       "SchemeType": 1,
       "links": [
         {
@@ -4190,7 +4125,7 @@
       "LocalAuthorityId": 130,
       "LocalAuthorityIdCode": "862",
       "Name": "Stockton On Tees",
-      "EstablishmentCount": 1462,
+      "EstablishmentCount": 1487,
       "SchemeType": 1,
       "links": [
         {
@@ -4203,7 +4138,7 @@
       "LocalAuthorityId": 382,
       "LocalAuthorityIdCode": "880",
       "Name": "Stoke-On-Trent",
-      "EstablishmentCount": 1986,
+      "EstablishmentCount": 1928,
       "SchemeType": 1,
       "links": [
         {
@@ -4216,7 +4151,7 @@
       "LocalAuthorityId": 372,
       "LocalAuthorityIdCode": "320",
       "Name": "Stratford-on-Avon",
-      "EstablishmentCount": 1270,
+      "EstablishmentCount": 1277,
       "SchemeType": 1,
       "links": [
         {
@@ -4229,7 +4164,7 @@
       "LocalAuthorityId": 314,
       "LocalAuthorityIdCode": "128",
       "Name": "Stroud",
-      "EstablishmentCount": 923,
+      "EstablishmentCount": 922,
       "SchemeType": 1,
       "links": [
         {
@@ -4242,7 +4177,7 @@
       "LocalAuthorityId": 125,
       "LocalAuthorityIdCode": "429",
       "Name": "Sunderland",
-      "EstablishmentCount": 2059,
+      "EstablishmentCount": 2020,
       "SchemeType": 1,
       "links": [
         {
@@ -4255,7 +4190,7 @@
       "LocalAuthorityId": 273,
       "LocalAuthorityIdCode": "312",
       "Name": "Surrey Heath",
-      "EstablishmentCount": 574,
+      "EstablishmentCount": 567,
       "SchemeType": 1,
       "links": [
         {
@@ -4268,7 +4203,7 @@
       "LocalAuthorityId": 116,
       "LocalAuthorityIdCode": "529",
       "Name": "Sutton",
-      "EstablishmentCount": 881,
+      "EstablishmentCount": 966,
       "SchemeType": 1,
       "links": [
         {
@@ -4281,7 +4216,7 @@
       "LocalAuthorityId": 257,
       "LocalAuthorityIdCode": "189",
       "Name": "Swale",
-      "EstablishmentCount": 1027,
+      "EstablishmentCount": 1065,
       "SchemeType": 1,
       "links": [
         {
@@ -4294,7 +4229,7 @@
       "LocalAuthorityId": 351,
       "LocalAuthorityIdCode": "568",
       "Name": "Swansea",
-      "EstablishmentCount": 1814,
+      "EstablishmentCount": 1848,
       "SchemeType": 1,
       "links": [
         {
@@ -4307,7 +4242,7 @@
       "LocalAuthorityId": 330,
       "LocalAuthorityIdCode": "881",
       "Name": "Swindon",
-      "EstablishmentCount": 1451,
+      "EstablishmentCount": 1501,
       "SchemeType": 1,
       "links": [
         {
@@ -4320,7 +4255,7 @@
       "LocalAuthorityId": 187,
       "LocalAuthorityIdCode": "430",
       "Name": "Tameside",
-      "EstablishmentCount": 1430,
+      "EstablishmentCount": 1456,
       "SchemeType": 1,
       "links": [
         {
@@ -4333,7 +4268,7 @@
       "LocalAuthorityId": 368,
       "LocalAuthorityIdCode": "295",
       "Name": "Tamworth",
-      "EstablishmentCount": 478,
+      "EstablishmentCount": 468,
       "SchemeType": 1,
       "links": [
         {
@@ -4346,7 +4281,7 @@
       "LocalAuthorityId": 274,
       "LocalAuthorityIdCode": "313",
       "Name": "Tandridge",
-      "EstablishmentCount": 677,
+      "EstablishmentCount": 694,
       "SchemeType": 1,
       "links": [
         {
@@ -4356,23 +4291,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 319,
-      "LocalAuthorityIdCode": "284",
-      "Name": "Taunton Deane",
-      "EstablishmentCount": 903,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/319"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 301,
       "LocalAuthorityIdCode": "078",
       "Name": "Teignbridge",
-      "EstablishmentCount": 1273,
+      "EstablishmentCount": 1292,
       "SchemeType": 1,
       "links": [
         {
@@ -4385,7 +4307,7 @@
       "LocalAuthorityId": 384,
       "LocalAuthorityIdCode": "900",
       "Name": "Telford and Wrekin Council",
-      "EstablishmentCount": 1247,
+      "EstablishmentCount": 1273,
       "SchemeType": 1,
       "links": [
         {
@@ -4398,7 +4320,7 @@
       "LocalAuthorityId": 16,
       "LocalAuthorityIdCode": "120",
       "Name": "Tendring",
-      "EstablishmentCount": 1050,
+      "EstablishmentCount": 1036,
       "SchemeType": 1,
       "links": [
         {
@@ -4411,7 +4333,7 @@
       "LocalAuthorityId": 247,
       "LocalAuthorityIdCode": "142",
       "Name": "Test Valley",
-      "EstablishmentCount": 894,
+      "EstablishmentCount": 896,
       "SchemeType": 1,
       "links": [
         {
@@ -4424,7 +4346,7 @@
       "LocalAuthorityId": 315,
       "LocalAuthorityIdCode": "129",
       "Name": "Tewkesbury",
-      "EstablishmentCount": 627,
+      "EstablishmentCount": 647,
       "SchemeType": 1,
       "links": [
         {
@@ -4437,7 +4359,7 @@
       "LocalAuthorityId": 258,
       "LocalAuthorityIdCode": "190",
       "Name": "Thanet",
-      "EstablishmentCount": 1331,
+      "EstablishmentCount": 1346,
       "SchemeType": 1,
       "links": [
         {
@@ -4450,7 +4372,7 @@
       "LocalAuthorityId": 25,
       "LocalAuthorityIdCode": "162",
       "Name": "Three Rivers",
-      "EstablishmentCount": 467,
+      "EstablishmentCount": 459,
       "SchemeType": 1,
       "links": [
         {
@@ -4463,7 +4385,7 @@
       "LocalAuthorityId": 47,
       "LocalAuthorityIdCode": "894",
       "Name": "Thurrock",
-      "EstablishmentCount": 999,
+      "EstablishmentCount": 1006,
       "SchemeType": 1,
       "links": [
         {
@@ -4476,7 +4398,7 @@
       "LocalAuthorityId": 259,
       "LocalAuthorityIdCode": "191",
       "Name": "Tonbridge and Malling",
-      "EstablishmentCount": 962,
+      "EstablishmentCount": 964,
       "SchemeType": 1,
       "links": [
         {
@@ -4489,7 +4411,7 @@
       "LocalAuthorityId": 332,
       "LocalAuthorityIdCode": "892",
       "Name": "Torbay",
-      "EstablishmentCount": 1107,
+      "EstablishmentCount": 1106,
       "SchemeType": 1,
       "links": [
         {
@@ -4502,7 +4424,7 @@
       "LocalAuthorityId": 352,
       "LocalAuthorityIdCode": "569",
       "Name": "Torfaen",
-      "EstablishmentCount": 771,
+      "EstablishmentCount": 778,
       "SchemeType": 1,
       "links": [
         {
@@ -4515,7 +4437,7 @@
       "LocalAuthorityId": 302,
       "LocalAuthorityIdCode": "080",
       "Name": "Torridge",
-      "EstablishmentCount": 786,
+      "EstablishmentCount": 794,
       "SchemeType": 1,
       "links": [
         {
@@ -4528,7 +4450,7 @@
       "LocalAuthorityId": 117,
       "LocalAuthorityIdCode": "530",
       "Name": "Tower Hamlets",
-      "EstablishmentCount": 2622,
+      "EstablishmentCount": 2726,
       "SchemeType": 1,
       "links": [
         {
@@ -4541,7 +4463,7 @@
       "LocalAuthorityId": 188,
       "LocalAuthorityIdCode": "431",
       "Name": "Trafford",
-      "EstablishmentCount": 2075,
+      "EstablishmentCount": 2017,
       "SchemeType": 1,
       "links": [
         {
@@ -4554,7 +4476,7 @@
       "LocalAuthorityId": 260,
       "LocalAuthorityIdCode": "192",
       "Name": "Tunbridge Wells",
-      "EstablishmentCount": 975,
+      "EstablishmentCount": 967,
       "SchemeType": 1,
       "links": [
         {
@@ -4567,7 +4489,7 @@
       "LocalAuthorityId": 17,
       "LocalAuthorityIdCode": "122",
       "Name": "Uttlesford",
-      "EstablishmentCount": 779,
+      "EstablishmentCount": 777,
       "SchemeType": 1,
       "links": [
         {
@@ -4580,7 +4502,7 @@
       "LocalAuthorityId": 353,
       "LocalAuthorityIdCode": "570",
       "Name": "Vale of Glamorgan",
-      "EstablishmentCount": 1231,
+      "EstablishmentCount": 1248,
       "SchemeType": 1,
       "links": [
         {
@@ -4593,7 +4515,7 @@
       "LocalAuthorityId": 264,
       "LocalAuthorityIdCode": "271",
       "Name": "Vale of White Horse",
-      "EstablishmentCount": 950,
+      "EstablishmentCount": 923,
       "SchemeType": 1,
       "links": [
         {
@@ -4606,7 +4528,7 @@
       "LocalAuthorityId": 400,
       "LocalAuthorityIdCode": "432",
       "Name": "Wakefield",
-      "EstablishmentCount": 2570,
+      "EstablishmentCount": 2619,
       "SchemeType": 1,
       "links": [
         {
@@ -4619,7 +4541,7 @@
       "LocalAuthorityId": 379,
       "LocalAuthorityIdCode": "433",
       "Name": "Walsall",
-      "EstablishmentCount": 1725,
+      "EstablishmentCount": 1800,
       "SchemeType": 1,
       "links": [
         {
@@ -4632,7 +4554,7 @@
       "LocalAuthorityId": 118,
       "LocalAuthorityIdCode": "531",
       "Name": "Waltham Forest",
-      "EstablishmentCount": 1767,
+      "EstablishmentCount": 1712,
       "SchemeType": 1,
       "links": [
         {
@@ -4645,7 +4567,7 @@
       "LocalAuthorityId": 119,
       "LocalAuthorityIdCode": "532",
       "Name": "Wandsworth",
-      "EstablishmentCount": 2175,
+      "EstablishmentCount": 2194,
       "SchemeType": 1,
       "links": [
         {
@@ -4658,7 +4580,7 @@
       "LocalAuthorityId": 194,
       "LocalAuthorityIdCode": "890",
       "Name": "Warrington",
-      "EstablishmentCount": 1780,
+      "EstablishmentCount": 1747,
       "SchemeType": 1,
       "links": [
         {
@@ -4671,7 +4593,7 @@
       "LocalAuthorityId": 373,
       "LocalAuthorityIdCode": "321",
       "Name": "Warwick",
-      "EstablishmentCount": 1230,
+      "EstablishmentCount": 1335,
       "SchemeType": 1,
       "links": [
         {
@@ -4684,7 +4606,7 @@
       "LocalAuthorityId": 26,
       "LocalAuthorityIdCode": "163",
       "Name": "Watford",
-      "EstablishmentCount": 712,
+      "EstablishmentCount": 719,
       "SchemeType": 1,
       "links": [
         {
@@ -4697,7 +4619,7 @@
       "LocalAuthorityId": 275,
       "LocalAuthorityIdCode": "314",
       "Name": "Waverley",
-      "EstablishmentCount": 1036,
+      "EstablishmentCount": 1035,
       "SchemeType": 1,
       "links": [
         {
@@ -4710,7 +4632,7 @@
       "LocalAuthorityId": 237,
       "LocalAuthorityIdCode": "107",
       "Name": "Wealden",
-      "EstablishmentCount": 1388,
+      "EstablishmentCount": 1351,
       "SchemeType": 1,
       "links": [
         {
@@ -4723,7 +4645,7 @@
       "LocalAuthorityId": 76,
       "LocalAuthorityIdCode": "241",
       "Name": "Wellingborough",
-      "EstablishmentCount": 656,
+      "EstablishmentCount": 620,
       "SchemeType": 1,
       "links": [
         {
@@ -4736,7 +4658,7 @@
       "LocalAuthorityId": 27,
       "LocalAuthorityIdCode": "164",
       "Name": "Welwyn Hatfield",
-      "EstablishmentCount": 749,
+      "EstablishmentCount": 695,
       "SchemeType": 1,
       "links": [
         {
@@ -4749,7 +4671,7 @@
       "LocalAuthorityId": 290,
       "LocalAuthorityIdCode": "883",
       "Name": "West Berkshire",
-      "EstablishmentCount": 1143,
+      "EstablishmentCount": 1121,
       "SchemeType": 1,
       "links": [
         {
@@ -4762,7 +4684,7 @@
       "LocalAuthorityId": 303,
       "LocalAuthorityIdCode": "081",
       "Name": "West Devon",
-      "EstablishmentCount": 436,
+      "EstablishmentCount": 570,
       "SchemeType": 1,
       "links": [
         {
@@ -4772,23 +4694,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 308,
-      "LocalAuthorityIdCode": "089",
-      "Name": "West Dorset",
-      "EstablishmentCount": 1522,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/308"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 206,
       "LocalAuthorityIdCode": "769",
       "Name": "West Dunbartonshire",
-      "EstablishmentCount": 741,
+      "EstablishmentCount": 744,
       "SchemeType": 2,
       "links": [
         {
@@ -4801,7 +4710,7 @@
       "LocalAuthorityId": 174,
       "LocalAuthorityIdCode": "206",
       "Name": "West Lancashire",
-      "EstablishmentCount": 819,
+      "EstablishmentCount": 829,
       "SchemeType": 1,
       "links": [
         {
@@ -4814,7 +4723,7 @@
       "LocalAuthorityId": 69,
       "LocalAuthorityIdCode": "225",
       "Name": "West Lindsey",
-      "EstablishmentCount": 866,
+      "EstablishmentCount": 834,
       "SchemeType": 1,
       "links": [
         {
@@ -4827,7 +4736,7 @@
       "LocalAuthorityId": 219,
       "LocalAuthorityIdCode": "782",
       "Name": "West Lothian",
-      "EstablishmentCount": 972,
+      "EstablishmentCount": 961,
       "SchemeType": 2,
       "links": [
         {
@@ -4840,7 +4749,7 @@
       "LocalAuthorityId": 265,
       "LocalAuthorityIdCode": "272",
       "Name": "West Oxfordshire",
-      "EstablishmentCount": 896,
+      "EstablishmentCount": 900,
       "SchemeType": 1,
       "links": [
         {
@@ -4850,15 +4759,15 @@
       ]
     },
     {
-      "LocalAuthorityId": 320,
-      "LocalAuthorityIdCode": "285",
-      "Name": "West Somerset",
-      "EstablishmentCount": 532,
+      "LocalAuthorityId": 36,
+      "LocalAuthorityIdCode": "298",
+      "Name": "West Suffolk",
+      "EstablishmentCount": 1480,
       "SchemeType": 1,
       "links": [
         {
           "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/320"
+          "href": "http://api.ratings.food.gov.uk/authorities/36"
         }
       ]
     },
@@ -4866,7 +4775,7 @@
       "LocalAuthorityId": 120,
       "LocalAuthorityIdCode": "533",
       "Name": "Westminster",
-      "EstablishmentCount": 4459,
+      "EstablishmentCount": 4390,
       "SchemeType": 1,
       "links": [
         {
@@ -4876,23 +4785,10 @@
       ]
     },
     {
-      "LocalAuthorityId": 309,
-      "LocalAuthorityIdCode": "090",
-      "Name": "Weymouth and Portland",
-      "EstablishmentCount": 872,
-      "SchemeType": 1,
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://api.ratings.food.gov.uk/authorities/309"
-        }
-      ]
-    },
-    {
       "LocalAuthorityId": 189,
       "LocalAuthorityIdCode": "434",
       "Name": "Wigan",
-      "EstablishmentCount": 1894,
+      "EstablishmentCount": 2015,
       "SchemeType": 1,
       "links": [
         {
@@ -4905,7 +4801,7 @@
       "LocalAuthorityId": 323,
       "LocalAuthorityIdCode": "709",
       "Name": "Wiltshire",
-      "EstablishmentCount": 3886,
+      "EstablishmentCount": 3665,
       "SchemeType": 1,
       "links": [
         {
@@ -4918,7 +4814,7 @@
       "LocalAuthorityId": 248,
       "LocalAuthorityIdCode": "143",
       "Name": "Winchester City",
-      "EstablishmentCount": 861,
+      "EstablishmentCount": 855,
       "SchemeType": 1,
       "links": [
         {
@@ -4931,7 +4827,7 @@
       "LocalAuthorityId": 293,
       "LocalAuthorityIdCode": "886",
       "Name": "Windsor and Maidenhead",
-      "EstablishmentCount": 1296,
+      "EstablishmentCount": 1250,
       "SchemeType": 1,
       "links": [
         {
@@ -4944,7 +4840,7 @@
       "LocalAuthorityId": 190,
       "LocalAuthorityIdCode": "435",
       "Name": "Wirral",
-      "EstablishmentCount": 2197,
+      "EstablishmentCount": 2218,
       "SchemeType": 1,
       "links": [
         {
@@ -4957,7 +4853,7 @@
       "LocalAuthorityId": 276,
       "LocalAuthorityIdCode": "315",
       "Name": "Woking",
-      "EstablishmentCount": 747,
+      "EstablishmentCount": 749,
       "SchemeType": 1,
       "links": [
         {
@@ -4970,7 +4866,7 @@
       "LocalAuthorityId": 294,
       "LocalAuthorityIdCode": "887",
       "Name": "Wokingham",
-      "EstablishmentCount": 910,
+      "EstablishmentCount": 902,
       "SchemeType": 1,
       "links": [
         {
@@ -4983,7 +4879,7 @@
       "LocalAuthorityId": 380,
       "LocalAuthorityIdCode": "436",
       "Name": "Wolverhampton",
-      "EstablishmentCount": 1756,
+      "EstablishmentCount": 1760,
       "SchemeType": 1,
       "links": [
         {
@@ -4996,7 +4892,7 @@
       "LocalAuthorityId": 358,
       "LocalAuthorityIdCode": "151",
       "Name": "Worcester City",
-      "EstablishmentCount": 775,
+      "EstablishmentCount": 763,
       "SchemeType": 1,
       "links": [
         {
@@ -5009,7 +4905,7 @@
       "LocalAuthorityId": 283,
       "LocalAuthorityIdCode": "329",
       "Name": "Worthing",
-      "EstablishmentCount": 902,
+      "EstablishmentCount": 921,
       "SchemeType": 1,
       "links": [
         {
@@ -5022,7 +4918,7 @@
       "LocalAuthorityId": 354,
       "LocalAuthorityIdCode": "571",
       "Name": "Wrexham",
-      "EstablishmentCount": 1049,
+      "EstablishmentCount": 1036,
       "SchemeType": 1,
       "links": [
         {
@@ -5035,7 +4931,7 @@
       "LocalAuthorityId": 359,
       "LocalAuthorityIdCode": "152",
       "Name": "Wychavon",
-      "EstablishmentCount": 950,
+      "EstablishmentCount": 960,
       "SchemeType": 1,
       "links": [
         {
@@ -5048,7 +4944,7 @@
       "LocalAuthorityId": 232,
       "LocalAuthorityIdCode": "025",
       "Name": "Wycombe",
-      "EstablishmentCount": 1130,
+      "EstablishmentCount": 1156,
       "SchemeType": 1,
       "links": [
         {
@@ -5061,7 +4957,7 @@
       "LocalAuthorityId": 175,
       "LocalAuthorityIdCode": "207",
       "Name": "Wyre",
-      "EstablishmentCount": 989,
+      "EstablishmentCount": 985,
       "SchemeType": 1,
       "links": [
         {
@@ -5087,7 +4983,7 @@
       "LocalAuthorityId": 406,
       "LocalAuthorityIdCode": "868",
       "Name": "York",
-      "EstablishmentCount": 1890,
+      "EstablishmentCount": 1871,
       "SchemeType": 1,
       "links": [
         {
@@ -5099,12 +4995,12 @@
   ],
   "meta": {
     "dataSource": "API",
-    "extractDate": "2018-10-11T16:21:43.3028074+01:00",
-    "itemCount": 392,
+    "extractDate": "2019-06-07T11:25:40.8034222+01:00",
+    "itemCount": 384,
     "returncode": "OK",
-    "totalCount": 392,
+    "totalCount": 384,
     "totalPages": 1,
-    "pageSize": 392,
+    "pageSize": 384,
     "pageNumber": 1
   },
   "links": [
