@@ -99,7 +99,7 @@ public class FoodHygieneAPITest {
     @Test
     public void parseLocalAuthorities1() throws Exception {
         List<LocalAuthority> authorities = FoodHygieneAPI.parseAuthorities(jsonAuthoritiesData);
-        assertThat(authorities.size(), is(392));
+        assertThat(authorities.size(), is(384));
     }
     /*
         "LocalAuthorityId":334,
@@ -115,7 +115,7 @@ public class FoodHygieneAPITest {
         assertThat(la.getName(), is("Anglesey"));
         assertThat(la.getCode(),is("551"));
         assertThat(la.getId(), is(334));
-        assertThat(la.getEstablishmentCount(),is(690));
+        assertThat(la.getEstablishmentCount(),is(708));
         assertThat(la.getSchemeType(),is(1));
     }
 
