@@ -1,2 +1,2 @@
 include ':lib',':app'
-project(":lib").projectDir = new File("../../MPDBLib/MPDBLib/lib")
+project(":lib").projectDir = new File("../MPDBLib/lib")
