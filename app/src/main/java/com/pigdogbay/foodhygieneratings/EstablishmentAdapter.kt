@@ -1,7 +1,7 @@
 package com.pigdogbay.foodhygieneratings
 
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.pigdogbay.foodhygieneratings.model.SearchType
 import com.pigdogbay.lib.usercontrols.OnListItemClickedListener
 import java.util.*
 
-class EstablishmentAdapter(private val listener: OnListItemClickedListener<Establishment>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class EstablishmentAdapter(private val listener: OnListItemClickedListener<Establishment>?) : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>(){
     var establishments : List<Any> = ArrayList()
     var searchType = SearchType.quick
 
@@ -20,7 +20,7 @@ class EstablishmentAdapter(private val listener: OnListItemClickedListener<Estab
     val VIEW_TYPE_ESTABLISHMENT = 1
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         return when(viewType){
             VIEW_TYPE_HEADER -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.list_header, parent, false)
@@ -38,7 +38,7 @@ class EstablishmentAdapter(private val listener: OnListItemClickedListener<Estab
         return establishments.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType){
             VIEW_TYPE_HEADER -> {
                 val viewHolder = holder as HeaderViewHolder
@@ -67,7 +67,7 @@ class EstablishmentAdapter(private val listener: OnListItemClickedListener<Estab
     }
 }
 
-class EstablishmentViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+class EstablishmentViewHolder(val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
 
     var establishment: Establishment? = null
     private val imageView: ImageView = view.findViewById(R.id.list_result_image)
@@ -91,7 +91,7 @@ class EstablishmentViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     }
 
 }
-class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view){
+class HeaderViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view){
     private val text: TextView = view.findViewById(R.id.list_header)
 
     fun bindItem(header : String){

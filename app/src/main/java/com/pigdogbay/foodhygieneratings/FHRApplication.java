@@ -1,7 +1,7 @@
 package com.pigdogbay.foodhygieneratings;
 
 import android.app.Application;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDelegate;
 
 /**
  * Created by Mark on 28/03/2017.

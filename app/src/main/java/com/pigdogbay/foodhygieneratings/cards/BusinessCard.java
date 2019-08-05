@@ -1,6 +1,6 @@
 package com.pigdogbay.foodhygieneratings.cards;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +8,6 @@ import android.widget.TextView;
 
 import com.pigdogbay.foodhygieneratings.R;
 import com.pigdogbay.foodhygieneratings.model.Establishment;
-import com.pigdogbay.foodhygieneratings.model.FoodHygieneAPI;
-import com.pigdogbay.foodhygieneratings.model.Rating;
-
-import java.text.DateFormat;
 
 /**
  * Created by Mark on 23/03/2017.

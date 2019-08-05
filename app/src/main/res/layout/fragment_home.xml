@@ -7,7 +7,7 @@
     android:background="@drawable/white"
     android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:paddingBottom="32dp"
@@ -138,5 +138,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_places_near_me_btn"
         app:layout_constraintVertical_bias="1.0" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

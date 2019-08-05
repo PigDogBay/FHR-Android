@@ -7,7 +7,7 @@
     android:fillViewport="true"
     >
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="64dp"
@@ -244,5 +244,5 @@
             app:layout_constraintRight_toRightOf="@+id/advanced_place_text"
             app:srcCompat="@drawable/ic_clear_black_24dp"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

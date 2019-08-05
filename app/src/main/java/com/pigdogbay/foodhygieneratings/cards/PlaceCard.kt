@@ -1,7 +1,7 @@
 package com.pigdogbay.foodhygieneratings.cards
 
 import android.os.Build
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -20,12 +20,12 @@ class PlaceCard(val place: MBPlace) : ICard {
         return 6
     }
 
-    override fun createViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {
+    override fun createViewHolder(parent: ViewGroup?): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.card_place, parent, false)
         return PlaceViewHolder(view)
     }
 
-    override fun bindViewHolder(viewHolder: RecyclerView.ViewHolder?) {
+    override fun bindViewHolder(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder?) {
         val vh = viewHolder as PlaceViewHolder
         if (place.images.isNotEmpty()) {
             bindPlaceImage(vh,place)
@@ -47,7 +47,7 @@ class PlaceCard(val place: MBPlace) : ICard {
     }
 }
 
-class PlaceViewHolder(view : View) : RecyclerView.ViewHolder(view){
+class PlaceViewHolder(view : View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view){
     val textAttribution : TextView = view.findViewById(R.id.textAttribution)
     val textPhone : TextView = view.findViewById(R.id.textPhone)
     val textWeb : TextView = view.findViewById(R.id.textWeb)
